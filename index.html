@@ -1757,14 +1757,14 @@
     <div id="menuView" class="menu-view">
         <h1 style="font-size: 2rem;">Fútbol Mix</h1>
         <div class="menu-card">
-            <button class="btn-menu torre" data-mark="TOP 10" onclick="showView('torreView')"><span class="menu-kicker">Ranking</span><span class="menu-title">Torre Futbolera</span><span class="menu-detail">Ordená la tabla y subí puestos.</span></button>
-            <button class="btn-menu trayectoria" data-mark="CLUBES" onclick="showView('trayectoriaView')"><span class="menu-kicker">Carrera</span><span class="menu-title">Trayectoria</span><span class="menu-detail">Descubrí al jugador por sus clubes.</span></button>
-            <button class="btn-menu camino" data-mark="XI" onclick="showView('caminoView')"><span class="menu-kicker">Secuencia</span><span class="menu-title">El Camino</span><span class="menu-detail">Armá la ruta correcta paso a paso.</span></button>
-            <button class="btn-menu link" data-mark="LINK" onclick="showView('linkView')"><span class="menu-kicker">Conexión</span><span class="menu-title">Futbol Link</span><span class="menu-detail">Encontrá el vínculo entre pistas.</span></button>
+            <button class="btn-menu torre" data-mark="TOP 10" onclick="startGameWithLives('torreView')"><span class="menu-kicker">Ranking</span><span class="menu-title">Torre Futbolera</span><span class="menu-detail">Ordená la tabla y subí puestos.</span></button>
+            <button class="btn-menu trayectoria" data-mark="CLUBES" onclick="startGameWithLives('trayectoriaView')"><span class="menu-kicker">Carrera</span><span class="menu-title">Trayectoria</span><span class="menu-detail">Descubrí al jugador por sus clubes.</span></button>
+            <button class="btn-menu camino" data-mark="XI" onclick="startGameWithLives('caminoView')"><span class="menu-kicker">Secuencia</span><span class="menu-title">El Camino</span><span class="menu-detail">Armá la ruta correcta paso a paso.</span></button>
+            <button class="btn-menu link" data-mark="LINK" onclick="startGameWithLives('linkView')"><span class="menu-kicker">Conexión</span><span class="menu-title">Futbol Link</span><span class="menu-detail">Encontrá el vínculo entre pistas.</span></button>
             <button class="btn-menu wordle" data-mark="ABC" onclick="showView('wordleView')"><span class="menu-kicker">Palabra</span><span class="menu-title">Wordle</span><span class="menu-detail">Adiviná con letras y pistas.</span></button>
-            <button class="btn-menu resultado" data-mark="FINAL" onclick="showView('resultadoView')"><span class="menu-kicker">Marcador</span><span class="menu-title">Adivina el Resultado</span><span class="menu-detail">Recordá partidos históricos.</span></button>
+            <button class="btn-menu resultado" data-mark="FINAL" onclick="startGameWithLives('resultadoView')"><span class="menu-kicker">Marcador</span><span class="menu-title">Adivina el Resultado</span><span class="menu-detail">Recordá partidos históricos.</span></button>
             <button class="btn-menu auction" data-mark="$M" onclick="showView('auctionLobbyView')"><span class="menu-kicker">Multijugador</span><span class="menu-title">Subasta Online</span><span class="menu-detail">Pujá por futbolistas con amigos.</span></button>
-            <button class="btn-menu equipo" data-mark="ESC" onclick="showView('equipoView')"><span class="menu-kicker">Escudos</span><span class="menu-title">Adivina el Equipo</span><span class="menu-detail">Reconocé clubes por su identidad.</span></button>
+            <button class="btn-menu equipo" data-mark="ESC" onclick="startGameWithLives('equipoView')"><span class="menu-kicker">Escudos</span><span class="menu-title">Adivina el Equipo</span><span class="menu-detail">Reconocé clubes por su identidad.</span></button>
             <button class="btn-menu torneo selecciones" data-mark="COPA" onclick="showView('torneoSeleccionesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Selecciones Históricas</span><span class="menu-detail">Elegí cracks de selecciones legendarias.</span></button>
             <button class="btn-menu torneo clubes" data-mark="CLUB" onclick="showView('torneoClubesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Clubes Históricos</span><span class="menu-detail">Construí un XI de clubes icónicos.</span></button>
             <button class="btn-reset" onclick="handleReset()" style="margin-top: 10px; width: 100%; padding: 10px;">Reiniciar Todo el Juego</button>
@@ -2205,6 +2205,42 @@
             if (viewId === 'auctionLobbyView') { // La subasta inicia desde el lobby
                 initAuction();
             }
+        }
+
+        const livesConfigViews = new Set(['torreView', 'trayectoriaView', 'caminoView', 'linkView', 'resultadoView', 'equipoView']);
+        const livesModeByView = {};
+        const livesModeTitles = {
+            torreView: 'Torre Futbolera',
+            trayectoriaView: 'Trayectoria',
+            caminoView: 'El Camino',
+            linkView: 'Futbol Link',
+            resultadoView: 'Adivina el Resultado',
+            equipoView: 'Adivina el Equipo'
+        };
+
+        async function startGameWithLives(viewId) {
+            if (!livesConfigViews.has(viewId)) {
+                showView(viewId);
+                return;
+            }
+            const withLives = await appConfirm({
+                kicker: 'Modo de juego',
+                mark: 'VIDAS',
+                title: livesModeTitles[viewId] || 'Elegir modo',
+                message: 'Elegí si querés jugar con vidas normales o sin límite de errores.',
+                confirmText: 'Con vidas',
+                cancelText: 'Vidas ilimitadas'
+            });
+            livesModeByView[viewId] = withLives ? 'limited' : 'unlimited';
+            showView(viewId);
+        }
+
+        function hasUnlimitedLives(viewId) {
+            return livesModeByView[viewId] === 'unlimited';
+        }
+
+        function formatLives(viewId, value) {
+            return hasUnlimitedLives(viewId) && Number(value) > 0 ? '∞' : value;
         }
 
         // Lógica Principal del Juego
@@ -3172,7 +3208,7 @@
             const isGameOver = state.status !== 'playing';
             
             lives = isGameOver ? 0 : 5;
-            livesEl.textContent = lives;
+            livesEl.textContent = formatLives('torreView', lives);
             
             towerSlots.innerHTML = '';
             guessInput.value = '';
@@ -3308,11 +3344,13 @@
                     }
                 }
             } else {
-                lives--;
-                livesEl.textContent = lives;
+                if (!hasUnlimitedLives('torreView')) {
+                    lives--;
+                }
+                livesEl.textContent = formatLives('torreView', lives);
                 showMessage("Incorrecto", "incorrect");
                 
-                if (lives <= 0) {
+                if (!hasUnlimitedLives('torreView') && lives <= 0) {
                     updateLevelStatus('lost');
                     revealAllAnswers();
                     showMessage("¡NIVEL PERDIDO!", "incorrect");
@@ -3342,7 +3380,7 @@
             showMessage("TE HAS RENDIDO", "incorrect");
             
             lives = 0;
-            livesEl.textContent = lives;
+            livesEl.textContent = formatLives('torreView', lives);
             guessInput.disabled = true;
             guessBtn.disabled = true;
             surrenderBtn.disabled = true;
@@ -3617,6 +3655,9 @@
 
             const item = resultadoData[resultadoIdx];
             const state = resultadoProgress[resultadoIdx];
+            if (hasUnlimitedLives('resultadoView') && state.status === 'playing') {
+                state.lives = Math.max(Number(state.lives) || 3, 3);
+            }
             const homeInput = document.getElementById('resultadoHomeInput');
             const awayInput = document.getElementById('resultadoAwayInput');
             const answer = document.getElementById('resultadoAnswer');
@@ -3639,7 +3680,7 @@
             };
             homeLogo.src = getResultadoTeamLogo(item.home);
             awayLogo.src = getResultadoTeamLogo(item.away);
-            document.getElementById('resultadoLives').textContent = state.lives;
+            document.getElementById('resultadoLives').textContent = formatLives('resultadoView', state.lives);
             document.getElementById('resultadoScore').textContent = resultadoScoreValue;
             document.getElementById('resultadoCounter').textContent = `${resultadoIdx + 1}/${resultadoData.length}`;
             document.getElementById('resultadoMessage').textContent = "";
@@ -3713,14 +3754,23 @@
             const state = resultadoProgress[resultadoIdx];
             if (!item || !state || state.status !== 'playing') return;
 
-            state.lives--;
-            document.getElementById('resultadoLives').textContent = state.lives;
-
             const msg = document.getElementById('resultadoMessage');
+            if (!skipped && hasUnlimitedLives('resultadoView')) {
+                document.getElementById('resultadoLives').textContent = formatLives('resultadoView', state.lives);
+                msg.textContent = "Incorrecto";
+                msg.className = "message incorrect";
+                document.getElementById('resultadoHomeInput').focus();
+                saveProgress();
+                return;
+            }
+
+            state.lives--;
+            document.getElementById('resultadoLives').textContent = formatLives('resultadoView', state.lives);
+
             if (state.lives <= 0 || skipped) {
                 state.status = 'lost';
                 state.lives = skipped ? 0 : Math.max(state.lives, 0);
-                document.getElementById('resultadoLives').textContent = state.lives;
+                document.getElementById('resultadoLives').textContent = formatLives('resultadoView', state.lives);
                 document.getElementById('resultadoHomeInput').disabled = true;
                 document.getElementById('resultadoAwayInput').disabled = true;
                 document.getElementById('resultadoAnswer').textContent = `${formatResultado(item)}. ${item.note || ""}`;
@@ -3844,6 +3894,9 @@
             if (!equipoProgress[equipoIdx]) equipoProgress[equipoIdx] = { status: 'playing', lives: 3 };
             const item = equipoData[equipoIdx];
             const state = equipoProgress[equipoIdx];
+            if (hasUnlimitedLives('equipoView') && state.status === 'playing') {
+                state.lives = Math.max(Number(state.lives) || 3, 3);
+            }
             const input = document.getElementById('equipoInput');
             const submit = document.getElementById('equipoSubmitBtn');
             const skip = document.getElementById('equipoSkipBtn');
@@ -3851,7 +3904,7 @@
             const logo = document.getElementById('equipoLogo');
             const isGameOver = state.status !== 'playing';
 
-            document.getElementById('equipoLives').textContent = state.lives;
+            document.getElementById('equipoLives').textContent = formatLives('equipoView', state.lives);
             document.getElementById('equipoScore').textContent = equipoScoreValue;
             document.getElementById('equipoCounter').textContent = `${equipoIdx + 1}/${equipoData.length}`;
             document.getElementById('equipoMessage').textContent = "";
@@ -3920,8 +3973,18 @@
             const item = equipoData[equipoIdx];
             const state = equipoProgress[equipoIdx];
             if (!item || !state || state.status !== 'playing') return;
-            state.lives--;
             const msg = document.getElementById('equipoMessage');
+            if (!skipped && hasUnlimitedLives('equipoView')) {
+                msg.textContent = "Incorrecto";
+                msg.className = "message incorrect";
+                document.getElementById('equipoInput').value = "";
+                document.getElementById('equipoInput').focus();
+                document.getElementById('equipoLives').textContent = formatLives('equipoView', state.lives);
+                saveProgress();
+                return;
+            }
+
+            state.lives--;
             if (state.lives <= 0 || skipped) {
                 state.status = 'lost';
                 state.lives = 0;
@@ -3938,7 +4001,7 @@
                 document.getElementById('equipoInput').value = "";
                 document.getElementById('equipoInput').focus();
             }
-            document.getElementById('equipoLives').textContent = state.lives;
+            document.getElementById('equipoLives').textContent = formatLives('equipoView', state.lives);
             populateEquipoGrid();
             updateEquipoGridSelection();
             saveProgress();
@@ -3984,7 +4047,7 @@
                 document.getElementById('trayInput').disabled = true;
             } else {
                 currentClubIdx = 1;
-                trayLives = item.clubs.length;
+                trayLives = hasUnlimitedLives('trayectoriaView') ? Infinity : item.clubs.length;
                 document.getElementById('trayInput').disabled = false;
             }
             
@@ -4018,7 +4081,7 @@
         function updateTrayUI() {
             const item = trayectoriasData[trayIdx];
             const trayPathEl = document.getElementById('trayPath');
-            document.getElementById('trayLives').textContent = trayLives;
+            document.getElementById('trayLives').textContent = formatLives('trayectoriaView', trayLives);
             document.getElementById('trayScore').textContent = trayScore;
             
             const isGameOver = trayLives <= 0 || trayProgress[trayIdx].status === 'won';
@@ -4094,6 +4157,18 @@
         function loseTrayLife() {
             const msg = document.getElementById('trayMessage');
             const item = trayectoriasData[trayIdx];
+
+            if (hasUnlimitedLives('trayectoriaView')) {
+                if (currentClubIdx < item.clubs.length) {
+                    currentClubIdx++;
+                    msg.textContent = "Incorrecto. Se revela otro club.";
+                } else {
+                    msg.textContent = "Incorrecto. Ya tenés todas las pistas disponibles.";
+                }
+                msg.className = "message incorrect";
+                updateTrayUI();
+                return;
+            }
             
             trayLives--;
             if (trayLives > 0) {
@@ -4148,8 +4223,8 @@
             document.getElementById('caminoScoreDisplay').textContent = caminoScoreValue;
             
             const isGameOver = state && state.status !== 'playing';
-            caminoLives = isGameOver ? 0 : 3;
-            document.getElementById('caminoLivesDisplay').textContent = caminoLives;
+            caminoLives = isGameOver ? 0 : (hasUnlimitedLives('caminoView') ? Infinity : 3);
+            document.getElementById('caminoLivesDisplay').textContent = formatLives('caminoView', caminoLives);
 
             currentCaminoSelection = [];
             if (isGameOver) {
@@ -4248,8 +4323,14 @@
                 confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
                 setTimeout(() => { caminoIdx = (caminoIdx + 1) % caminoData.length; initCamino(); msg.textContent = ""; }, 2000);
             } else {
+                if (hasUnlimitedLives('caminoView')) {
+                    msg.textContent = "Orden incorrecto. Probá otra vez.";
+                    msg.className = "message incorrect";
+                    document.getElementById('caminoLivesDisplay').textContent = formatLives('caminoView', caminoLives);
+                    return;
+                }
                 caminoLives--;
-                document.getElementById('caminoLivesDisplay').textContent = caminoLives;
+                document.getElementById('caminoLivesDisplay').textContent = formatLives('caminoView', caminoLives);
                 if (caminoLives <= 0) {
                     updateCaminoStatus('lost');
                     msg.textContent = "Perdiste. Se revela el orden correcto.";
@@ -4285,7 +4366,7 @@
                 document.getElementById('linkInput').disabled = true;
             } else {
                 currentTeammateIdx = 1;
-                linkLives = 4;
+                linkLives = hasUnlimitedLives('linkView') ? Infinity : 4;
                 document.getElementById('linkInput').disabled = false;
             }
             
@@ -4320,7 +4401,7 @@
         function updateLinkUI() {
             const item = linkData[linkIdx];
             const displayEl = document.getElementById('linkDisplay');
-            document.getElementById('linkLives').textContent = linkLives;
+            document.getElementById('linkLives').textContent = formatLives('linkView', linkLives);
             document.getElementById('linkScore').textContent = score;
             
             const isGameOver = linkLives <= 0 || linkProgress[linkIdx].status === 'won';
@@ -4377,6 +4458,19 @@
         function loseLinkLife() {
             const msg = document.getElementById('linkMessage');
             const item = linkData[linkIdx];
+
+            if (hasUnlimitedLives('linkView')) {
+                if (currentTeammateIdx < 4) {
+                    currentTeammateIdx++;
+                    msg.textContent = "Incorrecto o salteado. Se revela otro compañero.";
+                } else {
+                    msg.textContent = "Incorrecto. Ya tenés todas las pistas disponibles.";
+                }
+                msg.className = "message incorrect";
+                updateLinkUI();
+                return;
+            }
+
             linkLives--;
             if (linkLives > 0) {
                 currentTeammateIdx++;
