@@ -1321,6 +1321,7 @@ const state = {
   formationName: null,
   formation: null,
   pendingPlayerIndex: null,
+  simulating: false,
 };
 
 const pickedCount = document.querySelector("#pickedCount");
@@ -1699,6 +1700,9 @@ function resetGame() {
   state.formationName = null;
   state.formation = null;
   state.pendingPlayerIndex = null;
+  state.simulating = false;
+  closeTournamentTab();
+  simulateBtn.textContent = "Simular torneo";
   drawTitle.textContent = "Elige formación";
   drawSubtitle.textContent = "Primero define el sistema táctico para activar el sorteo.";
   drawBtn.disabled = true;
@@ -1805,30 +1809,30 @@ function generateEvents(teamA, teamB, goalsA, goalsB) {
 
   for (let i = 0; i < goalsA; i += 1) {
     const method = randomItem(goalMethods);
-    events.push({ minute: eventMinute(used), text: `${teamA.name}: ${describeGoal(teamA, method)} (${method})` });
+    events.push({ minute: eventMinute(used), type: "goal", side: "A", text: `${teamA.name}: ${describeGoal(teamA, method)} (${method})` });
   }
   for (let i = 0; i < goalsB; i += 1) {
     const method = randomItem(goalMethods);
-    events.push({ minute: eventMinute(used), text: `${teamB.name}: ${describeGoal(teamB, method)} (${method})` });
+    events.push({ minute: eventMinute(used), type: "goal", side: "B", text: `${teamB.name}: ${describeGoal(teamB, method)} (${method})` });
   }
 
   const yellowCount = Math.floor(Math.random() * 5) + 2;
   for (let i = 0; i < yellowCount; i += 1) {
     const team = Math.random() > 0.5 ? teamA : teamB;
     const booked = weightedPlayer(team.players, ["DEF", "MED"]);
-    events.push({ minute: eventMinute(used), text: `${team.name}: amarilla para ${playerName(booked)} por cortar una transicion.` });
+    events.push({ minute: eventMinute(used), type: "card", text: `${team.name}: amarilla para ${playerName(booked)} por cortar una transición.` });
   }
 
   if (Math.random() < 0.18) {
     const team = Math.random() > 0.5 ? teamA : teamB;
     const sentOff = weightedPlayer(team.players, ["DEF", "MED"]);
-    events.push({ minute: eventMinute(used), text: `${team.name}: roja para ${playerName(sentOff)} tras doble amarilla.` });
+    events.push({ minute: eventMinute(used), type: "card", text: `${team.name}: roja para ${playerName(sentOff)} tras doble amarilla.` });
   }
 
   if (Math.random() < 0.22) {
     const team = Math.random() > 0.5 ? teamA : teamB;
     const keeper = weightedPlayer(team.players, ["POR"]);
-    events.push({ minute: eventMinute(used), text: `${team.name}: ${playerName(keeper)} ataja un penal clave.` });
+    events.push({ minute: eventMinute(used), type: "penalty-save", text: `${team.name}: ${playerName(keeper)} ataja un penal clave.` });
   }
 
   return events.sort((a, b) => a.minute - b.minute);
@@ -1856,7 +1860,7 @@ function simulateMatch(teamA, teamB, knockout = false) {
     penalties = aWinsPens ? [5, Math.floor(2 + Math.random() * 3)] : [Math.floor(2 + Math.random() * 3), 5];
     winner = aWinsPens ? teamA : teamB;
     const hero = weightedPlayer(winner.players, ["POR"]);
-    events.push({ minute: 120, text: `Definicion por penales: ${winner.name} gana ${penalties[0]}-${penalties[1]}. Figura: ${playerName(hero)}.` });
+    events.push({ minute: 120, type: "pens", text: `Definición por penales: ${winner.name} gana ${penalties[0]}-${penalties[1]}. Figura: ${playerName(hero)}.` });
   }
 
   return { teamA, teamB, goalsA, goalsB, events, winner, penalties, chanceA, chanceB };
@@ -1913,63 +1917,113 @@ function renderOdds(userTeam, opponents) {
   }).join("");
 }
 
-function simulateTournament() {
+const SIM_MINUTE_MS = 24;
+function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
+function openTournamentTab() {
+  const board = tournamentPanel.closest(".game-board");
+  if (board) board.classList.add("tournament-live-mode");
+  tournamentPanel.hidden = false;
+  tournamentLog.innerHTML = "";
+  oddsBox.innerHTML = "";
+}
+function closeTournamentTab() {
+  const board = tournamentPanel.closest(".game-board");
+  if (board) board.classList.remove("tournament-live-mode");
+}
+function appendTournamentMessage(title, text) {
+  tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card sim-summary"><h3>${title}</h3><p>${text}</p></article>`);
+  tournamentLog.scrollTop = tournamentLog.scrollHeight;
+}
+function renderLiveMatchShell(match, phase) {
+  const oddsA = Math.round(match.chanceA * 100);
+  const oddsB = 100 - oddsA;
+  const id = `live-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
+  tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card live-match" id="${id}"><div class="live-match-head"><h3>${phase}</h3><span class="live-minute">0'</span></div><div class="scoreline live-scoreline"><span>${match.teamA.name}</span><strong class="live-score">0 - 0</strong><span>${match.teamB.name}</span></div><p>Probabilidad previa: ${match.teamA.name} ${oddsA}% - ${match.teamB.name} ${oddsB}%.</p><ul class="events live-events"></ul></article>`);
+  const card = document.getElementById(id);
+  tournamentLog.scrollTop = tournamentLog.scrollHeight;
+  return { minuteEl: card.querySelector(".live-minute"), scoreEl: card.querySelector(".live-score"), eventsEl: card.querySelector(".live-events") };
+}
+async function playLiveMatch(match, phase) {
+  const live = renderLiveMatchShell(match, phase);
+  const endMinute = match.penalties ? 120 : 90;
+  let goalsA = 0;
+  let goalsB = 0;
+  for (let minute = 1; minute <= endMinute; minute += 1) {
+    live.minuteEl.textContent = `${minute}'`;
+    match.events.filter((event) => event.minute === minute).forEach((event) => {
+      if (event.type === "goal") {
+        if (event.side === "A") goalsA += 1;
+        if (event.side === "B") goalsB += 1;
+        live.scoreEl.textContent = `${goalsA} - ${goalsB}`;
+      }
+      live.eventsEl.insertAdjacentHTML("beforeend", `<li>${event.minute}' ${event.text}</li>`);
+      tournamentLog.scrollTop = tournamentLog.scrollHeight;
+    });
+    await sleep(SIM_MINUTE_MS);
+  }
+  const penText = match.penalties ? `, penales ${match.penalties[0]}-${match.penalties[1]}` : "";
+  live.scoreEl.textContent = `${match.goalsA} - ${match.goalsB}${penText}`;
+  live.minuteEl.textContent = "Final";
+  await sleep(420);
+}
+function finishTournamentSimulation() {
+  state.simulating = false;
+  simulateBtn.disabled = state.picked.length !== 11;
+  simulateBtn.textContent = "Simular de nuevo";
+}
+
+async function simulateTournament() {
+  if (state.picked.length !== 11 || state.simulating) return;
+  state.simulating = true;
+  simulateBtn.disabled = true;
+  simulateBtn.textContent = "Simulando...";
+  openTournamentTab();
+  appendTournamentMessage("Torneo", "Arranca la simulación minuto a minuto.");
+  await sleep(500);
   const userTeam = getUserTeam();
-  const opponentPool = squads
-    .map(getTeamObjectFromSquad)
-    .filter((team) => team.name !== "Tu selección")
-    .sort(() => Math.random() - 0.5);
+  const opponentPool = squads.map(getTeamObjectFromSquad).filter((team) => team.name !== userTeam.name).sort(() => Math.random() - 0.5);
   const groupOpponents = opponentPool.slice(0, 3);
   const groupTeams = [userTeam, ...groupOpponents];
   const table = groupTeams.map((team) => ({ team, pts: 0, gf: 0, ga: 0 }));
   const findRow = (team) => table.find((row) => row.team.name === team.name);
-  const log = [];
-
   renderOdds(userTeam, groupOpponents);
-
   for (let i = 0; i < groupTeams.length; i += 1) {
     for (let j = i + 1; j < groupTeams.length; j += 1) {
       const match = simulateMatch(groupTeams[i], groupTeams[j], false);
+      const isUserMatch = match.teamA.name === userTeam.name || match.teamB.name === userTeam.name;
+      if (isUserMatch) await playLiveMatch(match, "Fase de grupos");
       addResult(findRow(match.teamA), findRow(match.teamB), match.goalsA, match.goalsB);
-      if (match.teamA.name === userTeam.name || match.teamB.name === userTeam.name) {
-        log.push(renderMatch(match, "Fase de grupos"));
-      }
     }
   }
-
-  log.push(tableHtml(table));
+  tournamentLog.insertAdjacentHTML("beforeend", tableHtml(table));
+  tournamentLog.scrollTop = tournamentLog.scrollHeight;
+  await sleep(650);
   const ordered = table.slice().sort((a, b) => b.pts - a.pts || b.gf - b.ga - (a.gf - a.ga) || b.gf - a.gf);
   if (!ordered.slice(0, 2).some((row) => row.team.name === userTeam.name)) {
-    log.push(`<article class="match-card"><h3>Eliminado</h3><p>Tu selección no pasó la fase de grupos. La media era ${userTeam.rating.total}; ajusta el draft o busca mejor equilibrio por posiciones.</p></article>`);
-    tournamentLog.innerHTML = log.join("");
+    appendTournamentMessage("Eliminado", `Tu selección no pasó la fase de grupos. La media era ${userTeam.rating.total}; ajusta el draft o busca mejor equilibrio por posiciones.`);
+    finishTournamentSimulation();
     return;
   }
-
   const phases = ["Dieciseisavos", "Octavos", "Cuartos", "Semis", "Final"];
   const knockoutPool = opponentPool.slice(3).sort((a, b) => a.rating.total - b.rating.total);
-  let alive = true;
   const usedKnockoutOpponents = new Set();
-
-  phases.forEach((phase, index) => {
-    if (!alive) return;
+  for (let index = 0; index < phases.length; index += 1) {
+    const phase = phases[index];
     const availableOpponents = knockoutPool.filter((team) => !usedKnockoutOpponents.has(team.name));
     const phasePool = availableOpponents.length ? availableOpponents : knockoutPool;
     const targetIndex = Math.min(phasePool.length - 1, index + Math.floor(Math.random() * Math.max(1, phasePool.length - index)));
     const opponent = phasePool[targetIndex];
     usedKnockoutOpponents.add(opponent.name);
     const match = simulateMatch(userTeam, opponent, true);
-    log.push(renderMatch(match, phase));
+    await playLiveMatch(match, phase);
     if (match.winner.name !== userTeam.name) {
-      alive = false;
-      log.push(`<article class="match-card"><h3>Fin del torneo</h3><p>Tu selección cayó en ${phase}. Media propia: ${userTeam.rating.total}; rival: ${opponent.rating.total}.</p></article>`);
+      appendTournamentMessage("Fin del torneo", `Tu selección cayó en ${phase}. Media propia: ${userTeam.rating.total}; rival: ${opponent.rating.total}.`);
+      finishTournamentSimulation();
+      return;
     }
-  });
-
-  if (alive) {
-    log.push(`<article class="match-card"><h3>Campeón</h3><p>Ganaste el torneo de selecciones históricas. Media final: ${userTeam.rating.total}. Figura del torneo: ${playerName(weightedPlayer(userTeam.players, ["DEL", "MED"]))}.</p></article>`);
   }
-
-  tournamentLog.innerHTML = log.join("");
+  appendTournamentMessage("Campeón", `Ganaste el torneo de selecciones históricas. Media final: ${userTeam.rating.total}. Figura del torneo: ${playerName(weightedPlayer(userTeam.players, ["DEL", "MED"]))}.`);
+  finishTournamentSimulation();
 }
 
 drawBtn.addEventListener("click", () => {

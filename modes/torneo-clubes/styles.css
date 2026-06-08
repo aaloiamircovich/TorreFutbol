@@ -1293,3 +1293,80 @@ button {
     overflow: auto;
   }
 }
+/* Simulacion en pestaña completa */
+.score-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: auto !important;
+}
+
+.lineup {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto !important;
+}
+
+.score-actions {
+  flex: 0 0 auto;
+  padding-bottom: 3px;
+}
+
+.tournament-live-mode {
+  grid-template-columns: 1fr !important;
+}
+
+.tournament-live-mode .draw-panel,
+.tournament-live-mode .pitch-panel,
+.tournament-live-mode .score-panel {
+  display: none !important;
+}
+
+.tournament-live-mode .tournament-panel {
+  grid-column: 1 / -1;
+  display: flex !important;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.tournament-live-mode .tournament-head {
+  flex: 0 0 auto;
+}
+
+.tournament-live-mode .odds-box {
+  flex: 0 0 auto;
+}
+
+.tournament-live-mode .tournament-log {
+  flex: 1 1 auto;
+  max-height: none !important;
+  min-height: 0;
+  overflow: auto !important;
+}
+
+.live-match-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.live-minute {
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: rgba(25,230,129,0.14);
+  color: var(--green);
+  font-weight: 900;
+}
+
+.live-scoreline strong {
+  color: var(--gold, #ffc857);
+  font-size: 1.2rem;
+}
+
+.live-events li:last-child {
+  color: var(--green);
+  font-weight: 900;
+}
