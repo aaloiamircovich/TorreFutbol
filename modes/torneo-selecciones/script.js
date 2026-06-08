@@ -248,17 +248,17 @@ const squads = [
     id: "arg-2022",
     country: "Argentina",
     year: 2022,
-    rating: 92,
+    rating: 94,
     source: sources[0].url,
     players: [
-      p("Emiliano Martinez", "POR", 91), p("Franco Armani", "POR", 80), p("Geronimo Rulli", "POR", 82),
-      p("Nahuel Molina", "DEF", 84), p("Gonzalo Montiel", "DEF", 82), p("Cristian Romero", "DEF", 88),
-      p("German Pezzella", "DEF", 81), p("Nicolas Otamendi", "DEF", 87), p("Lisandro Martinez", "DEF", 86),
+      p("Emiliano Martinez", "POR", 92), p("Franco Armani", "POR", 80), p("Geronimo Rulli", "POR", 82),
+      p("Nahuel Molina", "DEF", 84), p("Gonzalo Montiel", "DEF", 83), p("Cristian Romero", "DEF", 88),
+      p("German Pezzella", "DEF", 81), p("Nicolas Otamendi", "DEF", 88), p("Lisandro Martinez", "DEF", 86),
       p("Marcos Acuna", "DEF", 84), p("Nicolas Tagliafico", "DEF", 83), p("Juan Foyth", "DEF", 80),
-      p("Rodrigo De Paul", "MED", 88), p("Leandro Paredes", "MED", 84), p("Enzo Fernandez", "MED", 87),
-      p("Alexis Mac Allister", "MED", 86), p("Guido Rodriguez", "MED", 82), p("Exequiel Palacios", "MED", 81),
-      p("Thiago Almada", "MED", 79), p("Papu Gomez", "MED", 82), p("Lionel Messi", "DEL", 98),
-      p("Angel Di Maria", "DEL", 89), p("Julian Alvarez", "DEL", 88), p("Lautaro Martinez", "DEL", 87),
+      p("Rodrigo De Paul", "MED", 88), p("Leandro Paredes", "MED", 84), p("Enzo Fernandez", "MED", 88),
+      p("Alexis Mac Allister", "MED", 88), p("Guido Rodriguez", "MED", 82), p("Exequiel Palacios", "MED", 81),
+      p("Thiago Almada", "MED", 79), p("Papu Gomez", "MED", 82), p("Lionel Messi", "DEL", 99),
+      p("Angel Di Maria", "DEL", 90), p("Julian Alvarez", "DEL", 89), p("Lautaro Martinez", "DEL", 87),
       p("Paulo Dybala", "DEL", 86), p("Angel Correa", "DEL", 83),
     ],
   },
@@ -371,15 +371,15 @@ const squads = [
     id: "fra-2018",
     country: "Francia",
     year: 2018,
-    rating: 92,
+    rating: 93,
     source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
     players: [
       p("Hugo Lloris", "POR", 90), p("Steve Mandanda", "POR", 82), p("Alphonse Areola", "POR", 82),
       p("Raphael Varane", "DEF", 91), p("Samuel Umtiti", "DEF", 88), p("Lucas Hernandez", "DEF", 86), p("Benjamin Pavard", "DEF", 85),
       p("Presnel Kimpembe", "DEF", 83), p("Adil Rami", "DEF", 81), p("Djibril Sidibe", "DEF", 82), p("Benjamin Mendy", "DEF", 81),
-      p("N'Golo Kante", "MED", 93), p("Paul Pogba", "MED", 90), p("Blaise Matuidi", "MED", 86), p("Corentin Tolisso", "MED", 84),
+      p("N'Golo Kante", "MED", 94), p("Paul Pogba", "MED", 91), p("Blaise Matuidi", "MED", 86), p("Corentin Tolisso", "MED", 84),
       p("Steven Nzonzi", "MED", 83), p("Thomas Lemar", "MED", 82), p("Nabil Fekir", "MED", 84),
-      p("Antoine Griezmann", "DEL", 92), p("Kylian Mbappe", "DEL", 91), p("Olivier Giroud", "DEL", 86),
+      p("Antoine Griezmann", "DEL", 93), p("Kylian Mbappe", "DEL", 92), p("Olivier Giroud", "DEL", 86),
       p("Ousmane Dembele", "DEL", 85), p("Florian Thauvin", "DEL", 82),
     ],
   },
@@ -623,7 +623,7 @@ const squads = [
     id: "bel-2018",
     country: "Belgica",
     year: 2018,
-    rating: 92,
+    rating: 91,
     source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
     players: [
       p("Thibaut Courtois", "POR", 92), p("Simon Mignolet", "POR", 82), p("Koen Casteels", "POR", 81),
@@ -1439,6 +1439,137 @@ const squads = [
       p("Denis Cheryshev", "EI", 85), p("Artem Dzyuba", "DC", 86), p("Fedor Smolov", "DC", 84), p("Aleksei Miranchuk", "MCO", 81),
     ],
   },
+
+  {
+    id: "gha-2010",
+    country: "Ghana",
+    year: 2010,
+    rating: 85,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Richard Kingson", "POR", 84), p("Daniel Agyei", "POR", 74),
+      p("John Paintsil", "LD", 83), p("John Mensah", "DFC", 85), p("Isaac Vorsah", "DFC", 82), p("Hans Sarpei", "LI", 81), p("Samuel Inkoom", "LD", 80),
+      p("Anthony Annan", "MCD", 84), p("Kevin-Prince Boateng", "MC", 86), p("Sulley Muntari", "MC", 85), p("Andre Ayew", "EI", 84), p("Kwadwo Asamoah", "MCO", 85),
+      p("Asamoah Gyan", "DC", 87), p("Dominic Adiyiah", "DC", 80), p("Quincy Owusu-Abeyie", "ED", 80), p("Stephen Appiah", "MC", 82),
+    ],
+  },
+  {
+    id: "par-2010",
+    country: "Paraguay",
+    year: 2010,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Justo Villar", "POR", 84), p("Aldo Bobadilla", "POR", 78),
+      p("Denis Caniza", "LD", 81), p("Paulo Da Silva", "DFC", 84), p("Antolin Alcaraz", "DFC", 83), p("Claudio Morel Rodriguez", "LI", 82), p("Julio Manzur", "DFC", 80),
+      p("Victor Caceres", "MCD", 83), p("Cristian Riveros", "MC", 84), p("Enrique Vera", "MC", 82), p("Edgar Barreto", "MC", 82), p("Jonathan Santana", "MCO", 80),
+      p("Roque Santa Cruz", "DC", 86), p("Lucas Barrios", "DC", 85), p("Nelson Haedo Valdez", "DC", 84), p("Oscar Cardozo", "DC", 85),
+    ],
+  },
+  {
+    id: "arg-2010",
+    country: "Argentina",
+    year: 2010,
+    rating: 89,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Sergio Romero", "POR", 84), p("Mariano Andujar", "POR", 80),
+      p("Nicolas Otamendi", "LD", 84, ["LD", "DFC"]), p("Walter Samuel", "DFC", 88), p("Martin Demichelis", "DFC", 86), p("Gabriel Heinze", "LI", 84), p("Nicolas Burdisso", "DFC", 82),
+      p("Javier Mascherano", "MCD", 90), p("Juan Sebastian Veron", "MC", 87), p("Angel Di Maria", "EI", 87), p("Maxi Rodriguez", "MC", 84), p("Javier Pastore", "MCO", 82),
+      p("Lionel Messi", "ED", 96, ["ED", "MCO"]), p("Gonzalo Higuain", "DC", 90), p("Carlos Tevez", "DC", 89), p("Sergio Aguero", "DC", 88),
+    ],
+  },
+  {
+    id: "chi-2010",
+    country: "Chile",
+    year: 2010,
+    rating: 85,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Claudio Bravo", "POR", 85), p("Miguel Pinto", "POR", 76),
+      p("Mauricio Isla", "LD", 84), p("Gary Medel", "DFC", 85, ["DFC", "MCD"]), p("Waldo Ponce", "DFC", 82), p("Jean Beausejour", "LI", 82, ["LI", "EI"]), p("Gonzalo Jara", "DFC", 82),
+      p("Arturo Vidal", "MC", 87), p("Carlos Carmona", "MCD", 82), p("Matias Fernandez", "MCO", 86), p("Jorge Valdivia", "MCO", 85), p("Rodrigo Millar", "MC", 80),
+      p("Alexis Sanchez", "ED", 88), p("Humberto Suazo", "DC", 86), p("Mark Gonzalez", "EI", 83), p("Esteban Paredes", "DC", 81),
+    ],
+  },
+  {
+    id: "mex-2010",
+    country: "Mexico",
+    year: 2010,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Guillermo Ochoa", "POR", 84), p("Oscar Perez", "POR", 82),
+      p("Ricardo Osorio", "LD", 82), p("Rafael Marquez", "DFC", 87, ["DFC", "MCD"]), p("Francisco Rodriguez", "DFC", 83), p("Carlos Salcido", "LI", 84), p("Hector Moreno", "DFC", 81),
+      p("Gerardo Torrado", "MCD", 83), p("Israel Castro", "MC", 80), p("Giovani dos Santos", "MCO", 85, ["MCO", "ED"]), p("Andres Guardado", "EI", 85), p("Pablo Barrera", "ED", 81),
+      p("Javier Hernandez", "DC", 84), p("Guillermo Franco", "DC", 82), p("Cuauhtemoc Blanco", "MCO", 83), p("Carlos Vela", "EI", 83),
+    ],
+  },
+  {
+    id: "mor-2022",
+    country: "Marruecos",
+    year: 2022,
+    rating: 86,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Yassine Bounou", "POR", 88), p("Munir", "POR", 78),
+      p("Achraf Hakimi", "LD", 90), p("Romain Saiss", "DFC", 84), p("Nayef Aguerd", "DFC", 84), p("Noussair Mazraoui", "LI", 86, ["LI", "LD"]), p("Jawad El Yamiq", "DFC", 81),
+      p("Sofyan Amrabat", "MCD", 87), p("Azzedine Ounahi", "MC", 84), p("Selim Amallah", "MC", 82), p("Hakim Ziyech", "ED", 87), p("Sofiane Boufal", "EI", 84),
+      p("Youssef En-Nesyri", "DC", 85), p("Abderrazak Hamdallah", "DC", 82), p("Zakaria Aboukhlal", "ED", 81), p("Abde Ezzalzouli", "EI", 80),
+    ],
+  },
+  {
+    id: "jpn-2022",
+    country: "Japon",
+    year: 2022,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Shuichi Gonda", "POR", 82), p("Daniel Schmidt", "POR", 78),
+      p("Hiroki Sakai", "LD", 83), p("Takehiro Tomiyasu", "DFC", 86, ["DFC", "LD"]), p("Maya Yoshida", "DFC", 83), p("Yuto Nagatomo", "LI", 82), p("Ko Itakura", "DFC", 82),
+      p("Wataru Endo", "MCD", 85), p("Hidemasa Morita", "MC", 83), p("Daichi Kamada", "MCO", 84), p("Takefusa Kubo", "ED", 83), p("Ritsu Doan", "ED", 84),
+      p("Kaoru Mitoma", "EI", 86), p("Takuma Asano", "DC", 81), p("Daizen Maeda", "DC", 81), p("Takumi Minamino", "MCO", 83),
+    ],
+  },
+  {
+    id: "sen-2022",
+    country: "Senegal",
+    year: 2022,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Edouard Mendy", "POR", 86), p("Seny Dieng", "POR", 78),
+      p("Youssouf Sabaly", "LD", 83), p("Kalidou Koulibaly", "DFC", 90), p("Abdou Diallo", "DFC", 84), p("Ismail Jakobs", "LI", 82), p("Pape Abou Cisse", "DFC", 80),
+      p("Idrissa Gueye", "MCD", 85), p("Nampalys Mendy", "MC", 82), p("Pape Matar Sarr", "MC", 81), p("Krepin Diatta", "ED", 82), p("Ismaila Sarr", "ED", 84),
+      p("Boulaye Dia", "DC", 83), p("Bamba Dieng", "DC", 80), p("Iliman Ndiaye", "MCO", 81), p("Nicolas Jackson", "DC", 80),
+    ],
+  },
+  {
+    id: "ecu-2022",
+    country: "Ecuador",
+    year: 2022,
+    rating: 83,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Hernan Galindez", "POR", 81), p("Alexander Dominguez", "POR", 80),
+      p("Angelo Preciado", "LD", 81), p("Piero Hincapie", "DFC", 84, ["DFC", "LI"]), p("Felix Torres", "DFC", 82), p("Pervis Estupinan", "LI", 85), p("Robert Arboleda", "DFC", 82),
+      p("Moises Caicedo", "MCD", 86), p("Carlos Gruezo", "MC", 80), p("Alan Franco", "MC", 80), p("Gonzalo Plata", "ED", 83), p("Jeremy Sarmiento", "MCO", 80),
+      p("Enner Valencia", "DC", 85), p("Michael Estrada", "DC", 80), p("Romario Ibarra", "EI", 80), p("Kevin Rodriguez", "DC", 78),
+    ],
+  },
+  {
+    id: "pol-2022",
+    country: "Polonia",
+    year: 2022,
+    rating: 83,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Wojciech Szczesny", "POR", 87), p("Lukasz Skorupski", "POR", 80),
+      p("Matty Cash", "LD", 82), p("Kamil Glik", "DFC", 82), p("Jakub Kiwior", "DFC", 80), p("Bartosz Bereszynski", "LI", 80), p("Jan Bednarek", "DFC", 81),
+      p("Grzegorz Krychowiak", "MCD", 82), p("Piotr Zielinski", "MCO", 86), p("Sebastian Szymanski", "MC", 82), p("Przemyslaw Frankowski", "ED", 82), p("Nicola Zalewski", "EI", 81),
+      p("Robert Lewandowski", "DC", 94), p("Arkadiusz Milik", "DC", 83), p("Karol Swiderski", "DC", 81), p("Krzysztof Piatek", "DC", 80),
+    ],
+  },
 ];
 
 const formations = {
@@ -1550,10 +1681,15 @@ function lineCountsFromFormation(formation = defaultFormation) {
 
 function bestXI(players, formation = defaultFormation) {
   const available = players.slice();
+  const bestIndex = (predicate) => available.reduce((best, player, index) => {
+    if (!predicate(player)) return best;
+    if (best === -1 || player.ovr > available[best].ovr) return index;
+    return best;
+  }, -1);
   return formation.slots.map((slot) => {
-    let index = available.findIndex((player) => player.roles.includes(slot));
+    let index = bestIndex((player) => player.roles.includes(slot));
     if (index === -1) {
-      index = available.findIndex((player) => player.pos === roleLine[slot]);
+      index = bestIndex((player) => player.pos === roleLine[slot]);
     }
     if (index === -1) {
       index = available.reduce((bestIndex, player, playerIndex) => player.ovr > available[bestIndex].ovr ? playerIndex : bestIndex, 0);

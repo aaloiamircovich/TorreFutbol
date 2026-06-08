@@ -149,10 +149,15 @@ function lineCountsFromFormation(formation = defaultFormation) {
 
 function bestXI(players, formation = defaultFormation) {
   const available = players.slice();
+  const bestIndex = (predicate) => available.reduce((best, player, index) => {
+    if (!predicate(player)) return best;
+    if (best === -1 || player.ovr > available[best].ovr) return index;
+    return best;
+  }, -1);
   return formation.slots.map((slot) => {
-    let index = available.findIndex((player) => player.roles.includes(slot));
+    let index = bestIndex((player) => player.roles.includes(slot));
     if (index === -1) {
-      index = available.findIndex((player) => player.pos === roleLine[slot]);
+      index = bestIndex((player) => player.pos === roleLine[slot]);
     }
     if (index === -1) {
       index = available.reduce((bestIndex, player, playerIndex) => player.ovr > available[bestIndex].ovr ? playerIndex : bestIndex, 0);

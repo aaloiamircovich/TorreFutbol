@@ -180,7 +180,7 @@
       P("Diego Alves", "POR", 86), P("Hugo Souza", "POR", 78),
       P("Isla", "LD", 82), P("Rodrigo Caio", "DFC", 86), P("David Luiz", "DFC", 85), P("Gustavo Henrique", "DFC", 81), P("Filipe Luis", "LI", 86),
       P("Willian Arao", "MCD", 84), P("Andreas Pereira", "MC", 84), P("Everton Ribeiro", "MCO", 88), P("Giorgian De Arrascaeta", "MCO", 89), P("Diego", "MC", 83),
-      P("Bruno Henrique", "EI", 89), P("Gabriel Barbosa", "DC", 90), P("Pedro", "DC", 86), P("Michael", "ED", 84),
+      P("Bruno Henrique", "EI", 89), P("Gabriel Barbosa", "DC", 91), P("Pedro", "DC", 86), P("Michael", "ED", 84),
     ]),
     S("lib-internacional-2006", "Internacional", 2006, LIB, 88, [
       P("Clemer", "POR", 84), P("Renan", "POR", 75),
@@ -398,6 +398,79 @@
       P("Jose Luis Gomez", "LD", 82), P("Marcelo Herrera", "DFC", 81), P("Diego Braghieri", "DFC", 83), P("Maximiliano Velazquez", "LI", 82), P("Rolando Garcia Guerre?o", "DFC", 80),
       P("Ivan Marcone", "MCD", 85), P("Roman Martinez", "MC", 83), P("Alejandro Silva", "ED", 84), P("Nicolas Pasquini", "MC", 81), P("Marcelino Moreno", "MCO", 82),
       P("Lautaro Acosta", "EI", 85), P("Jose Sand", "DC", 87), P("German Denis", "DC", 82), P("Brian Montenegro", "DC", 80),
+    ]),
+
+    S("ucl-man-utd-1999", "Manchester United", 1999, UCL, 94, [
+      P("Peter Schmeichel", "POR", 93), P("Raimond van der Gouw", "POR", 77),
+      P("Gary Neville", "LD", 86), P("Jaap Stam", "DFC", 93), P("Ronny Johnsen", "DFC", 86), P("Denis Irwin", "LI", 88), P("Wes Brown", "DFC", 79),
+      P("Roy Keane", "MCD", 92), P("Paul Scholes", "MC", 90), P("Ryan Giggs", "EI", 91), P("David Beckham", "ED", 92), P("Nicky Butt", "MC", 84),
+      P("Dwight Yorke", "DC", 90), P("Andy Cole", "DC", 89), P("Ole Gunnar Solskjaer", "DC", 86), P("Teddy Sheringham", "DC", 86),
+    ]),
+    S("ucl-bayern-1999", "Bayern Munich", 1999, UCL, 91, [
+      P("Oliver Kahn", "POR", 94), P("Bernd Dreher", "POR", 76),
+      P("Markus Babbel", "LD", 85), P("Samuel Kuffour", "DFC", 88), P("Lothar Matthaus", "DFC", 89, ["DFC", "MCD"]), P("Bixente Lizarazu", "LI", 89), P("Thomas Linke", "DFC", 84),
+      P("Jens Jeremies", "MCD", 87), P("Stefan Effenberg", "MC", 91), P("Mario Basler", "ED", 88), P("Mehmet Scholl", "MCO", 89), P("Hasan Salihamidzic", "MC", 84),
+      P("Carsten Jancker", "DC", 85), P("Giovane Elber", "DC", 89), P("Alexander Zickler", "DC", 82), P("Thorsten Fink", "MCD", 82),
+    ]),
+    S("ucl-milan-2003", "Milan", 2003, UCL, 92, [
+      P("Dida", "POR", 88), P("Christian Abbiati", "POR", 82),
+      P("Cafu", "LD", 90), P("Alessandro Nesta", "DFC", 93), P("Paolo Maldini", "DFC", 94, ["DFC", "LI"]), P("Kakha Kaladze", "LI", 84), P("Alessandro Costacurta", "DFC", 84),
+      P("Gennaro Gattuso", "MCD", 88), P("Andrea Pirlo", "MC", 92), P("Clarence Seedorf", "MC", 90), P("Rui Costa", "MCO", 90), P("Massimo Ambrosini", "MC", 84),
+      P("Andriy Shevchenko", "DC", 94), P("Filippo Inzaghi", "DC", 90), P("Jon Dahl Tomasson", "DC", 83), P("Serginho", "EI", 83),
+    ]),
+    S("ucl-juventus-2003", "Juventus", 2003, UCL, 91, [
+      P("Gianluigi Buffon", "POR", 94), P("Antonio Chimenti", "POR", 76),
+      P("Lilian Thuram", "LD", 91, ["LD", "DFC"]), P("Ciro Ferrara", "DFC", 89), P("Paolo Montero", "DFC", 87), P("Gianluca Zambrotta", "LI", 90), P("Mark Iuliano", "DFC", 82),
+      P("Edgar Davids", "MCD", 91), P("Alessio Tacchinardi", "MC", 86), P("Pavel Nedved", "MCO", 94), P("Mauro Camoranesi", "ED", 87), P("Antonio Conte", "MC", 84),
+      P("Alessandro Del Piero", "DC", 93, ["DC", "MCO"]), P("David Trezeguet", "DC", 91), P("Marcelo Zalayeta", "DC", 80), P("Marco Di Vaio", "DC", 84),
+    ]),
+    S("ucl-real-madrid-2022", "Real Madrid", 2022, UCL, 95, [
+      P("Thibaut Courtois", "POR", 94), P("Andriy Lunin", "POR", 78),
+      P("Dani Carvajal", "LD", 88), P("Eder Militao", "DFC", 88), P("David Alaba", "DFC", 90, ["DFC", "LI"]), P("Ferland Mendy", "LI", 86), P("Nacho", "DFC", 83),
+      P("Casemiro", "MCD", 90), P("Luka Modric", "MC", 93), P("Toni Kroos", "MC", 91), P("Federico Valverde", "MC", 88, ["MC", "ED"]), P("Eduardo Camavinga", "MC", 84),
+      P("Vinicius Junior", "EI", 92), P("Karim Benzema", "DC", 97), P("Rodrygo", "ED", 87), P("Marco Asensio", "ED", 83),
+    ]),
+    S("ucl-liverpool-2022", "Liverpool", 2022, UCL, 94, [
+      P("Alisson", "POR", 94), P("Caoimhin Kelleher", "POR", 78),
+      P("Trent Alexander-Arnold", "LD", 90), P("Virgil van Dijk", "DFC", 94), P("Ibrahima Konate", "DFC", 87), P("Andrew Robertson", "LI", 90), P("Joel Matip", "DFC", 86),
+      P("Fabinho", "MCD", 89), P("Thiago Alcantara", "MC", 91), P("Jordan Henderson", "MC", 86), P("Naby Keita", "MC", 83), P("Harvey Elliott", "MC", 78),
+      P("Mohamed Salah", "ED", 94), P("Sadio Mane", "EI", 92), P("Luis Diaz", "EI", 88), P("Diogo Jota", "DC", 87),
+    ]),
+    S("lib-flamengo-2022", "Flamengo", 2022, LIB, 94, [
+      P("Santos", "POR", 87), P("Diego Alves", "POR", 82),
+      P("Rodinei", "LD", 84), P("David Luiz", "DFC", 87), P("Leo Pereira", "DFC", 84), P("Filipe Luis", "LI", 86), P("Ayrton Lucas", "LI", 83),
+      P("Joao Gomes", "MCD", 87), P("Thiago Maia", "MC", 84), P("Everton Ribeiro", "MCO", 88), P("Giorgian De Arrascaeta", "MCO", 91), P("Arturo Vidal", "MC", 84),
+      P("Gabriel Barbosa", "DC", 90), P("Pedro", "DC", 90), P("Bruno Henrique", "EI", 86), P("Everton Cebolinha", "EI", 84),
+    ]),
+    S("lib-athletico-paranaense-2022", "Athletico Paranaense", 2022, LIB, 85, [
+      P("Bento", "POR", 84), P("Anderson", "POR", 74),
+      P("Khellven", "LD", 82), P("Thiago Heleno", "DFC", 84), P("Pedro Henrique", "DFC", 82), P("Abner", "LI", 83), P("Nicolas Hernandez", "DFC", 78),
+      P("Fernandinho", "MCD", 87), P("Erick", "MC", 81), P("Hugo Moura", "MC", 80), P("David Terans", "MCO", 84), P("Vitor Bueno", "MCO", 81),
+      P("Agustin Canobbio", "ED", 82), P("Vitor Roque", "DC", 84), P("Pablo", "DC", 82), P("Romulo", "DC", 79),
+    ]),
+    S("lib-fluminense-2023", "Fluminense", 2023, LIB, 92, [
+      P("Fabio", "POR", 88), P("Pedro Rangel", "POR", 73),
+      P("Samuel Xavier", "LD", 84), P("Nino", "DFC", 86), P("Felipe Melo", "DFC", 83, ["DFC", "MCD"]), P("Marcelo", "LI", 88), P("Marlon", "DFC", 80),
+      P("Andre", "MCD", 88), P("Martinelli", "MC", 84), P("Ganso", "MCO", 87), P("Jhon Arias", "ED", 88), P("Lima", "MC", 81),
+      P("Keno", "EI", 85), P("German Cano", "DC", 91), P("John Kennedy", "DC", 84), P("Yony Gonzalez", "EI", 80),
+    ]),
+    S("lib-boca-2023", "Boca Juniors", 2023, LIB, 85, [
+      P("Sergio Romero", "POR", 86), P("Javier Garcia", "POR", 75),
+      P("Luis Advincula", "LD", 84), P("Nicolas Figal", "DFC", 82), P("Marcos Rojo", "DFC", 84), P("Frank Fabra", "LI", 83), P("Nicolas Valentini", "DFC", 80),
+      P("Pol Fernandez", "MCD", 82), P("Equi Fernandez", "MC", 82), P("Cristian Medina", "MC", 83), P("Valentin Barco", "LI", 84, ["LI", "EI"]), P("Alan Varela", "MCD", 83),
+      P("Exequiel Zeballos", "ED", 82), P("Edinson Cavani", "DC", 86), P("Miguel Merentiel", "DC", 84), P("Dario Benedetto", "DC", 82),
+    ]),
+    S("lib-botafogo-2024", "Botafogo", 2024, LIB, 92, [
+      P("John", "POR", 87), P("Gatito Fernandez", "POR", 78),
+      P("Vitinho", "LD", 82), P("Bastos", "DFC", 85), P("Alexander Barboza", "DFC", 83), P("Alex Telles", "LI", 87), P("Adryelson", "DFC", 81),
+      P("Gregore", "MCD", 85), P("Marlon Freitas", "MC", 87), P("Almada", "MCO", 89), P("Jeffinho", "EI", 82), P("Tche Tche", "MC", 82),
+      P("Luiz Henrique", "ED", 89), P("Igor Jesus", "DC", 88), P("Tiquinho Soares", "DC", 85), P("Savarino", "ED", 85),
+    ]),
+    S("lib-atletico-mineiro-2024", "Atletico Mineiro", 2024, LIB, 88, [
+      P("Everson", "POR", 85), P("Matheus Mendes", "POR", 74),
+      P("Mariano", "LD", 82), P("Junior Alonso", "DFC", 85), P("Rodrigo Battaglia", "DFC", 83, ["DFC", "MCD"]), P("Guilherme Arana", "LI", 86), P("Lyanco", "DFC", 82),
+      P("Otavio", "MCD", 83), P("Alan Franco", "MC", 82), P("Gustavo Scarpa", "MCO", 86), P("Bernard", "MCO", 84), P("Matias Zaracho", "MC", 84),
+      P("Paulinho", "EI", 87), P("Hulk", "DC", 89), P("Deyverson", "DC", 84), P("Eduardo Vargas", "DC", 82),
     ]),
   ];
 })();
