@@ -1334,6 +1334,304 @@
                 flex: 1 1 120px;
             }
         }
+
+        /* --- Animaciones e identidad de tarjetas --- */
+        @keyframes menuRise {
+            from { opacity: 0; transform: translateY(18px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes softSweep {
+            from { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+            35% { opacity: 0.6; }
+            to { transform: translateX(160%) skewX(-18deg); opacity: 0; }
+        }
+
+        @keyframes fieldDrift {
+            from { background-position: 0 0, 0 0, 0 0; }
+            to { background-position: 0 0, 0 82px, 0 0; }
+        }
+
+        @keyframes cardPulse {
+            0%, 100% { box-shadow: var(--shadow-tight); }
+            50% { box-shadow: 0 12px 28px rgba(25,230,129,0.16), var(--shadow-tight); }
+        }
+
+        @keyframes viewEnter {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes revealPop {
+            0% { transform: translateY(8px) scale(0.98); opacity: 0.6; }
+            60% { transform: translateY(-2px) scale(1.01); opacity: 1; }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        body {
+            animation: fieldDrift 18s linear infinite;
+        }
+
+        .menu-card {
+            animation: menuRise 0.45s ease both;
+        }
+
+        .btn-menu {
+            min-height: 112px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            grid-template-rows: auto 1fr auto;
+            align-items: center;
+            gap: 5px 12px;
+            padding: 16px 18px 14px;
+            isolation: isolate;
+            animation: menuRise 0.45s ease both;
+        }
+
+        .btn-menu:nth-child(1) { animation-delay: 0.03s; }
+        .btn-menu:nth-child(2) { animation-delay: 0.06s; }
+        .btn-menu:nth-child(3) { animation-delay: 0.09s; }
+        .btn-menu:nth-child(4) { animation-delay: 0.12s; }
+        .btn-menu:nth-child(5) { animation-delay: 0.15s; }
+        .btn-menu:nth-child(6) { animation-delay: 0.18s; }
+        .btn-menu:nth-child(7) { animation-delay: 0.21s; }
+        .btn-menu:nth-child(8) { animation-delay: 0.24s; }
+        .btn-menu:nth-child(9) { animation-delay: 0.27s; }
+        .btn-menu:nth-child(10) { animation-delay: 0.3s; }
+
+        .btn-menu::before {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+            width: 44%;
+            right: auto;
+            opacity: 0;
+        }
+
+        .btn-menu:hover::before {
+            animation: softSweep 0.8s ease;
+        }
+
+        .btn-menu::after {
+            content: attr(data-mark);
+            grid-row: 1 / 4;
+            grid-column: 2;
+            align-self: center;
+            justify-self: end;
+            min-width: 76px;
+            padding: 12px 10px;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 8px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.035)),
+                rgba(0,0,0,0.22);
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            font-weight: 950;
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+            transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+        }
+
+        .btn-menu:hover::after {
+            transform: translateY(-2px) scale(1.04);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .menu-kicker,
+        .menu-title,
+        .menu-detail {
+            position: relative;
+            z-index: 1;
+            grid-column: 1;
+        }
+
+        .menu-kicker {
+            justify-self: start;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(25,230,129,0.13);
+            border: 1px solid rgba(25,230,129,0.35);
+            color: #a9ffd0;
+            font-size: 0.72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .menu-title {
+            color: #fff;
+            font-size: 1.22rem;
+            font-weight: 950;
+        }
+
+        .menu-detail {
+            color: #c9d2ce;
+            font-size: 0.84rem;
+            font-weight: 650;
+            line-height: 1.25;
+        }
+
+        .btn-menu.torre {
+            background:
+                linear-gradient(90deg, rgba(25,230,129,0.18), rgba(255,255,255,0.035)),
+                repeating-linear-gradient(0deg, transparent 0 12px, rgba(255,255,255,0.035) 12px 13px),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu.trayectoria {
+            background:
+                radial-gradient(circle at 72% 30%, rgba(77,184,255,0.26) 0 7px, transparent 8px),
+                radial-gradient(circle at 84% 68%, rgba(77,184,255,0.2) 0 5px, transparent 6px),
+                linear-gradient(135deg, rgba(77,184,255,0.16), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu.camino {
+            background:
+                linear-gradient(130deg, transparent 0 58%, rgba(36,211,238,0.18) 58% 62%, transparent 62%),
+                linear-gradient(135deg, rgba(36,211,238,0.16), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu.link {
+            background:
+                radial-gradient(circle at 78% 34%, transparent 0 12px, rgba(209,116,255,0.25) 13px 15px, transparent 16px),
+                radial-gradient(circle at 88% 62%, transparent 0 10px, rgba(209,116,255,0.2) 11px 13px, transparent 14px),
+                linear-gradient(135deg, rgba(209,116,255,0.15), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu.wordle {
+            background:
+                linear-gradient(90deg, rgba(255,200,87,0.13) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255,200,87,0.13) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(255,200,87,0.14), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+            background-size: 100% 100%, 26px 26px, 100% 100%, 100% 100% !important;
+        }
+
+        .btn-menu.resultado {
+            background:
+                linear-gradient(90deg, transparent 0 44%, rgba(255,92,112,0.22) 44% 56%, transparent 56%),
+                linear-gradient(135deg, rgba(255,92,112,0.16), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu.auction {
+            background:
+                radial-gradient(circle at 82% 46%, rgba(255,224,102,0.26) 0 20px, transparent 21px),
+                linear-gradient(135deg, rgba(255,224,102,0.18), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu.equipo {
+            background:
+                radial-gradient(circle at 82% 50%, rgba(142,162,255,0.12) 0 22px, rgba(142,162,255,0.28) 23px 25px, transparent 26px),
+                linear-gradient(135deg, rgba(142,162,255,0.16), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu.torneo {
+            background:
+                linear-gradient(90deg, transparent 0 28%, rgba(25,230,129,0.13) 28% 30%, transparent 30% 70%, rgba(25,230,129,0.13) 70% 72%, transparent 72%),
+                linear-gradient(135deg, rgba(25,230,129,0.15), rgba(255,255,255,0.035)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
+        .btn-menu:hover {
+            animation: cardPulse 1.4s ease infinite;
+        }
+
+        .app-view[style*="display: flex"],
+        .game-container,
+        .top-bar,
+        .auction-layout {
+            animation: viewEnter 0.28s ease both;
+        }
+
+        .level-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .level-btn.active,
+        .level-btn.current {
+            animation: cardPulse 1.7s ease infinite;
+        }
+
+        .slot.revealed,
+        .tray-club,
+        .camino-option,
+        .resultado-card,
+        .team-guess-card,
+        .fut-card {
+            animation: revealPop 0.34s ease both;
+        }
+
+        .slot.revealed .slot-img,
+        .resultado-logo,
+        .team-guess-logo,
+        .player-result-photo,
+        .auction-player-photo {
+            animation: logoFloat 3.6s ease-in-out infinite;
+        }
+
+        .wordle-cell {
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+
+        .wordle-cell:hover {
+            transform: translateY(-2px) rotate(-1deg);
+            border-color: rgba(25,230,129,0.55);
+        }
+
+        .predictive-option {
+            transition: transform 0.12s ease, background 0.12s ease;
+        }
+
+        .predictive-option:hover,
+        .predictive-option.active {
+            transform: translateX(4px);
+        }
+
+        .message.correct,
+        .correct {
+            animation: revealPop 0.32s ease;
+        }
+
+        @media (max-width: 720px) {
+            .btn-menu {
+                min-height: 92px;
+                grid-template-columns: minmax(0, 1fr) 62px;
+            }
+
+            .btn-menu::after {
+                min-width: 56px;
+                padding: 10px 6px;
+                font-size: 0.78rem;
+            }
+
+            .menu-title {
+                font-size: 1.05rem;
+            }
+
+            .menu-detail {
+                font-size: 0.76rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1342,16 +1640,16 @@
     <div id="menuView" class="menu-view">
         <h1 style="font-size: 2rem;">Fútbol Mix</h1>
         <div class="menu-card">
-            <button class="btn-menu" onclick="showView('torreView')">🏰 Torre Futbolera</button>
-            <button class="btn-menu trayectoria" onclick="showView('trayectoriaView')">👣 Trayectoria</button>
-            <button class="btn-menu camino" onclick="showView('caminoView')">🛣️ El Camino</button>
-            <button class="btn-menu link" onclick="showView('linkView')">🔗 Futbol Link</button>
-            <button class="btn-menu wordle" onclick="showView('wordleView')">🅰 Wordle</button>
-            <button class="btn-menu resultado" onclick="showView('resultadoView')">🎯 Adivina el Resultado</button>
-            <button class="btn-menu auction" onclick="showView('auctionLobbyView')">💰 Subasta ONLINE</button>
-            <button class="btn-menu equipo" onclick="showView('equipoView')">Adivina el Equipo</button>
-            <button class="btn-menu torneo" onclick="showView('torneoSeleccionesView')">Torneo Selecciones Históricas</button>
-            <button class="btn-menu torneo" onclick="showView('torneoClubesView')">Torneo Clubes Históricos</button>
+            <button class="btn-menu torre" data-mark="TOP 10" onclick="showView('torreView')"><span class="menu-kicker">Ranking</span><span class="menu-title">Torre Futbolera</span><span class="menu-detail">Ordená la tabla y subí puestos.</span></button>
+            <button class="btn-menu trayectoria" data-mark="CLUBES" onclick="showView('trayectoriaView')"><span class="menu-kicker">Carrera</span><span class="menu-title">Trayectoria</span><span class="menu-detail">Descubrí al jugador por sus clubes.</span></button>
+            <button class="btn-menu camino" data-mark="XI" onclick="showView('caminoView')"><span class="menu-kicker">Secuencia</span><span class="menu-title">El Camino</span><span class="menu-detail">Armá la ruta correcta paso a paso.</span></button>
+            <button class="btn-menu link" data-mark="LINK" onclick="showView('linkView')"><span class="menu-kicker">Conexión</span><span class="menu-title">Futbol Link</span><span class="menu-detail">Encontrá el vínculo entre pistas.</span></button>
+            <button class="btn-menu wordle" data-mark="ABC" onclick="showView('wordleView')"><span class="menu-kicker">Palabra</span><span class="menu-title">Wordle</span><span class="menu-detail">Adiviná con letras y pistas.</span></button>
+            <button class="btn-menu resultado" data-mark="FINAL" onclick="showView('resultadoView')"><span class="menu-kicker">Marcador</span><span class="menu-title">Adivina el Resultado</span><span class="menu-detail">Recordá partidos históricos.</span></button>
+            <button class="btn-menu auction" data-mark="$M" onclick="showView('auctionLobbyView')"><span class="menu-kicker">Multijugador</span><span class="menu-title">Subasta Online</span><span class="menu-detail">Pujá por futbolistas con amigos.</span></button>
+            <button class="btn-menu equipo" data-mark="ESC" onclick="showView('equipoView')"><span class="menu-kicker">Escudos</span><span class="menu-title">Adivina el Equipo</span><span class="menu-detail">Reconocé clubes por su identidad.</span></button>
+            <button class="btn-menu torneo selecciones" data-mark="COPA" onclick="showView('torneoSeleccionesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Selecciones Históricas</span><span class="menu-detail">Elegí cracks de selecciones legendarias.</span></button>
+            <button class="btn-menu torneo clubes" data-mark="CLUB" onclick="showView('torneoClubesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Clubes Históricos</span><span class="menu-detail">Construí un XI de clubes icónicos.</span></button>
             <button class="btn-reset" onclick="handleReset()" style="margin-top: 10px; width: 100%; padding: 10px;">Reiniciar Todo el Juego</button>
         </div>
     </div>
