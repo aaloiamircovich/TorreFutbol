@@ -789,10 +789,22 @@ body {
 
 .pitch-slot {
   width: 98px;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .slot-name {
   max-width: 98px;
+  background: transparent;
+  padding: 2px 0;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+}
+
+.pitch-board::before {
+  background:
+    linear-gradient(90deg, transparent 49.6%, rgba(255,255,255,0.45) 49.6%, rgba(255,255,255,0.45) 50.1%, transparent 50.1%),
+    radial-gradient(circle at 50% 50%, transparent 0 14%, rgba(255,255,255,0.48) 14.3% 14.8%, transparent 15.1%);
 }
 
 .lineup {
@@ -856,6 +868,7 @@ body {
 
   .pitch-slot {
     width: 78px;
+    background: transparent !important;
   }
 
   .slot-name {
