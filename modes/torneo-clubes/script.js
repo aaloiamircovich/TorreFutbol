@@ -393,12 +393,12 @@ function resetGame() {
   state.drawHistory = [];
   state.formationName = null;
   state.formation = null;
-  drawTitle.textContent = "Elige formacion";
-  drawSubtitle.textContent = "Primero define el sistema tactico para activar el sorteo.";
+  drawTitle.textContent = "Elige formación";
+  drawSubtitle.textContent = "Primero define el sistema táctico para activar el sorteo.";
   drawBtn.disabled = true;
   skipBtn.disabled = true;
   playerGrid.classList.add("empty");
-  playerGrid.innerHTML = `<p>Cuando salga un club, aca aparece su plantilla completa.</p>`;
+  playerGrid.innerHTML = `<p>Cuando salga un club, acá aparece su plantilla completa.</p>`;
   tournamentLog.innerHTML = "";
   oddsBox.innerHTML = "";
   document.querySelectorAll(".formation-option").forEach((button) => button.classList.remove("active"));

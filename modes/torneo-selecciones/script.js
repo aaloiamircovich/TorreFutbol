@@ -1601,7 +1601,7 @@ function pickPlayer(index) {
   });
   state.currentSquad = null;
   playerGrid.classList.add("empty");
-  playerGrid.innerHTML = `<p>Jugador agregado. Sortea otra seleccion para seguir armando el XI.</p>`;
+  playerGrid.innerHTML = `<p>Jugador agregado. Sortea otra selección para seguir armando el XI.</p>`;
   drawTitle.textContent = state.picked.length === 11 ? "XI completo" : "Listo";
   drawSubtitle.textContent = state.picked.length === 11 ? "Ya puedes simular el torneo." : "Faltan " + (11 - state.picked.length) + " jugadores";
   drawBtn.disabled = state.picked.length === 11;
@@ -1637,12 +1637,12 @@ function resetGame() {
   state.drawHistory = [];
   state.formationName = null;
   state.formation = null;
-  drawTitle.textContent = "Elige formacion";
-  drawSubtitle.textContent = "Primero define el sistema tactico para activar el sorteo.";
+  drawTitle.textContent = "Elige formación";
+  drawSubtitle.textContent = "Primero define el sistema táctico para activar el sorteo.";
   drawBtn.disabled = true;
   skipBtn.disabled = true;
   playerGrid.classList.add("empty");
-  playerGrid.innerHTML = `<p>Cuando salga una seleccion, aca aparece su plantilla completa.</p>`;
+  playerGrid.innerHTML = `<p>Cuando salga una selección, acá aparece su plantilla completa.</p>`;
   tournamentLog.innerHTML = "";
   oddsBox.innerHTML = "";
   document.querySelectorAll(".formation-option").forEach((button) => button.classList.remove("active"));
@@ -1675,7 +1675,7 @@ function getTeamObjectFromSquad(squad) {
 
 function getUserTeam() {
   return {
-    name: "Tu seleccion",
+    name: "Tu selección",
     players: state.picked,
     rating: rateTeam(state.picked, 0, state.formation || defaultFormation),
   };
@@ -1855,7 +1855,7 @@ function simulateTournament() {
   const userTeam = getUserTeam();
   const opponentPool = squads
     .map(getTeamObjectFromSquad)
-    .filter((team) => team.name !== "Tu seleccion")
+    .filter((team) => team.name !== "Tu selección")
     .sort(() => Math.random() - 0.5);
   const groupOpponents = opponentPool.slice(0, 3);
   const groupTeams = [userTeam, ...groupOpponents];
@@ -1878,7 +1878,7 @@ function simulateTournament() {
   log.push(tableHtml(table));
   const ordered = table.slice().sort((a, b) => b.pts - a.pts || b.gf - b.ga - (a.gf - a.ga) || b.gf - a.gf);
   if (!ordered.slice(0, 2).some((row) => row.team.name === userTeam.name)) {
-    log.push(`<article class="match-card"><h3>Eliminado</h3><p>Tu seleccion no paso la fase de grupos. La media era ${userTeam.rating.total}; ajusta el draft o busca mejor equilibrio por posiciones.</p></article>`);
+    log.push(`<article class="match-card"><h3>Eliminado</h3><p>Tu selección no pasó la fase de grupos. La media era ${userTeam.rating.total}; ajusta el draft o busca mejor equilibrio por posiciones.</p></article>`);
     tournamentLog.innerHTML = log.join("");
     return;
   }
@@ -1899,12 +1899,12 @@ function simulateTournament() {
     log.push(renderMatch(match, phase));
     if (match.winner.name !== userTeam.name) {
       alive = false;
-      log.push(`<article class="match-card"><h3>Fin del torneo</h3><p>Tu seleccion cayo en ${phase}. Media propia: ${userTeam.rating.total}; rival: ${opponent.rating.total}.</p></article>`);
+      log.push(`<article class="match-card"><h3>Fin del torneo</h3><p>Tu selección cayó en ${phase}. Media propia: ${userTeam.rating.total}; rival: ${opponent.rating.total}.</p></article>`);
     }
   });
 
   if (alive) {
-    log.push(`<article class="match-card"><h3>Campeon</h3><p>Ganaste el torneo de selecciones historicas. Media final: ${userTeam.rating.total}. Figura del torneo: ${playerName(weightedPlayer(userTeam.players, ["DEL", "MED"]))}.</p></article>`);
+    log.push(`<article class="match-card"><h3>Campeón</h3><p>Ganaste el torneo de selecciones históricas. Media final: ${userTeam.rating.total}. Figura del torneo: ${playerName(weightedPlayer(userTeam.players, ["DEL", "MED"]))}.</p></article>`);
   }
 
   tournamentLog.innerHTML = log.join("");

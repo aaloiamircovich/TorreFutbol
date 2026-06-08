@@ -641,3 +641,186 @@ button:disabled {
     height: 46px;
   }
 }
+
+/* Pulido final dentro de Futbol Mix */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: #121212;
+}
+
+body {
+  color: #e0e0e0;
+}
+
+.app {
+  width: min(1480px, 100%);
+  padding: 16px;
+  background: #121212;
+}
+
+.game-board {
+  grid-template-columns: 330px minmax(560px, 1fr) 310px;
+  gap: 12px;
+  min-height: 660px;
+  border: 0;
+}
+
+.draw-panel,
+.pitch-panel,
+.score-panel,
+.tournament-panel {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #333 !important;
+  border-radius: 8px;
+  background: #1e1e1e;
+}
+
+.draw-panel,
+.pitch-panel {
+  border-right: 1px solid #333 !important;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter,
+.formation-option {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.draw-card {
+  padding: 18px;
+  min-height: 112px;
+}
+
+.draw-card h1 {
+  overflow-wrap: anywhere;
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+}
+
+.player-grid {
+  max-height: 390px;
+  padding-right: 3px;
+  background: #171717 !important;
+  border-color: #333 !important;
+  color: #d7d7d7;
+}
+
+.player-card {
+  grid-template-columns: 42px minmax(0, 1fr) 54px;
+  gap: 8px;
+}
+
+.player-card strong,
+.player-card small,
+.lineup-player span,
+.match-card,
+.odds-card,
+.table-row {
+  min-width: 0;
+}
+
+.player-card strong,
+.player-card small,
+.lineup-player span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pitch-frame {
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pitch-board {
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  aspect-ratio: 1.18 / 1;
+}
+
+.pitch-slot {
+  width: 98px;
+}
+
+.slot-name {
+  max-width: 98px;
+}
+
+.lineup {
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 3px;
+}
+
+.score-actions,
+.draw-actions {
+  gap: 8px;
+}
+
+.tournament-head,
+.scoreline {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#sourcesList a,
+.events li,
+.scoreline,
+.table-row {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1240px) {
+  .game-board {
+    grid-template-columns: 300px minmax(500px, 1fr) 290px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .game-board {
+    grid-template-columns: 1fr;
+  }
+
+  .draw-panel,
+  .pitch-panel {
+    border-right: 1px solid #333 !important;
+    border-bottom: 1px solid #333 !important;
+  }
+
+  .pitch-frame,
+  .pitch-board {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .app {
+    padding: 10px;
+  }
+
+  .draw-panel,
+  .pitch-panel,
+  .score-panel,
+  .tournament-panel {
+    padding: 14px;
+  }
+
+  .pitch-slot {
+    width: 78px;
+  }
+
+  .slot-name {
+    max-width: 78px;
+  }
+}

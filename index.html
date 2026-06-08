@@ -368,9 +368,13 @@
         .team-guess-answer.visible {
             display: block;
         }
+        #torneoSeleccionesView,
+        #torneoClubesView {
+            max-width: min(1600px, calc(100vw - 20px));
+        }
         .embedded-mode-frame {
             width: 100%;
-            min-height: calc(100vh - 70px);
+            min-height: calc(100vh - 58px);
             border: 0;
             border-radius: 8px;
             background: var(--card-bg);
@@ -1171,15 +1175,15 @@
     <!-- Juego: Adivina el Equipo -->
     <div id="equipoView" class="app-view">
         <div class="top-bar">
-            <button class="back-btn" onclick="showView('menuView')">â¬…</button>
+            <button class="back-btn" onclick="showView('menuView')">Volver</button>
             <h1 class="view-title">Adivina el Equipo</h1>
         </div>
 
         <div class="game-container" style="justify-content: center; text-align: center; gap: 14px;">
             <div class="header-stats">
-                <div>â¤ï¸ <span id="equipoLives">3</span></div>
-                <div>ðŸ† <span id="equipoScore">0</span></div>
-                <div>ðŸ“ <span id="equipoCounter">1/100</span></div>
+                <div>Vidas <span id="equipoLives">3</span></div>
+                <div>Puntos <span id="equipoScore">0</span></div>
+                <div>Nivel <span id="equipoCounter">1/100</span></div>
             </div>
             <div class="level-menu">
                 <button id="equipoToggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
@@ -1194,7 +1198,7 @@
 
             <div class="input-group">
                 <div class="predictive-field">
-                    <input type="text" id="equipoInput" placeholder="Â¿QuÃ© equipo es?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="equipoInputPredictive">
+                    <input type="text" id="equipoInput" placeholder="¿Qué equipo es?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="equipoInputPredictive">
                     <div class="predictive-menu" id="equipoInputPredictive" role="listbox"></div>
                 </div>
                 <button id="equipoSubmitBtn" onclick="checkEquipo()">Enviar</button>
@@ -1205,18 +1209,18 @@
     </div>
 
     <!-- Juego: Torneo Selecciones Históricas -->
-    <div id="torneoSeleccionesView" class="app-view" style="max-width: 1280px;">
+    <div id="torneoSeleccionesView" class="app-view">
         <div class="top-bar">
-            <button class="back-btn" onclick="showView('menuView')">â¬…</button>
+            <button class="back-btn" onclick="showView('menuView')">Volver</button>
             <h1 class="view-title">Torneo Selecciones Históricas</h1>
         </div>
         <iframe class="embedded-mode-frame" src="modes/torneo-selecciones/index.html" title="Torneo Selecciones Históricas"></iframe>
     </div>
 
     <!-- Juego: Torneo Clubes Históricos -->
-    <div id="torneoClubesView" class="app-view" style="max-width: 1280px;">
+    <div id="torneoClubesView" class="app-view">
         <div class="top-bar">
-            <button class="back-btn" onclick="showView('menuView')">â¬…</button>
+            <button class="back-btn" onclick="showView('menuView')">Volver</button>
             <h1 class="view-title">Torneo Clubes Históricos</h1>
         </div>
         <iframe class="embedded-mode-frame" src="modes/torneo-clubes/index.html" title="Torneo Clubes Históricos"></iframe>
