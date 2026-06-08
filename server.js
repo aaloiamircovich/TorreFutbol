@@ -302,5 +302,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT, HOST, () => {
-    console.log(`Futbol Mix listo en http://${HOST}:${PORT}`);
+    console.log(`Futbol Mix listo en ${HOST}:${PORT} (PORT=${process.env.PORT || 'local'})`);
 });
