@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Sao Paulo">
+  <rect width="160" height="160" rx="80" fill="#111"/>
+  <path d="M28 31h104v36L80 145 28 67z" fill="#fff" stroke="#111" stroke-width="6"/>
+  <rect x="35" y="38" width="90" height="26" fill="#fff"/>
+  <text x="80" y="59" text-anchor="middle" font-family="Arial" font-size="22" font-weight="900" fill="#111">SPFC</text>
+  <path d="M35 72h30l15 45z" fill="#d71920"/>
+  <path d="M65 72h30l-15 45z" fill="#111"/>
+  <path d="M95 72h30l-45 45z" fill="#d71920"/>
+</svg>

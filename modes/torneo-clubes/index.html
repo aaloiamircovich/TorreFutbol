@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Torneo de Clubes Historicos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="game-board">
+        <aside class="draw-panel">
+          <div class="formation-card" id="formationCard">
+            <p class="eyebrow">Antes de empezar</p>
+            <h2>Elegir formacion</h2>
+            <div class="formation-grid" id="formationGrid">
+              <button class="formation-option" data-formation="4-3-3">4-3-3</button>
+              <button class="formation-option" data-formation="4-4-2">4-4-2</button>
+              <button class="formation-option" data-formation="3-5-2">3-5-2</button>
+              <button class="formation-option" data-formation="3-4-3">3-4-3</button>
+              <button class="formation-option" data-formation="5-3-2">5-3-2</button>
+            </div>
+          </div>
+
+          <div class="draw-card">
+            <p class="eyebrow">Salio</p>
+            <h1 id="drawTitle">Elige formacion</h1>
+            <p id="drawSubtitle">Primero define el sistema tactico para activar el sorteo.</p>
+          </div>
+
+          <div class="reroll-copy">No te gusto? Re-sortea - <span id="skipCount">3</span> restantes</div>
+          <div class="draw-actions">
+            <button id="drawBtn" class="outline" disabled>Otro club</button>
+            <button id="skipBtn" class="outline" disabled>Otra edicion</button>
+          </div>
+
+          <p class="section-label">Elige un jugador</p>
+          <div class="toolbar role-toolbar">
+            <button class="filter active" data-filter="ALL">Todos</button>
+            <button class="filter" data-filter="POR">POR</button>
+            <button class="filter" data-filter="LD">LD</button>
+            <button class="filter" data-filter="DFC">DFC</button>
+            <button class="filter" data-filter="LI">LI</button>
+            <button class="filter" data-filter="MCD">MCD</button>
+            <button class="filter" data-filter="MC">MC</button>
+            <button class="filter" data-filter="MCO">MCO</button>
+            <button class="filter" data-filter="EI">EI</button>
+            <button class="filter" data-filter="ED">ED</button>
+            <button class="filter" data-filter="DC">DC</button>
+          </div>
+
+          <div id="playerGrid" class="player-grid empty">
+            <p>Cuando salga un club, aca aparece su plantilla.</p>
+          </div>
+        </aside>
+
+        <section class="pitch-panel">
+          <div class="pitch-frame">
+            <div id="pitchBoard" class="pitch-board" aria-label="Cancha con tu once"></div>
+          </div>
+          <p class="pitch-help">Toca un jugador de la lista para colocarlo en un puesto libre compatible</p>
+        </section>
+
+        <aside class="score-panel">
+          <div class="score-head">
+            <span>Box score - <strong id="pickedCount">0</strong>/11</span>
+            <strong id="teamRating" class="big-score">--</strong>
+          </div>
+
+          <div class="attack-defense">
+            <div><strong id="attRating">--</strong><span>Ataque</span></div>
+            <div><strong id="defRating">--</strong><span>Defensa</span></div>
+          </div>
+
+          <div class="mini-ratings">
+            <span>POR <strong id="gkRating">--</strong></span>
+            <span>MED <strong id="midRating">--</strong></span>
+            <span>Formacion <strong id="formationLabel">--</strong></span>
+          </div>
+
+          <div id="lineup" class="lineup"></div>
+
+          <div class="score-actions">
+            <button id="simulateBtn" class="primary" disabled>Simular torneo</button>
+            <button id="resetBtn" class="outline">Reiniciar</button>
+          </div>
+        </aside>
+
+        <section class="tournament-panel" id="tournamentPanel" hidden>
+          <div class="tournament-head">
+            <div>
+              <p class="eyebrow">Torneo</p>
+              <h2>Camino al titulo</h2>
+            </div>
+          </div>
+          <div id="oddsBox" class="odds-box"></div>
+          <div id="tournamentLog" class="tournament-log"></div>
+        </section>
+      </section>
+
+    </main>
+
+    <script src="club-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

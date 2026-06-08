@@ -1,0 +1,3870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre Futbolera</title>
+    <!-- Importamos la base de datos de categorías -->
+    <script src="datos.js"></script>
+    <!-- Importamos la base de datos de trayectorias -->
+    <script src="datostrayectoria.js"></script>
+    <!-- Importamos la base de datos de Futbol Link -->
+    <script src="datoslink.js"></script>
+    <!-- Importamos la base de datos de El Camino -->
+    <script src="datoscamino.js"></script>
+    <!-- Importamos la base de datos de Wordle -->
+    <script src="datoswordle.js"></script>
+    <!-- Importamos la base de datos de Adivina el Resultado -->
+    <script src="datosresultado.js"></script>
+    <!-- Importamos la base de datos de Subasta -->
+    <script src="datossubasta.js"></script>
+    <!-- Importamos la base de datos de logos -->
+    <script src="logos.js"></script>
+    <!-- Importamos la base de datos de fotos -->
+    <script src="jugadoresfotos.js"></script>
+    <!-- Mapa de imagenes descargadas localmente -->
+    <script src="assets/assets-map.js"></script>
+    <!-- Socket.io para Multiplayer. En local, la sala online corre en el servidor Node. -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        if (!window.io && (location.hostname === "127.0.0.1" || location.hostname === "localhost")) {
+            document.write('<script src="http://127.0.0.1:3000/socket.io/socket.io.js"><\\/script>');
+        }
+    </script>
+    <!-- Librería para el efecto de confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #00e676;
+            --error-color: #ff5252;
+            --card-bg: #1e1e1e;
+            --surface-color: #2c2c2c;
+            --muted-color: #888;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 10px;
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        h1 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 2px 0;
+            font-size: 1.2rem;
+        }
+        .game-container {
+            background-color: var(--card-bg);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            max-height: none;
+            display: flex;
+            flex-direction: column;
+        }
+        .app-view {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            min-height: 100vh;
+            height: auto;
+            flex-direction: column;
+            align-items: center;
+        }
+        .app-view.auction-app-view {
+            max-width: none;
+        }
+        .auction-top-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 5px 20px;
+            background: #1a1a1a;
+        }
+        .auction-top-bar .back-btn {
+            margin-right: 15px;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .top-bar.compact {
+            margin-bottom: 5px;
+        }
+        .back-btn {
+            background: #444;
+            color: #fff;
+            padding: 5px 12px;
+        }
+        .view-title {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+        }
+        .header-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            background-color: var(--surface-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            gap: 10px;
+        }
+        .category-title {
+            text-align: center;
+            font-size: 1.12rem;
+            margin-bottom: 10px;
+            color: #fff;
+            border-bottom: 2px solid #333;
+            padding-bottom: 2px;
+            flex-shrink: 0;
+        }
+        .input-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--surface-color);
+            color: #fff;
+            font-size: 1rem;
+        }
+        input[type="text"]:focus {
+            outline: 2px solid var(--accent-color);
+        }
+        .predictive-field {
+            position: relative;
+            flex: 1 1 260px;
+            min-width: 220px;
+        }
+        .predictive-field > input {
+            width: 100%;
+        }
+        .predictive-menu {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: calc(100% + 6px);
+            z-index: 40;
+            display: none;
+            max-height: 230px;
+            overflow-y: auto;
+            background: #151515;
+            border: 1px solid #363636;
+            border-radius: 8px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+            text-align: left;
+        }
+        .predictive-menu.visible {
+            display: block;
+        }
+        .predictive-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+            padding: 10px 12px;
+            color: #fff;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .predictive-option:last-child {
+            border-bottom: 0;
+        }
+        .predictive-option:hover,
+        .predictive-option.active {
+            background: rgba(0, 230, 118, 0.16);
+            color: var(--accent-color);
+        }
+        .predictive-kind {
+            color: var(--muted-color);
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            flex-shrink: 0;
+        }
+        button {
+            padding: 10px 14px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        button:hover {
+            background-color: #00c853;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .wordle-grid {
+            display: grid;
+            gap: 7px;
+            margin-bottom: 14px;
+        }
+        .wordle-cell {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.45rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+        .cell-correct { background-color: var(--accent-color); color: #000; border-color: var(--accent-color); }
+        .cell-present { background-color: #ffd700; color: #000; border-color: #ffd700; }
+        .cell-absent { background-color: #444; color: #fff; border-color: #444; }
+        .resultado-card {
+            background: #171717;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 18px;
+            display: grid;
+            gap: 14px;
+        }
+        .resultado-meta {
+            color: var(--muted-color);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .resultado-match {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            align-items: center;
+            gap: 14px;
+        }
+        .resultado-team {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            font-size: 1.02rem;
+        }
+        .resultado-team-name {
+            max-width: 100%;
+            overflow-wrap: anywhere;
+        }
+        .resultado-logo {
+            width: 78px;
+            height: 78px;
+            object-fit: contain;
+        }
+        .resultado-vs {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+        .score-inputs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .score-inputs input[type="number"] {
+            width: 82px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--surface-color);
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-align: center;
+        }
+        .score-inputs input[type="number"]:focus {
+            outline: 2px solid var(--accent-color);
+        }
+        .score-separator {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+        .resultado-answer {
+            display: none;
+            background: rgba(0, 230, 118, 0.12);
+            border: 1px solid rgba(0, 230, 118, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+        }
+        .resultado-answer.visible {
+            display: block;
+        }
+        .btn-menu.resultado { background-color: #e91e63; color: #fff; }
+        .btn-menu.equipo { background-color: #3f51b5; color: #fff; }
+        .btn-menu.torneo { background-color: #009688; color: #fff; }
+
+        .team-guess-card {
+            width: min(320px, 86vw);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4px auto 12px;
+            padding: 28px;
+            border-radius: 8px;
+            background:
+                linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+                #171717;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 28px rgba(0,0,0,0.35);
+        }
+        .team-guess-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 14px rgba(0,0,0,0.45));
+        }
+        .team-guess-answer {
+            display: none;
+            min-height: 36px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+            text-align: center;
+        }
+        .team-guess-answer.visible {
+            display: block;
+        }
+        .embedded-mode-frame {
+            width: 100%;
+            min-height: calc(100vh - 70px);
+            border: 0;
+            border-radius: 8px;
+            background: var(--card-bg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+
+        /* --- Camino Styles --- */
+        .camino-option {
+            padding: 10px 14px;
+            background: #333;
+            border-radius: 6px;
+            cursor: grab;
+            font-size: 1rem;
+            border: 1px solid #444;
+            transition: all 0.2s;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .camino-option img,
+        .team-token-img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .media-fallback,
+        .logo-fallback {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #123524, #00e676);
+            color: #07130d;
+            border: 1px solid rgba(255,255,255,0.18);
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25);
+        }
+        .logo-fallback {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.65rem;
+        }
+        .media-fallback {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            border: 3px solid var(--accent-color);
+        }
+        .camino-option:active { cursor: grabbing; }
+        .camino-selected {
+            background: #1a3320;
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            font-weight: bold;
+        }
+        .drag-over { background: rgba(0, 230, 118, 0.1) !important; border: 1px dashed var(--accent-color) !important; }
+
+        /* --- Auction (Subasta) Styles --- */
+        .auction-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 15px;
+            width: 100%;
+            min-height: 100vh;
+            height: auto;
+            padding: 10px;
+        }
+        .auction-panel {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+        }
+        .fut-card {
+            width: 240px;
+            height: 340px;
+            background: linear-gradient(135deg, #d4af37 0%, #f9f295 45%, #b8860b 100%);
+            border-radius: 15px;
+            position: relative;
+            padding: 20px;
+            color: #1a1a1a;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            margin: 0 auto;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+        .fut-card.Elite { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; box-shadow: 0 0 20px rgba(42, 82, 152, 0.6); }
+        .fut-card.Idolo { background: radial-gradient(circle, #f9f295 0%, #e6be8a 100%); animation: card-glow 3s infinite alternate; }
+        @keyframes card-glow { from { box-shadow: 0 0 10px #ffd700; } to { box-shadow: 0 0 30px #ffd700; } }
+        .auction-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-weight: 900;
+            font-size: 1.4rem;
+        }
+        .auction-card-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 3px;
+            font-size: 0.85rem;
+        }
+        .auction-player-photo {
+            width: 118px;
+            height: 118px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 16px auto 12px;
+            border: 3px solid rgba(255,255,255,0.75);
+            background: rgba(0,0,0,0.2);
+        }
+        .auction-player-name {
+            font-size: 1.1rem;
+            line-height: 1.15;
+            font-weight: 900;
+            text-align: center;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .auction-player-club {
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+        .auction-card-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            margin-top: 14px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .auction-card-status {
+            margin-top: 12px;
+            padding: 7px 8px;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.18);
+            text-align: center;
+            font-weight: 900;
+        }
+        .auction-user-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+            font-size: 0.86rem;
+        }
+        .auction-user-row span:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .auction-user-row.is-admin span:first-child::after {
+            content: " admin";
+            color: gold;
+            font-size: 0.68rem;
+            margin-left: 4px;
+            text-transform: uppercase;
+        }
+        .auction-user-row.is-offline {
+            opacity: 0.45;
+        }
+        
+        .auction-timer {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(0,230,118,0.5);
+            margin: 10px 0;
+        }
+        .bid-history {
+            flex-grow: 1;
+            overflow-y: auto;
+            font-size: 0.8rem;
+            background: #111;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .bid-item {
+            padding: 4px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bid-item.last { color: var(--accent-color); font-weight: bold; animation: pulse 0.5s; }
+        @keyframes pulse { 0% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        .menu-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            height: auto;
+            width: 100%;
+            gap: 20px;
+        }
+        .menu-card {
+            background-color: var(--card-bg);
+            padding: 32px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            width: 90%;
+            max-width: 480px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+        .btn-reset {
+            background-color: #444;
+            color: var(--error-color);
+            font-size: 0.75rem;
+            margin: 0;
+            width: auto;
+        }
+        .btn-menu {
+            padding: 18px;
+            font-size: 1.2rem;
+            text-align: center;
+            width: 100%;
+        }
+        .btn-menu.trayectoria { background-color: #2196f3; color: #fff; }
+        .btn-menu.camino { background-color: #00bcd4; color: #fff; }
+        .btn-menu.link { background-color: #9c27b0; color: #fff; }
+        .btn-menu.wordle { background-color: #ff9800; color: #fff; }
+        .btn-menu.auction {
+            background: linear-gradient(to right, #ffd700, #ff8c00);
+            color: #000;
+        }
+        .btn-surrender {
+            background-color: var(--error-color);
+            color: #fff;
+            font-size: 0.8rem;
+        }
+        .btn-surrender:hover {
+            background-color: #d32f2f;
+        }
+        .level-menu {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+            flex-shrink: 0;
+        }
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+            gap: 8px;
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            max-height: 180px;
+            overflow-y: auto;
+            border: 1px solid #333;
+        }
+        .level-btn {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .level-btn:hover { background-color: #444; }
+        .level-btn.active {
+            border-color: var(--accent-color);
+            background-color: #1a3320;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .level-btn.won {
+            background-color: #1a3320;
+            color: var(--accent-color);
+        }
+        .level-btn.lost {
+            background-color: #331a1a;
+            color: var(--error-color);
+        }
+        .hidden { display: none; }
+        .tower {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+        .slot {
+            background-color: #2c2c2c;
+            padding: 10px 14px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.18rem;
+            border-left: 5px solid #555;
+            transition: all 0.3s ease;
+        }
+        .slot.revealed {
+            border-left-color: var(--accent-color);
+            background-color: #1a3320;
+        }
+        .slot-rank {
+            font-weight: bold;
+            color: #888;
+            width: 40px;
+        }
+        .slot.revealed .slot-rank {
+            color: var(--accent-color);
+        }
+        .slot-name {
+            flex-grow: 1;
+            text-align: left;
+            padding-left: 15px;
+            color: transparent; 
+        }
+        .slot.revealed .slot-name {
+            color: #fff;
+        }
+        .slot-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            margin: 0 14px;
+            border-radius: 4px;
+            background: #333;
+            padding: 2px;
+            opacity: 0;
+        }
+        .slot.revealed .slot-img { opacity: 1; }
+        .slot-points {
+            font-size: 0.82rem;
+            color: #aaa;
+            background: #111;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .message {
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+            min-height: 18px;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        .correct { color: var(--accent-color); }
+        .incorrect { color: var(--error-color); }
+        .player-result-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            object-fit: cover;
+        }
+        .tray-path {
+            background: #2c2c2c;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .tray-path.is-result {
+            flex-direction: column;
+            gap: 8px;
+        }
+        .tray-club {
+            width: 92px;
+            min-height: 104px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+            padding: 8px 6px;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .club-path-logo {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .tray-club-name {
+            width: 100%;
+            font-size: 0.76rem;
+            line-height: 1.15;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+        .tray-arrow,
+        .tray-hidden {
+            color: var(--accent-color);
+            font-weight: 900;
+            flex: 0 0 auto;
+        }
+        .tray-hidden {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #111;
+            border: 1px dashed #555;
+        }
+        
+        .achievements-container {
+            display: flex;
+            gap: 5px;
+        }
+        .achievement-badge {
+            font-size: 0.7rem;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 12px;
+            opacity: 0.3;
+            transition: all 0.5s ease;
+        }
+        .achievement-badge.unlocked {
+            opacity: 1;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            background: #1a3320;
+        }
+        @media (max-width: 520px) {
+            body {
+                padding: 8px;
+                overflow-y: auto;
+            }
+            .game-container {
+                padding: 10px;
+            }
+            .slot {
+                font-size: 1rem;
+                padding: 8px 10px;
+            }
+            .slot-img {
+                width: 36px;
+                height: 36px;
+                margin: 0 8px;
+            }
+            .camino-option img,
+            .team-token-img {
+                width: 26px;
+                height: 26px;
+            }
+            .player-result-photo {
+                width: 86px;
+                height: 86px;
+            }
+            .tray-path {
+                padding: 12px;
+                gap: 7px;
+                font-size: 1rem;
+            }
+            .tray-club {
+                width: 76px;
+                min-height: 92px;
+                padding: 7px 5px;
+            }
+            .club-path-logo {
+                width: 44px;
+                height: 44px;
+            }
+            .tray-club-name {
+                font-size: 0.68rem;
+            }
+            .tray-arrow {
+                font-size: 0.82rem;
+            }
+            .wordle-cell {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            .resultado-match {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .resultado-vs {
+                font-size: 1rem;
+            }
+            .resultado-logo {
+                width: 62px;
+                height: 62px;
+            }
+            .input-group,
+            .level-menu {
+                flex-wrap: wrap;
+            }
+            .input-group > input {
+                min-width: 180px;
+            }
+            .input-group > .predictive-field {
+                min-width: 180px;
+            }
+            .btn-menu {
+                font-size: 1rem;
+                padding: 13px;
+            }
+            .menu-card {
+                padding: 22px;
+                gap: 13px;
+                max-width: 360px;
+            }
+            .header-stats {
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 900px) {
+            .auction-layout {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                gap: 10px;
+            }
+            .auction-panel {
+                max-height: 190px;
+            }
+            .fut-card {
+                width: min(240px, 88vw);
+                height: 330px;
+            }
+            .auction-player-photo {
+                width: 102px;
+                height: 102px;
+            }
+            .auction-top-bar {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de Inicio -->
+    <div id="menuView" class="menu-view">
+        <h1 style="font-size: 2rem;">Fútbol Mix</h1>
+        <div class="menu-card">
+            <button class="btn-menu" onclick="showView('torreView')">🏰 Torre Futbolera</button>
+            <button class="btn-menu trayectoria" onclick="showView('trayectoriaView')">👣 Trayectoria</button>
+            <button class="btn-menu camino" onclick="showView('caminoView')">🛣️ El Camino</button>
+            <button class="btn-menu link" onclick="showView('linkView')">🔗 Futbol Link</button>
+            <button class="btn-menu wordle" onclick="showView('wordleView')">🅰 Wordle</button>
+            <button class="btn-menu resultado" onclick="showView('resultadoView')">🎯 Adivina el Resultado</button>
+            <button class="btn-menu auction" onclick="showView('auctionLobbyView')">💰 Subasta ONLINE</button>
+            <button class="btn-menu equipo" onclick="showView('equipoView')">Adivina el Equipo</button>
+            <button class="btn-menu torneo" onclick="showView('torneoSeleccionesView')">Torneo Selecciones Históricas</button>
+            <button class="btn-menu torneo" onclick="showView('torneoClubesView')">Torneo Clubes Históricos</button>
+            <button class="btn-reset" onclick="handleReset()" style="margin-top: 10px; width: 100%; padding: 10px;">Reiniciar Todo el Juego</button>
+        </div>
+        <p style="color: #666; font-size: 0.8rem;">Seleccioná un modo de juego</p>
+    </div>
+    
+    <!-- Juego: Torre Futbolera -->
+    <div id="torreView" class="app-view">
+        <div class="top-bar compact">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 class="view-title">Torre Futbolera</h1>
+        </div>
+        
+        <div class="game-container">
+        <div class="header-stats">
+            <div>❤️ Vidas: <span id="lives">5</span></div>
+            <div>🏆 Puntos: <span id="score">0</span></div>
+            <div>📝 <span id="catCounter">1/100</span></div>
+            <div class="achievements-container" id="achievementsContainer">
+                <div class="achievement-badge" id="ach-10-levels" title="Completar 10 niveles">🏅 10</div>
+                <div class="achievement-badge" id="ach-1000-pts" title="Alcanzar 1000 puntos">💰 1k</div>
+            </div>
+        </div>
+        
+        <div class="level-menu">
+            <button id="toggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
+            <button class="btn-reset" onclick="handleReset()">Reiniciar Todo el Juego</button>
+        </div>
+        <div id="levelGrid" class="level-grid hidden"></div>
+
+        <div class="category-title" id="categoryName">Cargando categoría...</div>
+
+        <div class="input-group">
+            <div class="predictive-field">
+                <input type="text" id="guessInput" placeholder="Ingresá un nombre..." autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="guessInputPredictive">
+                <div class="predictive-menu" id="guessInputPredictive" role="listbox"></div>
+            </div>
+            <button id="guessBtn">Adivinar</button>
+            <button id="surrenderBtn" class="btn-surrender">Rendirse</button>
+        </div>
+        
+        <div class="tower" id="towerSlots">
+            <!-- Los slots se generan por manipulación del DOM -->
+        </div>
+
+        <div id="gameMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: Trayectoria (Placeholder) -->
+    <div id="trayectoriaView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 class="view-title">Trayectoria</h1>
+        </div>
+
+        <div class="game-container" style="justify-content: center; text-align: center; gap: 20px;">
+            <div class="header-stats">
+                <div>❤️ <span id="trayLives">3</span></div>
+                <div>🏆 <span id="trayScore">0</span></div>
+            </div>
+            <div class="level-menu">
+                <button id="trayToggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
+                <button class="btn-reset" onclick="handleReset()">Reiniciar Todo el Juego</button>
+            </div>
+            <div id="trayLevelGrid" class="level-grid hidden"></div>
+
+            <div id="trayPath" class="tray-path">
+                Cargando trayectoria...
+            </div>
+            <div class="input-group">
+                <div class="predictive-field">
+                    <input type="text" id="trayInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="trayInputPredictive">
+                    <div class="predictive-menu" id="trayInputPredictive" role="listbox"></div>
+                </div>
+                <button onclick="checkTrayectoria()">Enviar</button>
+                <button onclick="loseTrayLife()" style="background-color: #666; color: white;">Saltear</button>
+            </div>
+            <div id="trayMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: El Camino -->
+    <div id="caminoView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 class="view-title">El Camino</h1>
+        </div>
+
+        <div class="game-container" style="text-align: center; gap: 15px;">
+            <div class="header-stats">
+                <div>❤️ Vidas: <span id="caminoLivesDisplay">3</span></div>
+                <div>🏆 Puntos: <span id="caminoScoreDisplay">0</span></div>
+                <div>🚩 <span id="caminoCounter">1/100</span></div>
+            </div>
+            <div class="level-menu">
+                <button id="caminoToggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
+                <button class="btn-reset" onclick="handleReset()">Reiniciar</button>
+            </div>
+            <div id="caminoLevelGrid" class="level-grid hidden"></div>
+            <div id="caminoTitle" class="category-title">Cargando...</div>
+            <div style="font-size: 0.8rem; color: #888;">Arrastrá los equipos para ordenarlos cronológicamente:</div>
+            <div id="caminoSelection" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 100px; border: 1px dashed #444; padding: 10px; border-radius: 8px; background: #111;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'selection')"></div>
+            <div id="caminoOptions" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 15px; border-top: 1px solid #333;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'options')"></div>
+            <div class="input-group">
+                <button onclick="checkCamino()" style="flex-grow: 1; background-color: var(--accent-color);">Verificar Orden</button>
+                <button onclick="resetCaminoSelection()" style="background-color: #666; color: white;">Reiniciar</button>
+            </div>
+            <div id="caminoMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: Futbol Link -->
+    <div id="linkView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 class="view-title">Futbol Link</h1>
+        </div>
+
+        <div class="game-container" style="justify-content: center; text-align: center; gap: 20px;">
+            <div class="header-stats">
+                <div>❤️ <span id="linkLives">4</span></div>
+                <div>🏆 <span id="linkScore">0</span></div>
+            </div>
+            <div class="level-menu">
+                <button id="linkToggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
+                <button class="btn-reset" onclick="handleReset()">Reiniciar Todo el Juego</button>
+            </div>
+            <div id="linkLevelGrid" class="level-grid hidden"></div>
+
+            <div id="linkDisplay" style="background: #2c2c2c; padding: 15px; border-radius: 8px; font-size: 1rem; min-height: 150px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; justify-content: center;">
+                Cargando compañeros...
+            </div>
+            <div class="input-group">
+                <div class="predictive-field">
+                    <input type="text" id="linkInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="linkInputPredictive">
+                    <div class="predictive-menu" id="linkInputPredictive" role="listbox"></div>
+                </div>
+                <button onclick="checkLink()">Enviar</button>
+                <button onclick="loseLinkLife()" style="background-color: #666; color: white;">Saltear</button>
+            </div>
+            <div id="linkMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: Wordle -->
+    <div id="wordleView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 class="view-title">Wordle Futbol</h1>
+        </div>
+
+        <div class="game-container" style="justify-content: center; text-align: center; gap: 10px;">
+            <div class="header-stats">
+                <div>❤️ Intentos: <span id="wordleTries">6</span></div>
+                <div>🏆 Puntos: <span id="wordleScore">0</span></div>
+            </div>
+            <div class="level-menu">
+                <button id="wordleToggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
+                <button class="btn-reset" onclick="handleReset()">Reiniciar Todo el Juego</button>
+            </div>
+            <div id="wordleLevelGrid" class="level-grid hidden"></div>
+
+            <div id="wordleBoard" class="wordle-grid" style="align-self: center;"></div>
+            
+            <div class="input-group">
+                <input type="text" id="wordleInput" placeholder="Adiviná la palabra..." maxlength="10">
+                <button onclick="checkWordle()">Enviar</button>
+            </div>
+            <div id="wordleMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: Adivina el Resultado -->
+    <div id="resultadoView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 class="view-title">Adivina el Resultado</h1>
+        </div>
+
+        <div class="game-container" style="justify-content: center; text-align: center; gap: 14px;">
+            <div class="header-stats">
+                <div>❤️ <span id="resultadoLives">3</span></div>
+                <div>🏆 <span id="resultadoScore">0</span></div>
+                <div>📝 <span id="resultadoCounter">1/100</span></div>
+            </div>
+            <div class="level-menu">
+                <button id="resultadoToggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
+                <button class="btn-reset" onclick="handleReset()">Reiniciar Todo el Juego</button>
+            </div>
+            <div id="resultadoLevelGrid" class="level-grid hidden"></div>
+
+            <div class="resultado-card">
+                <div class="resultado-meta">
+                    <span id="resultadoCompetition">Cargando...</span>
+                    <span>•</span>
+                    <span id="resultadoLeg">Partido único</span>
+                    <span>•</span>
+                    <span id="resultadoDate">--/--/----</span>
+                </div>
+                <div class="resultado-match">
+                    <div class="resultado-team">
+                        <img id="resultadoHomeLogo" class="resultado-logo" alt="">
+                        <span id="resultadoHome" class="resultado-team-name">Local</span>
+                    </div>
+                    <div class="resultado-vs">VS</div>
+                    <div class="resultado-team">
+                        <img id="resultadoAwayLogo" class="resultado-logo" alt="">
+                        <span id="resultadoAway" class="resultado-team-name">Visitante</span>
+                    </div>
+                </div>
+                <div class="score-inputs">
+                    <input type="number" id="resultadoHomeInput" min="0" max="20" inputmode="numeric" placeholder="0">
+                    <span class="score-separator">-</span>
+                    <input type="number" id="resultadoAwayInput" min="0" max="20" inputmode="numeric" placeholder="0">
+                </div>
+                <div class="input-group" style="justify-content: center; margin-bottom: 0;">
+                    <button onclick="checkResultado()" style="background-color: var(--accent-color);">Enviar</button>
+                    <button onclick="loseResultadoLife()" style="background-color: #666; color: white;">Saltear</button>
+                </div>
+                <div id="resultadoAnswer" class="resultado-answer"></div>
+            </div>
+            <div id="resultadoMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: Adivina el Equipo -->
+    <div id="equipoView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">â¬…</button>
+            <h1 class="view-title">Adivina el Equipo</h1>
+        </div>
+
+        <div class="game-container" style="justify-content: center; text-align: center; gap: 14px;">
+            <div class="header-stats">
+                <div>â¤ï¸ <span id="equipoLives">3</span></div>
+                <div>ðŸ† <span id="equipoScore">0</span></div>
+                <div>ðŸ“ <span id="equipoCounter">1/100</span></div>
+            </div>
+            <div class="level-menu">
+                <button id="equipoToggleGridBtn" style="background-color: #444; color: white; flex-grow: 1;">Niveles</button>
+                <button class="btn-reset" onclick="handleReset()">Reiniciar Todo el Juego</button>
+            </div>
+            <div id="equipoLevelGrid" class="level-grid hidden"></div>
+
+            <div class="team-guess-card">
+                <img id="equipoLogo" class="team-guess-logo" alt="">
+            </div>
+            <div id="equipoAnswer" class="team-guess-answer"></div>
+
+            <div class="input-group">
+                <div class="predictive-field">
+                    <input type="text" id="equipoInput" placeholder="Â¿QuÃ© equipo es?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="equipoInputPredictive">
+                    <div class="predictive-menu" id="equipoInputPredictive" role="listbox"></div>
+                </div>
+                <button id="equipoSubmitBtn" onclick="checkEquipo()">Enviar</button>
+                <button id="equipoSkipBtn" onclick="loseEquipoLife()" style="background-color: #666; color: white;">Saltear</button>
+            </div>
+            <div id="equipoMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: Torneo Selecciones Históricas -->
+    <div id="torneoSeleccionesView" class="app-view" style="max-width: 1280px;">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">â¬…</button>
+            <h1 class="view-title">Torneo Selecciones Históricas</h1>
+        </div>
+        <iframe class="embedded-mode-frame" src="modes/torneo-selecciones/index.html" title="Torneo Selecciones Históricas"></iframe>
+    </div>
+
+    <!-- Juego: Torneo Clubes Históricos -->
+    <div id="torneoClubesView" class="app-view" style="max-width: 1280px;">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">â¬…</button>
+            <h1 class="view-title">Torneo Clubes Históricos</h1>
+        </div>
+        <iframe class="embedded-mode-frame" src="modes/torneo-clubes/index.html" title="Torneo Clubes Históricos"></iframe>
+    </div>
+
+    <!-- Juego: Subasta Futbolera - Lobby de Sala -->
+    <div id="auctionLobbyView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 class="view-title">Subasta Futbolera - Sala</h1>
+        </div>
+
+        <div class="game-container" style="justify-content: center; text-align: center; gap: 20px;">
+            <h2 style="color: var(--accent-color); margin-bottom: 20px;">Configurar Sala</h2>
+            <div class="input-group" style="flex-direction: column; gap: 15px;">
+                <input type="text" id="usernameInput" placeholder="Tu Nombre de Usuario" value="Jugador1" style="padding: 12px; font-size: 1rem;">
+                <input type="text" id="roomNameInput" placeholder="Nombre de la Sala (ej: MiSala123)" style="padding: 12px; font-size: 1rem;">
+                
+                <div style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">
+                    <label for="auctionTimeConfig" style="color: #ccc; font-size: 0.9rem; align-self: center;">Tiempo por puja (segundos):</label>
+                    <input type="number" id="auctionTimeConfig" value="15" min="5" max="60" style="width: 80px; padding: 8px; font-size: 0.9rem;">
+                </div>
+                <div style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">
+                    <label for="initialBudgetConfig" style="color: #ccc; font-size: 0.9rem; align-self: center;">Presupuesto inicial ($M):</label>
+                    <input type="number" id="initialBudgetConfig" value="1000" min="100" max="5000" step="100" style="width: 100px; padding: 8px; font-size: 0.9rem;">
+                </div>
+            </div>
+            <div class="input-group" style="margin-top: 20px;">
+                <button onclick="createAuctionRoom()" style="background-color: var(--accent-color); flex-grow: 1; padding: 15px; font-size: 1.1rem;">Crear Sala</button>
+                <button onclick="joinAuctionRoom()" style="background-color: #2196f3; flex-grow: 1; padding: 15px; font-size: 1.1rem;">Unirse a Sala</button>
+            </div>
+            <div id="lobbyMessage" class="message"></div>
+        </div>
+    </div>
+
+    <!-- Juego: Subasta Futbolera - Sala de Espera -->
+    <div id="auctionWaitingView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('auctionLobbyView')">⬅</button>
+            <h1 class="view-title">Sala de Espera</h1>
+        </div>
+
+        <div class="game-container" style="text-align: center; gap: 20px;">
+            <div>
+                <h2 id="waitingRoomTitle" style="color: gold; margin-bottom: 5px;">SALA: -</h2>
+                <p style="font-size: 0.8rem; color: #888;">Esperando a que se unan más jugadores...</p>
+            </div>
+
+            <div style="background: #111; border-radius: 8px; padding: 15px; flex-grow: 1; min-height: 200px;">
+                <h3 style="font-size: 0.9rem; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px; color: var(--accent-color);">JUGADORES CONECTADOS</h3>
+                <div id="waitingPlayersList" style="display: flex; flex-direction: column; gap: 10px;">
+                    <!-- Se puebla dinámicamente -->
+                </div>
+            </div>
+
+            <div style="padding: 10px;">
+                <button onclick="startAuctionFromWaiting()" style="background-color: var(--accent-color); width: 100%; padding: 15px; font-size: 1.2rem; box-shadow: 0 0 15px rgba(0,230,118,0.4);">EMPEZAR PARTIDA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Juego: Subasta Futbolera -->
+    <div id="auctionView" class="app-view auction-app-view">
+        <div class="auction-top-bar">
+            <button class="back-btn" onclick="showView('menuView')">⬅</button>
+            <h1 style="font-size: 1.2rem; flex-grow: 1;">Mercado de Fichajes: <span id="auctionRound" style="color: gold;">Arqueros</span></h1>
+            <div id="auctionUserBudget" style="background: #2c2c2c; padding: 5px 15px; border-radius: 20px; color: gold; font-weight: bold;">💰 $1000M</div>
+        </div>
+
+        <div style="width: 100%; text-align: center; padding: 5px; background: #222; color: #bbb; font-size: 0.8rem;">
+            Sala: <span id="currentRoomName" style="color: #fff; font-weight: bold;">-</span> | 
+            Usuario: <span id="currentUsername" style="color: #fff; font-weight: bold;">-</span>
+        </div>
+
+        <div class="auction-layout">
+            <!-- Lateral Izquierdo: Usuarios -->
+            <div class="auction-panel">
+                <h3 style="font-size: 0.8rem; color: #888;">CONECTADOS</h3>
+                <div id="onlinePlayers" style="margin-top: 10px;">
+                    <!-- Usuarios en tiempo real -->
+                </div>
+            </div>
+
+            <!-- Centro: Subasta Activa -->
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+                <div class="auction-timer" id="auctionTimer">15</div>
+                
+                <div id="currentPlayerCard" class="fut-card Elite">
+                    <!-- Generado dinámicamente -->
+                </div>
+
+                <div style="width: 100%; max-width: 300px; margin-top: 10px;">
+                    <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+                        <input type="number" id="bidAmount" style="width: 100px; background: #222; border: 1px solid #444; color: gold; padding: 10px; border-radius: 5px;" placeholder="+10">
+                        <button onclick="placeBid()" style="flex-grow: 1; background: var(--accent-color); font-size: 1.2rem;">OFERTAR</button>
+                    </div>
+                    <p style="font-size: 0.7rem; color: #666; text-align: center;">Última oferta: <span id="lastBidder" style="color: #fff;">-</span></p>
+                </div>
+            </div>
+
+            <!-- Lateral Derecho: Mi Equipo & Chat -->
+            <div class="auction-panel">
+                <h3 style="font-size: 0.8rem; color: #888;">HISTORIAL / CHAT</h3>
+                <div class="bid-history" id="auctionEvents">
+                    <!-- Puja 1... Puja 2... -->
+                </div>
+                <div class="input-group" style="margin-top: 5px;">
+                    <input type="text" id="auctionChat" placeholder="Chat..." style="font-size: 0.7rem;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navegación de Vistas
+        function showView(viewId) {
+            // Ocultar todas las vistas
+            const views = ['menuView', 'torreView', 'trayectoriaView', 'caminoView', 'linkView', 'wordleView', 'resultadoView', 'equipoView', 'torneoSeleccionesView', 'torneoClubesView', 'auctionLobbyView', 'auctionWaitingView', 'auctionView'];
+            views.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            
+            // Mostrar la vista seleccionada
+            const target = document.getElementById(viewId);
+            target.style.display = 'flex';
+
+            if (viewId === 'trayectoriaView') {
+                populateTrayGrid();
+                initTrayectoria();
+            }
+            if (viewId === 'caminoView') {
+                populateCaminoGrid();
+                initCamino();
+            }
+            if (viewId === 'linkView') {
+                populateLinkGrid();
+                initLink();
+            }
+            if (viewId === 'wordleView') {
+                populateWordleGrid();
+                initWordle();
+            }
+            if (viewId === 'resultadoView') {
+                populateResultadoGrid();
+                initResultado();
+            }
+            if (viewId === 'equipoView') {
+                populateEquipoGrid();
+                initEquipo();
+            }
+            if (viewId === 'auctionLobbyView') { // La subasta inicia desde el lobby
+                initAuction();
+            }
+        }
+
+        // Lógica Principal del Juego
+        let currentCategoryIndex = 0;
+        let lives = 5;
+        let score = 0;
+        let guessedIndices = [];
+        let levelProgress = [];
+        let trayIdx = 0;
+        let linkIdx = 0;
+        let caminoIdx = 0;
+        let wordleIdx = 0;
+        let resultadoIdx = 0;
+        let equipoIdx = 0;
+        let currentCaminoSelection = [];
+        let caminoScoreValue = 0;
+        let caminoLives = 3;
+        let caminoProgress = []; // { status: 'playing'|'won'|'lost' }
+        let currentAuctionIdx = 0;
+        let userBudget = 1000; // Presupuesto inicial por defecto
+        let currentBid = 0;
+        let auctionTime = 15; // Tiempo por puja por defecto
+        let auctionTimerInterval = null;
+        let socket = null; // Para Socket.IO
+        let currentUsername = "Jugador1";
+        let currentRoomName = "";
+        let auctionParticipants = []; // Lista de jugadores en la sala
+        let auctionIsAdmin = false;
+        let currentAuctionPlayer = null;
+        let trayProgress = []; // { status: 'playing'|'won'|'lost' }
+        let linkProgress = []; // { status: 'playing'|'won'|'lost' }
+        let wordleProgress = []; // { status: 'playing', guesses: [] }
+        let resultadoProgress = []; // { status: 'playing'|'won'|'lost', lives: number }
+        let resultadoScoreValue = 0;
+        let equipoData = [];
+        let equipoProgress = []; // { status: 'playing'|'won'|'lost', lives: number }
+        let equipoScoreValue = 0;
+        let currentWordleGuess = "";
+        let achievements = { won10: false, score1000: false };
+
+        const livesEl = document.getElementById('lives');
+        const scoreEl = document.getElementById('score');
+        const catCounterEl = document.getElementById('catCounter');
+        const categoryNameEl = document.getElementById('categoryName');
+        const guessInput = document.getElementById('guessInput');
+        const guessBtn = document.getElementById('guessBtn');
+        const surrenderBtn = document.getElementById('surrenderBtn');
+        const toggleGridBtn = document.getElementById('toggleGridBtn');
+        const levelGrid = document.getElementById('levelGrid');
+        const towerSlots = document.getElementById('towerSlots');
+        const gameMessage = document.getElementById('gameMessage');
+        const trayLevelGrid = document.getElementById('trayLevelGrid');
+        const trayToggleGridBtn = document.getElementById('trayToggleGridBtn');
+        const linkLevelGrid = document.getElementById('linkLevelGrid');
+        const linkToggleGridBtn = document.getElementById('linkToggleGridBtn');
+        const wordleLevelGrid = document.getElementById('wordleLevelGrid');
+        const wordleToggleGridBtn = document.getElementById('wordleToggleGridBtn');
+        const resultadoLevelGrid = document.getElementById('resultadoLevelGrid');
+        const resultadoToggleGridBtn = document.getElementById('resultadoToggleGridBtn');
+        const equipoLevelGrid = document.getElementById('equipoLevelGrid');
+        const equipoToggleGridBtn = document.getElementById('equipoToggleGridBtn');
+
+        function saveProgress() {
+            try {
+                localStorage.setItem('torreFutbol_progress', JSON.stringify(levelProgress));
+                localStorage.setItem('trayectoria_progress', JSON.stringify(trayProgress));
+                localStorage.setItem('camino_progress', JSON.stringify(caminoProgress));
+                localStorage.setItem('camino_score', caminoScoreValue.toString());
+                localStorage.setItem('link_progress', JSON.stringify(linkProgress));
+                localStorage.setItem('wordle_progress', JSON.stringify(wordleProgress));
+                localStorage.setItem('resultado_progress', JSON.stringify(resultadoProgress));
+                localStorage.setItem('resultado_score', resultadoScoreValue.toString());
+                localStorage.setItem('equipo_progress', JSON.stringify(equipoProgress));
+                localStorage.setItem('equipo_score', equipoScoreValue.toString());
+                
+                localStorage.setItem('torreFutbol_index', currentCategoryIndex.toString());
+                localStorage.setItem('trayectoria_index', trayIdx.toString());
+                localStorage.setItem('link_index', linkIdx.toString());
+                localStorage.setItem('camino_index', caminoIdx.toString());
+                localStorage.setItem('wordle_index', wordleIdx.toString());
+                localStorage.setItem('resultado_index', resultadoIdx.toString());
+                localStorage.setItem('equipo_index', equipoIdx.toString());
+                localStorage.setItem('auction_index', currentAuctionIdx.toString());
+                localStorage.setItem('auction_username', currentUsername);
+                localStorage.setItem('auction_roomname', currentRoomName);
+                localStorage.setItem('torreFutbol_score', score.toString());
+                localStorage.setItem('auction_budget', userBudget.toString());
+                localStorage.setItem('torreFutbol_achievements', JSON.stringify(achievements));
+            } catch (e) {
+                console.error("Error guardando progreso:", e);
+            }
+        }
+
+    // Función para desordenar los niveles (Algoritmo Fisher-Yates)
+    function shuffleArray(array) {
+        if (!array) return;
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Aplica un orden aleatorio persistente basado en localStorage
+    function applyPersistentShuffle(array, storageKey) {
+        let savedOrder = localStorage.getItem(storageKey);
+        let indices = null;
+        if (savedOrder) {
+            indices = JSON.parse(savedOrder);
+            if (indices.length !== array.length) indices = null;
+        }
+        if (!indices) {
+            indices = array.map((_, i) => i);
+            shuffleArray(indices);
+            localStorage.setItem(storageKey, JSON.stringify(indices));
+        }
+        const copy = [...array];
+        indices.forEach((originalIdx, i) => array[i] = copy[originalIdx]);
+    }
+
+        function cleanMediaName(name) {
+            return String(name || "")
+                .replace(/[\u{1F1E6}-\u{1F1FF}]/gu, "")
+                .replace(/[\uD83C-\uDBFF][\uDC00-\uDFFF]/g, "")
+                .replace(/\s*\(.*?\)\s*/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function getInitials(name) {
+            const clean = cleanMediaName(name);
+            if (!clean) return "?";
+            return clean
+                .split(" ")
+                .filter(Boolean)
+                .slice(0, 2)
+                .map(part => part[0])
+                .join("")
+                .toUpperCase();
+        }
+
+        function createFallbackImage(name, type = "logo") {
+            const initials = getInitials(name);
+            const size = type === "photo" ? 80 : 40;
+            const radius = type === "photo" ? 40 : 20;
+            const fontSize = type === "photo" ? 24 : 14;
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+                    <defs>
+                        <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                            <stop offset="0" stop-color="#123524"/>
+                            <stop offset="1" stop-color="#00e676"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="${size}" height="${size}" rx="${radius}" fill="url(#g)"/>
+                    <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="Segoe UI, Arial, sans-serif" font-size="${fontSize}" font-weight="800" fill="#07130d">${initials}</text>
+                </svg>`;
+            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+        }
+
+        function createFlagImage(flag, name = "") {
+            const safeName = cleanMediaName(name);
+            const flagArt = getFlagArtwork(flag);
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                    <rect width="40" height="40" rx="20" fill="#202020"/>
+                    <clipPath id="clip"><circle cx="20" cy="20" r="17"/></clipPath>
+                    <g clip-path="url(#clip)">${flagArt}</g>
+                    <circle cx="20" cy="20" r="17" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+                    <title>${safeName}</title>
+                </svg>`;
+            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+        }
+
+        function flagBands(colors, vertical = false) {
+            return colors.map((color, index) => {
+                const size = 40 / colors.length;
+                const x = vertical ? index * size : 0;
+                const y = vertical ? 0 : index * size;
+                const width = vertical ? size : 40;
+                const height = vertical ? 40 : size;
+                return `<rect x="${x}" y="${y}" width="${width}" height="${height}" fill="${color}"/>`;
+            }).join("");
+        }
+
+        function crossFlag(bg, cross, outline) {
+            return `
+                <rect width="40" height="40" fill="${bg}"/>
+                ${outline ? `<rect x="0" y="15" width="40" height="10" fill="${outline}"/><rect x="15" y="0" width="10" height="40" fill="${outline}"/>` : ""}
+                <rect x="0" y="17" width="40" height="6" fill="${cross}"/>
+                <rect x="17" y="0" width="6" height="40" fill="${cross}"/>`;
+        }
+
+        function getFlagArtwork(flag) {
+            const simpleFlags = {
+                "🇩🇪": flagBands(["#000000", "#dd0000", "#ffce00"]),
+                "🇫🇷": flagBands(["#0055a4", "#ffffff", "#ef4135"], true),
+                "🇧🇪": flagBands(["#000000", "#ffd90c", "#ef3340"], true),
+                "🇲🇽": `${flagBands(["#006847", "#ffffff", "#ce1126"], true)}<circle cx="20" cy="20" r="3" fill="#8c6d1f"/>`,
+                "🇵🇱": flagBands(["#ffffff", "#dc143c"]),
+                "🇳🇱": flagBands(["#ae1c28", "#ffffff", "#21468b"]),
+                "🇭🇷": `${flagBands(["#ff0000", "#ffffff", "#171796"])}<rect x="16" y="14" width="8" height="10" fill="#ff0000"/><rect x="18" y="16" width="4" height="6" fill="#ffffff"/>`,
+                "🇮🇹": flagBands(["#008c45", "#ffffff", "#cd212a"], true),
+                "🇪🇸": `<rect width="40" height="40" fill="#aa151b"/><rect y="10" width="40" height="20" fill="#f1bf00"/>`,
+                "🇨🇴": `<rect width="40" height="20" fill="#fcd116"/><rect y="20" width="40" height="10" fill="#003893"/><rect y="30" width="40" height="10" fill="#ce1126"/>`,
+                "🇺🇾": `${flagBands(["#ffffff", "#75aadb", "#ffffff", "#75aadb", "#ffffff"])}<circle cx="10" cy="10" r="4" fill="#f6c800"/>`,
+                "🇨🇱": `<rect width="40" height="20" fill="#ffffff"/><rect y="20" width="40" height="20" fill="#d52b1e"/><rect width="16" height="20" fill="#0039a6"/><circle cx="8" cy="10" r="2" fill="#ffffff"/>`,
+                "🇵🇹": `<rect width="16" height="40" fill="#006600"/><rect x="16" width="24" height="40" fill="#ff0000"/><circle cx="16" cy="20" r="4" fill="#ffcc00"/>`,
+                "🇳🇴": crossFlag("#ba0c2f", "#00205b", "#ffffff"),
+                "🇸🇪": crossFlag("#006aa7", "#fecc00", null),
+                "🇲🇦": `<rect width="40" height="40" fill="#c1272d"/><path d="M20 11 L22 18 H29 L23 22 L25 29 L20 24 L15 29 L17 22 L11 18 H18 Z" fill="none" stroke="#006233" stroke-width="1.5"/>`,
+                "🇨🇦": `<rect width="10" height="40" fill="#d52b1e"/><rect x="10" width="20" height="40" fill="#ffffff"/><rect x="30" width="10" height="40" fill="#d52b1e"/><circle cx="20" cy="20" r="5" fill="#d52b1e"/>`,
+                "🇪🇬": `${flagBands(["#ce1126", "#ffffff", "#000000"])}<circle cx="20" cy="20" r="2" fill="#c09300"/>`,
+                "🇯🇵": `<rect width="40" height="40" fill="#ffffff"/><circle cx="20" cy="20" r="9" fill="#bc002d"/>`,
+                "🇨🇭": `<rect width="40" height="40" fill="#ff0000"/><rect x="17" y="10" width="6" height="20" fill="#ffffff"/><rect x="10" y="17" width="20" height="6" fill="#ffffff"/>`,
+                "🇺🇸": `${Array.from({length: 7}, (_, i) => `<rect y="${i * 6}" width="40" height="3" fill="#b22234"/>`).join("")}<rect width="18" height="18" fill="#3c3b6e"/><circle cx="8" cy="8" r="2" fill="#ffffff"/>`,
+                "🇧🇷": `<rect width="40" height="40" fill="#009b3a"/><path d="M20 6 L34 20 L20 34 L6 20 Z" fill="#ffdf00"/><circle cx="20" cy="20" r="8" fill="#002776"/>`,
+                "🇦🇷": `${flagBands(["#75aadb", "#ffffff", "#75aadb"])}<circle cx="20" cy="20" r="4" fill="#f6b40e"/>`,
+                "🇦🇺": `<rect width="40" height="40" fill="#012169"/><circle cx="28" cy="12" r="2" fill="#ffffff"/><circle cx="22" cy="25" r="2" fill="#ffffff"/><circle cx="32" cy="29" r="2" fill="#ffffff"/>`,
+                "🇸🇦": `<rect width="40" height="40" fill="#006c35"/><rect x="10" y="24" width="20" height="2" fill="#ffffff"/><text x="20" y="19" text-anchor="middle" font-family="Arial" font-size="6" fill="#ffffff">SA</text>`,
+                "🇬🇷": `${flagBands(["#0d5eaf", "#ffffff", "#0d5eaf", "#ffffff", "#0d5eaf"])}<rect width="18" height="18" fill="#0d5eaf"/><rect x="7" width="4" height="18" fill="#ffffff"/><rect y="7" width="18" height="4" fill="#ffffff"/>`,
+                "🇺🇿": `<rect width="40" height="13" fill="#1eb5e5"/><rect y="15" width="40" height="10" fill="#ffffff"/><rect y="27" width="40" height="13" fill="#009b5a"/><rect y="13" width="40" height="2" fill="#ce1126"/><rect y="25" width="40" height="2" fill="#ce1126"/><circle cx="9" cy="7" r="3" fill="#ffffff"/>`,
+                "🇶🇦": `<rect width="40" height="40" fill="#8a1538"/><path d="M0 0 H13 L8 4 L13 8 L8 12 L13 16 L8 20 L13 24 L8 28 L13 32 L8 36 L13 40 H0 Z" fill="#ffffff"/>`,
+                "🇹🇷": `<rect width="40" height="40" fill="#e30a17"/><circle cx="18" cy="20" r="9" fill="#ffffff"/><circle cx="21" cy="20" r="7" fill="#e30a17"/><path d="M28 16 L29.5 19 H33 L30 21 L31.2 24 L28 22 L24.8 24 L26 21 L23 19 H26.5 Z" fill="#ffffff"/>`,
+                "🇷🇺": flagBands(["#ffffff", "#0039a6", "#d52b1e"]),
+                "🇸🇳": `${flagBands(["#00853f", "#fdef42", "#e31b23"], true)}<path d="M20 12 L22 18 H28 L23 21 L25 28 L20 24 L15 28 L17 21 L12 18 H18 Z" fill="#00853f"/>`,
+                "ENG": crossFlag("#ffffff", "#cf142b", null),
+                "SCO": crossFlag("#005eb8", "#ffffff", null),
+                "WAL": `<rect width="40" height="20" fill="#ffffff"/><rect y="20" width="40" height="20" fill="#00843d"/><circle cx="20" cy="20" r="5" fill="#c8102e"/>`
+            };
+            return simpleFlags[flag] || `<rect width="40" height="40" fill="#2c2c2c"/><text x="20" y="23" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#00e676">${flag}</text>`;
+        }
+
+        function findMediaEntry(source, name) {
+            if (!source || !name) return null;
+            const clean = cleanMediaName(name);
+            if (source[clean]) return source[clean];
+            const norm = normalizeText(clean);
+            for (let key in source) {
+                if (normalizeText(cleanMediaName(key)) === norm) return source[key];
+            }
+            return null;
+        }
+
+        function findLocalSvgLogo(name) {
+            const entry = findMediaEntry(typeof localTeamLogos !== 'undefined' ? localTeamLogos : null, name);
+            return entry && !/^https?:/i.test(entry) && /\.svg(?:$|[?#])/i.test(entry) ? entry : null;
+        }
+
+        const generatedLocalTeamLogos = new Set([
+            "Aston Villa",
+            "Athletico Paranaense",
+            "Atletico Nacional",
+            "Benfica",
+            "Betis",
+            "Cruzeiro",
+            "Espanyol",
+            "Leicester City",
+            "Mazembe",
+            "Monaco",
+            "Napoli",
+            "Sao Paulo"
+        ].map(name => normalizeText(name)));
+
+        function getLocalTeamLogo(name) {
+            return findMediaEntry(typeof localTeamLogos !== 'undefined' ? localTeamLogos : null, name);
+        }
+
+        function isGeneratedLocalTeamLogo(name) {
+            return generatedLocalTeamLogos.has(normalizeText(cleanMediaName(name)));
+        }
+
+        function getReliableLocalTeamLogo(name) {
+            const entry = getLocalTeamLogo(name);
+            if (!entry || /^https?:/i.test(entry)) return null;
+            return isGeneratedLocalTeamLogo(name) ? null : entry;
+        }
+
+        function getGeneratedLocalTeamLogo(name) {
+            const entry = getLocalTeamLogo(name);
+            if (!entry || /^https?:/i.test(entry)) return null;
+            return isGeneratedLocalTeamLogo(name) ? entry : null;
+        }
+
+        function getLogoErrorFallback(name) {
+            return getGeneratedLocalTeamLogo(name)
+                || getCountryFlagAssetByName(name)
+                || getLeadingFlagAsset(name)
+                || createFallbackImage(name, "logo");
+        }
+
+        function getPreferredLocalTeamLogo(name) {
+            const preferredLocalTeams = ["San Lorenzo"];
+            const clean = cleanMediaName(name);
+            if (!preferredLocalTeams.some(team => normalizeText(team) === normalizeText(clean))) return null;
+            return getLocalTeamLogo(name);
+        }
+
+        function getPlayerPhoto(playerName) {
+            return findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, playerName)
+                || findMediaEntry(typeof playerPhotos !== 'undefined' ? playerPhotos : null, playerName)
+                || createFallbackImage(playerName, "photo");
+        }
+
+        function getGlobalPhoto(name) {
+            return findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, name)
+                || findMediaEntry(typeof playerPhotos !== 'undefined' ? playerPhotos : null, name)
+                || createFallbackImage(name, "photo");
+        }
+
+        const playerFlags = {
+            "achraf hakimi": "🇲🇦",
+            "alexis mac allister": "🇦🇷",
+            "alexis sanchez": "🇨🇱",
+            "alisson becker": "🇧🇷",
+            "alphonso davies": "🇨🇦",
+            "andres iniesta": "🇪🇸",
+            "angel di maria": "🇦🇷",
+            "antoine griezmann": "🇫🇷",
+            "bukayo saka": "ENG",
+            "cafu": "🇧🇷",
+            "cristiano ronaldo": "🇵🇹",
+            "cristian romero": "🇦🇷",
+            "dani carvajal": "🇪🇸",
+            "diego maradona": "🇦🇷",
+            "emiliano martinez": "🇦🇷",
+            "enzo fernandez": "🇦🇷",
+            "erling haaland": "🇳🇴",
+            "gabriel batistuta": "🇦🇷",
+            "gonzalo higuain": "🇦🇷",
+            "harry kane": "ENG",
+            "james rodriguez": "🇨🇴",
+            "jude bellingham": "ENG",
+            "julian alvarez": "🇦🇷",
+            "karim benzema": "🇫🇷",
+            "kevin de bruyne": "🇧🇪",
+            "kylian mbappe": "🇫🇷",
+            "lionel messi": "🇦🇷",
+            "luka modric": "🇭🇷",
+            "luis suarez": "🇺🇾",
+            "manuel neuer": "🇩🇪",
+            "marquinhos": "🇧🇷",
+            "mohamed salah": "🇪🇬",
+            "neymar jr": "🇧🇷",
+            "paolo maldini": "🇮🇹",
+            "robert lewandowski": "🇵🇱",
+            "ronaldinho": "🇧🇷",
+            "ronaldo nazario": "🇧🇷",
+            "sergio aguero": "🇦🇷",
+            "sergio ramos": "🇪🇸",
+            "theo hernandez": "🇫🇷",
+            "thibaut courtois": "🇧🇪",
+            "thomas muller": "🇩🇪",
+            "vinicius junior": "🇧🇷",
+            "virgil van dijk": "🇳🇱",
+            "xavi hernandez": "🇪🇸",
+            "zinedine zidane": "🇫🇷",
+            "zlatan ibrahimovic": "🇸🇪"
+        };
+
+        const countryFlagAliases = [
+            { aliases: ["alemania", "alemania federal", "alemania oriental"], flag: "🇩🇪" },
+            { aliases: ["arabia saudita"], flag: "🇸🇦" },
+            { aliases: ["argelia"], flag: "🇩🇿" },
+            { aliases: ["argentina"], flag: "🇦🇷" },
+            { aliases: ["australia"], flag: "🇦🇺" },
+            { aliases: ["austria"], flag: "🇦🇹" },
+            { aliases: ["belgica"], flag: "🇧🇪" },
+            { aliases: ["bolivia"], flag: "🇧🇴" },
+            { aliases: ["brasil"], flag: "🇧🇷" },
+            { aliases: ["bulgaria"], flag: "🇧🇬" },
+            { aliases: ["canada"], flag: "🇨🇦" },
+            { aliases: ["chile"], flag: "🇨🇱" },
+            { aliases: ["china"], flag: "🇨🇳" },
+            { aliases: ["colombia"], flag: "🇨🇴" },
+            { aliases: ["corea del norte"], flag: "🇰🇵" },
+            { aliases: ["corea del sur"], flag: "🇰🇷" },
+            { aliases: ["costa de marfil"], flag: "🇨🇮" },
+            { aliases: ["costa rica"], flag: "🇨🇷" },
+            { aliases: ["croacia"], flag: "🇭🇷" },
+            { aliases: ["dinamarca"], flag: "🇩🇰" },
+            { aliases: ["ecuador"], flag: "🇪🇨" },
+            { aliases: ["egipto"], flag: "🇪🇬" },
+            { aliases: ["emiratos arabes"], flag: "🇦🇪" },
+            { aliases: ["escocia"], flag: "SCO" },
+            { aliases: ["eslovaquia"], flag: "🇸🇰" },
+            { aliases: ["espana"], flag: "🇪🇸" },
+            { aliases: ["estados unidos", "ee. uu.", "ee uu"], flag: "🇺🇸" },
+            { aliases: ["francia"], flag: "🇫🇷" },
+            { aliases: ["gales"], flag: "WAL" },
+            { aliases: ["ghana"], flag: "🇬🇭" },
+            { aliases: ["grecia"], flag: "🇬🇷" },
+            { aliases: ["holanda", "paises bajos"], flag: "🇳🇱" },
+            { aliases: ["honduras"], flag: "🇭🇳" },
+            { aliases: ["hungria"], flag: "🇭🇺" },
+            { aliases: ["inglaterra"], flag: "ENG" },
+            { aliases: ["iran"], flag: "🇮🇷" },
+            { aliases: ["irlanda"], flag: "🇮🇪" },
+            { aliases: ["islandia"], flag: "🇮🇸" },
+            { aliases: ["italia"], flag: "🇮🇹" },
+            { aliases: ["jamaica"], flag: "🇯🇲" },
+            { aliases: ["japon"], flag: "🇯🇵" },
+            { aliases: ["marruecos"], flag: "🇲🇦" },
+            { aliases: ["mexico"], flag: "🇲🇽" },
+            { aliases: ["nigeria"], flag: "🇳🇬" },
+            { aliases: ["noruega"], flag: "🇳🇴" },
+            { aliases: ["panama"], flag: "🇵🇦" },
+            { aliases: ["paraguay"], flag: "🇵🇾" },
+            { aliases: ["peru"], flag: "🇵🇪" },
+            { aliases: ["polonia"], flag: "🇵🇱" },
+            { aliases: ["portugal"], flag: "🇵🇹" },
+            { aliases: ["qatar"], flag: "🇶🇦" },
+            { aliases: ["republica checa"], flag: "🇨🇿" },
+            { aliases: ["rumania"], flag: "🇷🇴" },
+            { aliases: ["rusia"], flag: "🇷🇺" },
+            { aliases: ["senegal"], flag: "🇸🇳" },
+            { aliases: ["serbia", "yugoslavia"], flag: "🇷🇸" },
+            { aliases: ["sudafrica"], flag: "🇿🇦" },
+            { aliases: ["suecia"], flag: "🇸🇪" },
+            { aliases: ["suiza"], flag: "🇨🇭" },
+            { aliases: ["turquia"], flag: "🇹🇷" },
+            { aliases: ["ucrania"], flag: "🇺🇦" },
+            { aliases: ["uruguay"], flag: "🇺🇾" },
+            { aliases: ["venezuela"], flag: "🇻🇪" }
+        ];
+
+        function getCountryFlagByName(name) {
+            const norm = normalizeText(cleanMediaName(name));
+            const match = countryFlagAliases.find(item => item.aliases.includes(norm));
+            return match ? match.flag : null;
+        }
+
+        function getCountryFlagAssetByName(name) {
+            return findMediaEntry(typeof localCountryFlags !== 'undefined' ? localCountryFlags : null, name);
+        }
+
+        function getLeadingFlagEmoji(name) {
+            const raw = String(name || "");
+            const subdivision = raw.match(/^\u{1F3F4}([\u{E0061}-\u{E007A}]+)\u{E007F}/u);
+            if (subdivision) {
+                const tag = Array.from(subdivision[1], char => String.fromCharCode(char.codePointAt(0) - 0xE0000)).join("");
+                if (tag === "gbeng") return "ENG";
+                if (tag === "gbsct") return "SCO";
+                if (tag === "gbwls") return "WAL";
+            }
+            const match = raw.match(/^([\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF])/);
+            return match ? match[1] : null;
+        }
+
+        function getCountryFlagAssetByFlag(flag) {
+            if (!flag) return null;
+            const match = countryFlagAliases.find(item => item.flag === flag);
+            return match ? getCountryFlagAssetByName(match.aliases[0]) : null;
+        }
+
+        function getLeadingFlagAsset(name) {
+            return getCountryFlagAssetByFlag(getLeadingFlagEmoji(name));
+        }
+
+        function getGlobalLogo(name, explicitUrl) {
+            const countryFlag = getCountryFlagByName(name);
+            const countryFlagAsset = getCountryFlagAssetByName(name);
+            return getPreferredLocalTeamLogo(name)
+                || getReliableLocalTeamLogo(name)
+                || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, name)
+                || getGeneratedLocalTeamLogo(name)
+                || getLocalTeamLogo(name)
+                || countryFlagAsset
+                || (countryFlag ? createFlagImage(countryFlag, name) : null)
+                || explicitUrl
+                || createFallbackImage(name, "logo");
+        }
+
+        function getGlobalMedia(name) {
+            const countryFlag = getCountryFlagByName(name);
+            const countryFlagAsset = getCountryFlagAssetByName(name);
+            return findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, name)
+                || findMediaEntry(typeof playerPhotos !== 'undefined' ? playerPhotos : null, name)
+                || getPreferredLocalTeamLogo(name)
+                || getReliableLocalTeamLogo(name)
+                || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, name)
+                || getGeneratedLocalTeamLogo(name)
+                || getLocalTeamLogo(name)
+                || countryFlagAsset
+                || (countryFlag ? createFlagImage(countryFlag, name) : null)
+                || createFallbackImage(name, "photo");
+        }
+
+        function getTrayectoriaClubMedia(name, explicitUrl) {
+            const leadingFlag = getLeadingFlagEmoji(name);
+            return getPreferredLocalTeamLogo(name)
+                || getReliableLocalTeamLogo(name)
+                || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, name)
+                || getGeneratedLocalTeamLogo(name)
+                || getLocalTeamLogo(name)
+                || explicitUrl
+                || getLeadingFlagAsset(name)
+                || (leadingFlag ? createFlagImage(leadingFlag, name) : null)
+                || getGlobalLogo(name);
+        }
+
+        const countryTitleFlags = [
+            { terms: ["argentina", "argentinos", "argentinas"], flag: "🇦🇷" },
+            { terms: ["brasil", "brasilenos", "brasileiros"], flag: "🇧🇷" },
+            { terms: ["uruguay"], flag: "🇺🇾" },
+            { terms: ["chile"], flag: "🇨🇱" },
+            { terms: ["colombia"], flag: "🇨🇴" },
+            { terms: ["mexico"], flag: "🇲🇽" },
+            { terms: ["espana"], flag: "🇪🇸" },
+            { terms: ["francia"], flag: "🇫🇷" },
+            { terms: ["turquia"], flag: "🇹🇷" },
+            { terms: ["italia"], flag: "🇮🇹" }
+        ];
+
+        const clubTitleContexts = [
+            { terms: ["boca", "boca juniors", "boca jrs"], team: "Boca Juniors" },
+            { terms: ["river", "river plate"], team: "River Plate" },
+            { terms: ["real madrid"], team: "Real Madrid" },
+            { terms: ["barcelona"], team: "Barcelona" },
+            { terms: ["bayern", "bayern munich", "bayern munich"], team: "Bayern Munich" },
+            { terms: ["paris saint-germain", "psg"], team: "PSG" },
+            { terms: ["independiente"], team: "Independiente" },
+            { terms: ["juventus"], team: "Juventus" },
+            { terms: ["manchester city", "man city"], team: "Manchester City" },
+            { terms: ["manchester united", "man united"], team: "Manchester United" },
+            { terms: ["racing"], team: "Racing Club" },
+            { terms: ["san lorenzo"], team: "San Lorenzo" },
+            { terms: ["chelsea"], team: "Chelsea" },
+            { terms: ["atletico de madrid"], team: "Atletico de Madrid" },
+            { terms: ["liverpool"], team: "Liverpool" },
+            { terms: ["inter de milan", "inter"], team: "Inter" },
+            { terms: ["arsenal"], team: "Arsenal" },
+            { terms: ["napoli"], team: "Napoli" },
+            { terms: ["ac milan", "milan"], team: "Milan" },
+            { terms: ["tottenham"], team: "Tottenham" }
+        ];
+
+        function getPlayerFlag(name) {
+            const norm = normalizeText(cleanMediaName(name));
+            if (playerFlags[norm]) return playerFlags[norm];
+            if (typeof subastaPlayers !== 'undefined') {
+                const player = subastaPlayers.find(item => normalizeText(cleanMediaName(item.name)) === norm);
+                if (player && player.nat) return player.nat;
+            }
+            return null;
+        }
+
+        function getCountryFlagFromTitle(title) {
+            const normalizedTitle = normalizeText(title);
+            const isNationalTeamCategory = normalizedTitle.includes("seleccion")
+                || normalizedTitle.includes("mundial")
+                || normalizedTitle.includes("copa america")
+                || normalizedTitle.includes("eurocopa")
+                || normalizedTitle.includes("jugadores argentinos")
+                || normalizedTitle.includes("jugadores brasilenos");
+
+            for (const item of countryTitleFlags) {
+                if (item.terms.some(term => normalizedTitle.includes(term))) {
+                    if (isNationalTeamCategory || normalizedTitle.includes(item.terms[0])) return item.flag;
+                }
+            }
+            return null;
+        }
+
+        function getClubFromTitle(title) {
+            const normalizedTitle = normalizeText(title);
+            const match = clubTitleContexts.find(item => item.terms.some(term => normalizedTitle.includes(term)));
+            return match ? match.team : null;
+        }
+
+        function isTeamAnswerCategory(title) {
+            const normalizedTitle = normalizeText(title);
+            return normalizedTitle.includes("clubes")
+                || normalizedTitle.includes("equipos")
+                || normalizedTitle.includes("titulos de primera division")
+                || normalizedTitle.includes("copas libertadores")
+                || normalizedTitle.includes("copas sudamericanas")
+                || normalizedTitle.includes("champions league") && normalizedTitle.includes("clubes");
+        }
+
+        function getTorreSlotMedia(category, answer) {
+            const title = category ? category.titulo : "";
+            const answerName = answer ? answer.nombre : "";
+
+            if (isTeamAnswerCategory(title)) {
+                return getGlobalLogo(answerName);
+            }
+
+            const titleFlag = getCountryFlagFromTitle(title);
+            if (titleFlag) return createFlagImage(titleFlag, title);
+
+            const titleClub = getClubFromTitle(title);
+            if (titleClub) return getGlobalLogo(titleClub);
+
+            const playerFlag = getPlayerFlag(answerName);
+            if (playerFlag) return createFlagImage(playerFlag, answerName);
+
+            return getGlobalLogo(answerName) || createFallbackImage(answerName, "logo");
+        }
+
+        // Poblar la cuadrícula de niveles
+        function populateGrid() {
+            levelGrid.innerHTML = '';
+            categorias.forEach((cat, index) => {
+                const btn = document.createElement('div');
+                const state = levelProgress[index];
+                btn.className = `level-btn ${state ? state.status : ''}`;
+                btn.textContent = index + 1;
+                btn.onclick = () => {
+                    currentCategoryIndex = index;
+                    loadLevel();
+                    levelGrid.classList.add('hidden');
+                };
+                levelGrid.appendChild(btn);
+            });
+        }
+
+        // Normalización de strings para ignorar tildes y mayúsculas
+        function normalizeText(text) {
+            return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+        }
+
+        let predictiveSources = { all: [], players: [], teams: [] };
+
+        function addPredictiveEntry(map, label, aliases = [], kind = "Jugador") {
+            const cleanLabel = cleanMediaName(label);
+            if (!cleanLabel) return;
+
+            const key = normalizeText(cleanLabel);
+            if (!key) return;
+
+            if (!map.has(key)) {
+                map.set(key, {
+                    label: cleanLabel,
+                    kind,
+                    key,
+                    aliasKeys: new Set()
+                });
+            }
+
+            const entry = map.get(key);
+            if (kind === "Equipo") entry.kind = kind;
+            entry.aliasKeys.add(key);
+
+            aliases.forEach(alias => {
+                const cleanAlias = cleanMediaName(alias);
+                const aliasKey = normalizeText(cleanAlias);
+                if (aliasKey) entry.aliasKeys.add(aliasKey);
+            });
+        }
+
+        function hasPredictiveObjectKey(obj, name) {
+            return obj && Object.prototype.hasOwnProperty.call(obj, cleanMediaName(name));
+        }
+
+        function isKnownTeamAnswer(categoryTitle, answerName) {
+            return hasPredictiveObjectKey(typeof teamLogos !== "undefined" ? teamLogos : null, answerName)
+                || hasPredictiveObjectKey(typeof localTeamLogos !== "undefined" ? localTeamLogos : null, answerName);
+        }
+
+        function buildPredictiveSources() {
+            const allEntries = new Map();
+            const playerEntries = new Map();
+            const teamEntries = new Map();
+
+            const addToAll = (label, aliases = [], kind = "Jugador") => {
+                addPredictiveEntry(allEntries, label, aliases, kind);
+            };
+            const addPlayer = (label, aliases = []) => {
+                addPredictiveEntry(playerEntries, label, aliases, "Jugador");
+                addPredictiveEntry(allEntries, label, aliases, "Jugador");
+            };
+            const addTeam = (label, aliases = []) => {
+                addPredictiveEntry(teamEntries, label, aliases, "Equipo");
+                addPredictiveEntry(allEntries, label, aliases, "Equipo");
+            };
+
+            if (typeof categorias !== "undefined") {
+                categorias.forEach(category => {
+                    if (!category || !Array.isArray(category.respuestas)) return;
+                    (category.respuestas || []).forEach(answer => {
+                        if (!answer) return;
+                        addToAll(
+                            answer.nombre,
+                            answer.alias || [],
+                            isKnownTeamAnswer(category.titulo, answer.nombre) ? "Equipo" : "Jugador"
+                        );
+                    });
+                });
+            }
+
+            if (typeof trayectoriasData !== "undefined") {
+                trayectoriasData.forEach(item => addPlayer(item.ans, item.alias || []));
+            }
+
+            if (typeof linkData !== "undefined") {
+                linkData.forEach(item => addPlayer(item.ans, item.alias || []));
+            }
+
+            if (typeof subastaPlayers !== "undefined") {
+                subastaPlayers.forEach(player => addPlayer(player.name, [player.name]));
+            }
+
+            if (typeof playerPhotos !== "undefined") {
+                Object.keys(playerPhotos).forEach(name => addPlayer(name, [name]));
+            }
+
+            if (typeof localPlayerPhotos !== "undefined") {
+                Object.keys(localPlayerPhotos).forEach(name => addPlayer(name, [name]));
+            }
+
+            if (typeof teamLogos !== "undefined") {
+                Object.keys(teamLogos).forEach(name => addTeam(name, [name]));
+            }
+
+            if (typeof localTeamLogos !== "undefined") {
+                Object.keys(localTeamLogos).forEach(name => addTeam(name, [name]));
+            }
+
+            predictiveSources = {
+                all: Array.from(allEntries.values()).map(entry => ({
+                    ...entry,
+                    aliasKeys: Array.from(entry.aliasKeys)
+                })),
+                players: Array.from(playerEntries.values()).map(entry => ({
+                    ...entry,
+                    aliasKeys: Array.from(entry.aliasKeys)
+                })),
+                teams: Array.from(teamEntries.values()).map(entry => ({
+                    ...entry,
+                    aliasKeys: Array.from(entry.aliasKeys)
+                }))
+            };
+        }
+
+        function getPredictiveMatches(query, sourceName = "all") {
+            const q = normalizeText(cleanMediaName(query));
+            if (q.length < 2) return [];
+
+            const source = predictiveSources[sourceName] || predictiveSources.all || [];
+            return source
+                .map(entry => {
+                    const aliasKeys = entry.aliasKeys || [];
+                    let score = 99;
+                    if (entry.key.startsWith(q)) score = 0;
+                    else if (aliasKeys.some(alias => alias.startsWith(q))) score = 1;
+                    else if (entry.key.includes(q)) score = 2;
+                    else if (aliasKeys.some(alias => alias.includes(q))) score = 3;
+
+                    return { ...entry, score };
+                })
+                .filter(entry => entry.score < 99)
+                .sort((a, b) => a.score - b.score || a.label.length - b.label.length || a.label.localeCompare(b.label))
+                .slice(0, 8);
+        }
+
+        function closePredictiveMenu(input, menu) {
+            if (!menu) return;
+            menu.classList.remove("visible");
+            menu.innerHTML = "";
+            if (input) {
+                input.setAttribute("aria-expanded", "false");
+                input.removeAttribute("aria-activedescendant");
+            }
+        }
+
+        function renderPredictiveMenu(input, menu, state) {
+            menu.innerHTML = "";
+            if (!state.matches.length || input.disabled) {
+                closePredictiveMenu(input, menu);
+                return;
+            }
+
+            state.matches.forEach((match, index) => {
+                const option = document.createElement("div");
+                option.className = `predictive-option${index === state.activeIndex ? " active" : ""}`;
+                option.id = `${input.id}-predictive-option-${index}`;
+                option.setAttribute("role", "option");
+                option.setAttribute("aria-selected", index === state.activeIndex ? "true" : "false");
+                option.dataset.value = match.label;
+
+                const label = document.createElement("span");
+                label.textContent = match.label;
+
+                const kind = document.createElement("span");
+                kind.className = "predictive-kind";
+                kind.textContent = match.kind;
+
+                option.append(label, kind);
+                option.addEventListener("mousedown", event => {
+                    event.preventDefault();
+                    input.value = match.label;
+                    closePredictiveMenu(input, menu);
+                    input.focus();
+                });
+
+                menu.appendChild(option);
+            });
+
+            menu.classList.add("visible");
+            input.setAttribute("aria-expanded", "true");
+            input.setAttribute("aria-activedescendant", `${input.id}-predictive-option-${state.activeIndex}`);
+        }
+
+        function setupPredictiveInput(inputId, sourceName = "all") {
+            const input = document.getElementById(inputId);
+            const menu = document.getElementById(`${inputId}Predictive`);
+            if (!input || !menu) return;
+
+            const state = { matches: [], activeIndex: 0 };
+
+            const refresh = () => {
+                state.matches = getPredictiveMatches(input.value, sourceName);
+                state.activeIndex = 0;
+                renderPredictiveMenu(input, menu, state);
+            };
+
+            input.addEventListener("input", refresh);
+            input.addEventListener("focus", refresh);
+            input.addEventListener("blur", () => {
+                setTimeout(() => closePredictiveMenu(input, menu), 120);
+            });
+            input.addEventListener("keydown", event => {
+                const menuIsOpen = menu.classList.contains("visible");
+                if (!menuIsOpen) return;
+
+                if (event.key === "ArrowDown") {
+                    event.preventDefault();
+                    state.activeIndex = (state.activeIndex + 1) % state.matches.length;
+                    renderPredictiveMenu(input, menu, state);
+                } else if (event.key === "ArrowUp") {
+                    event.preventDefault();
+                    state.activeIndex = (state.activeIndex - 1 + state.matches.length) % state.matches.length;
+                    renderPredictiveMenu(input, menu, state);
+                } else if (event.key === "Enter") {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    const selected = state.matches[state.activeIndex];
+                    if (selected) input.value = selected.label;
+                    closePredictiveMenu(input, menu);
+                } else if (event.key === "Escape") {
+                    event.preventDefault();
+                    closePredictiveMenu(input, menu);
+                }
+            }, true);
+        }
+
+        function initPredictiveText() {
+            buildPredictiveSources();
+            setupPredictiveInput("guessInput", "all");
+            setupPredictiveInput("trayInput", "players");
+            setupPredictiveInput("linkInput", "players");
+            setupPredictiveInput("equipoInput", "teams");
+        }
+
+        // Obtener colores de confeti según el tema
+        function getConfettiColors(title) {
+            const t = title.toLowerCase();
+            if (t.includes("boca")) return ['#0057b7', '#ffd700']; // Azul y Oro
+            if (t.includes("river") || t.includes("españa") || t.includes("atletico de madrid")) return ['#ff0000', '#ffffff']; // Rojo y Blanco
+            if (t.includes("argentina")) return ['#75aadb', '#ffffff', '#fcbf49']; // Celeste, Blanco y Oro
+            if (t.includes("barcelona")) return ['#a50044', '#004d98']; // Blaugrana
+            if (t.includes("real madrid")) return ['#ffffff', '#febe10']; // Blanco y Oro
+            if (t.includes("brasil")) return ['#ffdf00', '#009b3a']; // Verdeamarela
+            return ['#00e676', '#ffffff', '#ffd700']; // Default
+        }
+
+        function checkAchievements() {
+            const levelsWon = levelProgress.filter(p => p.status === 'won').length;
+            if (!achievements.won10 && levelsWon >= 10) {
+                achievements.won10 = true;
+                document.getElementById('ach-10-levels').classList.add('unlocked');
+                saveProgress();
+            }
+            if (!achievements.score1000 && score >= 1000) {
+                achievements.score1000 = true;
+                document.getElementById('ach-1000-pts').classList.add('unlocked');
+                saveProgress();
+            }
+        }
+
+        // Renderizado del nivel
+        function loadLevel() {
+            // "categorias" viene del archivo datos.js
+            if (typeof categorias === 'undefined' || categorias.length === 0) {
+                categoryNameEl.textContent = "Error: datos.js no cargado";
+                return;
+            }
+
+            const category = categorias[currentCategoryIndex];
+            const state = levelProgress[currentCategoryIndex];
+            
+            categoryNameEl.textContent = category.titulo;
+            catCounterEl.textContent = `${currentCategoryIndex + 1}/${categorias.length}`;
+            
+            updateGridSelection();
+            saveProgress();
+            
+            // Restaurar estado del nivel
+            guessedIndices = state.guessedIndices;
+            const isGameOver = state.status !== 'playing';
+            
+            lives = isGameOver ? 0 : 5;
+            livesEl.textContent = lives;
+            
+            towerSlots.innerHTML = '';
+            guessInput.value = '';
+            guessInput.disabled = isGameOver;
+            guessBtn.disabled = isGameOver;
+            surrenderBtn.disabled = isGameOver;
+
+            if (state.status === 'won') showMessage("¡NIVEL COMPLETADO!", "correct");
+            else if (state.status === 'lost') showMessage("NIVEL FINALIZADO", "incorrect");
+            else showMessage("", "");
+
+            for (let i = 0; i < 10; i++) {
+                const isGuessed = guessedIndices.includes(i);
+                const shouldReveal = isGuessed || isGameOver;
+                const slot = document.createElement('div');
+                slot.className = `slot ${shouldReveal ? 'revealed' : ''}`;
+                slot.id = `slot-${i}`;
+                
+                if (isGameOver && !isGuessed) {
+                    slot.style.borderLeftColor = "#ffeb3b"; // Color para respuestas no adivinadas
+                }
+
+                slot.innerHTML = `
+                    <span class="slot-rank">#${i + 1}</span>
+                    <img class="slot-img" src="${shouldReveal ? getTorreSlotMedia(category, category.respuestas[i]) : createFallbackImage('?', 'logo') }" alt="${shouldReveal ? category.respuestas[i].nombre : '?'}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(category.respuestas[i].nombre)}'">
+                    <span class="slot-name">${shouldReveal ? category.respuestas[i].nombre : '?????' }</span>
+                    <span class="slot-points">${10 - i} pts</span>
+                `;
+                towerSlots.appendChild(slot);
+            }
+        }
+
+        function updateGridSelection() {
+            const btns = document.querySelectorAll('.level-btn');
+            btns.forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === currentCategoryIndex);
+            });
+        }
+
+        function updateLevelStatus(status) {
+            levelProgress[currentCategoryIndex].status = status;
+            populateGrid();
+            updateGridSelection();
+            saveProgress();
+        }
+
+        function revealAllAnswers() {
+            const category = categorias[currentCategoryIndex];
+            for (let i = 0; i < 10; i++) {
+                const slot = document.getElementById(`slot-${i}`);
+                if (!slot.classList.contains('revealed')) {
+                    slot.classList.add('revealed');
+                    slot.querySelector('.slot-name').textContent = category.respuestas[i].nombre;
+                    slot.querySelector('.slot-img').src = getTorreSlotMedia(category, category.respuestas[i]);
+                    slot.style.borderLeftColor = "#ffeb3b"; // Color distinto para las reveladas
+                }
+            }
+        }
+
+        function showMessage(text, type) {
+            gameMessage.textContent = text;
+            gameMessage.className = `message ${type}`;
+            if (text !== "") {
+                setTimeout(() => { gameMessage.textContent = ""; }, 2500);
+            }
+        }
+
+        function handleGuess() {
+            const inputVal = normalizeText(guessInput.value);
+            if (!inputVal) return;
+
+            const category = categorias[currentCategoryIndex];
+            let foundIndex = -1;
+
+            // Búsqueda de coincidencias en los arrays de alias
+            for (let i = 0; i < category.respuestas.length; i++) {
+                const aliases = category.respuestas[i].alias.map(a => normalizeText(a));
+                if (aliases.includes(inputVal)) {
+                    foundIndex = i;
+                    break;
+                }
+            }
+
+            if (foundIndex !== -1) {
+                if (guessedIndices.includes(foundIndex)) {
+                    showMessage("¡Ya adivinaste ese!", "incorrect");
+                } else {
+                    guessedIndices.push(foundIndex);
+                    const pointsWon = 10 - foundIndex;
+                    score += pointsWon;
+                    scoreEl.textContent = score;
+                    checkAchievements();
+                    saveProgress();
+                    
+                    const slot = document.getElementById(`slot-${foundIndex}`);
+                    slot.classList.add('revealed');
+                    slot.querySelector('.slot-name').textContent = category.respuestas[foundIndex].nombre;
+                    slot.querySelector('.slot-img').src = getTorreSlotMedia(category, category.respuestas[foundIndex]);
+                    
+                    showMessage(`¡Correcto! +${pointsWon} puntos`, "correct");
+
+                    if (guessedIndices.length === 10) {
+                        updateLevelStatus('won');
+                        checkAchievements();
+                        // Efecto de Confeti al ganar
+                        confetti({
+                            particleCount: 150,
+                            spread: 70,
+                            origin: { y: 0.6 },
+                            colors: getConfettiColors(category.titulo)
+                        });
+                        setTimeout(() => {
+                            alert("¡Categoría completada! Pasando a la siguiente...");
+                            currentCategoryIndex++;
+                            if (currentCategoryIndex < categorias.length) {
+                                loadLevel();
+                            } else {
+                                alert(`¡Juego completado campeón! Puntuación final: ${score}`);
+                            }
+                        }, 800);
+                    }
+                }
+            } else {
+                lives--;
+                livesEl.textContent = lives;
+                showMessage("Incorrecto", "incorrect");
+                
+                if (lives <= 0) {
+                    updateLevelStatus('lost');
+                    revealAllAnswers();
+                    showMessage("¡NIVEL PERDIDO!", "incorrect");
+                    guessInput.disabled = true;
+                    guessBtn.disabled = true;
+                    surrenderBtn.disabled = true;
+                }
+            }
+            guessInput.value = '';
+            guessInput.focus();
+        }
+
+        function handleSurrender() {
+            if (!confirm("¿Estás seguro de que querés rendirte? Se revelarán todas las respuestas.")) return;
+            
+            updateLevelStatus('lost');
+            revealAllAnswers();
+            showMessage("TE HAS RENDIDO", "incorrect");
+            
+            lives = 0;
+            livesEl.textContent = lives;
+            guessInput.disabled = true;
+            guessBtn.disabled = true;
+            surrenderBtn.disabled = true;
+        }
+
+        function handleReset() {
+            if (!confirm("¿Estás seguro de que querés borrar todo tu progreso y puntuación? Esta acción no se puede deshacer.")) return;
+            
+            localStorage.clear();
+            score = 0;
+            currentCategoryIndex = 0;
+            trayIdx = 0;
+            linkIdx = 0;
+            caminoIdx = 0;
+            wordleIdx = 0;
+            resultadoIdx = 0;
+            equipoIdx = 0;
+            caminoScoreValue = 0;
+            resultadoScoreValue = 0;
+            equipoScoreValue = 0;
+            trayScore = 0;
+            currentAuctionIdx = 0;
+            currentUsername = "Jugador1";
+            currentRoomName = "";
+            userBudget = 1000;
+            currentBid = 0;
+            auctionTime = 15;
+            achievements = { won10: false, score1000: false };
+
+            // Al borrar el storage, generamos nuevos órdenes aleatorios inmediatamente
+            applyPersistentShuffle(categorias, 'torre_order');
+            applyPersistentShuffle(trayectoriasData, 'tray_order');
+            if (typeof linkData !== 'undefined') applyPersistentShuffle(linkData, 'link_order');
+            if (typeof wordleData !== 'undefined') applyPersistentShuffle(wordleData, 'wordle_order');
+
+            levelProgress = categorias.map(() => ({ status: 'playing', guessedIndices: [] }));
+            trayProgress = trayectoriasData.map(() => ({ status: 'playing' }));
+            linkProgress = typeof linkData !== 'undefined' ? linkData.map(() => ({ status: 'playing' })) : [];
+            wordleProgress = typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : [];
+            resultadoProgress = typeof resultadoData !== 'undefined' ? resultadoData.map(() => ({ status: 'playing', lives: 3 })) : [];
+            equipoProgress = equipoData.map(() => ({ status: 'playing', lives: 3 }));
+            
+            // Reiniciar UI de lobby
+            document.getElementById('usernameInput').value = currentUsername;
+            scoreEl.textContent = score;
+            document.getElementById('trayScore').textContent = 0;
+            document.getElementById('linkScore').textContent = 0;
+            document.getElementById('caminoScoreDisplay').textContent = 0;
+            document.getElementById('wordleScore').textContent = 0;
+            document.getElementById('resultadoScore').textContent = 0;
+            document.getElementById('equipoScore').textContent = 0;
+            document.querySelectorAll('.achievement-badge').forEach(b => b.classList.remove('unlocked'));
+            populateGrid();
+            populateTrayGrid();
+            populateLinkGrid();
+            populateCaminoGrid();
+            populateWordleGrid();
+            populateResultadoGrid();
+            populateEquipoGrid();
+            loadLevel();
+            initTrayectoria();
+            initLink();
+            initCamino();
+            initWordle();
+            initResultado();
+            initEquipo();
+            showMessage("Juego reiniciado", "correct");
+        }
+
+        guessBtn.addEventListener('click', handleGuess);
+        surrenderBtn.addEventListener('click', handleSurrender);
+        guessInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleGuess();
+        });
+    document.getElementById('trayInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkTrayectoria();
+    });
+    document.getElementById('linkInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkLink();
+    });
+    document.getElementById('equipoInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkEquipo();
+    });
+        toggleGridBtn.addEventListener('click', () => {
+            levelGrid.classList.toggle('hidden');
+        });
+        trayToggleGridBtn.addEventListener('click', () => {
+            trayLevelGrid.classList.toggle('hidden');
+        });
+        linkToggleGridBtn.addEventListener('click', () => {
+            linkLevelGrid.classList.toggle('hidden');
+        });
+        document.getElementById('caminoToggleGridBtn').addEventListener('click', () => {
+            document.getElementById('caminoLevelGrid').classList.toggle('hidden');
+        });
+        wordleToggleGridBtn.addEventListener('click', () => {
+            wordleLevelGrid.classList.toggle('hidden');
+        });
+        resultadoToggleGridBtn.addEventListener('click', () => {
+            resultadoLevelGrid.classList.toggle('hidden');
+        });
+        equipoToggleGridBtn.addEventListener('click', () => {
+            equipoLevelGrid.classList.toggle('hidden');
+        });
+        document.getElementById('wordleInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkWordle();
+        });
+        ['resultadoHomeInput', 'resultadoAwayInput'].forEach(id => {
+            document.getElementById(id).addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') checkResultado();
+            });
+        });
+
+        // --- Lógica del Juego Wordle ---
+        function initWordle() {
+            if (typeof wordleData === 'undefined' || wordleData.length === 0) return;
+            const item = wordleData[wordleIdx];
+            const targetWord = item.ans.toUpperCase();
+            const state = wordleProgress[wordleIdx];
+            const board = document.getElementById('wordleBoard');
+            const input = document.getElementById('wordleInput');
+            const triesEl = document.getElementById('wordleTries');
+            
+            input.maxLength = targetWord.length;
+            input.disabled = state.status !== 'playing';
+            
+            const maxTries = 6;
+            triesEl.textContent = maxTries - state.guesses.length;
+            document.getElementById('wordleScore').textContent = score;
+
+            board.style.gridTemplateColumns = `repeat(${targetWord.length}, 40px)`;
+            board.innerHTML = '';
+
+            for (let i = 0; i < maxTries; i++) {
+                const guess = (state.guesses[i] || "").toUpperCase();
+                let letterCounts = {};
+                for (let char of targetWord) letterCounts[char] = (letterCounts[char] || 0) + 1;
+
+                let rowStatuses = new Array(targetWord.length).fill('cell-absent');
+                if (guess) {
+                    // Primera pasada: Verdes
+                    for (let j = 0; j < targetWord.length; j++) {
+                        if (guess[j] === targetWord[j]) {
+                            rowStatuses[j] = 'cell-correct';
+                            letterCounts[guess[j]]--;
+                        }
+                    }
+                    // Segunda pasada: Amarillos
+                    for (let j = 0; j < targetWord.length; j++) {
+                        if (rowStatuses[j] !== 'cell-correct' && letterCounts[guess[j]] > 0) {
+                            rowStatuses[j] = 'cell-present';
+                            letterCounts[guess[j]]--;
+                        }
+                    }
+                }
+
+                for (let j = 0; j < targetWord.length; j++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'wordle-cell';
+                    if (guess) {
+                        cell.textContent = guess[j];
+                        cell.classList.add(rowStatuses[j]);
+                    }
+                    board.appendChild(cell);
+                }
+            }
+            updateWordleGridSelection();
+        }
+
+        function checkWordle() {
+            const inputEl = document.getElementById('wordleInput');
+            const guess = normalizeText(inputEl.value).toUpperCase();
+            const item = wordleData[wordleIdx];
+            const state = wordleProgress[wordleIdx];
+
+            if (guess.length !== item.ans.length) {
+                showMessage(`La palabra debe tener ${item.ans.length} letras`, "incorrect");
+                return;
+            }
+
+            state.guesses.push(guess);
+            inputEl.value = "";
+
+            if (guess === item.ans.toUpperCase()) {
+                updateWordleStatus('won');
+                score += 50;
+                scoreEl.textContent = score;
+                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                initWordle();
+                showMessage("¡Palabra correcta!", "correct");
+            } else if (state.guesses.length >= 6) {
+                updateWordleStatus('lost');
+                initWordle();
+                showMessage(`Perdiste. Era: ${item.ans}`, "incorrect");
+            } else {
+                initWordle();
+                showMessage("Seguí intentando", "incorrect");
+            }
+            saveProgress();
+        }
+
+        function populateWordleGrid() {
+            if (typeof wordleData === 'undefined') return;
+            wordleLevelGrid.innerHTML = '';
+            wordleData.forEach((_, index) => {
+                const btn = document.createElement('div');
+                const state = wordleProgress[index];
+                btn.className = `level-btn ${state ? state.status : ''}`;
+                btn.textContent = index + 1;
+                btn.onclick = () => {
+                    wordleIdx = index;
+                    initWordle();
+                    wordleLevelGrid.classList.add('hidden');
+                };
+                wordleLevelGrid.appendChild(btn);
+            });
+        }
+
+        function updateWordleGridSelection() {
+            const btns = wordleLevelGrid.querySelectorAll('.level-btn');
+            btns.forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === wordleIdx);
+            });
+        }
+
+        function updateWordleStatus(status) {
+            wordleProgress[wordleIdx].status = status;
+            populateWordleGrid();
+            updateWordleGridSelection();
+            saveProgress();
+        }
+
+        // --- Lógica del Juego Adivina el Resultado ---
+        function getResultadoTeamLogo(teamName) {
+            const logo = getGlobalLogo(teamName);
+            if (logo) return logo;
+
+            const countryFlag = getCountryFlagByName(teamName);
+            if (countryFlag) return createFlagImage(countryFlag, teamName);
+
+            return createFallbackImage(teamName, "logo");
+        }
+
+        function formatResultado(item) {
+            return `${item.home} ${item.homeScore}-${item.awayScore} ${item.away}`;
+        }
+
+        function getResultadoLegLabel(item) {
+            if (item.leg) return item.leg;
+            const text = normalizeText(`${item.competition || ""} ${item.note || ""}`);
+            if (text.includes("partido unico") || text.includes("final de madrid")) return "Partido único";
+            if (text.includes("vuelta")) return "Vuelta";
+            if (text.includes("ida")) return "Ida";
+            if (text.includes("global")) return "Vuelta";
+            return "Partido único";
+        }
+
+        function initResultado() {
+            if (typeof resultadoData === 'undefined' || resultadoData.length === 0) return;
+            if (!resultadoProgress[resultadoIdx]) {
+                resultadoProgress[resultadoIdx] = { status: 'playing', lives: 3 };
+            }
+
+            const item = resultadoData[resultadoIdx];
+            const state = resultadoProgress[resultadoIdx];
+            const homeInput = document.getElementById('resultadoHomeInput');
+            const awayInput = document.getElementById('resultadoAwayInput');
+            const answer = document.getElementById('resultadoAnswer');
+            const isGameOver = state.status !== 'playing';
+
+            document.getElementById('resultadoCompetition').textContent = item.competition;
+            document.getElementById('resultadoLeg').textContent = getResultadoLegLabel(item);
+            document.getElementById('resultadoDate').textContent = item.date;
+            document.getElementById('resultadoHome').textContent = item.home;
+            document.getElementById('resultadoAway').textContent = item.away;
+            const homeLogo = document.getElementById('resultadoHomeLogo');
+            const awayLogo = document.getElementById('resultadoAwayLogo');
+            homeLogo.onerror = () => {
+                homeLogo.onerror = null;
+                homeLogo.src = getLogoErrorFallback(item.home);
+            };
+            awayLogo.onerror = () => {
+                awayLogo.onerror = null;
+                awayLogo.src = getLogoErrorFallback(item.away);
+            };
+            homeLogo.src = getResultadoTeamLogo(item.home);
+            awayLogo.src = getResultadoTeamLogo(item.away);
+            document.getElementById('resultadoLives').textContent = state.lives;
+            document.getElementById('resultadoScore').textContent = resultadoScoreValue;
+            document.getElementById('resultadoCounter').textContent = `${resultadoIdx + 1}/${resultadoData.length}`;
+            document.getElementById('resultadoMessage').textContent = "";
+
+            homeInput.value = "";
+            awayInput.value = "";
+            homeInput.disabled = isGameOver;
+            awayInput.disabled = isGameOver;
+
+            if (isGameOver) {
+                answer.textContent = `${formatResultado(item)}. ${item.note || ""}`;
+                answer.classList.add('visible');
+            } else {
+                answer.textContent = "";
+                answer.classList.remove('visible');
+                homeInput.focus();
+            }
+
+            updateResultadoGridSelection();
+            saveProgress();
+        }
+
+        function checkResultado() {
+            const item = resultadoData[resultadoIdx];
+            const state = resultadoProgress[resultadoIdx];
+            if (!item || !state || state.status !== 'playing') return;
+
+            const homeInput = document.getElementById('resultadoHomeInput');
+            const awayInput = document.getElementById('resultadoAwayInput');
+            const homeGuess = Number(homeInput.value);
+            const awayGuess = Number(awayInput.value);
+            const msg = document.getElementById('resultadoMessage');
+
+            if (homeInput.value === "" || awayInput.value === "" || Number.isNaN(homeGuess) || Number.isNaN(awayGuess)) {
+                msg.textContent = "Poné los dos goles del resultado.";
+                msg.className = "message incorrect";
+                return;
+            }
+
+            if (homeGuess === item.homeScore && awayGuess === item.awayScore) {
+                const pointsWon = 30 + (state.lives - 1) * 10;
+                resultadoScoreValue += pointsWon;
+                state.status = 'won';
+                msg.textContent = `¡Correcto! +${pointsWon} puntos`;
+                msg.className = "message correct";
+                document.getElementById('resultadoAnswer').textContent = `${formatResultado(item)}. ${item.note || ""}`;
+                document.getElementById('resultadoAnswer').classList.add('visible');
+                document.getElementById('resultadoScore').textContent = resultadoScoreValue;
+                confetti({
+                    particleCount: 90,
+                    spread: 60,
+                    origin: { y: 0.65 },
+                    colors: getConfettiColors(item.competition)
+                });
+                populateResultadoGrid();
+                updateResultadoGridSelection();
+                saveProgress();
+                setTimeout(() => {
+                    if (resultadoIdx < resultadoData.length - 1) {
+                        resultadoIdx++;
+                        initResultado();
+                    }
+                }, 1200);
+            } else {
+                loseResultadoLife(false);
+            }
+        }
+
+        function loseResultadoLife(skipped = true) {
+            const item = resultadoData[resultadoIdx];
+            const state = resultadoProgress[resultadoIdx];
+            if (!item || !state || state.status !== 'playing') return;
+
+            state.lives--;
+            document.getElementById('resultadoLives').textContent = state.lives;
+
+            const msg = document.getElementById('resultadoMessage');
+            if (state.lives <= 0 || skipped) {
+                state.status = 'lost';
+                state.lives = skipped ? 0 : Math.max(state.lives, 0);
+                document.getElementById('resultadoLives').textContent = state.lives;
+                document.getElementById('resultadoHomeInput').disabled = true;
+                document.getElementById('resultadoAwayInput').disabled = true;
+                document.getElementById('resultadoAnswer').textContent = `${formatResultado(item)}. ${item.note || ""}`;
+                document.getElementById('resultadoAnswer').classList.add('visible');
+                msg.textContent = skipped ? "Nivel salteado" : "Nivel perdido";
+                msg.className = "message incorrect";
+            } else {
+                msg.textContent = "Incorrecto";
+                msg.className = "message incorrect";
+                document.getElementById('resultadoHomeInput').focus();
+            }
+
+            populateResultadoGrid();
+            updateResultadoGridSelection();
+            saveProgress();
+        }
+
+        function populateResultadoGrid() {
+            if (typeof resultadoData === 'undefined') return;
+            resultadoLevelGrid.innerHTML = '';
+            resultadoData.forEach((_, index) => {
+                const btn = document.createElement('div');
+                const state = resultadoProgress[index];
+                btn.className = `level-btn ${state ? state.status : ''}`;
+                btn.textContent = index + 1;
+                btn.onclick = () => {
+                    resultadoIdx = index;
+                    initResultado();
+                    resultadoLevelGrid.classList.add('hidden');
+                };
+                resultadoLevelGrid.appendChild(btn);
+            });
+            updateResultadoGridSelection();
+        }
+
+        function updateResultadoGridSelection() {
+            document.querySelectorAll('#resultadoLevelGrid .level-btn').forEach((btn, index) => {
+                btn.classList.toggle('current', index === resultadoIdx);
+            });
+        }
+
+        // --- Lógica del Juego Trayectoria ---
+        const equipoLevelNames = [
+            "Barcelona", "Real Madrid", "Boca Juniors", "River Plate", "Manchester United",
+            "Liverpool", "Arsenal", "Chelsea", "Manchester City", "Bayern Munich",
+            "PSG", "Juventus", "AC Milan", "Inter", "Borussia Dortmund",
+            "Atletico de Madrid", "Tottenham", "Roma", "Napoli", "Benfica",
+            "Porto", "Ajax", "Santos", "Flamengo", "Palmeiras",
+            "Corinthians", "Fluminense", "Gremio", "Cruzeiro", "Botafogo",
+            "Racing Club", "Independiente", "San Lorenzo", "Estudiantes LP", "Lanus",
+            "Colo Colo", "Nacional", "Celtic", "Sevilla", "Valencia",
+            "Villarreal", "Betis", "Espanyol", "Athletic Club", "Monaco",
+            "Lyon", "Marseille", "Fiorentina", "Lazio", "Atalanta",
+            "Everton", "Leicester City", "Crystal Palace", "Brighton", "West Ham",
+            "Newcastle", "QPR", "Bayer Leverkusen", "Wolfsburg", "Eintracht Frankfurt",
+            "Fenerbahçe", "Galatasaray", "Olympiacos", "PSV", "Feyenoord",
+            "Sporting CP", "Al Hilal", "Al Nassr", "Al-Ittihad", "Al-Sadd",
+            "Tigres", "América", "Pumas UNAM", "LA Galaxy", "NYCFC",
+            "NY Red Bulls", "Inter Miami", "Independiente del Valle", "Atletico Nacional", "Atlético Mineiro",
+            "Internacional", "Athletico Paranaense", "Parma", "Sampdoria", "Torino",
+            "Genoa", "Hellas Verona", "Brescia", "Málaga", "Rayo Vallecano",
+            "Alavés", "AEK Athens", "Qatar SC", "Danubio", "Juventude",
+            "Botafogo-SP", "Mogi Mirim", "Bahia", "Cagliari", "Bologna",
+            "Celta de Vigo", "Basel", "Belgrano", "All Boys", "Fulham",
+            "Aston Villa", "Lech Poznań", "Argentinos Juniors", "Velez", "Newell's", "Banfield",
+            "Zaragoza", "Mallorca", "Nice", "Mazembe", "Wolfsburg"
+        ];
+
+        const equipoAliasMap = {
+            "AC Milan": ["Milan"],
+            "Inter": ["Inter de Milan", "Internazionale"],
+            "Atletico de Madrid": ["Atlético de Madrid", "Atleti"],
+            "Velez": ["Vélez", "Velez Sarsfield", "Vélez Sarsfield"],
+            "Bayern Munich": ["Bayern", "Bayern München"],
+            "Borussia Dortmund": ["Dortmund"],
+            "PSG": ["Paris Saint Germain", "Paris Saint-Germain"],
+            "Manchester United": ["Man United", "United"],
+            "Manchester City": ["Man City", "City"],
+            "Boca Juniors": ["Boca"],
+            "Argentinos Juniors": ["Argentinos Jrs", "Argentinos"],
+            "River Plate": ["River"],
+            "Estudiantes LP": ["Estudiantes", "Estudiantes de La Plata"],
+            "Lanus": ["Lanús"],
+            "Athletic Club": ["Athletic Bilbao"],
+            "Al Nassr": ["Al-Nassr", "Al Nasr"],
+            "Al-Ittihad": ["Al Ittihad"],
+            "Al-Sadd": ["Al Sadd"],
+            "América": ["America", "Club America", "Club América"],
+            "Pumas UNAM": ["Pumas"],
+            "NYCFC": ["New York City FC"],
+            "NY Red Bulls": ["New York Red Bulls"],
+            "Independiente del Valle": ["Ind. del Valle"],
+            "Atletico Nacional": ["Atlético Nacional"],
+            "Atlético Mineiro": ["Atletico Mineiro"],
+            "Hellas Verona": ["Verona"],
+            "Málaga": ["Malaga"],
+            "Alavés": ["Alaves"],
+            "Botafogo-SP": ["Botafogo SP"],
+            "Celta de Vigo": ["Celta"]
+        };
+
+        function buildEquipoData() {
+            const seen = new Set();
+            const levels = [];
+            equipoLevelNames.forEach(name => {
+                const logo = getPreferredLocalTeamLogo(name) || getReliableLocalTeamLogo(name);
+                const key = normalizeText(name);
+                if (!logo || seen.has(key)) return;
+                seen.add(key);
+                levels.push({ name, aliases: [name, ...(equipoAliasMap[name] || [])], logo });
+            });
+            return levels;
+        }
+
+        function getEquipoAnswerKeys(item) {
+            return (item.aliases || [item.name]).map(alias => normalizeText(cleanMediaName(alias))).filter(Boolean);
+        }
+
+        function initEquipo() {
+            if (!equipoData.length) return;
+            if (!equipoProgress[equipoIdx]) equipoProgress[equipoIdx] = { status: 'playing', lives: 3 };
+            const item = equipoData[equipoIdx];
+            const state = equipoProgress[equipoIdx];
+            const input = document.getElementById('equipoInput');
+            const submit = document.getElementById('equipoSubmitBtn');
+            const skip = document.getElementById('equipoSkipBtn');
+            const answer = document.getElementById('equipoAnswer');
+            const logo = document.getElementById('equipoLogo');
+            const isGameOver = state.status !== 'playing';
+
+            document.getElementById('equipoLives').textContent = state.lives;
+            document.getElementById('equipoScore').textContent = equipoScoreValue;
+            document.getElementById('equipoCounter').textContent = `${equipoIdx + 1}/${equipoData.length}`;
+            document.getElementById('equipoMessage').textContent = "";
+            logo.onerror = () => {
+                logo.onerror = null;
+                logo.src = getLogoErrorFallback(item.name);
+            };
+            logo.src = item.logo;
+            logo.alt = isGameOver ? item.name : "Escudo";
+            input.value = "";
+            input.disabled = isGameOver;
+            submit.disabled = isGameOver;
+            skip.disabled = isGameOver;
+            if (isGameOver) {
+                answer.textContent = item.name;
+                answer.classList.add('visible');
+            } else {
+                answer.textContent = "";
+                answer.classList.remove('visible');
+                input.focus();
+            }
+            updateEquipoGridSelection();
+            saveProgress();
+        }
+
+        function checkEquipo() {
+            const item = equipoData[equipoIdx];
+            const state = equipoProgress[equipoIdx];
+            if (!item || !state || state.status !== 'playing') return;
+            const input = document.getElementById('equipoInput');
+            const guess = normalizeText(cleanMediaName(input.value));
+            const msg = document.getElementById('equipoMessage');
+            if (!guess) {
+                msg.textContent = "Escribí un equipo.";
+                msg.className = "message incorrect";
+                return;
+            }
+            if (getEquipoAnswerKeys(item).includes(guess)) {
+                const pointsWon = 30 + (state.lives - 1) * 10;
+                equipoScoreValue += pointsWon;
+                state.status = 'won';
+                msg.textContent = `¡Correcto! +${pointsWon} puntos`;
+                msg.className = "message correct";
+                document.getElementById('equipoAnswer').textContent = item.name;
+                document.getElementById('equipoAnswer').classList.add('visible');
+                document.getElementById('equipoScore').textContent = equipoScoreValue;
+                input.disabled = true;
+                document.getElementById('equipoSubmitBtn').disabled = true;
+                document.getElementById('equipoSkipBtn').disabled = true;
+                confetti({ particleCount: 80, spread: 58, origin: { y: 0.62 } });
+                populateEquipoGrid();
+                updateEquipoGridSelection();
+                saveProgress();
+                setTimeout(() => {
+                    if (equipoIdx < equipoData.length - 1) {
+                        equipoIdx++;
+                        initEquipo();
+                    }
+                }, 900);
+            } else {
+                loseEquipoLife(false);
+            }
+        }
+
+        function loseEquipoLife(skipped = true) {
+            const item = equipoData[equipoIdx];
+            const state = equipoProgress[equipoIdx];
+            if (!item || !state || state.status !== 'playing') return;
+            state.lives--;
+            const msg = document.getElementById('equipoMessage');
+            if (state.lives <= 0 || skipped) {
+                state.status = 'lost';
+                state.lives = 0;
+                document.getElementById('equipoInput').disabled = true;
+                document.getElementById('equipoSubmitBtn').disabled = true;
+                document.getElementById('equipoSkipBtn').disabled = true;
+                document.getElementById('equipoAnswer').textContent = item.name;
+                document.getElementById('equipoAnswer').classList.add('visible');
+                msg.textContent = skipped ? "Nivel salteado" : "Nivel perdido";
+                msg.className = "message incorrect";
+            } else {
+                msg.textContent = "Incorrecto";
+                msg.className = "message incorrect";
+                document.getElementById('equipoInput').value = "";
+                document.getElementById('equipoInput').focus();
+            }
+            document.getElementById('equipoLives').textContent = state.lives;
+            populateEquipoGrid();
+            updateEquipoGridSelection();
+            saveProgress();
+        }
+
+        function populateEquipoGrid() {
+            equipoLevelGrid.innerHTML = '';
+            equipoData.forEach((_, index) => {
+                const btn = document.createElement('div');
+                const state = equipoProgress[index];
+                btn.className = `level-btn ${state ? state.status : ''}`;
+                btn.textContent = index + 1;
+                btn.onclick = () => {
+                    equipoIdx = index;
+                    initEquipo();
+                    equipoLevelGrid.classList.add('hidden');
+                };
+                equipoLevelGrid.appendChild(btn);
+            });
+            updateEquipoGridSelection();
+        }
+
+        function updateEquipoGridSelection() {
+            document.querySelectorAll('#equipoLevelGrid .level-btn').forEach((btn, index) => {
+                btn.classList.toggle('current', index === equipoIdx);
+            });
+        }
+
+        let trayLives = 0;
+        let currentClubIdx = 1; // Cuántos clubes se muestran actualmente
+        let trayScore = 0;
+        
+        function initTrayectoria() {
+            const item = trayectoriasData[trayIdx];
+            const state = trayProgress[trayIdx];
+
+            // Validación de seguridad para el estado del nivel
+            const isGameOver = state && state.status !== 'playing';
+
+            if (isGameOver) {
+                currentClubIdx = item.clubs.length;
+                trayLives = 0;
+                document.getElementById('trayInput').disabled = true;
+            } else {
+                currentClubIdx = 1;
+                trayLives = item.clubs.length;
+                document.getElementById('trayInput').disabled = false;
+            }
+            
+            updateTrayGridSelection();
+            updateTrayUI();
+        }
+
+        function populateTrayGrid() {
+            trayLevelGrid.innerHTML = '';
+            trayectoriasData.forEach((_, index) => {
+                const btn = document.createElement('div');
+                const state = trayProgress[index];
+                btn.className = `level-btn ${state ? state.status : ''}`;
+                btn.textContent = index + 1;
+                btn.onclick = () => {
+                    trayIdx = index;
+                    initTrayectoria();
+                    trayLevelGrid.classList.add('hidden');
+                };
+                trayLevelGrid.appendChild(btn);
+            });
+        }
+
+        function updateTrayGridSelection() {
+            const btns = trayLevelGrid.querySelectorAll('.level-btn');
+            btns.forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === trayIdx);
+            });
+        }
+
+        function updateTrayUI() {
+            const item = trayectoriasData[trayIdx];
+            const trayPathEl = document.getElementById('trayPath');
+            document.getElementById('trayLives').textContent = trayLives;
+            document.getElementById('trayScore').textContent = trayScore;
+            
+            const isGameOver = trayLives <= 0 || trayProgress[trayIdx].status === 'won';
+            
+            trayPathEl.innerHTML = '';
+            trayPathEl.className = isGameOver ? 'tray-path is-result' : 'tray-path';
+            
+            if (isGameOver) {
+                trayPathEl.innerHTML = `
+                    <img class="player-result-photo" src="${getGlobalPhoto(item.ans)}" alt="${item.ans}" onerror="this.onerror=null; this.src='${createFallbackImage(item.ans, "photo")}'">
+                    <div style="font-weight: bold; font-size: 1.1rem; color: #fff; margin-top: 5px;">${item.ans}</div>
+                `;
+            } else {
+                for (let i = 0; i < currentClubIdx; i++) {
+                    const clubDiv = document.createElement('div');
+                    clubDiv.className = 'tray-club';
+
+                const logoUrl = getTrayectoriaClubMedia(item.clubs[i], item.logos && item.logos[i]);
+                
+                clubDiv.innerHTML = `
+                    <img class="club-path-logo" src="${logoUrl}" alt="${item.clubs[i]}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(item.clubs[i])}'">
+                    <span class="tray-club-name">${item.clubs[i]}</span>
+                `;
+                trayPathEl.appendChild(clubDiv);
+                
+                if (i < currentClubIdx - 1 || (currentClubIdx < item.clubs.length && trayLives > 0)) {
+                    const arrow = document.createElement('span');
+                    arrow.className = 'tray-arrow';
+                    arrow.textContent = '→';
+                    trayPathEl.appendChild(arrow);
+                }
+            }
+            
+            if (currentClubIdx < item.clubs.length && trayLives > 0) {
+                const hidden = document.createElement('span');
+                hidden.className = 'tray-hidden';
+                hidden.textContent = '???';
+                trayPathEl.appendChild(hidden);
+            }
+            }
+        }
+
+        function updateTrayStatus(status) {
+            trayProgress[trayIdx].status = status;
+            populateTrayGrid();
+            updateTrayGridSelection();
+            saveProgress();
+        }
+
+        function checkTrayectoria() {
+            const trayInput = document.getElementById('trayInput');
+            const input = normalizeText(trayInput.value);
+            const item = trayectoriasData[trayIdx];
+            const msg = document.getElementById('trayMessage');
+            
+            if (!input) return;
+
+            if (item.alias.includes(input)) {
+                msg.textContent = "¡Correcto!";
+                msg.className = "message correct";
+                trayScore += 10;
+                updateTrayStatus('won');
+                trayInput.value = "";
+                setTimeout(() => {
+                    updateTrayUI();
+                    msg.textContent = "";
+                }, 1500);
+            } else {
+                loseTrayLife();
+            }
+        }
+
+        function loseTrayLife() {
+            const msg = document.getElementById('trayMessage');
+            const item = trayectoriasData[trayIdx];
+            
+            trayLives--;
+            if (trayLives > 0) {
+                currentClubIdx++;
+                msg.textContent = "Incorrecto. Se revela otro club.";
+                msg.className = "message incorrect";
+                updateTrayUI();
+            } else {
+                msg.textContent = `¡Perdiste! Era ${item.ans}`;
+                msg.className = "message incorrect";
+                updateTrayStatus('lost');
+                currentClubIdx = item.clubs.length;
+                updateTrayUI();
+                setTimeout(() => {
+                    msg.textContent = "";
+                }, 2000);
+            }
+        }
+
+        // --- Lógica del Juego El Camino (Drag and Drop) ---
+        function populateCaminoGrid() {
+            const grid = document.getElementById('caminoLevelGrid');
+            grid.innerHTML = '';
+            caminoData.forEach((_, index) => {
+                const btn = document.createElement('div');
+                const state = caminoProgress[index];
+                btn.className = `level-btn ${state ? state.status : ''}`;
+                btn.textContent = index + 1;
+                btn.onclick = () => {
+                    caminoIdx = index;
+                    initCamino();
+                    grid.classList.add('hidden');
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateCaminoGridSelection() {
+            const btns = document.getElementById('caminoLevelGrid').querySelectorAll('.level-btn');
+            btns.forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === caminoIdx);
+            });
+        }
+
+        function initCamino() {
+            if (typeof caminoData === 'undefined' || caminoData.length === 0) return;
+            const item = caminoData[caminoIdx];
+            const state = caminoProgress[caminoIdx];
+            
+            document.getElementById('caminoTitle').textContent = item.titulo;
+            document.getElementById('caminoCounter').textContent = `${caminoIdx + 1}/${caminoData.length}`;
+            document.getElementById('caminoScoreDisplay').textContent = caminoScoreValue;
+            
+            const isGameOver = state && state.status !== 'playing';
+            caminoLives = isGameOver ? 0 : 3;
+            document.getElementById('caminoLivesDisplay').textContent = caminoLives;
+
+            currentCaminoSelection = [];
+            if (isGameOver) {
+                currentCaminoSelection = [...item.equipos];
+            }
+            
+            updateCaminoGridSelection();
+            renderCamino();
+        }
+
+        function renderCamino() {
+            const item = caminoData[caminoIdx];
+            const state = caminoProgress[caminoIdx];
+            const isGameOver = state && state.status !== 'playing';
+            const optionsEl = document.getElementById('caminoOptions');
+            const selectionEl = document.getElementById('caminoSelection');
+            
+            selectionEl.innerHTML = '';
+            currentCaminoSelection.forEach((team, idx) => {
+                const div = document.createElement('div');
+                div.className = 'camino-option camino-selected';
+                const logoUrl = getGlobalLogo(team);
+                div.innerHTML = `<img class="team-token-img" src="${logoUrl}" alt="${team}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(team)}'"><span>${idx + 1}. ${team}</span>`;
+                div.draggable = true;
+                div.ondragstart = (e) => { e.dataTransfer.setData('sourceIdx', idx); e.dataTransfer.setData('type', 'selection'); };
+                div.ondragover = handleDragOver;
+                div.ondragleave = handleDragLeave;
+                div.ondrop = (e) => handleDrop(e, 'selection', idx);
+                div.onclick = () => { currentCaminoSelection.splice(idx, 1); renderCamino(); };
+                selectionEl.appendChild(div);
+            });
+
+            optionsEl.innerHTML = '';
+            if (!item._shuffled) {
+                item._shuffled = [...item.equipos, ...(item.rivalesExtra || [])];
+                shuffleArray(item._shuffled);
+            }
+            
+            item._shuffled.forEach(team => {
+                if (!currentCaminoSelection.includes(team)) {
+                    const div = document.createElement('div');
+                    div.className = 'camino-option';
+                    const logoUrl = getGlobalLogo(team);
+                    div.innerHTML = `<img class="team-token-img" src="${logoUrl}" alt="${team}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(team)}'"><span>${team}</span>`;
+                    div.draggable = !isGameOver;
+                    div.ondragstart = (e) => { e.dataTransfer.setData('team', team); e.dataTransfer.setData('type', 'option'); };
+                    div.onclick = () => { if(!isGameOver) { currentCaminoSelection.push(team); renderCamino(); } };
+                    optionsEl.appendChild(div);
+                }
+            });
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('drag-over');
+        }
+
+        function handleDrop(e, targetType, targetIdx) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('drag-over');
+            const type = e.dataTransfer.getData('type');
+
+            if (type === 'option' && targetType === 'selection') {
+                const team = e.dataTransfer.getData('team');
+                if (targetIdx !== undefined) currentCaminoSelection.splice(targetIdx, 0, team);
+                else currentCaminoSelection.push(team);
+            } else if (type === 'selection' && targetType === 'selection') {
+                const sourceIdx = parseInt(e.dataTransfer.getData('sourceIdx'));
+                const movedItem = currentCaminoSelection.splice(sourceIdx, 1)[0];
+                currentCaminoSelection.splice(targetIdx ?? currentCaminoSelection.length, 0, movedItem);
+            } else if (type === 'selection' && targetType === 'options') {
+                const sourceIdx = parseInt(e.dataTransfer.getData('sourceIdx'));
+                currentCaminoSelection.splice(sourceIdx, 1);
+            }
+            renderCamino();
+        }
+
+        function resetCaminoSelection() { currentCaminoSelection = []; renderCamino(); }
+
+        function checkCamino() {
+            if (caminoProgress[caminoIdx].status !== 'playing') return;
+            
+            const item = caminoData[caminoIdx];
+            const isCorrect = JSON.stringify(currentCaminoSelection) === JSON.stringify(item.equipos);
+            const msg = document.getElementById('caminoMessage');
+
+            if (isCorrect) {
+                caminoScoreValue += 100;
+                updateCaminoStatus('won');
+                msg.textContent = "¡Excelente! Camino perfecto.";
+                msg.className = "message correct";
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+                setTimeout(() => { caminoIdx = (caminoIdx + 1) % caminoData.length; initCamino(); msg.textContent = ""; }, 2000);
+            } else {
+                caminoLives--;
+                document.getElementById('caminoLivesDisplay').textContent = caminoLives;
+                if (caminoLives <= 0) {
+                    updateCaminoStatus('lost');
+                    msg.textContent = "Perdiste. Se revela el orden correcto.";
+                    msg.className = "message incorrect";
+                    currentCaminoSelection = [...item.equipos];
+                    renderCamino();
+                } else {
+                    msg.textContent = "Orden incorrecto. ¡Perdés una vida!";
+                    msg.className = "message incorrect";
+                }
+            }
+        }
+
+        function updateCaminoStatus(status) {
+            caminoProgress[caminoIdx].status = status;
+            populateCaminoGrid();
+            updateCaminoGridSelection();
+            saveProgress();
+        }
+
+        // --- Lógica del Juego Futbol Link ---
+        let linkLives = 4;
+        let currentTeammateIdx = 1;
+
+        function initLink() {
+            if (typeof linkData === 'undefined' || linkData.length === 0) return;
+            const item = linkData[linkIdx];
+            const state = linkProgress[linkIdx];
+
+            if (state && state.status !== 'playing') {
+                currentTeammateIdx = 4;
+                linkLives = 0;
+                document.getElementById('linkInput').disabled = true;
+            } else {
+                currentTeammateIdx = 1;
+                linkLives = 4;
+                document.getElementById('linkInput').disabled = false;
+            }
+            
+            updateLinkGridSelection();
+            updateLinkUI();
+        }
+
+        function populateLinkGrid() {
+            if (typeof linkData === 'undefined') return;
+            linkLevelGrid.innerHTML = '';
+            linkData.forEach((_, index) => {
+                const btn = document.createElement('div');
+                const state = linkProgress[index];
+                btn.className = `level-btn ${state ? state.status : ''}`;
+                btn.textContent = index + 1;
+                btn.onclick = () => {
+                    linkIdx = index;
+                    initLink();
+                    linkLevelGrid.classList.add('hidden');
+                };
+                linkLevelGrid.appendChild(btn);
+            });
+        }
+
+        function updateLinkGridSelection() {
+            const btns = linkLevelGrid.querySelectorAll('.level-btn');
+            btns.forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === linkIdx);
+            });
+        }
+
+        function updateLinkUI() {
+            const item = linkData[linkIdx];
+            const displayEl = document.getElementById('linkDisplay');
+            document.getElementById('linkLives').textContent = linkLives;
+            document.getElementById('linkScore').textContent = score;
+            
+            const isGameOver = linkLives <= 0 || linkProgress[linkIdx].status === 'won';
+            displayEl.innerHTML = '<div style="font-weight: bold; margin-bottom: 5px; color: var(--accent-color);">Compañeros:</div>';
+            
+            if (isGameOver) {
+                displayEl.style.alignItems = "center";
+                displayEl.innerHTML = `
+                    <img class="player-result-photo" src="${getGlobalPhoto(item.ans)}" alt="${item.ans}" onerror="this.onerror=null; this.src='${createFallbackImage(item.ans, "photo")}'">
+                    <div style="font-weight: bold; font-size: 1.1rem; color: #fff; margin-top: 5px;">${item.ans}</div>
+                `;
+            } else {
+                displayEl.style.alignItems = "flex-start";
+                for (let i = 0; i < 4; i++) {
+                    const row = document.createElement('div');
+                    row.style.fontSize = "1.1rem";
+                    if (i < currentTeammateIdx) {
+                        row.textContent = `${i + 1}. ${item.teammates[i]}`;
+                        row.style.color = "#fff";
+                    } else {
+                        row.textContent = `${i + 1}. ???????`;
+                        row.style.color = "#666";
+                    }
+                    displayEl.appendChild(row);
+                }
+            }
+        }
+
+        function checkLink() {
+            const inputEl = document.getElementById('linkInput');
+            const input = normalizeText(inputEl.value);
+            const item = linkData[linkIdx];
+            const msg = document.getElementById('linkMessage');
+            
+            if (!input) return;
+
+            if (item.alias.map(a => normalizeText(a)).includes(input)) {
+                msg.textContent = "¡Correcto!";
+                msg.className = "message correct";
+                score += 25;
+                scoreEl.textContent = score;
+                document.getElementById('linkScore').textContent = score;
+                updateLinkStatus('won');
+                inputEl.value = "";
+                setTimeout(() => {
+                    updateLinkUI();
+                    msg.textContent = "";
+                }, 1500);
+            } else {
+                loseLinkLife();
+            }
+        }
+
+        function loseLinkLife() {
+            const msg = document.getElementById('linkMessage');
+            const item = linkData[linkIdx];
+            linkLives--;
+            if (linkLives > 0) {
+                currentTeammateIdx++;
+                msg.textContent = "Incorrecto o Salteado.";
+                msg.className = "message incorrect";
+                updateLinkUI();
+            } else {
+                msg.textContent = `¡Perdiste! Era ${item.ans}`;
+                msg.className = "message incorrect";
+                updateLinkStatus('lost');
+                currentTeammateIdx = 4;
+                updateLinkUI();
+                setTimeout(() => msg.textContent = "", 2000);
+            }
+        }
+
+        function updateLinkStatus(status) {
+            linkProgress[linkIdx].status = status;
+            populateLinkGrid();
+            updateLinkGridSelection();
+            saveProgress();
+        }
+
+        // --- Lógica del Juego Subasta Online ---
+        function initAuction() {
+            document.getElementById('usernameInput').value = currentUsername;
+            document.getElementById('roomNameInput').value = currentRoomName;
+            document.getElementById('lobbyMessage').textContent = "";
+            connectAuctionSocket();
+            setupAuctionChatInput();
+        }
+
+        function getAuctionServerUrl() {
+            if (location.port === "3000") return undefined;
+            if (location.hostname === "127.0.0.1" || location.hostname === "localhost") return "http://127.0.0.1:3000";
+            return undefined;
+        }
+
+        function getAuctionWsUrl() {
+            const protocol = location.protocol === "https:" ? "wss:" : "ws:";
+            if (location.port && location.port !== "8765") return `${protocol}//${location.host}/ws`;
+            return `${protocol}//127.0.0.1:8766/ws`;
+        }
+
+        function createNativeAuctionSocket(url) {
+            const handlers = {};
+            const ws = new WebSocket(url);
+            const client = {
+                id: "",
+                connected: false,
+                on(event, callback) {
+                    handlers[event] = handlers[event] || [];
+                    handlers[event].push(callback);
+                },
+                emit(event, data) {
+                    if (ws.readyState !== WebSocket.OPEN) return;
+                    ws.send(JSON.stringify({ event, data }));
+                },
+                dispatch(event, data) {
+                    (handlers[event] || []).forEach(callback => callback(data));
+                }
+            };
+
+            ws.addEventListener('open', () => {
+                client.connected = true;
+                client.dispatch('connect');
+            });
+            ws.addEventListener('close', () => {
+                client.connected = false;
+                client.dispatch('disconnect');
+            });
+            ws.addEventListener('error', () => {
+                client.dispatch('connect_error');
+            });
+            ws.addEventListener('message', (message) => {
+                try {
+                    const packet = JSON.parse(message.data);
+                    if (packet.event === 'socketId') client.id = packet.data.id;
+                    client.dispatch(packet.event, packet.data);
+                } catch (error) {
+                    console.error('Mensaje de subasta inválido:', error);
+                }
+            });
+
+            return client;
+        }
+
+        function connectAuctionSocket() {
+            const msg = document.getElementById('lobbyMessage');
+            if (socket && socket.connected) return;
+
+            if (typeof io === "undefined" && typeof WebSocket === "undefined") {
+                msg.textContent = "Tu navegador no tiene WebSocket disponible.";
+                msg.className = "message incorrect";
+                return;
+            }
+
+            socket = typeof io !== "undefined"
+                ? io(getAuctionServerUrl(), { transports: ["websocket", "polling"], reconnectionAttempts: 5 })
+                : createNativeAuctionSocket(getAuctionWsUrl());
+
+            socket.on('connect', () => {
+                msg.textContent = "Conectado. Creá una sala o unite a una existente.";
+                msg.className = "message correct";
+            });
+
+            socket.on('connect_error', () => {
+                msg.textContent = "No se pudo conectar con la Subasta Online. Probá abrir http://127.0.0.1:8766/";
+                msg.className = "message incorrect";
+            });
+
+            socket.on('disconnect', () => {
+                addAuctionEvent("Conexión perdida.", "system");
+            });
+
+            socket.on('errorMsg', (text) => {
+                const visibleMsg = document.getElementById('lobbyMessage');
+                visibleMsg.textContent = text;
+                visibleMsg.className = "message incorrect";
+                addAuctionEvent(text, "system");
+            });
+
+            socket.on('roomJoined', ({ roomName, username, isAdmin }) => {
+                currentRoomName = roomName;
+                currentUsername = username;
+                auctionIsAdmin = !!isAdmin;
+                document.getElementById('waitingRoomTitle').textContent = `SALA: ${roomName}`;
+                document.getElementById('currentRoomName').textContent = roomName;
+                document.getElementById('currentUsername').textContent = username;
+                saveProgress();
+                showView('auctionWaitingView');
+            });
+
+            socket.on('roomState', (state) => {
+                auctionParticipants = state.users || [];
+                auctionIsAdmin = state.adminId === socket.id;
+                updateAuctionPlayers(state);
+            });
+
+            socket.on('auctionStarted', () => {
+                document.getElementById('auctionEvents').innerHTML = "";
+                showView('auctionView');
+            });
+
+            socket.on('auctionEvent', ({ text, type }) => addAuctionEvent(text, type));
+
+            socket.on('nextPlayer', (data) => {
+                currentAuctionIdx = data.index || 0;
+                currentAuctionPlayer = data.player;
+                currentBid = data.price || currentAuctionPlayer.price || 0;
+                document.getElementById('auctionRound').textContent = data.roundLabel || `${currentAuctionIdx + 1}/${data.total}`;
+                document.getElementById('auctionTimer').textContent = data.time;
+                document.getElementById('lastBidder').textContent = "-";
+                document.getElementById('bidAmount').value = "";
+                renderAuctionCard(currentAuctionPlayer, `Base $${currentBid}M`);
+            });
+
+            socket.on('timerUpdate', (time) => {
+                document.getElementById('auctionTimer').textContent = time;
+            });
+
+            socket.on('bidUpdate', ({ newBid, bidderName, timeLeft }) => {
+                currentBid = newBid;
+                document.getElementById('lastBidder').textContent = `${bidderName} - $${newBid}M`;
+                document.getElementById('auctionTimer').textContent = timeLeft;
+                if (currentAuctionPlayer) renderAuctionCard(currentAuctionPlayer, `Oferta $${newBid}M`);
+            });
+
+            socket.on('roundFinished', ({ player, winner, price, users }) => {
+                auctionParticipants = users || auctionParticipants;
+                updateAuctionPlayers({ users: auctionParticipants });
+                const soldText = winner === "Nadie" ? `${player.name} quedó sin vender` : `${winner} compró a ${player.name} por $${price}M`;
+                addAuctionEvent(soldText, winner === "Nadie" ? "system" : "bid");
+                renderAuctionCard(player, winner === "Nadie" ? "Sin vender" : `Vendido: ${winner}`);
+            });
+
+            socket.on('auctionEnd', ({ users }) => {
+                auctionParticipants = users || auctionParticipants;
+                updateAuctionPlayers({ users: auctionParticipants });
+                document.getElementById('auctionTimer').textContent = "FIN";
+                addAuctionEvent("La subasta terminó.", "system");
+                renderAuctionEnd(users || []);
+            });
+        }
+
+        function getAuctionFormData() {
+            currentUsername = document.getElementById('usernameInput').value.trim() || "Jugador1";
+            currentRoomName = document.getElementById('roomNameInput').value.trim();
+            return {
+                username: currentUsername,
+                roomName: currentRoomName,
+                auctionTime: Number(document.getElementById('auctionTimeConfig').value) || 15,
+                initialBudget: Number(document.getElementById('initialBudgetConfig').value) || 1000
+            };
+        }
+
+        function createAuctionRoom() {
+            connectAuctionSocket();
+            if (!socket) return;
+            socket.emit('createRoom', getAuctionFormData());
+        }
+
+        function joinAuctionRoom() {
+            connectAuctionSocket();
+            if (!socket) return;
+            const data = getAuctionFormData();
+            if (!data.roomName) {
+                document.getElementById('lobbyMessage').textContent = "Ingresá el nombre de la sala.";
+                document.getElementById('lobbyMessage').className = "message incorrect";
+                return;
+            }
+            socket.emit('joinRoom', data);
+        }
+
+        function startAuctionFromWaiting() {
+            if (!socket || !currentRoomName) return;
+            socket.emit('startAuction', currentRoomName);
+        }
+
+        function placeBid() {
+            if (!socket || !currentRoomName) return;
+            const amountInput = document.getElementById('bidAmount');
+            const amount = Number(amountInput.value) || 10;
+            socket.emit('placeBid', { roomName: currentRoomName, amount });
+            amountInput.value = "";
+        }
+
+        function setupAuctionChatInput() {
+            const chatInput = document.getElementById('auctionChat');
+            if (!chatInput || chatInput.dataset.ready) return;
+            chatInput.dataset.ready = "true";
+            chatInput.addEventListener('keydown', (event) => {
+                if (event.key !== "Enter") return;
+                const text = chatInput.value.trim();
+                if (!text || !socket) return;
+                socket.emit('sendAuctionChat', { roomName: currentRoomName, text });
+                chatInput.value = "";
+            });
+        }
+
+        function updateAuctionPlayers(state = {}) {
+            const users = state.users || auctionParticipants || [];
+            const renderUser = (user) => `
+                <div class="auction-user-row ${user.id === (state.adminId || "") ? "is-admin" : ""} ${user.connected === false ? "is-offline" : ""}">
+                    <span>${user.username}</span>
+                    <span>$${user.budget}M</span>
+                </div>
+            `;
+
+            const waitingList = document.getElementById('waitingPlayersList');
+            if (waitingList) waitingList.innerHTML = users.map(renderUser).join("") || "<p style='color:#888;'>Esperando jugadores...</p>";
+
+            const onlineList = document.getElementById('onlinePlayers');
+            if (onlineList) onlineList.innerHTML = users.map((user) => `
+                <div class="auction-user-row ${user.connected === false ? "is-offline" : ""}">
+                    <span>${user.username} (${(user.roster || []).length})</span>
+                    <span>$${user.budget}M</span>
+                </div>
+            `).join("");
+
+            const me = users.find(user => socket && user.id === socket.id);
+            if (me) document.getElementById('auctionUserBudget').textContent = `$${me.budget}M`;
+
+            const startButton = document.querySelector('#auctionWaitingView button[onclick="startAuctionFromWaiting()"]');
+            if (startButton) {
+                startButton.style.display = "block";
+                startButton.disabled = !auctionIsAdmin || users.filter(user => user.connected !== false).length < 2;
+                startButton.textContent = auctionIsAdmin ? "EMPEZAR PARTIDA" : "Esperando al creador";
+            }
+        }
+
+        function addAuctionEvent(text, type = "info") {
+            const eventsEl = document.getElementById('auctionEvents');
+            if (!eventsEl) return;
+            const item = document.createElement('div');
+            item.className = `bid-item ${type === "bid" ? "last" : ""}`;
+            item.innerHTML = `<span>${text}</span>`;
+            eventsEl.prepend(item);
+        }
+
+        function renderAuctionCard(player, statusText = "") {
+            const card = document.getElementById('currentPlayerCard');
+            if (!card || !player) return;
+            const stats = Object.entries(player.stats || {}).slice(0, 6);
+            card.className = `fut-card ${player.rarity || "Oro"}`;
+            card.innerHTML = `
+                <div class="auction-card-top">
+                    <span>${player.rating || "-"}</span>
+                    <div class="auction-card-meta">
+                        <span>${player.pos || ""}</span>
+                        <span>${player.nat || ""}</span>
+                    </div>
+                </div>
+                <img class="auction-player-photo" src="${getGlobalPhoto(player.name)}" alt="${player.name}" onerror="this.onerror=null; this.src='${createFallbackImage(player.name, "photo")}'">
+                <div class="auction-player-name">${player.name}</div>
+                <div class="auction-player-club">${player.club || ""}</div>
+                <div class="auction-card-stats">
+                    ${stats.map(([key, value]) => `<span>${value} ${key}</span>`).join("")}
+                </div>
+                <div class="auction-card-status">${statusText || `Base $${player.price}M`}</div>
+            `;
+        }
+
+        function renderAuctionEnd(users) {
+            const card = document.getElementById('currentPlayerCard');
+            const ranking = [...users].sort((a, b) => (b.roster || []).length - (a.roster || []).length || b.budget - a.budget);
+            card.className = "fut-card Elite";
+            card.innerHTML = `
+                <div style="font-size: 1.8rem; font-weight: 900; text-align: center; margin-top: 15px;">FIN</div>
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                    ${ranking.map((user, idx) => `
+                        <div style="display:flex; justify-content:space-between; gap:8px; font-size:0.95rem;">
+                            <span>${idx + 1}. ${user.username}</span>
+                            <span>${(user.roster || []).length} fichajes</span>
+                        </div>
+                    `).join("")}
+                </div>
+            `;
+        }
+
+        // Inicialización General al cargar la página
+        window.addEventListener('load', () => {
+            // 1. Aplicar desorden persistente a los datos
+            applyPersistentShuffle(categorias, 'torre_order');
+            applyPersistentShuffle(trayectoriasData, 'tray_order');
+            if (typeof linkData !== 'undefined') applyPersistentShuffle(linkData, 'link_order');
+            if (typeof wordleData !== 'undefined') applyPersistentShuffle(wordleData, 'wordle_order');
+            equipoData = buildEquipoData();
+            if (equipoData.length) applyPersistentShuffle(equipoData, 'equipo_order');
+            if (typeof resultadoData !== 'undefined') applyPersistentShuffle(resultadoData, 'resultado_order');
+
+            initPredictiveText();
+
+            // 2. Cargar datos de Torre Futbolera
+            const savedProgress = localStorage.getItem('torreFutbol_progress');
+            levelProgress = savedProgress ? JSON.parse(savedProgress) : categorias.map(() => ({ status: 'playing', guessedIndices: [] }));
+            while (levelProgress.length < categorias.length) levelProgress.push({ status: 'playing', guessedIndices: [] });
+
+            const savedIndex = localStorage.getItem('torreFutbol_index');
+            if (savedIndex) currentCategoryIndex = parseInt(savedIndex);
+
+            const savedScore = localStorage.getItem('torreFutbol_score');
+            if (savedScore) {
+                score = parseInt(savedScore);
+                scoreEl.textContent = score;
+            }
+
+            // 3. Cargar datos de Trayectoria
+            const savedTray = localStorage.getItem('trayectoria_progress');
+            trayProgress = savedTray ? JSON.parse(savedTray) : trayectoriasData.map(() => ({ status: 'playing' }));
+            while (trayProgress.length < trayectoriasData.length) trayProgress.push({ status: 'playing' });
+
+            const savedTrayIdx = localStorage.getItem('trayectoria_index');
+            if (savedTrayIdx) trayIdx = parseInt(savedTrayIdx);
+
+            // 4. Cargar datos de El Camino
+            const savedCamProgress = localStorage.getItem('camino_progress');
+            caminoProgress = savedCamProgress ? JSON.parse(savedCamProgress) : caminoData.map(() => ({ status: 'playing' }));
+
+            const savedCamIdx = localStorage.getItem('camino_index');
+            if (savedCamIdx) caminoIdx = parseInt(savedCamIdx);
+
+            const savedCamScore = localStorage.getItem('camino_score');
+            if (savedCamScore) caminoScoreValue = parseInt(savedCamScore);
+
+            // 5. Cargar datos de Link y Wordle
+            const savedLink = localStorage.getItem('link_progress');
+            linkProgress = savedLink ? JSON.parse(savedLink) : (typeof linkData !== 'undefined' ? linkData.map(() => ({ status: 'playing' })) : []);
+            
+            const savedWordle = localStorage.getItem('wordle_progress');
+            wordleProgress = savedWordle ? JSON.parse(savedWordle) : (typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : []);
+
+            const savedResultado = localStorage.getItem('resultado_progress');
+            resultadoProgress = savedResultado ? JSON.parse(savedResultado) : (typeof resultadoData !== 'undefined' ? resultadoData.map(() => ({ status: 'playing', lives: 3 })) : []);
+            if (typeof resultadoData !== 'undefined') {
+                while (resultadoProgress.length < resultadoData.length) resultadoProgress.push({ status: 'playing', lives: 3 });
+            }
+
+            const savedResultadoIdx = localStorage.getItem('resultado_index');
+            if (savedResultadoIdx) resultadoIdx = parseInt(savedResultadoIdx);
+            if (typeof resultadoData !== 'undefined' && resultadoIdx >= resultadoData.length) resultadoIdx = 0;
+
+            const savedResultadoScore = localStorage.getItem('resultado_score');
+            if (savedResultadoScore) resultadoScoreValue = parseInt(savedResultadoScore);
+
+            const savedEquipo = localStorage.getItem('equipo_progress');
+            const parsedEquipoProgress = savedEquipo ? JSON.parse(savedEquipo) : null;
+            const resetEquipoProgress = !Array.isArray(parsedEquipoProgress) || parsedEquipoProgress.length !== equipoData.length;
+            equipoProgress = resetEquipoProgress ? equipoData.map(() => ({ status: 'playing', lives: 3 })) : parsedEquipoProgress;
+
+            const savedEquipoIdx = localStorage.getItem('equipo_index');
+            if (!resetEquipoProgress && savedEquipoIdx) equipoIdx = parseInt(savedEquipoIdx);
+            if (equipoIdx >= equipoData.length) equipoIdx = 0;
+
+            const savedEquipoScore = localStorage.getItem('equipo_score');
+            if (!resetEquipoProgress && savedEquipoScore) equipoScoreValue = parseInt(savedEquipoScore);
+
+            // 6. Logros
+            const savedAch = localStorage.getItem('torreFutbol_achievements');
+            if (savedAch) {
+                achievements = JSON.parse(savedAch);
+                if (achievements.won10) {
+                    const ach10 = document.getElementById('ach-10-levels');
+                    if(ach10) ach10.classList.add('unlocked');
+                }
+                if (achievements.score1000) {
+                    const ach1k = document.getElementById('ach-1000-pts');
+                    if(ach1k) ach1k.classList.add('unlocked');
+                }
+            }
+
+            // 7. Iniciar UI de Torre Futbolera por defecto
+            populateGrid();
+            loadLevel();
+            
+            // Asegurar que estamos en el menú al recargar
+            showView('menuView');
+        });
+    </script>
+</body>
+</html>

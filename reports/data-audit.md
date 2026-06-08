@@ -1,0 +1,332 @@
+﻿# TorreFutbol data audit
+
+Generated: 2026-06-02 00:02:50
+
+## Summary
+
+- Unique Torre answer entities: 603
+- Unique players referenced: 142
+- Unique teams referenced: 378
+- Local player images mapped: 18
+- Local team logos mapped: 12
+- Torre answer entities missing any local image/logo: 576
+- Players missing local image: 124
+- Teams missing local logo: 366
+- Alias blocks found: 1200
+- Empty alias blocks: 0
+
+## Image Coverage
+
+- Torre answer entity local media coverage: 4.5%
+- Player image coverage: 12.7%
+- Team logo coverage: 3.2%
+
+## Missing Torre Answer Media
+
+- Aaron Anselmino
+- AC Milan
+- Achraf Hakimi
+- Ademir
+- Adolfo Pedernera
+- Adolfo Valencia
+- Adriano
+- Ajax
+- Alan Shearer
+- Alberto Acosta
+- Alberto Marcovecchio
+- Alberto Ohaco
+- Alberto Spencer
+- Alejandro Sabella
+- Alessandro Altobelli
+- Alessandro Bastoni
+- Alessandro Del Piero
+- Alexandre Lacazette
+- Alexis Mac Allister
+- Alexis Sánchez
+- Alfio Basile
+- Alfredo Di Stéfano
+- Alfredo Morelos
+- Alisson Becker
+- Ally McCoist
+- Alpay Özalan
+- Alumni
+- Álvaro Morata
+- André Silva
+- Andrea Pirlo
+- Andrés Iniesta
+- Andriy Shevchenko
+- Andy Cole
+- Ángel Labruna
+- Anthony Martial
+- Antoine Griezmann
+- Antonio Di Natale
+- Antonio Rattín
+- Antonio Sastre
+- Antonio Vojak
+- Antony
+- Antony de Ávila
+- Arda Turan
+- Argentinos Juniors
+- Aritz Aduriz
+- Arjen Robben
+- Arnoldo Iguarán
+- Arsenal de Sarandí
+- Arsène Wenger
+- Arsenio Erico
+- Arthur Melo
+- Arturo Vidal
+- AS Roma
+- Aston Villa
+- Athletic Club
+- Athletico Paranaense
+- Atlético de Madrid
+- Atlético Mineiro
+- Aurélien Tchouaméni
+- Aymeric Laporte
+- Bastian Schweinsteiger
+- Bayern Múnich
+- Bebeto
+- Ben White
+- Benito Lorenzi
+- Bernabé Ferreyra
+- Bernardo Romeo
+- Bernardo Silva
+- Billy Liddell
+- Billy Meredith
+- Bobby Tambling
+- Boca Juniors
+- Bologna
+- Brad Friedel
+- Brennan Johnson
+- Bruno Fernandes
+- Bukayo Saka
+- Bülent Korkmaz
+- Cafu
+- Careca
+- ...y 496 mas
+
+## Missing Player Images
+
+- Achraf Hakimi
+- Alessandro Del Piero
+- Alessandro Nesta
+- Alexis Mac Allister
+- Alexis Sánchez
+- Alisson Becker
+- Alphonso Davies
+- Álvaro Morata
+- Andrea Pirlo
+- Andrés D'Alessandro
+- Andrés Iniesta
+- Antoine Griezmann
+- Ariel Ortega
+- Arjen Robben
+- Arturo Vidal
+- Bastian Schweinsteiger
+- Bukayo Saka
+- Cafu
+- Carles Puyol
+- Carlos Tevez
+- Cesc Fàbregas
+- Christian Vieri
+- Clarence Seedorf
+- Claude Makélélé
+- Claudio Caniggia
+- Cristian Romero
+- Dani Alves
+- Dani Carvajal
+- David Beckham
+- David Trezeguet
+- David Villa
+- Deco
+- Edgar Davids
+- Edinson Cavani
+- Edwin van der Sar
+- Enzo Francescoli
+- Esteban Cambiasso
+- Fabio Cannavaro
+- Federico Valverde
+- Filippo Inzaghi
+- Francesco Totti
+- Franck Ribéry
+- Franco Baresi
+- Frank Lampard
+- Gabriel Batistuta
+- Gabriel Milito
+- Gianluigi Buffon
+- Gianluigi Donnarumma
+- Harry Kane
+- Hernán Crespo
+- Hugo Sánchez
+- Hulk
+- Ignacio Scocco
+- Iker Casillas
+- James Milner
+- Javier Mascherano
+- Javier Saviola
+- Javier Zanetti
+- Jorge Valdano
+- Juan Román Riquelme
+- Juan Sebastián Verón
+- Jude Bellingham
+- Kaká
+- Kevin De Bruyne
+- Lautaro Martínez
+- Lev Yashin
+- Lothar Matthäus
+- Luís Figo
+- Luka Jović
+- Luka Modrić
+- Manuel Neuer
+- Marco van Basten
+- Mario Balotelli
+- Marquinhos
+- Martín Palermo
+- Mauro Icardi
+- Mauro Zárate
+- Mesut Özil
+- Michael Ballack
+- Michael Owen
+- ...y 44 mas
+
+## Missing Team Logos
+
+- AC Milan
+- Adana Demirspor
+- Adelaide United
+- AEK Athens
+- Ajax
+- Al Ain
+- Al Hilal
+- Al-Ahli
+- Al-Arabi
+- Alavés
+- Alemania
+- Alemania Federal
+- Alemania Oriental
+- Alianza Lima
+- Al-Ittihad
+- All Boys
+- Al-Nasr
+- Al-Nassr
+- Al-Rayyan
+- Al-Sadd
+- Alverca
+- América
+- América MG
+- Ancona
+- Angola
+- Antalyaspor
+- Anzhi
+- APOEL
+- Arabia Saudita
+- Argelia
+- Argentina
+- Argentinos Jrs
+- Aston Villa
+- Atalanta
+- Athletico Paranaense
+- Atlante
+- Atlético Celaya
+- Atlético de Madrid
+- Atlético Mineiro
+- Atlético Nacional
+- Australia
+- Austria
+- Austria Viena
+- Bahia
+- Banfield
+- Baniyas
+- Barcelona B
+- Barcelona SC
+- Baréin
+- Barnet FC
+- Başakşehir
+- Basel
+- Bayer Leverkusen
+- Bayern Munich
+- Bayern Múnich
+- Bélgica
+- Belgrano
+- Benfica
+- Benín
+- Betis
+- Birmingham
+- Blšany
+- Boca Juniors
+- Bolívar
+- Bolivia
+- Bologna
+- Borussia Dortmund
+- Bosnia
+- Botafogo
+- Botafogo-SP
+- Braga
+- Brasil
+- Brescia
+- Brest
+- Brighton
+- Brøndby
+- Bryne
+- Bulgaria
+- Bunyodkor
+- Burkina Faso
+- Cabo Verde
+- Caen
+- Cagliari
+- Camerún
+- Canadá
+- Cannes
+- Celta de Vigo
+- Celtic
+- Cerro Porteño
+- Chapecoense
+- Chemnitzer FC
+- Chennaiyin FC
+- Chile
+- China
+- Colo Colo
+- Colo-Colo
+- Colombia
+- Como
+- Congo
+- Consadole Sapporo
+- Corea del Norte
+- Corea del Sur
+- Corinthians
+- Cosenza
+- Costa de Marfil
+- Costa Rica
+- Croacia
+- Cruzeiro
+- Crystal Palace
+- Dallas Burn
+- Danubio
+- Defensores de Belgrano
+- Delhi Dynamos
+- Deportivo
+- Dinamarca
+- Dinamo Zagreb
+- Dukla Prague
+- Dundee FC
+- Ecuador
+- EE. UU.
+- ...y 246 mas
+
+## Duplicate-Looking Player Names
+
+- Ninguno
+
+## Duplicate-Looking Team Names
+
+- Bayern Múnich / Bayern Munich
+- Gremio / Grêmio
+- Monaco / Mónaco
+- Sao Paulo / São Paulo
+
+## Suggested Verification Workflow
+
+- Use Transfermarkt to verify trajectories, clubs, positions, transfer years and market-style data.
+- Use official competition sites for tournament orders and national-team match paths.
+- Use Wikimedia/Wikidata only for reusable image discovery, then store images locally.
+- Fix high-traffic content first: menu-visible modes, first 20 levels, and subasta player cards.

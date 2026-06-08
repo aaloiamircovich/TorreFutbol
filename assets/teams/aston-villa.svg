@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Aston Villa">
+  <rect width="160" height="160" rx="80" fill="#111"/>
+  <path d="M35 24h90v62c0 35-31 53-45 60-14-7-45-25-45-60z" fill="#7a003c" stroke="#93ccea" stroke-width="8"/>
+  <rect x="45" y="34" width="70" height="34" fill="#93ccea" opacity=".95"/>
+  <text x="80" y="94" text-anchor="middle" font-family="Arial" font-size="32" font-weight="900" fill="#f9df4a">AV</text>
+  <text x="80" y="117" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#fff">VILLA</text>
+</svg>

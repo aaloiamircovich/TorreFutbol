@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Napoli">
+  <rect width="160" height="160" rx="80" fill="#111"/>
+  <circle cx="80" cy="80" r="58" fill="#179bd7" stroke="#fff" stroke-width="8"/>
+  <circle cx="80" cy="80" r="43" fill="#179bd7" stroke="#0b5f91" stroke-width="4"/>
+  <text x="80" y="99" text-anchor="middle" font-family="Arial" font-size="62" font-weight="900" fill="#fff">N</text>
+</svg>

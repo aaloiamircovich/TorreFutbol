@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Benfica">
+  <rect width="160" height="160" rx="80" fill="#111"/>
+  <circle cx="80" cy="80" r="55" fill="#d0001b" stroke="#f0c44c" stroke-width="8"/>
+  <path d="M45 77h110" stroke="#f0c44c" stroke-width="10" transform="rotate(-22 80 80)"/>
+  <circle cx="80" cy="80" r="31" fill="#fff"/>
+  <text x="80" y="88" text-anchor="middle" font-family="Arial" font-size="28" font-weight="900" fill="#d0001b">SLB</text>
+</svg>

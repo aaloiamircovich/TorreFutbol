@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Atletico de Madrid">
+  <rect width="160" height="160" rx="80" fill="#111"/>
+  <path d="M36 24h88v64c0 33-30 50-44 58-14-8-44-25-44-58z" fill="#fff" stroke="#1d3f8f" stroke-width="8"/>
+  <rect x="45" y="58" width="12" height="74" fill="#d71920"/>
+  <rect x="69" y="58" width="12" height="80" fill="#d71920"/>
+  <rect x="93" y="58" width="12" height="74" fill="#d71920"/>
+  <path d="M40 29h80v31H40z" fill="#1d3f8f"/>
+  <text x="80" y="52" text-anchor="middle" font-family="Arial" font-size="17" font-weight="900" fill="#fff">ATM</text>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <path d="M60 8l48 24v42c0 28-22 42-48 50C34 116 12 102 12 74V32z" fill="#8e1f2f" stroke="#f5b335" stroke-width="5"/>
+  <path d="M18 32h84v28H18z" fill="#f5b335"/>
+  <text x="60" y="85" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="900" fill="#f5b335">ROM</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Betis">
+  <rect width="160" height="160" rx="80" fill="#111"/>
+  <path d="M80 142 30 48h100z" fill="#fff" stroke="#00954c" stroke-width="8"/>
+  <path d="M47 55h12l32 78H79zM74 55h12l22 78H96zM101 55h12l12 78h-12z" fill="#00954c"/>
+  <circle cx="80" cy="45" r="24" fill="#fff" stroke="#00954c" stroke-width="6"/>
+  <text x="80" y="53" text-anchor="middle" font-family="Arial" font-size="21" font-weight="900" fill="#00954c">BET</text>
+</svg>

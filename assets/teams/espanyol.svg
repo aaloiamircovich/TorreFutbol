@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Espanyol">
+  <rect width="160" height="160" rx="80" fill="#111"/>
+  <circle cx="80" cy="80" r="56" fill="#fff" stroke="#005eb8" stroke-width="8"/>
+  <rect x="49" y="38" width="14" height="84" fill="#005eb8"/>
+  <rect x="75" y="34" width="14" height="92" fill="#005eb8"/>
+  <rect x="101" y="38" width="14" height="84" fill="#005eb8"/>
+  <circle cx="80" cy="80" r="28" fill="#fff"/>
+  <text x="80" y="88" text-anchor="middle" font-family="Arial" font-size="22" font-weight="900" fill="#005eb8">RCD</text>
+</svg>
