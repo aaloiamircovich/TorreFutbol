@@ -1632,6 +1632,123 @@
                 transition-duration: 0.001ms !important;
             }
         }
+
+        .app-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            background:
+                linear-gradient(90deg, transparent 0 48%, rgba(255,255,255,0.04) 48% 52%, transparent 52%),
+                rgba(2, 7, 5, 0.74);
+            backdrop-filter: blur(8px);
+        }
+
+        .app-modal.visible {
+            display: flex;
+            animation: viewEnter 0.18s ease both;
+        }
+
+        .app-modal-card {
+            width: min(460px, 92vw);
+            position: relative;
+            overflow: hidden;
+            padding: 22px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.16);
+            background:
+                linear-gradient(135deg, rgba(25,230,129,0.14), rgba(77,184,255,0.06)),
+                linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035)),
+                rgba(10, 15, 13, 0.98);
+            box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+            animation: revealPop 0.24s ease both;
+        }
+
+        .app-modal-card::before {
+            content: attr(data-mark);
+            position: absolute;
+            right: 18px;
+            top: 18px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(0,0,0,0.22);
+            color: rgba(255,255,255,0.42);
+            font-size: 0.78rem;
+            font-weight: 950;
+            letter-spacing: 0.08em;
+        }
+
+        .app-modal-kicker {
+            display: inline-flex;
+            margin-bottom: 12px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            border: 1px solid rgba(25,230,129,0.34);
+            background: rgba(25,230,129,0.12);
+            color: #a9ffd0;
+            font-size: 0.72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .app-modal-title {
+            margin: 0 74px 10px 0;
+            color: #fff;
+            font-size: 1.3rem;
+            line-height: 1.15;
+            text-transform: none;
+        }
+
+        .app-modal-message {
+            margin: 0;
+            color: #cbd5d1;
+            font-size: 0.98rem;
+            line-height: 1.45;
+        }
+
+        .app-modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+
+        .app-modal-actions button {
+            min-width: 116px;
+        }
+
+        .app-modal-cancel {
+            background: rgba(255,255,255,0.09) !important;
+            color: #f7fff9 !important;
+        }
+
+        .app-modal-confirm {
+            background: linear-gradient(135deg, #19e681, #8dffbf) !important;
+            color: #07110c !important;
+        }
+
+        .app-modal-danger {
+            border-color: rgba(255,92,112,0.34) !important;
+            background:
+                linear-gradient(135deg, rgba(255,92,112,0.18), rgba(255,255,255,0.04)),
+                rgba(10, 15, 13, 0.98) !important;
+        }
+
+        .app-modal-danger .app-modal-kicker {
+            border-color: rgba(255,92,112,0.4);
+            background: rgba(255,92,112,0.12);
+            color: #ffb2bd;
+        }
+
+        .app-modal-danger .app-modal-confirm {
+            background: linear-gradient(135deg, #ff5c70, #ff9ba8) !important;
+            color: #1b060a !important;
+        }
     </style>
 </head>
 <body>
@@ -1651,6 +1768,18 @@
             <button class="btn-menu torneo selecciones" data-mark="COPA" onclick="showView('torneoSeleccionesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Selecciones Históricas</span><span class="menu-detail">Elegí cracks de selecciones legendarias.</span></button>
             <button class="btn-menu torneo clubes" data-mark="CLUB" onclick="showView('torneoClubesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Clubes Históricos</span><span class="menu-detail">Construí un XI de clubes icónicos.</span></button>
             <button class="btn-reset" onclick="handleReset()" style="margin-top: 10px; width: 100%; padding: 10px;">Reiniciar Todo el Juego</button>
+        </div>
+    </div>
+
+    <div id="appModal" class="app-modal" aria-hidden="true">
+        <div class="app-modal-card" role="dialog" aria-modal="true" aria-labelledby="appModalTitle" aria-describedby="appModalMessage" data-mark="FM">
+            <span class="app-modal-kicker" id="appModalKicker">Fútbol Mix</span>
+            <h2 class="app-modal-title" id="appModalTitle">Confirmar acción</h2>
+            <p class="app-modal-message" id="appModalMessage"></p>
+            <div class="app-modal-actions">
+                <button type="button" class="app-modal-cancel" id="appModalCancel">Cancelar</button>
+                <button type="button" class="app-modal-confirm" id="appModalConfirm">Aceptar</button>
+            </div>
         </div>
     </div>
     
@@ -2137,6 +2266,71 @@
         const resultadoToggleGridBtn = document.getElementById('resultadoToggleGridBtn');
         const equipoLevelGrid = document.getElementById('equipoLevelGrid');
         const equipoToggleGridBtn = document.getElementById('equipoToggleGridBtn');
+        const appModal = document.getElementById('appModal');
+        const appModalCard = appModal.querySelector('.app-modal-card');
+        const appModalKicker = document.getElementById('appModalKicker');
+        const appModalTitle = document.getElementById('appModalTitle');
+        const appModalMessage = document.getElementById('appModalMessage');
+        const appModalCancel = document.getElementById('appModalCancel');
+        const appModalConfirm = document.getElementById('appModalConfirm');
+        let activeModalResolve = null;
+        let lastModalFocus = null;
+
+        function closeAppModal(result) {
+            appModal.classList.remove('visible');
+            appModal.setAttribute('aria-hidden', 'true');
+            appModalCancel.onclick = null;
+            appModalConfirm.onclick = null;
+            document.removeEventListener('keydown', handleModalKeydown);
+            if (lastModalFocus && typeof lastModalFocus.focus === 'function') lastModalFocus.focus();
+            if (activeModalResolve) activeModalResolve(result);
+            activeModalResolve = null;
+        }
+
+        function handleModalKeydown(event) {
+            if (event.key === 'Escape' && appModalCancel.style.display !== 'none') closeAppModal(false);
+            if (event.key === 'Enter') closeAppModal(true);
+        }
+
+        function showAppModal({
+            title,
+            message,
+            kicker = 'Fútbol Mix',
+            mark = 'FM',
+            confirmText = 'Aceptar',
+            cancelText = 'Cancelar',
+            danger = false,
+            showCancel = true
+        }) {
+            if (activeModalResolve) closeAppModal(false);
+            lastModalFocus = document.activeElement;
+            appModalCard.classList.toggle('app-modal-danger', danger);
+            appModalCard.dataset.mark = mark;
+            appModalKicker.textContent = kicker;
+            appModalTitle.textContent = title;
+            appModalMessage.textContent = message;
+            appModalConfirm.textContent = confirmText;
+            appModalCancel.textContent = cancelText;
+            appModalCancel.style.display = showCancel ? '' : 'none';
+            appModal.classList.add('visible');
+            appModal.setAttribute('aria-hidden', 'false');
+            document.addEventListener('keydown', handleModalKeydown);
+
+            return new Promise((resolve) => {
+                activeModalResolve = resolve;
+                appModalCancel.onclick = () => closeAppModal(false);
+                appModalConfirm.onclick = () => closeAppModal(true);
+                setTimeout(() => appModalConfirm.focus(), 0);
+            });
+        }
+
+        function appConfirm(options) {
+            return showAppModal(options);
+        }
+
+        function appAlert(options) {
+            return showAppModal({ ...options, showCancel: false });
+        }
 
         function saveProgress() {
             try {
@@ -3090,13 +3284,25 @@
                             origin: { y: 0.6 },
                             colors: getConfettiColors(category.titulo)
                         });
-                        setTimeout(() => {
-                            alert("¡Categoría completada! Pasando a la siguiente...");
+                        setTimeout(async () => {
+                            await appAlert({
+                                kicker: 'Nivel completado',
+                                mark: 'OK',
+                                title: 'Categoría completada',
+                                message: 'Pasás a la siguiente categoría.',
+                                confirmText: 'Continuar'
+                            });
                             currentCategoryIndex++;
                             if (currentCategoryIndex < categorias.length) {
                                 loadLevel();
                             } else {
-                                alert(`¡Juego completado campeón! Puntuación final: ${score}`);
+                                await appAlert({
+                                    kicker: 'Juego completado',
+                                    mark: 'FIN',
+                                    title: 'Campeón',
+                                    message: `Puntuación final: ${score}`,
+                                    confirmText: 'Perfecto'
+                                });
                             }
                         }, 800);
                     }
@@ -3119,8 +3325,17 @@
             guessInput.focus();
         }
 
-        function handleSurrender() {
-            if (!confirm("¿Estás seguro de que querés rendirte? Se revelarán todas las respuestas.")) return;
+        async function handleSurrender() {
+            const shouldSurrender = await appConfirm({
+                kicker: 'Rendirse',
+                mark: 'STOP',
+                title: '¿Seguro que querés rendirte?',
+                message: 'Se revelarán todas las respuestas y el nivel quedará como perdido.',
+                confirmText: 'Rendirme',
+                cancelText: 'Seguir jugando',
+                danger: true
+            });
+            if (!shouldSurrender) return;
             
             updateLevelStatus('lost');
             revealAllAnswers();
@@ -3133,8 +3348,17 @@
             surrenderBtn.disabled = true;
         }
 
-        function handleReset() {
-            if (!confirm("¿Estás seguro de que querés borrar todo tu progreso y puntuación? Esta acción no se puede deshacer.")) return;
+        async function handleReset() {
+            const shouldReset = await appConfirm({
+                kicker: 'Reiniciar progreso',
+                mark: 'RESET',
+                title: '¿Borrar todo tu progreso?',
+                message: 'Se reiniciarán puntuación, niveles, vidas, logros y salas guardadas. Esta acción no se puede deshacer.',
+                confirmText: 'Borrar todo',
+                cancelText: 'Cancelar',
+                danger: true
+            });
+            if (!shouldReset) return;
             
             localStorage.clear();
             score = 0;
