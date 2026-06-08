@@ -1320,6 +1320,7 @@ const state = {
   drawHistory: [],
   formationName: null,
   formation: null,
+  pendingPlayerIndex: null,
 };
 
 const pickedCount = document.querySelector("#pickedCount");
@@ -1428,15 +1429,55 @@ function remainingForRole(role) {
 }
 
 function compatibleOpenRoles(player) {
-  return player.roles.filter((role) => remainingForRole(role) > 0);
+  return [...new Set(compatibleOpenSlots(player).map((slot) => slot.role))];
+}
+
+function compatibleOpenSlots(player) {
+  if (!state.formation) return [];
+  const usedSlots = new Set(state.picked.map((picked) => picked.assignedSlotIndex).filter(Number.isInteger));
+  return state.formation.slots
+    .map((role, slotIndex) => ({ role, slotIndex }))
+    .filter((slot) => !usedSlots.has(slot.slotIndex) && player.roles.includes(slot.role));
 }
 
 function canPickPlayer(player) {
-  return compatibleOpenRoles(player).length > 0;
+  return compatibleOpenSlots(player).length > 0;
 }
 
 function assignRole(player) {
-  return compatibleOpenRoles(player)[0] || null;
+  return compatibleOpenSlots(player)[0]?.role || null;
+}
+
+function slotSideLabel(role, slotIndex) {
+  if (!state.formation) return roleNames[role] || role;
+  const sameRoleSlots = state.formation.slots
+    .map((slotRole, index) => slotRole === role ? index : -1)
+    .filter((index) => index !== -1);
+  if (sameRoleSlots.length <= 1) return roleNames[role] || role;
+
+  const coordinates = pitchLayouts[state.formation.name] || pitchLayouts["4-3-3"];
+  const [x] = coordinates[slotIndex] || [50, 50];
+  const side = x < 42 ? "izquierdo" : x > 58 ? "derecho" : "central";
+  return `${role} ${side}`;
+}
+
+function completePickPlayer(player, assignedRole, assignedSlotIndex) {
+  state.picked.push({
+    ...player,
+    assignedRole,
+    assignedSlotIndex,
+    team: `${state.currentSquad.country} ${state.currentSquad.year}`,
+    sourceSquad: state.currentSquad.id,
+  });
+  state.currentSquad = null;
+  state.pendingPlayerIndex = null;
+  playerGrid.classList.add("empty");
+  playerGrid.innerHTML = `<p>Jugador agregado. Sortea otra seleccion para seguir armando el XI.</p>`;
+  drawTitle.textContent = state.picked.length === 11 ? "XI completo" : "Listo";
+  drawSubtitle.textContent = state.picked.length === 11 ? "Ya puedes simular el torneo." : "Faltan " + (11 - state.picked.length) + " jugadores";
+  drawBtn.disabled = state.picked.length === 11;
+  skipBtn.disabled = true;
+  renderLineup();
 }
 
 function rateTeam(players, historicalBonus = 0, formation = defaultFormation) {
@@ -1471,7 +1512,10 @@ function renderSources() {
 function getAssignedSlots(formation) {
   const usedIndexes = new Set();
   return formation.slots.map((role, slotIndex) => {
-    const playerIndex = state.picked.findIndex((player, index) => !usedIndexes.has(index) && player.assignedRole === role);
+    let playerIndex = state.picked.findIndex((player, index) => !usedIndexes.has(index) && player.assignedSlotIndex === slotIndex);
+    if (playerIndex === -1) {
+      playerIndex = state.picked.findIndex((player, index) => !usedIndexes.has(index) && player.assignedRole === role);
+    }
     if (playerIndex === -1) return { role, slotIndex, player: null };
     usedIndexes.add(playerIndex);
     return { role, slotIndex, player: state.picked[playerIndex] };
@@ -1555,6 +1599,7 @@ function showCurrentSquad() {
   drawTitle.textContent = state.currentSquad.country;
   drawSubtitle.textContent = `Mundial ${state.currentSquad.year}`;
   state.drawHistory.push(state.currentSquad.id);
+  state.pendingPlayerIndex = null;
   updateRerollButtons();
   renderPlayers();
 }
@@ -1572,41 +1617,55 @@ function renderPlayers() {
   const players = state.currentSquad.players.filter((player) => state.filter === "ALL" || player.roles.includes(state.filter));
   playerGrid.classList.remove("empty");
   playerGrid.innerHTML = players.map((player, listIndex) => {
-    const openRoles = compatibleOpenRoles(player);
-    const disabled = openRoles.length === 0;
-    const roleText = player.roles.join(" / ");
+    const playerIndex = state.currentSquad.players.indexOf(player);
+    const openSlots = compatibleOpenSlots(player);
+    const disabled = openSlots.length === 0;
+    const roleText = disabled
+      ? "Cupo completo"
+      : openSlots.length > 1
+        ? "Elegir puesto"
+        : slotSideLabel(openSlots[0].role, openSlots[0].slotIndex);
+    const isPending = state.pendingPlayerIndex === playerIndex;
     return `
-    <button class="player-card" data-index="${state.currentSquad.players.indexOf(player)}" ${disabled ? "disabled" : ""}>
-      <span class="shirt-no">#${listIndex + 1}</span>
-      <div>
-        <strong>${playerName(player)}</strong>
-        <small>${disabled ? "Cupo completo" : roleText}</small>
-      </div>
-      <span class="player-ovr">${player.ovr}</span>
-    </button>
+    <div class="player-choice ${isPending ? "choosing" : ""}">
+      <button class="player-card" data-index="${playerIndex}" ${disabled ? "disabled" : ""}>
+        <span class="shirt-no">#${listIndex + 1}</span>
+        <div>
+          <strong>${playerName(player)}</strong>
+          <small>${roleText}</small>
+        </div>
+        <span class="player-ovr">${player.ovr}</span>
+      </button>
+      ${isPending ? `
+        <div class="role-choice-row">
+          ${openSlots.map((slot) => `<button class="role-choice" data-index="${playerIndex}" data-slot="${slot.slotIndex}">${slotSideLabel(slot.role, slot.slotIndex)}</button>`).join("")}
+        </div>
+      ` : ""}
+    </div>
   `;
   }).join("");
 }
 
-function pickPlayer(index) {
+function pickPlayer(index, slotIndex = null) {
   if (!state.currentSquad || state.picked.length >= 11) return;
   const player = state.currentSquad.players[index];
-  const assignedRole = assignRole(player);
-  if (!assignedRole) return;
-  state.picked.push({
-    ...player,
-    assignedRole,
-    team: `${state.currentSquad.country} ${state.currentSquad.year}`,
-    sourceSquad: state.currentSquad.id,
-  });
-  state.currentSquad = null;
-  playerGrid.classList.add("empty");
-  playerGrid.innerHTML = `<p>Jugador agregado. Sortea otra selección para seguir armando el XI.</p>`;
-  drawTitle.textContent = state.picked.length === 11 ? "XI completo" : "Listo";
-  drawSubtitle.textContent = state.picked.length === 11 ? "Ya puedes simular el torneo." : "Faltan " + (11 - state.picked.length) + " jugadores";
-  drawBtn.disabled = state.picked.length === 11;
-  skipBtn.disabled = true;
-  renderLineup();
+  if (!player) return;
+  const openSlots = compatibleOpenSlots(player);
+  if (!openSlots.length) return;
+
+  if (slotIndex === null && openSlots.length > 1) {
+    state.pendingPlayerIndex = state.pendingPlayerIndex === index ? null : index;
+    drawTitle.textContent = "Elegir puesto";
+    drawSubtitle.textContent = playerName(player);
+    renderPlayers();
+    return;
+  }
+
+  const selectedSlot = slotIndex === null
+    ? openSlots[0]
+    : openSlots.find((slot) => slot.slotIndex === slotIndex);
+  if (!selectedSlot) return;
+  completePickPlayer(player, selectedSlot.role, selectedSlot.slotIndex);
 }
 
 function rerollSameYear() {
@@ -1615,6 +1674,7 @@ function rerollSameYear() {
   if (!pool.length) return;
   state.skips -= 1;
   state.currentSquad = randomItem(pool);
+  state.pendingPlayerIndex = null;
   showCurrentSquad();
   renderLineup();
 }
@@ -1625,6 +1685,7 @@ function rerollSameCountry() {
   if (!pool.length) return;
   state.skips -= 1;
   state.currentSquad = randomItem(pool);
+  state.pendingPlayerIndex = null;
   showCurrentSquad();
   renderLineup();
 }
@@ -1637,6 +1698,7 @@ function resetGame() {
   state.drawHistory = [];
   state.formationName = null;
   state.formation = null;
+  state.pendingPlayerIndex = null;
   drawTitle.textContent = "Elige formación";
   drawSubtitle.textContent = "Primero define el sistema táctico para activar el sorteo.";
   drawBtn.disabled = true;
@@ -1923,6 +1985,11 @@ formationGrid.addEventListener("click", (event) => {
   selectFormation(button.dataset.formation);
 });
 playerGrid.addEventListener("click", (event) => {
+  const roleButton = event.target.closest(".role-choice");
+  if (roleButton) {
+    pickPlayer(Number(roleButton.dataset.index), Number(roleButton.dataset.slot));
+    return;
+  }
   const card = event.target.closest(".player-card");
   if (!card) return;
   pickPlayer(Number(card.dataset.index));
@@ -1930,6 +1997,7 @@ playerGrid.addEventListener("click", (event) => {
 document.querySelectorAll(".filter").forEach((button) => {
   button.addEventListener("click", () => {
     state.filter = button.dataset.filter;
+    state.pendingPlayerIndex = null;
     document.querySelectorAll(".filter").forEach((item) => item.classList.toggle("active", item === button));
     renderPlayers();
   });

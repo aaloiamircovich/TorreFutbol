@@ -719,6 +719,44 @@ body {
   gap: 8px;
 }
 
+.player-choice {
+  border-bottom: 1px solid #333;
+}
+
+.player-choice .player-card {
+  border-bottom: 0;
+}
+
+.player-choice.choosing .player-card {
+  background: rgba(0, 230, 118, 0.16) !important;
+  border-color: rgba(0, 230, 118, 0.45) !important;
+}
+
+.role-choice-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
+  gap: 6px;
+  padding: 0 10px 10px 58px;
+  background: #171717;
+}
+
+.role-choice {
+  min-height: 32px;
+  padding: 7px 8px;
+  border: 1px solid #3f3f3f !important;
+  background: #242424 !important;
+  color: #e0e0e0 !important;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  white-space: normal;
+}
+
+.role-choice:hover,
+.role-choice:focus-visible {
+  background: #00e676 !important;
+  color: #06120c !important;
+}
+
 .player-card strong,
 .player-card small,
 .lineup-player span,
@@ -822,5 +860,10 @@ body {
 
   .slot-name {
     max-width: 78px;
+  }
+
+  .role-choice-row {
+    padding-left: 10px;
+    grid-template-columns: 1fr;
   }
 }
