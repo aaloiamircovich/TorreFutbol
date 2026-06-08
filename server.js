@@ -12,8 +12,13 @@ const io = new Server(server, {
 });
 
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
 const PUBLIC_DIR = __dirname;
 const rooms = {};
+
+app.get('/health', (req, res) => {
+    res.status(200).json({ ok: true, service: 'futbol-mix' });
+});
 
 app.use(express.static(PUBLIC_DIR));
 
@@ -296,6 +301,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(PORT, () => {
-    console.log(`Subasta Online lista en http://127.0.0.1:${PORT}`);
+server.listen(PORT, HOST, () => {
+    console.log(`Futbol Mix listo en http://${HOST}:${PORT}`);
 });
