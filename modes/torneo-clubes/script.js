@@ -628,8 +628,6 @@ function simulateMatch(teamA, teamB, knockout = false) {
 }
 
 function renderMatch(match, phase) {
-  const oddsA = Math.round(match.chanceA * 100);
-  const oddsB = 100 - oddsA;
   const penText = match.penalties ? `, penales ${match.penalties[0]}-${match.penalties[1]}` : "";
   return `
     <article class="match-card">
@@ -639,7 +637,6 @@ function renderMatch(match, phase) {
         <span>${match.goalsA} - ${match.goalsB}${penText}</span>
         <span>${match.teamB.name}</span>
       </div>
-      <p>Probabilidad previa: ${match.teamA.name} ${oddsA}% - ${match.teamB.name} ${oddsB}%.</p>
       <ul class="events">
         ${match.events.map((event) => `<li>${event.minute}' ${event.text}</li>`).join("")}
       </ul>
@@ -672,10 +669,7 @@ function addResult(rowA, rowB, goalsA, goalsB) {
 }
 
 function renderOdds(userTeam, opponents) {
-  oddsBox.innerHTML = opponents.map((opponent) => {
-    const chance = Math.round(winChance(userTeam, opponent) * 100);
-    return `<div class="odds-card"><strong>${opponent.name}</strong><p>Tu probabilidad estimada: ${chance}%</p><div class="bar"><span style="width:${chance}%"></span></div></div>`;
-  }).join("");
+  oddsBox.innerHTML = "";
 }
 
 const SIM_MINUTE_MS = 72;
@@ -710,15 +704,11 @@ function eventLabel(event) {
   return "JUGADA";
 }
 function renderLiveMatchShell(match, phase) {
-  const oddsA = Math.round(match.chanceA * 100);
-  const oddsB = 100 - oddsA;
   const id = `live-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
   tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card live-match live-match-card" id="${id}">
     <div class="live-stadium" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="live-match-head"><div><p class="live-kicker">${phase}</p><h3>Partido en vivo</h3></div><span class="live-minute">0'</span></div>
     <div class="live-scoreboard"><span>${match.teamA.name}</span><strong class="live-score">0 - 0</strong><span>${match.teamB.name}</span></div>
-    <div class="live-tension"><span style="width:${oddsA}%"></span></div>
-    <p class="live-odds">Probabilidad previa: ${match.teamA.name} ${oddsA}% - ${match.teamB.name} ${oddsB}%.</p>
     <div class="live-timeline"><span style="width:0%"></span></div>
     <ul class="events live-events"></ul>
   </article>`);

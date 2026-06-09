@@ -1779,3 +1779,13 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Oculta toda la capa visual de probabilidades del torneo. */
+.odds-box,
+.odds-card,
+.live-tension,
+.live-odds {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
