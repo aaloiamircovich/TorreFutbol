@@ -65,11 +65,7 @@
           <label>
             Primer club
             <select id="playerClub">
-              <option value="Barrio Sur">Barrio Sur</option>
-              <option value="Academia Federal">Academia Federal</option>
-              <option value="Puerto Norte">Puerto Norte</option>
-              <option value="Union Capital">Union Capital</option>
-              <option value="Deportivo Litoral">Deportivo Litoral</option>
+              <option value="Boca Juniors">Boca Juniors</option>
             </select>
           </label>
 
@@ -97,7 +93,10 @@
               <small id="shirtPos">DC</small>
             </div>
             <div class="player-summary">
-              <span id="overallLabel" class="overall">60</span>
+              <div class="identity-strip">
+                <img id="clubLogo" class="club-logo" src="" alt="" />
+                <span id="overallLabel" class="overall">60</span>
+              </div>
               <div>
                 <strong id="roleLabel">Promesa</strong>
                 <p id="contractLabel">Contrato juvenil</p>
@@ -170,6 +169,7 @@
                 <p class="eyebrow">Proximo rival</p>
                 <h2 id="nextOpponent">Rival</h2>
                 <p id="matchContext">Liga juvenil</p>
+                <div id="rivalStars" class="rival-stars"></div>
                 <button id="playMatchBtn" class="primary">Jugar partido</button>
                 <button id="restBtn" class="outline">Descansar</button>
               </div>
@@ -218,6 +218,9 @@
       </section>
     </main>
 
+    <script src="../../datossubasta.js"></script>
+    <script src="../../logos.js"></script>
+    <script src="../../jugadoresfotos.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

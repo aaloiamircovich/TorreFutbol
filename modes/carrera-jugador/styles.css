@@ -290,6 +290,23 @@ label {
   gap: 10px;
 }
 
+.identity-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.club-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 7px;
+  background: rgba(255,255,255,0.92);
+  box-shadow: inset 0 0 0 1px rgba(7,17,12,0.12);
+}
+
 .overall {
   width: 70px;
   height: 70px;
@@ -539,6 +556,79 @@ h2 {
   min-height: 92px;
 }
 
+.rival-stars {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.rival-head,
+.star-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rival-head {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.rival-head img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 4px;
+  background: rgba(255,255,255,0.92);
+}
+
+.star-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.star-chip {
+  min-height: 58px;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.055);
+}
+
+.star-chip img,
+.star-chip > span {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 50%;
+}
+
+.star-chip img {
+  object-fit: cover;
+}
+
+.star-chip > span {
+  display: grid;
+  place-items: center;
+  background: rgba(25,230,129,0.16);
+  color: var(--green);
+  font-size: 0.75rem;
+  font-weight: 1000;
+}
+
+.star-chip strong,
+.star-chip small {
+  display: block;
+}
+
+.star-chip small {
+  color: var(--muted);
+}
+
 .reputation-pills {
   display: flex;
   gap: 8px;
@@ -580,6 +670,21 @@ h2 {
   justify-content: space-between;
   gap: 12px;
   align-items: baseline;
+}
+
+.offer-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.offer-card h3 img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 7px;
+  padding: 4px;
+  background: rgba(255,255,255,0.92);
 }
 
 .offer-card strong {
