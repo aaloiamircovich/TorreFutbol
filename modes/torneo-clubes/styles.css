@@ -1293,7 +1293,7 @@ button {
     overflow: auto;
   }
 }
-/* Simulacion en pestaÃ±a completa */
+/* Simulacion en pestana completa */
 .score-panel {
   display: flex;
   flex-direction: column;
@@ -1788,4 +1788,164 @@ body {
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/* Simulacion estable: una columna, scroll propio y tablas sin superposicion. */
+.tournament-live-mode {
+  width: 100%;
+  min-height: calc(100dvh - 20px);
+}
+
+.tournament-live-mode .tournament-panel {
+  width: 100%;
+  height: auto !important;
+  min-height: calc(100dvh - 20px);
+  max-height: none !important;
+  padding: clamp(12px, 2vw, 20px);
+  overflow: visible !important;
+}
+
+.tournament-live-mode .tournament-head {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  margin: calc(clamp(12px, 2vw, 20px) * -1) calc(clamp(12px, 2vw, 20px) * -1) 12px;
+  padding: clamp(12px, 2vw, 18px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: rgba(18,18,18,0.96);
+  backdrop-filter: blur(10px);
+}
+
+.tournament-live-mode .tournament-log,
+.tournament-log {
+  display: flex !important;
+  flex-direction: column;
+  grid-template-columns: none !important;
+  align-items: stretch !important;
+  gap: 14px;
+  width: 100%;
+}
+
+.tournament-live-mode .tournament-log {
+  max-height: calc(100dvh - 118px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 0 8px 24px 0;
+}
+
+.tournament-log > .match-card,
+.tournament-log > .sim-gate,
+.tournament-log > .live-match-card {
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
+.match-card {
+  position: relative;
+  min-width: 0;
+}
+
+.scoreline {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.scoreline span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scoreline span:nth-child(2) {
+  overflow: visible;
+  text-align: center;
+}
+
+.scoreline span:last-child {
+  text-align: right;
+}
+
+.group-table-card {
+  overflow: hidden !important;
+}
+
+.group-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+}
+
+.group-table-scroll .table-row {
+  min-width: 560px;
+  grid-template-columns: minmax(190px, 1fr) repeat(5, minmax(48px, 64px));
+  align-items: center;
+}
+
+.table-row span {
+  min-width: 0;
+}
+
+.table-row span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.live-match-card {
+  min-height: 0;
+}
+
+.live-events {
+  max-height: min(34dvh, 330px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sim-gate {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .tournament-live-mode .tournament-panel {
+    min-height: 100dvh;
+    padding: 10px;
+  }
+
+  .tournament-live-mode .tournament-head {
+    margin: -10px -10px 10px;
+    padding: 12px;
+  }
+
+  .tournament-live-mode .tournament-log {
+    max-height: calc(100dvh - 104px) !important;
+    padding-right: 4px;
+  }
+
+  .scoreline {
+    grid-template-columns: 1fr !important;
+    gap: 6px;
+  }
+
+  .scoreline span,
+  .scoreline span:last-child {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .scoreline span:nth-child(2) {
+    justify-self: start;
+    padding: 5px 8px;
+    border-radius: 7px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .group-table-scroll .table-row {
+    min-width: 500px;
+    grid-template-columns: minmax(160px, 1fr) repeat(5, minmax(44px, 58px));
+  }
 }

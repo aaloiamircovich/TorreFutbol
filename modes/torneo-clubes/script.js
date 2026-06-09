@@ -340,6 +340,19 @@ function sameCountrySquads() {
   return compatibleSquads((squad) => squad.country === state.currentSquad.country && squad.year !== state.currentSquad.year);
 }
 
+function currentSquadHasPickablePlayers() {
+  return Boolean(state.currentSquad?.players.some((player) => canPickPlayer(player)));
+}
+
+function rerollAnyCompatibleSquad() {
+  const pool = compatibleSquads(() => true);
+  if (!pool.length) return;
+  state.currentSquad = randomItem(pool);
+  state.pendingPlayerIndex = null;
+  showCurrentSquad();
+  renderLineup();
+}
+
 function updateRerollButtons() {
   if (!state.formation || state.picked.length >= 11) {
     drawBtn.disabled = true;
@@ -349,6 +362,12 @@ function updateRerollButtons() {
 
   if (!state.currentSquad) {
     drawBtn.disabled = false;
+    skipBtn.disabled = true;
+    return;
+  }
+
+  if (!currentSquadHasPickablePlayers()) {
+    drawBtn.disabled = compatibleSquads(() => true).length === 0;
     skipBtn.disabled = true;
     return;
   }
@@ -482,7 +501,7 @@ function selectFormation(name) {
   state.formationName = name;
   state.formation = { name, slots: formations[name] };
   drawTitle.textContent = "Listo";
-  drawSubtitle.textContent = `Formacion ${name}`;
+  drawSubtitle.textContent = `Formación ${name}`;
   drawBtn.disabled = false;
   document.querySelectorAll(".formation-option").forEach((button) => {
     button.classList.toggle("active", button.dataset.formation === name);
@@ -647,10 +666,12 @@ function renderMatch(match, phase) {
 function tableHtml(table) {
   const rows = table.slice().sort((a, b) => b.pts - a.pts || b.gf - b.ga - (a.gf - a.ga) || b.gf - a.gf);
   return `
-    <article class="match-card">
+    <article class="match-card group-table-card">
       <h3>Tabla de grupo</h3>
-      <div class="table-row header"><span>Equipo</span><span>Pts</span><span>GF</span><span>GC</span><span>DG</span><span>Media</span></div>
-      ${rows.map((row) => `<div class="table-row"><span>${row.team.name}</span><span>${row.pts}</span><span>${row.gf}</span><span>${row.ga}</span><span>${row.gf - row.ga}</span><span>${row.team.rating.total}</span></div>`).join("")}
+      <div class="group-table-scroll" aria-label="Tabla de grupo">
+        <div class="table-row header"><span>Equipo</span><span>Pts</span><span>GF</span><span>GC</span><span>DG</span><span>Media</span></div>
+        ${rows.map((row) => `<div class="table-row"><span>${row.team.name}</span><span>${row.pts}</span><span>${row.gf}</span><span>${row.ga}</span><span>${row.gf - row.ga}</span><span>${row.team.rating.total}</span></div>`).join("")}
+      </div>
     </article>
   `;
 }
@@ -784,7 +805,7 @@ function finishTournamentSimulation() {
   if (button) {
     button.addEventListener("click", () => {
       closeTournamentTab();
-      tournamentPanel.hidden = false;
+      tournamentPanel.hidden = true;
       tournamentLog.scrollTop = 0;
     }, { once: true });
   }
@@ -857,7 +878,8 @@ async function simulateTournament() {
   finishTournamentSimulation();
 }
 drawBtn.addEventListener("click", () => {
-  if (state.currentSquad) rerollSameYear();
+  if (state.currentSquad && !currentSquadHasPickablePlayers()) rerollAnyCompatibleSquad();
+  else if (state.currentSquad) rerollSameYear();
   else drawSquad();
 });
 skipBtn.addEventListener("click", rerollSameCountry);
