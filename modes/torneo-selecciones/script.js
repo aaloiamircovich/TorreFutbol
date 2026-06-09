@@ -248,17 +248,17 @@ const squads = [
     id: "arg-2022",
     country: "Argentina",
     year: 2022,
-    rating: 92,
+    rating: 94,
     source: sources[0].url,
     players: [
-      p("Emiliano Martinez", "POR", 91), p("Franco Armani", "POR", 80), p("Geronimo Rulli", "POR", 82),
-      p("Nahuel Molina", "DEF", 84), p("Gonzalo Montiel", "DEF", 82), p("Cristian Romero", "DEF", 88),
-      p("German Pezzella", "DEF", 81), p("Nicolas Otamendi", "DEF", 87), p("Lisandro Martinez", "DEF", 86),
+      p("Emiliano Martinez", "POR", 92), p("Franco Armani", "POR", 80), p("Geronimo Rulli", "POR", 82),
+      p("Nahuel Molina", "DEF", 84), p("Gonzalo Montiel", "DEF", 83), p("Cristian Romero", "DEF", 88),
+      p("German Pezzella", "DEF", 81), p("Nicolas Otamendi", "DEF", 88), p("Lisandro Martinez", "DEF", 86),
       p("Marcos Acuna", "DEF", 84), p("Nicolas Tagliafico", "DEF", 83), p("Juan Foyth", "DEF", 80),
-      p("Rodrigo De Paul", "MED", 88), p("Leandro Paredes", "MED", 84), p("Enzo Fernandez", "MED", 87),
-      p("Alexis Mac Allister", "MED", 86), p("Guido Rodriguez", "MED", 82), p("Exequiel Palacios", "MED", 81),
-      p("Thiago Almada", "MED", 79), p("Papu Gomez", "MED", 82), p("Lionel Messi", "DEL", 98),
-      p("Angel Di Maria", "DEL", 89), p("Julian Alvarez", "DEL", 88), p("Lautaro Martinez", "DEL", 87),
+      p("Rodrigo De Paul", "MED", 88), p("Leandro Paredes", "MED", 84), p("Enzo Fernandez", "MED", 88),
+      p("Alexis Mac Allister", "MED", 88), p("Guido Rodriguez", "MED", 82), p("Exequiel Palacios", "MED", 81),
+      p("Thiago Almada", "MED", 79), p("Papu Gomez", "MED", 82), p("Lionel Messi", "DEL", 99),
+      p("Angel Di Maria", "DEL", 90), p("Julian Alvarez", "DEL", 89), p("Lautaro Martinez", "DEL", 87),
       p("Paulo Dybala", "DEL", 86), p("Angel Correa", "DEL", 83),
     ],
   },
@@ -371,15 +371,15 @@ const squads = [
     id: "fra-2018",
     country: "Francia",
     year: 2018,
-    rating: 92,
+    rating: 93,
     source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
     players: [
       p("Hugo Lloris", "POR", 90), p("Steve Mandanda", "POR", 82), p("Alphonse Areola", "POR", 82),
       p("Raphael Varane", "DEF", 91), p("Samuel Umtiti", "DEF", 88), p("Lucas Hernandez", "DEF", 86), p("Benjamin Pavard", "DEF", 85),
       p("Presnel Kimpembe", "DEF", 83), p("Adil Rami", "DEF", 81), p("Djibril Sidibe", "DEF", 82), p("Benjamin Mendy", "DEF", 81),
-      p("N'Golo Kante", "MED", 93), p("Paul Pogba", "MED", 90), p("Blaise Matuidi", "MED", 86), p("Corentin Tolisso", "MED", 84),
+      p("N'Golo Kante", "MED", 94), p("Paul Pogba", "MED", 91), p("Blaise Matuidi", "MED", 86), p("Corentin Tolisso", "MED", 84),
       p("Steven Nzonzi", "MED", 83), p("Thomas Lemar", "MED", 82), p("Nabil Fekir", "MED", 84),
-      p("Antoine Griezmann", "DEL", 92), p("Kylian Mbappe", "DEL", 91), p("Olivier Giroud", "DEL", 86),
+      p("Antoine Griezmann", "DEL", 93), p("Kylian Mbappe", "DEL", 92), p("Olivier Giroud", "DEL", 86),
       p("Ousmane Dembele", "DEL", 85), p("Florian Thauvin", "DEL", 82),
     ],
   },
@@ -623,7 +623,7 @@ const squads = [
     id: "bel-2018",
     country: "Belgica",
     year: 2018,
-    rating: 92,
+    rating: 91,
     source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
     players: [
       p("Thibaut Courtois", "POR", 92), p("Simon Mignolet", "POR", 82), p("Koen Casteels", "POR", 81),
@@ -1282,6 +1282,294 @@ const squads = [
       p("Reinaldo", "DC", 84), p("Gil", "ED", 82), p("Chicao", "MCD", 80),
     ],
   },
+
+  {
+    id: "bul-1994",
+    country: "Bulgaria",
+    year: 1994,
+    rating: 88,
+    source: "https://en.wikipedia.org/wiki/1994_FIFA_World_Cup_squads",
+    players: [
+      p("Borislav Mihaylov", "POR", 86), p("Plamen Nikolov", "POR", 76),
+      p("Emil Kremenliev", "LD", 81), p("Trifon Ivanov", "DFC", 86), p("Petar Hubchev", "DFC", 84), p("Iliyan Kiryakov", "LI", 80),
+      p("Zlatko Yankov", "MCD", 84), p("Krasimir Balakov", "MCO", 90), p("Yordan Letchkov", "MC", 88), p("Daniel Borimirov", "MC", 80),
+      p("Emil Kostadinov", "ED", 87), p("Hristo Stoichkov", "EI", 94, ["EI", "DC"]), p("Luboslav Penev", "DC", 86), p("Nasko Sirakov", "DC", 83),
+    ],
+  },
+  {
+    id: "ned-1994",
+    country: "Paises Bajos",
+    year: 1994,
+    rating: 90,
+    source: "https://en.wikipedia.org/wiki/1994_FIFA_World_Cup_squads",
+    players: [
+      p("Ed de Goey", "POR", 86), p("Theo Snelders", "POR", 78),
+      p("Berry van Aerle", "LD", 82), p("Ronald Koeman", "DFC", 91), p("Frank de Boer", "DFC", 88), p("Arthur Numan", "LI", 84), p("Danny Blind", "DFC", 85),
+      p("Frank Rijkaard", "MCD", 91), p("Jan Wouters", "MC", 86), p("Wim Jonk", "MC", 85), p("Rob Witschge", "MCO", 83), p("Aron Winter", "MC", 84),
+      p("Marc Overmars", "EI", 87), p("Dennis Bergkamp", "DC", 92, ["DC", "MCO"]), p("Bryan Roy", "EI", 85), p("Peter van Vossen", "DC", 80),
+    ],
+  },
+  {
+    id: "ger-1994",
+    country: "Alemania",
+    year: 1994,
+    rating: 89,
+    source: "https://en.wikipedia.org/wiki/1994_FIFA_World_Cup_squads",
+    players: [
+      p("Bodo Illgner", "POR", 88), p("Andreas Kopke", "POR", 84),
+      p("Thomas Helmer", "LD", 85), p("Jurgen Kohler", "DFC", 90), p("Matthias Sammer", "DFC", 89, ["DFC", "MCD"]), p("Andreas Brehme", "LI", 88), p("Guido Buchwald", "DFC", 86),
+      p("Stefan Effenberg", "MC", 88), p("Lothar Matthaus", "MC", 91, ["MC", "MCD"]), p("Thomas Hassler", "MCO", 90), p("Andreas Moller", "MCO", 88),
+      p("Mario Basler", "ED", 84), p("Jurgen Klinsmann", "DC", 91), p("Rudi Voller", "DC", 88), p("Karl-Heinz Riedle", "DC", 85),
+    ],
+  },
+  {
+    id: "rom-1994",
+    country: "Rumania",
+    year: 1994,
+    rating: 87,
+    source: "https://en.wikipedia.org/wiki/1994_FIFA_World_Cup_squads",
+    players: [
+      p("Florin Prunea", "POR", 84), p("Bogdan Stelea", "POR", 82),
+      p("Dan Petrescu", "LD", 86), p("Miodrag Belodedici", "DFC", 85), p("Gheorghe Popescu", "DFC", 88), p("Tibor Selymes", "LI", 82), p("Daniel Prodan", "DFC", 83),
+      p("Dorinel Munteanu", "MC", 85), p("Ionut Lupescu", "MCD", 84), p("Gheorghe Hagi", "MCO", 93), p("Basarab Panduru", "MCO", 82),
+      p("Ilie Dumitrescu", "EI", 87), p("Marius Lacatus", "ED", 84), p("Florin Raducioiu", "DC", 88), p("Viorel Moldovan", "DC", 82),
+    ],
+  },
+  {
+    id: "tur-2002",
+    country: "Turquia",
+    year: 2002,
+    rating: 87,
+    source: "https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_squads",
+    players: [
+      p("Rustu Recber", "POR", 88), p("Omer Catkic", "POR", 76),
+      p("Fatih Akyel", "LD", 83), p("Alpay Ozalan", "DFC", 85), p("Bulent Korkmaz", "DFC", 85), p("Ergun Penbe", "LI", 84), p("Umit Ozat", "LI", 82),
+      p("Tugay Kerimoglu", "MC", 87), p("Emre Belozoglu", "MC", 86), p("Yildiray Basturk", "MCO", 88), p("Okan Buruk", "MC", 84), p("Suat Kaya", "MCD", 82),
+      p("Hasan Sas", "EI", 87), p("Nihat Kahveci", "ED", 86), p("Hakan Sukur", "DC", 88), p("Ilhan Mansiz", "DC", 86),
+    ],
+  },
+  {
+    id: "kor-2002",
+    country: "Corea del Sur",
+    year: 2002,
+    rating: 85,
+    source: "https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_squads",
+    players: [
+      p("Lee Woon-jae", "POR", 84), p("Kim Byung-ji", "POR", 78),
+      p("Song Chong-gug", "LD", 84), p("Hong Myung-bo", "DFC", 87), p("Choi Jin-cheul", "DFC", 83), p("Lee Young-pyo", "LI", 84), p("Kim Tae-young", "DFC", 82),
+      p("Yoo Sang-chul", "MC", 86), p("Kim Nam-il", "MCD", 83), p("Park Ji-sung", "MCO", 87), p("Lee Chun-soo", "ED", 82),
+      p("Seol Ki-hyeon", "EI", 83), p("Ahn Jung-hwan", "DC", 85), p("Hwang Sun-hong", "DC", 84), p("Cha Du-ri", "DC", 80),
+    ],
+  },
+  {
+    id: "sen-2002",
+    country: "Senegal",
+    year: 2002,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_squads",
+    players: [
+      p("Tony Sylva", "POR", 83), p("Omar Diallo", "POR", 75),
+      p("Omar Daf", "LD", 81), p("Lamine Diatta", "DFC", 82), p("Ferdinand Coly", "DFC", 82), p("Habib Beye", "LI", 81), p("Pape Malick Diop", "DFC", 80),
+      p("Aliou Cisse", "MCD", 83), p("Papa Bouba Diop", "MC", 85), p("Salif Diao", "MC", 84), p("Khalilou Fadiga", "MCO", 86),
+      p("Henri Camara", "ED", 85), p("El Hadji Diouf", "EI", 88), p("Pape Thiaw", "DC", 82), p("Souleymane Camara", "DC", 80),
+    ],
+  },
+  {
+    id: "usa-2002",
+    country: "Estados Unidos",
+    year: 2002,
+    rating: 83,
+    source: "https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_squads",
+    players: [
+      p("Brad Friedel", "POR", 86), p("Kasey Keller", "POR", 84),
+      p("Tony Sanneh", "LD", 82), p("Eddie Pope", "DFC", 84), p("Gregg Berhalter", "DFC", 80), p("Frankie Hejduk", "LI", 81), p("Jeff Agoos", "DFC", 79),
+      p("Claudio Reyna", "MC", 87), p("John O'Brien", "MC", 84), p("Pablo Mastroeni", "MCD", 80), p("Landon Donovan", "MCO", 85),
+      p("Earnie Stewart", "ED", 82), p("DaMarcus Beasley", "EI", 83), p("Brian McBride", "DC", 84), p("Clint Mathis", "DC", 82),
+    ],
+  },
+  {
+    id: "eng-2018",
+    country: "Inglaterra",
+    year: 2018,
+    rating: 88,
+    source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
+    players: [
+      p("Jordan Pickford", "POR", 86), p("Jack Butland", "POR", 80),
+      p("Kieran Trippier", "LD", 86), p("Kyle Walker", "DFC", 86, ["DFC", "LD"]), p("John Stones", "DFC", 86), p("Harry Maguire", "DFC", 85), p("Ashley Young", "LI", 83),
+      p("Jordan Henderson", "MCD", 86), p("Dele Alli", "MCO", 86), p("Jesse Lingard", "MCO", 84), p("Ruben Loftus-Cheek", "MC", 80), p("Eric Dier", "MCD", 82),
+      p("Raheem Sterling", "EI", 89), p("Marcus Rashford", "ED", 85), p("Harry Kane", "DC", 93), p("Jamie Vardy", "DC", 86),
+    ],
+  },
+  {
+    id: "uru-2018",
+    country: "Uruguay",
+    year: 2018,
+    rating: 88,
+    source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
+    players: [
+      p("Fernando Muslera", "POR", 86), p("Martin Silva", "POR", 78),
+      p("Martin Caceres", "LD", 84), p("Diego Godin", "DFC", 91), p("Jose Gimenez", "DFC", 88), p("Diego Laxalt", "LI", 83), p("Sebastian Coates", "DFC", 82),
+      p("Lucas Torreira", "MCD", 85), p("Matias Vecino", "MC", 84), p("Rodrigo Bentancur", "MC", 86), p("Nahitan Nandez", "MC", 83), p("Giorgian De Arrascaeta", "MCO", 84),
+      p("Cristian Rodriguez", "EI", 82), p("Edinson Cavani", "DC", 91), p("Luis Suarez", "DC", 92), p("Maxi Gomez", "DC", 80),
+    ],
+  },
+  {
+    id: "bra-2018",
+    country: "Brasil",
+    year: 2018,
+    rating: 91,
+    source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
+    players: [
+      p("Alisson", "POR", 90), p("Ederson", "POR", 87),
+      p("Fagner", "LD", 83), p("Thiago Silva", "DFC", 91), p("Miranda", "DFC", 88), p("Marcelo", "LI", 91), p("Filipe Luis", "LI", 85),
+      p("Casemiro", "MCD", 90), p("Paulinho", "MC", 86), p("Philippe Coutinho", "MCO", 90), p("Fernandinho", "MCD", 85), p("Willian", "ED", 87),
+      p("Neymar", "EI", 94), p("Gabriel Jesus", "DC", 87), p("Roberto Firmino", "DC", 88), p("Douglas Costa", "ED", 86),
+    ],
+  },
+  {
+    id: "rus-2018",
+    country: "Rusia",
+    year: 2018,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads",
+    players: [
+      p("Igor Akinfeev", "POR", 85), p("Andrey Lunyov", "POR", 78),
+      p("Mario Fernandes", "LD", 85), p("Sergei Ignashevich", "DFC", 84), p("Ilya Kutepov", "DFC", 80), p("Yuri Zhirkov", "LI", 83), p("Fedor Kudryashov", "DFC", 80),
+      p("Roman Zobnin", "MC", 83), p("Daler Kuzyaev", "MC", 82), p("Aleksandr Golovin", "MCO", 86), p("Alan Dzagoev", "MCO", 84), p("Aleksandr Samedov", "ED", 82),
+      p("Denis Cheryshev", "EI", 85), p("Artem Dzyuba", "DC", 86), p("Fedor Smolov", "DC", 84), p("Aleksei Miranchuk", "MCO", 81),
+    ],
+  },
+
+  {
+    id: "gha-2010",
+    country: "Ghana",
+    year: 2010,
+    rating: 85,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Richard Kingson", "POR", 84), p("Daniel Agyei", "POR", 74),
+      p("John Paintsil", "LD", 83), p("John Mensah", "DFC", 85), p("Isaac Vorsah", "DFC", 82), p("Hans Sarpei", "LI", 81), p("Samuel Inkoom", "LD", 80),
+      p("Anthony Annan", "MCD", 84), p("Kevin-Prince Boateng", "MC", 86), p("Sulley Muntari", "MC", 85), p("Andre Ayew", "EI", 84), p("Kwadwo Asamoah", "MCO", 85),
+      p("Asamoah Gyan", "DC", 87), p("Dominic Adiyiah", "DC", 80), p("Quincy Owusu-Abeyie", "ED", 80), p("Stephen Appiah", "MC", 82),
+    ],
+  },
+  {
+    id: "par-2010",
+    country: "Paraguay",
+    year: 2010,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Justo Villar", "POR", 84), p("Aldo Bobadilla", "POR", 78),
+      p("Denis Caniza", "LD", 81), p("Paulo Da Silva", "DFC", 84), p("Antolin Alcaraz", "DFC", 83), p("Claudio Morel Rodriguez", "LI", 82), p("Julio Manzur", "DFC", 80),
+      p("Victor Caceres", "MCD", 83), p("Cristian Riveros", "MC", 84), p("Enrique Vera", "MC", 82), p("Edgar Barreto", "MC", 82), p("Jonathan Santana", "MCO", 80),
+      p("Roque Santa Cruz", "DC", 86), p("Lucas Barrios", "DC", 85), p("Nelson Haedo Valdez", "DC", 84), p("Oscar Cardozo", "DC", 85),
+    ],
+  },
+  {
+    id: "arg-2010",
+    country: "Argentina",
+    year: 2010,
+    rating: 89,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Sergio Romero", "POR", 84), p("Mariano Andujar", "POR", 80),
+      p("Nicolas Otamendi", "LD", 84, ["LD", "DFC"]), p("Walter Samuel", "DFC", 88), p("Martin Demichelis", "DFC", 86), p("Gabriel Heinze", "LI", 84), p("Nicolas Burdisso", "DFC", 82),
+      p("Javier Mascherano", "MCD", 90), p("Juan Sebastian Veron", "MC", 87), p("Angel Di Maria", "EI", 87), p("Maxi Rodriguez", "MC", 84), p("Javier Pastore", "MCO", 82),
+      p("Lionel Messi", "ED", 96, ["ED", "MCO"]), p("Gonzalo Higuain", "DC", 90), p("Carlos Tevez", "DC", 89), p("Sergio Aguero", "DC", 88),
+    ],
+  },
+  {
+    id: "chi-2010",
+    country: "Chile",
+    year: 2010,
+    rating: 85,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Claudio Bravo", "POR", 85), p("Miguel Pinto", "POR", 76),
+      p("Mauricio Isla", "LD", 84), p("Gary Medel", "DFC", 85, ["DFC", "MCD"]), p("Waldo Ponce", "DFC", 82), p("Jean Beausejour", "LI", 82, ["LI", "EI"]), p("Gonzalo Jara", "DFC", 82),
+      p("Arturo Vidal", "MC", 87), p("Carlos Carmona", "MCD", 82), p("Matias Fernandez", "MCO", 86), p("Jorge Valdivia", "MCO", 85), p("Rodrigo Millar", "MC", 80),
+      p("Alexis Sanchez", "ED", 88), p("Humberto Suazo", "DC", 86), p("Mark Gonzalez", "EI", 83), p("Esteban Paredes", "DC", 81),
+    ],
+  },
+  {
+    id: "mex-2010",
+    country: "Mexico",
+    year: 2010,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_squads",
+    players: [
+      p("Guillermo Ochoa", "POR", 84), p("Oscar Perez", "POR", 82),
+      p("Ricardo Osorio", "LD", 82), p("Rafael Marquez", "DFC", 87, ["DFC", "MCD"]), p("Francisco Rodriguez", "DFC", 83), p("Carlos Salcido", "LI", 84), p("Hector Moreno", "DFC", 81),
+      p("Gerardo Torrado", "MCD", 83), p("Israel Castro", "MC", 80), p("Giovani dos Santos", "MCO", 85, ["MCO", "ED"]), p("Andres Guardado", "EI", 85), p("Pablo Barrera", "ED", 81),
+      p("Javier Hernandez", "DC", 84), p("Guillermo Franco", "DC", 82), p("Cuauhtemoc Blanco", "MCO", 83), p("Carlos Vela", "EI", 83),
+    ],
+  },
+  {
+    id: "mor-2022",
+    country: "Marruecos",
+    year: 2022,
+    rating: 86,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Yassine Bounou", "POR", 88), p("Munir", "POR", 78),
+      p("Achraf Hakimi", "LD", 90), p("Romain Saiss", "DFC", 84), p("Nayef Aguerd", "DFC", 84), p("Noussair Mazraoui", "LI", 86, ["LI", "LD"]), p("Jawad El Yamiq", "DFC", 81),
+      p("Sofyan Amrabat", "MCD", 87), p("Azzedine Ounahi", "MC", 84), p("Selim Amallah", "MC", 82), p("Hakim Ziyech", "ED", 87), p("Sofiane Boufal", "EI", 84),
+      p("Youssef En-Nesyri", "DC", 85), p("Abderrazak Hamdallah", "DC", 82), p("Zakaria Aboukhlal", "ED", 81), p("Abde Ezzalzouli", "EI", 80),
+    ],
+  },
+  {
+    id: "jpn-2022",
+    country: "Japon",
+    year: 2022,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Shuichi Gonda", "POR", 82), p("Daniel Schmidt", "POR", 78),
+      p("Hiroki Sakai", "LD", 83), p("Takehiro Tomiyasu", "DFC", 86, ["DFC", "LD"]), p("Maya Yoshida", "DFC", 83), p("Yuto Nagatomo", "LI", 82), p("Ko Itakura", "DFC", 82),
+      p("Wataru Endo", "MCD", 85), p("Hidemasa Morita", "MC", 83), p("Daichi Kamada", "MCO", 84), p("Takefusa Kubo", "ED", 83), p("Ritsu Doan", "ED", 84),
+      p("Kaoru Mitoma", "EI", 86), p("Takuma Asano", "DC", 81), p("Daizen Maeda", "DC", 81), p("Takumi Minamino", "MCO", 83),
+    ],
+  },
+  {
+    id: "sen-2022",
+    country: "Senegal",
+    year: 2022,
+    rating: 84,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Edouard Mendy", "POR", 86), p("Seny Dieng", "POR", 78),
+      p("Youssouf Sabaly", "LD", 83), p("Kalidou Koulibaly", "DFC", 90), p("Abdou Diallo", "DFC", 84), p("Ismail Jakobs", "LI", 82), p("Pape Abou Cisse", "DFC", 80),
+      p("Idrissa Gueye", "MCD", 85), p("Nampalys Mendy", "MC", 82), p("Pape Matar Sarr", "MC", 81), p("Krepin Diatta", "ED", 82), p("Ismaila Sarr", "ED", 84),
+      p("Boulaye Dia", "DC", 83), p("Bamba Dieng", "DC", 80), p("Iliman Ndiaye", "MCO", 81), p("Nicolas Jackson", "DC", 80),
+    ],
+  },
+  {
+    id: "ecu-2022",
+    country: "Ecuador",
+    year: 2022,
+    rating: 83,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Hernan Galindez", "POR", 81), p("Alexander Dominguez", "POR", 80),
+      p("Angelo Preciado", "LD", 81), p("Piero Hincapie", "DFC", 84, ["DFC", "LI"]), p("Felix Torres", "DFC", 82), p("Pervis Estupinan", "LI", 85), p("Robert Arboleda", "DFC", 82),
+      p("Moises Caicedo", "MCD", 86), p("Carlos Gruezo", "MC", 80), p("Alan Franco", "MC", 80), p("Gonzalo Plata", "ED", 83), p("Jeremy Sarmiento", "MCO", 80),
+      p("Enner Valencia", "DC", 85), p("Michael Estrada", "DC", 80), p("Romario Ibarra", "EI", 80), p("Kevin Rodriguez", "DC", 78),
+    ],
+  },
+  {
+    id: "pol-2022",
+    country: "Polonia",
+    year: 2022,
+    rating: 83,
+    source: "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_squads",
+    players: [
+      p("Wojciech Szczesny", "POR", 87), p("Lukasz Skorupski", "POR", 80),
+      p("Matty Cash", "LD", 82), p("Kamil Glik", "DFC", 82), p("Jakub Kiwior", "DFC", 80), p("Bartosz Bereszynski", "LI", 80), p("Jan Bednarek", "DFC", 81),
+      p("Grzegorz Krychowiak", "MCD", 82), p("Piotr Zielinski", "MCO", 86), p("Sebastian Szymanski", "MC", 82), p("Przemyslaw Frankowski", "ED", 82), p("Nicola Zalewski", "EI", 81),
+      p("Robert Lewandowski", "DC", 94), p("Arkadiusz Milik", "DC", 83), p("Karol Swiderski", "DC", 81), p("Krzysztof Piatek", "DC", 80),
+    ],
+  },
 ];
 
 const formations = {
@@ -1321,6 +1609,7 @@ const state = {
   formationName: null,
   formation: null,
   pendingPlayerIndex: null,
+  simulating: false,
 };
 
 const pickedCount = document.querySelector("#pickedCount");
@@ -1392,10 +1681,15 @@ function lineCountsFromFormation(formation = defaultFormation) {
 
 function bestXI(players, formation = defaultFormation) {
   const available = players.slice();
+  const bestIndex = (predicate) => available.reduce((best, player, index) => {
+    if (!predicate(player)) return best;
+    if (best === -1 || player.ovr > available[best].ovr) return index;
+    return best;
+  }, -1);
   return formation.slots.map((slot) => {
-    let index = available.findIndex((player) => player.roles.includes(slot));
+    let index = bestIndex((player) => player.roles.includes(slot));
     if (index === -1) {
-      index = available.findIndex((player) => player.pos === roleLine[slot]);
+      index = bestIndex((player) => player.pos === roleLine[slot]);
     }
     if (index === -1) {
       index = available.reduce((bestIndex, player, playerIndex) => player.ovr > available[bestIndex].ovr ? playerIndex : bestIndex, 0);
@@ -1699,6 +1993,9 @@ function resetGame() {
   state.formationName = null;
   state.formation = null;
   state.pendingPlayerIndex = null;
+  state.simulating = false;
+  closeTournamentTab();
+  simulateBtn.textContent = "Simular torneo";
   drawTitle.textContent = "Elige formación";
   drawSubtitle.textContent = "Primero define el sistema táctico para activar el sorteo.";
   drawBtn.disabled = true;
@@ -1805,30 +2102,30 @@ function generateEvents(teamA, teamB, goalsA, goalsB) {
 
   for (let i = 0; i < goalsA; i += 1) {
     const method = randomItem(goalMethods);
-    events.push({ minute: eventMinute(used), text: `${teamA.name}: ${describeGoal(teamA, method)} (${method})` });
+    events.push({ minute: eventMinute(used), type: "goal", side: "A", text: `${teamA.name}: ${describeGoal(teamA, method)} (${method})` });
   }
   for (let i = 0; i < goalsB; i += 1) {
     const method = randomItem(goalMethods);
-    events.push({ minute: eventMinute(used), text: `${teamB.name}: ${describeGoal(teamB, method)} (${method})` });
+    events.push({ minute: eventMinute(used), type: "goal", side: "B", text: `${teamB.name}: ${describeGoal(teamB, method)} (${method})` });
   }
 
   const yellowCount = Math.floor(Math.random() * 5) + 2;
   for (let i = 0; i < yellowCount; i += 1) {
     const team = Math.random() > 0.5 ? teamA : teamB;
     const booked = weightedPlayer(team.players, ["DEF", "MED"]);
-    events.push({ minute: eventMinute(used), text: `${team.name}: amarilla para ${playerName(booked)} por cortar una transicion.` });
+    events.push({ minute: eventMinute(used), type: "card", text: `${team.name}: amarilla para ${playerName(booked)} por cortar una transición.` });
   }
 
   if (Math.random() < 0.18) {
     const team = Math.random() > 0.5 ? teamA : teamB;
     const sentOff = weightedPlayer(team.players, ["DEF", "MED"]);
-    events.push({ minute: eventMinute(used), text: `${team.name}: roja para ${playerName(sentOff)} tras doble amarilla.` });
+    events.push({ minute: eventMinute(used), type: "card", text: `${team.name}: roja para ${playerName(sentOff)} tras doble amarilla.` });
   }
 
   if (Math.random() < 0.22) {
     const team = Math.random() > 0.5 ? teamA : teamB;
     const keeper = weightedPlayer(team.players, ["POR"]);
-    events.push({ minute: eventMinute(used), text: `${team.name}: ${playerName(keeper)} ataja un penal clave.` });
+    events.push({ minute: eventMinute(used), type: "penalty-save", text: `${team.name}: ${playerName(keeper)} ataja un penal clave.` });
   }
 
   return events.sort((a, b) => a.minute - b.minute);
@@ -1856,7 +2153,7 @@ function simulateMatch(teamA, teamB, knockout = false) {
     penalties = aWinsPens ? [5, Math.floor(2 + Math.random() * 3)] : [Math.floor(2 + Math.random() * 3), 5];
     winner = aWinsPens ? teamA : teamB;
     const hero = weightedPlayer(winner.players, ["POR"]);
-    events.push({ minute: 120, text: `Definicion por penales: ${winner.name} gana ${penalties[0]}-${penalties[1]}. Figura: ${playerName(hero)}.` });
+    events.push({ minute: 120, type: "pens", text: `Definición por penales: ${winner.name} gana ${penalties[0]}-${penalties[1]}. Figura: ${playerName(hero)}.` });
   }
 
   return { teamA, teamB, goalsA, goalsB, events, winner, penalties, chanceA, chanceB };
@@ -1913,65 +2210,194 @@ function renderOdds(userTeam, opponents) {
   }).join("");
 }
 
-function simulateTournament() {
+const SIM_MINUTE_MS = 72;
+const EVENT_PAUSE_MS = 560;
+function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
+function openTournamentTab() {
+  const board = tournamentPanel.closest(".game-board");
+  if (board) board.classList.add("tournament-live-mode");
+  tournamentPanel.hidden = false;
+  tournamentLog.innerHTML = "";
+  oddsBox.innerHTML = "";
+}
+function closeTournamentTab() {
+  const board = tournamentPanel.closest(".game-board");
+  if (board) board.classList.remove("tournament-live-mode");
+}
+function appendTournamentMessage(title, text) {
+  tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card sim-summary"><h3>${title}</h3><p>${text}</p></article>`);
+  tournamentLog.scrollTop = tournamentLog.scrollHeight;
+}
+function eventClass(event) {
+  if (event.type === "goal") return "goal";
+  if (event.type === "pens" || event.type === "penalty-save") return "penalty";
+  if (event.type === "card") return event.text.includes("roja") ? "red-card" : "yellow-card";
+  return "note";
+}
+function eventLabel(event) {
+  if (event.type === "goal") return "GOL";
+  if (event.type === "pens") return "PENALES";
+  if (event.type === "penalty-save") return "PENAL";
+  if (event.type === "card") return event.text.includes("roja") ? "ROJA" : "AMARILLA";
+  return "JUGADA";
+}
+function renderLiveMatchShell(match, phase) {
+  const oddsA = Math.round(match.chanceA * 100);
+  const oddsB = 100 - oddsA;
+  const id = `live-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
+  tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card live-match live-match-card" id="${id}">
+    <div class="live-stadium" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="live-match-head"><div><p class="live-kicker">${phase}</p><h3>Partido en vivo</h3></div><span class="live-minute">0'</span></div>
+    <div class="live-scoreboard"><span>${match.teamA.name}</span><strong class="live-score">0 - 0</strong><span>${match.teamB.name}</span></div>
+    <div class="live-tension"><span style="width:${oddsA}%"></span></div>
+    <p class="live-odds">Probabilidad previa: ${match.teamA.name} ${oddsA}% - ${match.teamB.name} ${oddsB}%.</p>
+    <div class="live-timeline"><span style="width:0%"></span></div>
+    <ul class="events live-events"></ul>
+  </article>`);
+  const card = document.getElementById(id);
+  tournamentLog.scrollTop = tournamentLog.scrollHeight;
+  return {
+    card,
+    minuteEl: card.querySelector(".live-minute"),
+    scoreEl: card.querySelector(".live-score"),
+    eventsEl: card.querySelector(".live-events"),
+    timelineEl: card.querySelector(".live-timeline span"),
+  };
+}
+async function playLiveMatch(match, phase) {
+  const live = renderLiveMatchShell(match, phase);
+  const endMinute = match.penalties ? 120 : 90;
+  let goalsA = 0;
+  let goalsB = 0;
+  live.card.classList.add("is-running");
+  for (let minute = 1; minute <= endMinute; minute += 1) {
+    live.minuteEl.textContent = `${minute}'`;
+    live.timelineEl.style.width = `${Math.round((minute / endMinute) * 100)}%`;
+    const minuteEvents = match.events.filter((event) => event.minute === minute);
+    for (const event of minuteEvents) {
+      const typeClass = eventClass(event);
+      if (event.type === "goal") {
+        if (event.side === "A") goalsA += 1;
+        if (event.side === "B") goalsB += 1;
+        live.scoreEl.textContent = `${goalsA} - ${goalsB}`;
+        live.card.classList.add("goal-flash");
+        window.setTimeout(() => live.card.classList.remove("goal-flash"), 650);
+      }
+      live.eventsEl.insertAdjacentHTML("beforeend", `<li class="event-${typeClass}"><span>${event.minute}'</span><strong>${eventLabel(event)}</strong><p>${event.text}</p></li>`);
+      tournamentLog.scrollTop = tournamentLog.scrollHeight;
+      await sleep(EVENT_PAUSE_MS);
+    }
+    await sleep(SIM_MINUTE_MS);
+  }
+  const penText = match.penalties ? `, penales ${match.penalties[0]}-${match.penalties[1]}` : "";
+  live.scoreEl.textContent = `${match.goalsA} - ${match.goalsB}${penText}`;
+  live.minuteEl.textContent = "Final";
+  live.timelineEl.style.width = "100%";
+  live.card.classList.remove("is-running");
+  live.card.classList.add("is-finished");
+  await sleep(700);
+}
+function waitForNextMatch(title, text, buttonText = "Siguiente partido") {
+  return new Promise((resolve) => {
+    const id = `next-match-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
+    tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card sim-gate"><div><h3>${title}</h3><p>${text}</p></div><button class="next-match-btn" id="${id}">${buttonText}</button></article>`);
+    tournamentLog.scrollTop = tournamentLog.scrollHeight;
+    const button = document.getElementById(id);
+    if (!button) {
+      resolve();
+      return;
+    }
+    button.addEventListener("click", () => {
+      button.disabled = true;
+      button.textContent = "Cargando...";
+      const gate = button.closest(".sim-gate");
+      if (gate) gate.classList.add("gate-done");
+      resolve();
+    }, { once: true });
+  });
+}
+function finishTournamentSimulation() {
+  state.simulating = false;
+  simulateBtn.disabled = state.picked.length !== 11;
+  simulateBtn.textContent = "Simular de nuevo";
+  const id = `return-team-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
+  tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card sim-gate"><div><h3>Torneo terminado</h3><p>Vuelve a tu XI para revisar el equipo, reiniciar o simular otra vez.</p></div><button class="next-match-btn" id="${id}">Volver al equipo</button></article>`);
+  const button = document.getElementById(id);
+  if (button) {
+    button.addEventListener("click", () => {
+      closeTournamentTab();
+      tournamentPanel.hidden = false;
+      tournamentLog.scrollTop = 0;
+    }, { once: true });
+  }
+}
+
+async function simulateTournament() {
+  if (state.picked.length !== 11 || state.simulating) return;
+  state.simulating = true;
+  simulateBtn.disabled = true;
+  simulateBtn.textContent = "Simulando...";
+  openTournamentTab();
+  appendTournamentMessage("Torneo", "Arranca la simulación minuto a minuto. Cuando termine cada partido, avanzas vos.");
+  await sleep(500);
   const userTeam = getUserTeam();
-  const opponentPool = squads
-    .map(getTeamObjectFromSquad)
-    .filter((team) => team.name !== "Tu selección")
-    .sort(() => Math.random() - 0.5);
+  const opponentPool = squads.map(getTeamObjectFromSquad).filter((team) => team.name !== userTeam.name).sort(() => Math.random() - 0.5);
   const groupOpponents = opponentPool.slice(0, 3);
   const groupTeams = [userTeam, ...groupOpponents];
   const table = groupTeams.map((team) => ({ team, pts: 0, gf: 0, ga: 0 }));
   const findRow = (team) => table.find((row) => row.team.name === team.name);
-  const log = [];
-
+  const userGroupMatches = [];
   renderOdds(userTeam, groupOpponents);
-
   for (let i = 0; i < groupTeams.length; i += 1) {
     for (let j = i + 1; j < groupTeams.length; j += 1) {
       const match = simulateMatch(groupTeams[i], groupTeams[j], false);
+      const isUserMatch = match.teamA.name === userTeam.name || match.teamB.name === userTeam.name;
+      if (isUserMatch) userGroupMatches.push(match);
       addResult(findRow(match.teamA), findRow(match.teamB), match.goalsA, match.goalsB);
-      if (match.teamA.name === userTeam.name || match.teamB.name === userTeam.name) {
-        log.push(renderMatch(match, "Fase de grupos"));
-      }
     }
   }
-
-  log.push(tableHtml(table));
+  for (let index = 0; index < userGroupMatches.length; index += 1) {
+    await playLiveMatch(userGroupMatches[index], `Fase de grupos ${index + 1}`);
+    if (index < userGroupMatches.length - 1) {
+      await waitForNextMatch("Partido terminado", "El grupo sigue abierto. Se viene otro cruce clave.", "Siguiente partido");
+    } else {
+      await waitForNextMatch("Grupo cerrado", "Ya se jugaron tus partidos de grupo. Ahora mira la tabla final.", "Ver tabla");
+    }
+  }
+  tournamentLog.insertAdjacentHTML("beforeend", tableHtml(table));
+  tournamentLog.scrollTop = tournamentLog.scrollHeight;
+  await sleep(350);
   const ordered = table.slice().sort((a, b) => b.pts - a.pts || b.gf - b.ga - (a.gf - a.ga) || b.gf - a.gf);
   if (!ordered.slice(0, 2).some((row) => row.team.name === userTeam.name)) {
-    log.push(`<article class="match-card"><h3>Eliminado</h3><p>Tu selección no pasó la fase de grupos. La media era ${userTeam.rating.total}; ajusta el draft o busca mejor equilibrio por posiciones.</p></article>`);
-    tournamentLog.innerHTML = log.join("");
+    appendTournamentMessage("Eliminado", `Tu selección no pasó la fase de grupos. La media era ${userTeam.rating.total}; ajusta el draft o busca mejor equilibrio por posiciones.`);
+    finishTournamentSimulation();
     return;
   }
-
+  await waitForNextMatch("Clasificado", "Superaste la fase de grupos. Empieza la parte pesada del torneo.", "Jugar Dieciseisavos");
   const phases = ["Dieciseisavos", "Octavos", "Cuartos", "Semis", "Final"];
   const knockoutPool = opponentPool.slice(3).sort((a, b) => a.rating.total - b.rating.total);
-  let alive = true;
   const usedKnockoutOpponents = new Set();
-
-  phases.forEach((phase, index) => {
-    if (!alive) return;
+  for (let index = 0; index < phases.length; index += 1) {
+    const phase = phases[index];
     const availableOpponents = knockoutPool.filter((team) => !usedKnockoutOpponents.has(team.name));
     const phasePool = availableOpponents.length ? availableOpponents : knockoutPool;
     const targetIndex = Math.min(phasePool.length - 1, index + Math.floor(Math.random() * Math.max(1, phasePool.length - index)));
     const opponent = phasePool[targetIndex];
     usedKnockoutOpponents.add(opponent.name);
     const match = simulateMatch(userTeam, opponent, true);
-    log.push(renderMatch(match, phase));
+    await playLiveMatch(match, phase);
     if (match.winner.name !== userTeam.name) {
-      alive = false;
-      log.push(`<article class="match-card"><h3>Fin del torneo</h3><p>Tu selección cayó en ${phase}. Media propia: ${userTeam.rating.total}; rival: ${opponent.rating.total}.</p></article>`);
+      appendTournamentMessage("Fin del torneo", `Tu selección cayó en ${phase}. Media propia: ${userTeam.rating.total}; rival: ${opponent.rating.total}.`);
+      finishTournamentSimulation();
+      return;
     }
-  });
-
-  if (alive) {
-    log.push(`<article class="match-card"><h3>Campeón</h3><p>Ganaste el torneo de selecciones históricas. Media final: ${userTeam.rating.total}. Figura del torneo: ${playerName(weightedPlayer(userTeam.players, ["DEL", "MED"]))}.</p></article>`);
+    if (index < phases.length - 1) {
+      await waitForNextMatch("Ronda superada", `El vestuario respira. Próximo paso: ${phases[index + 1]}.`, `Jugar ${phases[index + 1]}`);
+    }
   }
-
-  tournamentLog.innerHTML = log.join("");
+  appendTournamentMessage("Campeón", `Ganaste el torneo de selecciones históricas. Media final: ${userTeam.rating.total}. Figura del torneo: ${playerName(weightedPlayer(userTeam.players, ["DEL", "MED"]))}.`);
+  finishTournamentSimulation();
 }
-
 drawBtn.addEventListener("click", () => {
   if (state.currentSquad) rerollSameYear();
   else drawSquad();

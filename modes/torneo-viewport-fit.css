@@ -1,0 +1,203 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+body {
+  min-height: 100dvh;
+  height: 100dvh;
+}
+
+.app {
+  width: 100%;
+  height: 100dvh;
+  padding: clamp(6px, 1.2vh, 10px);
+  overflow: hidden;
+}
+
+.game-board {
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: minmax(245px, 0.82fr) minmax(390px, 1.45fr) minmax(245px, 0.82fr);
+  gap: clamp(6px, 1vw, 10px);
+  overflow: hidden;
+}
+
+.draw-panel,
+.pitch-panel,
+.score-panel,
+.tournament-panel {
+  min-height: 0;
+  padding: clamp(10px, 1.7vh, 16px);
+  overflow: hidden;
+}
+
+.formation-card {
+  margin-bottom: clamp(6px, 1vh, 10px);
+}
+
+.formation-card h2,
+.draw-card h1,
+.tournament-head h2 {
+  line-height: 1;
+}
+
+.formation-option,
+.filter,
+button {
+  min-height: clamp(28px, 4.5vh, 34px);
+}
+
+.eyebrow,
+.section-label,
+.reroll-copy {
+  margin-bottom: clamp(4px, 0.8vh, 7px);
+  letter-spacing: 2px;
+  font-size: clamp(0.58rem, 1.45vh, 0.68rem);
+}
+
+.draw-card {
+  min-height: 0;
+  padding: clamp(12px, 2vh, 18px);
+  margin-bottom: clamp(7px, 1.2vh, 12px);
+}
+
+.draw-card h1 {
+  font-size: clamp(1.25rem, 3.3vh, 2.1rem);
+}
+
+.draw-card p:last-child {
+  font-size: clamp(0.9rem, 2.2vh, 1.15rem);
+}
+
+.draw-actions {
+  gap: 6px;
+  margin-bottom: clamp(7px, 1.2vh, 12px);
+}
+
+.toolbar {
+  padding-bottom: 4px;
+}
+
+.player-grid {
+  max-height: none;
+  min-height: 0;
+  height: clamp(150px, 31vh, 220px);
+}
+
+.player-grid.empty {
+  min-height: clamp(135px, 28vh, 190px);
+}
+
+.player-card {
+  min-height: 0;
+  padding: clamp(7px, 1.15vh, 10px);
+}
+
+.pitch-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.pitch-frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: clamp(5px, 1vh, 9px);
+}
+
+.pitch-board {
+  min-height: 0;
+  height: 100%;
+}
+
+.pitch-help {
+  flex: 0 0 auto;
+  margin: 6px 0 0;
+  font-size: clamp(0.68rem, 1.45vh, 0.78rem);
+}
+
+.pitch-slot {
+  width: clamp(60px, 8vh, 78px);
+}
+
+.slot-ball {
+  width: clamp(36px, 6.2vh, 48px);
+  height: clamp(36px, 6.2vh, 48px);
+  font-size: clamp(0.82rem, 2.2vh, 1.15rem);
+}
+
+.slot-name {
+  max-width: clamp(60px, 8vh, 78px);
+  font-size: clamp(0.58rem, 1.45vh, 0.7rem);
+}
+
+.score-head,
+.attack-defense,
+.mini-ratings {
+  gap: 6px;
+  margin-bottom: clamp(8px, 1.4vh, 12px);
+}
+
+.big-score {
+  font-size: clamp(2rem, 6vh, 3.1rem);
+}
+
+.lineup {
+  max-height: none;
+  overflow: hidden;
+}
+
+.slot {
+  padding: clamp(5px, 0.9vh, 8px) 0;
+  font-size: clamp(0.72rem, 1.7vh, 0.86rem);
+}
+
+.score-actions {
+  margin-top: clamp(8px, 1.4vh, 12px);
+}
+
+.tournament-panel {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.odds-box {
+  margin: clamp(6px, 1vh, 10px) 0;
+  gap: 6px;
+}
+
+.tournament-log {
+  max-height: clamp(180px, 35vh, 280px);
+  overflow: auto;
+  gap: 8px;
+}
+
+.match-card,
+.odds-card {
+  padding: clamp(7px, 1.2vh, 10px);
+}
+
+@media (max-height: 720px) {
+  .formation-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .draw-card {
+    padding: 10px;
+  }
+
+  .player-grid {
+    height: clamp(125px, 27vh, 180px);
+  }
+}
+
+@media (max-width: 1040px) {
+  html,
+  body,
+  .app {
+    overflow: auto;
+  }
+}
