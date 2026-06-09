@@ -1,0 +1,67 @@
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100dvh;
+    overflow-y: auto;
+}
+
+.menu-view,
+.app-view {
+    min-height: 100dvh;
+    max-width: 100%;
+}
+
+.app-view {
+    overflow: visible;
+}
+
+.game-container,
+.level-grid,
+.tray-path,
+#caminoSelection,
+#caminoOptions,
+#linkDisplay {
+    max-width: 100%;
+}
+
+#torneoSeleccionesView,
+#torneoClubesView {
+    width: 100%;
+    max-width: min(1600px, 100%);
+}
+
+.embedded-mode-frame {
+    max-width: 100%;
+}
+
+@media (max-width: 720px) {
+    body {
+        padding-inline: 8px;
+    }
+
+    .menu-view,
+    .app-view {
+        min-height: auto;
+    }
+
+    .menu-card,
+    .game-container,
+    .top-bar,
+    .auction-top-bar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .menu-card {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-menu {
+        min-width: 0;
+    }
+}

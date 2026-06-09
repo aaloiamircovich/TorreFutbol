@@ -374,11 +374,37 @@
         }
         .embedded-mode-frame {
             width: 100%;
-            min-height: calc(100vh - 58px);
+            height: min(1120px, calc(100dvh - 70px));
+            min-height: 680px;
             border: 0;
             border-radius: 8px;
             background: var(--card-bg);
             box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            display: block;
+        }
+        @media (max-width: 720px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            #torneoSeleccionesView,
+            #torneoClubesView {
+                width: 100%;
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            #torneoSeleccionesView .top-bar,
+            #torneoClubesView .top-bar {
+                margin-inline: 8px;
+            }
+
+            .embedded-mode-frame {
+                height: calc(100dvh - 82px);
+                min-height: 620px;
+                border-radius: 0;
+            }
         }
 
         /* --- Camino Styles --- */
@@ -1750,6 +1776,7 @@
             color: #1b060a !important;
         }
     </style>
+    <link rel="stylesheet" href="viewport-fit.css">
 </head>
 <body>
 
