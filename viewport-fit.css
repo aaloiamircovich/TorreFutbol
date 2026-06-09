@@ -249,7 +249,8 @@ input[type="number"] {
 }
 
 #torneoSeleccionesView,
-#torneoClubesView {
+#torneoClubesView,
+#carreraJugadorView {
     max-width: min(1600px, 100%);
 }
 

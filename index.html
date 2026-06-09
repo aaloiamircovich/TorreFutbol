@@ -369,7 +369,8 @@
             display: block;
         }
         #torneoSeleccionesView,
-        #torneoClubesView {
+        #torneoClubesView,
+        #carreraJugadorView {
             max-width: min(1600px, calc(100vw - 20px));
         }
         .embedded-mode-frame {
@@ -388,7 +389,8 @@
             }
 
             #torneoSeleccionesView,
-            #torneoClubesView {
+            #torneoClubesView,
+            #carreraJugadorView {
                 width: 100%;
                 max-width: 100%;
                 padding-left: 0;
@@ -396,7 +398,8 @@
             }
 
             #torneoSeleccionesView .top-bar,
-            #torneoClubesView .top-bar {
+            #torneoClubesView .top-bar,
+            #carreraJugadorView .top-bar {
                 margin-inline: 8px;
             }
 
@@ -1073,6 +1076,7 @@
         .btn-menu.auction { border-left-color: #ffe066; }
         .btn-menu.equipo { border-left-color: #8ea2ff; }
         .btn-menu.torneo { border-left-color: #19e681; }
+        .btn-menu.carrera { border-left-color: #ffc857; }
 
         .btn-reset {
             grid-column: 1 / -1;
@@ -1567,6 +1571,14 @@
                 rgba(15, 21, 18, 0.96) !important;
         }
 
+        .btn-menu.carrera {
+            background:
+                radial-gradient(circle at 82% 36%, rgba(255,200,87,0.28) 0 18px, transparent 19px),
+                linear-gradient(90deg, transparent 0 49%, rgba(25,230,129,0.16) 49% 51%, transparent 51%),
+                linear-gradient(135deg, rgba(255,200,87,0.16), rgba(25,230,129,0.08)),
+                rgba(15, 21, 18, 0.96) !important;
+        }
+
         .btn-menu:hover {
             animation: cardPulse 1.4s ease infinite;
         }
@@ -1794,6 +1806,7 @@
             <button class="btn-menu equipo" data-mark="ESC" onclick="startGameWithLives('equipoView')"><span class="menu-kicker">Escudos</span><span class="menu-title">Adivina el Equipo</span><span class="menu-detail">Reconocé clubes por su identidad.</span></button>
             <button class="btn-menu torneo selecciones" data-mark="COPA" onclick="showView('torneoSeleccionesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Selecciones Históricas</span><span class="menu-detail">Elegí cracks de selecciones legendarias.</span></button>
             <button class="btn-menu torneo clubes" data-mark="CLUB" onclick="showView('torneoClubesView')"><span class="menu-kicker">Draft histórico</span><span class="menu-title">Torneo Clubes Históricos</span><span class="menu-detail">Construí un XI de clubes icónicos.</span></button>
+            <button class="btn-menu carrera" data-mark="PRO" onclick="showView('carreraJugadorView')"><span class="menu-kicker">RPG deportivo</span><span class="menu-title">Carrera Jugador</span><span class="menu-detail">Crea una promesa, entrena, firma contratos y deja legado.</span></button>
             <button class="btn-reset" onclick="handleReset()" style="margin-top: 10px; width: 100%; padding: 10px;">Reiniciar Todo el Juego</button>
         </div>
     </div>
@@ -2084,6 +2097,15 @@
         <iframe class="embedded-mode-frame" src="modes/torneo-clubes/index.html" title="Torneo Clubes Históricos"></iframe>
     </div>
 
+    <!-- Juego: Carrera Jugador -->
+    <div id="carreraJugadorView" class="app-view">
+        <div class="top-bar">
+            <button class="back-btn" onclick="showView('menuView')">Volver</button>
+            <h1 class="view-title">Carrera Jugador</h1>
+        </div>
+        <iframe class="embedded-mode-frame" src="modes/carrera-jugador/index.html" title="Carrera Jugador"></iframe>
+    </div>
+
     <!-- Juego: Subasta Futbolera - Lobby de Sala -->
     <div id="auctionLobbyView" class="app-view">
         <div class="top-bar">
@@ -2196,7 +2218,7 @@
         // Navegación de Vistas
         function showView(viewId) {
             // Ocultar todas las vistas
-            const views = ['menuView', 'torreView', 'trayectoriaView', 'caminoView', 'linkView', 'wordleView', 'resultadoView', 'equipoView', 'torneoSeleccionesView', 'torneoClubesView', 'auctionLobbyView', 'auctionWaitingView', 'auctionView'];
+            const views = ['menuView', 'torreView', 'trayectoriaView', 'caminoView', 'linkView', 'wordleView', 'resultadoView', 'equipoView', 'torneoSeleccionesView', 'torneoClubesView', 'carreraJugadorView', 'auctionLobbyView', 'auctionWaitingView', 'auctionView'];
             views.forEach(id => {
                 document.getElementById(id).style.display = 'none';
             });

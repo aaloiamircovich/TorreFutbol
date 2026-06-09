@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modo Carrera Jugador</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="career-app">
+      <section id="careerCreate" class="create-screen">
+        <div class="create-hero">
+          <p class="eyebrow">Modo Carrera</p>
+          <h1>Carrera Jugador</h1>
+          <p>Empeza como promesa, entrena, juega partidos, firma contratos y construye tu legado.</p>
+        </div>
+
+        <form id="careerForm" class="create-card">
+          <label>
+            Nombre del jugador
+            <input id="playerName" type="text" maxlength="24" value="Tu Promesa" autocomplete="off" />
+          </label>
+
+          <div class="form-grid">
+            <label>
+              Pais
+              <select id="playerNation">
+                <option>Argentina</option>
+                <option>Brasil</option>
+                <option>Uruguay</option>
+                <option>Colombia</option>
+                <option>España</option>
+                <option>Francia</option>
+                <option>Italia</option>
+                <option>Inglaterra</option>
+                <option>Portugal</option>
+                <option>Alemania</option>
+              </select>
+            </label>
+
+            <label>
+              Posicion
+              <select id="playerPosition">
+                <option value="DC">Delantero</option>
+                <option value="EI">Extremo</option>
+                <option value="MCO">Mediapunta</option>
+                <option value="MC">Mediocentro</option>
+                <option value="DFC">Defensor central</option>
+                <option value="POR">Arquero</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Estilo
+            <select id="playerStyle">
+              <option value="finisher">Goleador frio</option>
+              <option value="creator">Mago del pase</option>
+              <option value="engine">Motor fisico</option>
+              <option value="wall">Muralla defensiva</option>
+              <option value="leader">Lider de vestuario</option>
+            </select>
+          </label>
+
+          <label>
+            Primer club
+            <select id="playerClub">
+              <option value="Barrio Sur">Barrio Sur</option>
+              <option value="Academia Federal">Academia Federal</option>
+              <option value="Puerto Norte">Puerto Norte</option>
+              <option value="Union Capital">Union Capital</option>
+              <option value="Deportivo Litoral">Deportivo Litoral</option>
+            </select>
+          </label>
+
+          <button class="primary" type="submit">Iniciar carrera</button>
+        </form>
+      </section>
+
+      <section id="careerGame" class="game-screen hidden">
+        <header class="career-header">
+          <div>
+            <p class="eyebrow">Temporada <span id="seasonLabel">1</span> - Semana <span id="weekLabel">1</span></p>
+            <h1 id="careerName">Jugador</h1>
+            <p id="careerSub">Club - Posicion</p>
+          </div>
+          <div class="header-actions">
+            <button id="saveBtn" class="ghost">Guardar</button>
+            <button id="newCareerBtn" class="danger">Nueva carrera</button>
+          </div>
+        </header>
+
+        <section class="hero-grid">
+          <article class="player-card">
+            <div class="shirt">
+              <span id="shirtNumber">10</span>
+              <small id="shirtPos">DC</small>
+            </div>
+            <div class="player-summary">
+              <span id="overallLabel" class="overall">60</span>
+              <div>
+                <strong id="roleLabel">Promesa</strong>
+                <p id="contractLabel">Contrato juvenil</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="quick-stats">
+            <div><span>Valor</span><strong id="marketValue">$0.4M</strong></div>
+            <div><span>Salario</span><strong id="salaryValue">$2K</strong></div>
+            <div><span>Dinero</span><strong id="moneyValue">$0</strong></div>
+            <div><span>Seguidores</span><strong id="followersValue">0</strong></div>
+          </article>
+
+          <article class="condition-card">
+            <div class="meter-row"><span>Moral</span><strong id="moraleValue">70</strong></div>
+            <div class="meter"><span id="moraleBar"></span></div>
+            <div class="meter-row"><span>Fatiga</span><strong id="fatigueValue">10</strong></div>
+            <div class="meter fatigue"><span id="fatigueBar"></span></div>
+            <div class="meter-row"><span>Entrenador</span><strong id="coachValue">45</strong></div>
+            <div class="meter coach"><span id="coachBar"></span></div>
+          </article>
+        </section>
+
+        <nav class="tabs" aria-label="Secciones de carrera">
+          <button class="tab active" data-tab="overview">Panel</button>
+          <button class="tab" data-tab="training">Entrenar</button>
+          <button class="tab" data-tab="match">Partido</button>
+          <button class="tab" data-tab="social">Redes</button>
+          <button class="tab" data-tab="market">Mercado</button>
+          <button class="tab" data-tab="legacy">Legado</button>
+        </nav>
+
+        <section class="content-grid">
+          <article id="tab-overview" class="tab-panel">
+            <div class="panel-head">
+              <h2>Objetivos de temporada</h2>
+              <button id="advanceWeekBtn" class="outline">Avanzar semana</button>
+            </div>
+            <div id="objectivesList" class="objective-list"></div>
+            <div class="split">
+              <div>
+                <h3>Atributos</h3>
+                <div id="attributesGrid" class="attributes-grid"></div>
+              </div>
+              <div>
+                <h3>Noticias</h3>
+                <div id="newsFeed" class="news-feed"></div>
+              </div>
+            </div>
+          </article>
+
+          <article id="tab-training" class="tab-panel hidden">
+            <div class="panel-head">
+              <h2>Entrenamiento semanal</h2>
+              <span id="trainingHint">Elegir una sesion consume energia.</span>
+            </div>
+            <div id="trainingGrid" class="action-grid"></div>
+          </article>
+
+          <article id="tab-match" class="tab-panel hidden">
+            <div class="match-panel">
+              <div class="pitch-card">
+                <div class="mini-pitch">
+                  <span></span><span></span><span></span>
+                  <div id="pitchDot" class="pitch-dot">10</div>
+                </div>
+              </div>
+              <div>
+                <p class="eyebrow">Proximo rival</p>
+                <h2 id="nextOpponent">Rival</h2>
+                <p id="matchContext">Liga juvenil</p>
+                <button id="playMatchBtn" class="primary">Jugar partido</button>
+                <button id="restBtn" class="outline">Descansar</button>
+              </div>
+            </div>
+            <div id="matchResult" class="match-result"></div>
+          </article>
+
+          <article id="tab-social" class="tab-panel hidden">
+            <div class="panel-head">
+              <h2>Red social</h2>
+              <div class="reputation-pills">
+                <span>Popularidad <strong id="popularityValue">50</strong></span>
+                <span>Reputacion <strong id="reputationValue">50</strong></span>
+              </div>
+            </div>
+            <div id="socialFeed" class="social-feed"></div>
+          </article>
+
+          <article id="tab-market" class="tab-panel hidden">
+            <div class="panel-head">
+              <h2>Mercado, contrato y patrocinios</h2>
+              <button id="agentBtn" class="outline">Hablar con agente</button>
+            </div>
+            <div class="split">
+              <div>
+                <h3>Ofertas</h3>
+                <div id="offersList" class="offer-list"></div>
+              </div>
+              <div>
+                <h3>Patrocinios y vida</h3>
+                <div id="sponsorsList" class="offer-list"></div>
+                <div id="lifestyleList" class="offer-list"></div>
+              </div>
+            </div>
+          </article>
+
+          <article id="tab-legacy" class="tab-panel hidden">
+            <div class="panel-head">
+              <h2>Historial y legado</h2>
+              <button id="retireBtn" class="danger">Retirarse</button>
+            </div>
+            <div id="careerStats" class="career-stats"></div>
+            <div id="seasonHistory" class="history-list"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
