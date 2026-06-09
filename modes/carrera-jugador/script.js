@@ -1,4 +1,4 @@
-const STORAGE_KEY = "torre_futbol_carrera_jugador_v2";
+const STORAGE_KEY = "torre_futbol_carrera_jugador_v3";
 
 const fallbackClubs = [
   { name: "Barrio Sur", tier: 1, league: "Liga Promesas", salary: 2, rep: 20 },
@@ -81,13 +81,54 @@ function playerPhotoFor(name) {
   return playerPhotos[name] || "";
 }
 
+function playerKey(name) {
+  return String(name || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function careerLeagues() {
+  return typeof careerLeagueDatabase !== "undefined" && Array.isArray(careerLeagueDatabase)
+    ? careerLeagueDatabase
+    : [];
+}
+
+function databaseTeams() {
+  return careerLeagues().flatMap((league) => (league.teams || []).map((team) => ({
+    ...team,
+    league: league.name,
+    leagueId: league.id,
+    country: league.country,
+    level: league.level || 1
+  })));
+}
+
+function databaseTeamByName(name) {
+  const normalized = normalizeClubName(name);
+  return databaseTeams().find((team) => normalizeClubName(team.name) === normalized) || null;
+}
+
+function databasePlayers() {
+  return databaseTeams().flatMap((team) => (team.players || []).map((player) => ({
+    ...player,
+    club: normalizeClubName(team.name),
+    league: team.league,
+    leagueId: team.leagueId,
+    rating: Number(player.rating) || 70,
+    photo: playerPhotoFor(player.name)
+  })));
+}
+
 function realPlayers() {
   const sourcePlayers = typeof subastaPlayers !== "undefined" && Array.isArray(subastaPlayers) ? subastaPlayers : [];
+  const basePlayers = databasePlayers();
   const dbPlayers = sourcePlayers
     .filter((player) => {
       if (!player || !player.name || !player.club || player.club === "Leyenda") return false;
       return !["Idolo", "Ídolo", "Leyenda"].includes(player.rarity);
     })
+    .filter((player) => !basePlayers.some((item) => playerKey(item.name) === playerKey(player.name)))
     .map((player) => ({
       name: player.name,
       club: normalizeClubName(currentClubOverrides[player.name] || player.club),
@@ -97,14 +138,17 @@ function realPlayers() {
       photo: playerPhotoFor(player.name)
     }));
   const manualPlayers = manualCareerPlayers
-    .filter((player) => !dbPlayers.some((item) => item.name === player.name))
+    .filter((player) => !basePlayers.some((item) => playerKey(item.name) === playerKey(player.name)))
+    .filter((player) => !dbPlayers.some((item) => playerKey(item.name) === playerKey(player.name)))
     .map((player) => ({ ...player, club: normalizeClubName(player.club), photo: playerPhotoFor(player.name) }));
-  return [...dbPlayers, ...manualPlayers];
+  return [...basePlayers, ...dbPlayers, ...manualPlayers];
 }
 
 const careerPlayers = realPlayers();
 
 function leagueForClub(name) {
+  const databaseTeam = databaseTeamByName(name);
+  if (databaseTeam) return databaseTeam.league;
   const leagues = {
     "Boca Juniors": "Liga Argentina",
     "River Plate": "Liga Argentina",
@@ -163,12 +207,16 @@ function buildCareerClubs() {
   const clubsFromPlayers = Array.from(byClub.entries()).map(([name, info]) => {
     const maxRating = Math.max(...info.ratings);
     const tier = tierFromRating(maxRating);
+    const databaseTeam = databaseTeamByName(name);
+    const finalTier = databaseTeam?.level || tier;
     return {
       name,
-      tier,
-      league: leagueForClub(name),
-      salary: Math.round(10 + tier * 18 + maxRating * tier * 0.35),
-      rep: Math.max(45, Math.min(96, maxRating + tier * 2)),
+      tier: finalTier,
+      league: databaseTeam?.league || leagueForClub(name),
+      country: databaseTeam?.country || "",
+      transfermarkt: databaseTeam?.transfermarkt || "",
+      salary: databaseTeam?.salary || Math.round(10 + finalTier * 18 + maxRating * finalTier * 0.35),
+      rep: databaseTeam?.rep || Math.max(45, Math.min(96, maxRating + finalTier * 2)),
       stars: info.players.sort((a, b) => b.rating - a.rating).slice(0, 4).map((player) => player.name)
     };
   });
@@ -371,6 +419,8 @@ function randomSocial() {
 function randomOpponent(currentClubOverride = "") {
   const currentClub = currentClubOverride || state?.club || "";
   const current = clubs.find((club) => club.name === currentClub);
+  const sameLeague = clubs.filter((club) => club.name !== currentClub && current?.league && club.league === current.league);
+  if (sameLeague.length) return sameLeague[random(0, sameLeague.length - 1)].name;
   const pool = clubs.filter((club) => {
     if (club.name === currentClub) return false;
     if (!current) return true;
