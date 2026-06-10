@@ -109,6 +109,8 @@
             <div><span>Salario</span><strong id="salaryValue">$2K</strong></div>
             <div><span>Dinero</span><strong id="moneyValue">$0</strong></div>
             <div><span>Seguidores</span><strong id="followersValue">0</strong></div>
+            <div><span>Nivel</span><strong id="levelValue">1</strong></div>
+            <div><span>Potencial</span><strong id="potentialValue">80</strong></div>
           </article>
 
           <article class="condition-card">
@@ -123,6 +125,7 @@
 
         <nav class="tabs" aria-label="Secciones de carrera">
           <button class="tab active" data-tab="overview">Panel</button>
+          <button class="tab" data-tab="progress">Progreso</button>
           <button class="tab" data-tab="training">Entrenar</button>
           <button class="tab" data-tab="match">Partido</button>
           <button class="tab" data-tab="social">Redes</button>
@@ -146,6 +149,28 @@
                 <h3>Noticias</h3>
                 <div id="newsFeed" class="news-feed"></div>
               </div>
+            </div>
+          </article>
+
+          <article id="tab-progress" class="tab-panel hidden">
+            <div class="panel-head">
+              <div>
+                <h2>Progreso y misiones</h2>
+                <p id="progressSummary">Nivel 1 - 0 XP</p>
+              </div>
+              <button id="dailyRewardBtn" class="primary">Recompensa diaria</button>
+            </div>
+            <div class="progress-layout">
+              <section>
+                <h3>Arbol de habilidades</h3>
+                <div id="skillTree" class="skill-tree"></div>
+              </section>
+              <section>
+                <h3>Objetivos diarios y semanales</h3>
+                <div id="dailyWeeklyList" class="objective-list"></div>
+                <h3>Logros</h3>
+                <div id="achievementsList" class="achievement-list"></div>
+              </section>
             </div>
           </article>
 

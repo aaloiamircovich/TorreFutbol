@@ -696,6 +696,78 @@ h2 {
   margin-bottom: 12px;
 }
 
+.progress-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.95fr);
+  gap: 14px;
+}
+
+.skill-tree,
+.achievement-list {
+  display: grid;
+  gap: 10px;
+}
+
+.skill-tree {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.skill-node,
+.achievement {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(255,255,255,0.045);
+}
+
+.skill-node header,
+.achievement {
+  display: grid;
+  gap: 8px;
+}
+
+.skill-node header {
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+}
+
+.skill-node h3,
+.skill-node p,
+.achievement p {
+  margin-bottom: 0;
+}
+
+.skill-node strong,
+.achievement span {
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.skill-node.unlocked,
+.achievement.unlocked,
+.objective.claimed {
+  border-color: rgba(25,230,129,0.36);
+  background: rgba(25,230,129,0.08);
+}
+
+.skill-node button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.subtle-line {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.xp-meter {
+  margin-top: 8px;
+}
+
 .stat-card strong {
   display: block;
   color: var(--gold);
@@ -721,7 +793,8 @@ h2 {
   .create-screen,
   .hero-grid,
   .split,
-  .match-panel {
+  .match-panel,
+  .progress-layout {
     grid-template-columns: 1fr;
   }
 

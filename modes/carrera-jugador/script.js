@@ -1,4 +1,4 @@
-const STORAGE_KEY = "torre_futbol_carrera_jugador_v3";
+const STORAGE_KEY = "torre_futbol_carrera_jugador_v4";
 
 const fallbackClubs = [
   { name: "Barrio Sur", tier: 1, league: "Liga Promesas", salary: 2, rep: 20 },
@@ -381,6 +381,26 @@ const lifestyleItems = [
   { id: "styleBrand", title: "Marca personal", cost: 350, effect: "Aumenta seguidores al jugar bien.", minPop: 65 }
 ];
 
+const skillNodes = [
+  { id: "burst", title: "Arranque explosivo", desc: "+3 velocidad y rasgo Velocista", cost: 1, attrs: { velocidad: 3 }, trait: "Velocista" },
+  { id: "killer", title: "Definidor elite", desc: "+3 definicion y mejor acierto goleador", cost: 1, attrs: { definicion: 3 }, trait: "Matador" },
+  { id: "visionary", title: "Vision 360", desc: "+2 pase, +3 vision", cost: 1, attrs: { pase: 2, vision: 3 }, trait: "Arquitecto" },
+  { id: "engine2", title: "Motor profesional", desc: "+4 resistencia y menos fatiga semanal", cost: 2, attrs: { resistencia: 4 }, trait: "Inagotable", req: "burst" },
+  { id: "lockdown", title: "Anticipacion defensiva", desc: "+4 defensa", cost: 2, attrs: { defensa: 4 }, trait: "Anticipador" },
+  { id: "captain", title: "Capitan natural", desc: "+5 relacion con entrenador y prensa", cost: 2, coach: 5, reputation: 4, trait: "Capitan", req: "visionary" },
+  { id: "versatile", title: "Polifuncional", desc: "Desbloquea una posicion secundaria", cost: 2, secondary: true, trait: "Versatil" },
+  { id: "worldclass", title: "Techo mundial", desc: "+3 potencial maximo", cost: 3, potential: 3, trait: "Proyecto mundial", req: "engine2" }
+];
+
+const achievementDefs = [
+  { id: "first_match", title: "Debut profesional", desc: "Juega tu primer partido.", test: () => state.careerStats.matches >= 1, rewardXp: 25 },
+  { id: "first_goal", title: "Primer grito", desc: "Marca tu primer gol.", test: () => state.careerStats.goals >= 1, rewardXp: 30 },
+  { id: "ten_matches", title: "Ya sos parte", desc: "Juega 10 partidos.", test: () => state.careerStats.matches >= 10, rewardXp: 60 },
+  { id: "social_star", title: "Figura viral", desc: "Alcanza 50.000 seguidores.", test: () => state.followers >= 50000, rewardXp: 70 },
+  { id: "first_title", title: "Vuelta olimpica", desc: "Gana tu primer titulo.", test: () => state.careerStats.titles >= 1, rewardXp: 90 },
+  { id: "national_team", title: "Seleccionado", desc: "Debuta con tu seleccion.", test: () => state.careerStats.nationalCaps >= 1, rewardXp: 80 }
+];
+
 let state = null;
 
 const $ = (selector) => document.querySelector(selector);
@@ -388,6 +408,124 @@ const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const random = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
 const moneyText = (value) => `$${Math.max(0, Math.round(value))}K`;
 const valueText = (value) => `$${(Math.max(0.1, value) / 1000).toFixed(1)}M`;
+const todayKey = () => new Date().toISOString().slice(0, 10);
+
+function xpToNext(level) {
+  return 90 + level * 35;
+}
+
+function addXp(amount, reason = "") {
+  if (!state || amount <= 0) return;
+  state.xp += Math.round(amount);
+  let leveled = false;
+  while (state.xp >= xpToNext(state.level)) {
+    state.xp -= xpToNext(state.level);
+    state.level += 1;
+    state.skillPoints += 1;
+    state.potential = clamp(state.potential + (state.level % 4 === 0 ? 1 : 0), 70, 99);
+    leveled = true;
+  }
+  if (leveled) addNews(`Subiste a nivel ${state.level}. Ganaste 1 punto de habilidad.`);
+  if (reason) updateMissionProgress(reason, amount);
+}
+
+function secondaryPositionFor(position) {
+  const map = {
+    DC: "EI",
+    EI: "MCO",
+    MCO: "MC",
+    MC: "MCO",
+    DFC: "MC",
+    POR: "DFC"
+  };
+  return map[position] || "MC";
+}
+
+function createDailyObjectives() {
+  return [
+    { id: "train", label: "Completar un entrenamiento", target: 1, value: 0, rewardXp: 30, rewardMoney: 8 },
+    { id: "match", label: "Jugar un partido", target: 1, value: 0, rewardXp: 35, rewardMoney: 10 },
+    { id: "social", label: "Responder una publicacion", target: 1, value: 0, rewardXp: 20, rewardMoney: 4 }
+  ];
+}
+
+function createWeeklyObjectives() {
+  return [
+    { id: "weeklyTraining", label: "Entrenar 3 veces", target: 3, value: 0, rewardXp: 80, rewardMoney: 18 },
+    { id: "weeklyRating", label: "Lograr media 7.2 esta semana", target: 72, value: 0, rewardXp: 90, rewardMoney: 24 },
+    { id: "weeklyFans", label: "Ganar 2.500 seguidores", target: 2500, value: 0, rewardXp: 70, rewardMoney: 16 }
+  ];
+}
+
+function ensureStateDefaults() {
+  if (!state) return;
+  state.level = Number(state.level) || 1;
+  state.skillPoints = Number(state.skillPoints) || 0;
+  state.potential = Number(state.potential) || clamp(78 + (clubs.find((club) => club.name === state.club)?.tier || 1) * 3, 78, 94);
+  state.unlockedSkills = Array.isArray(state.unlockedSkills) ? state.unlockedSkills : [];
+  state.secondaryPositions = Array.isArray(state.secondaryPositions) ? state.secondaryPositions : [];
+  state.daily = state.daily || { date: todayKey(), rewardClaimed: false, objectives: createDailyObjectives() };
+  state.weekly = state.weekly || { season: state.season, week: state.week, objectives: createWeeklyObjectives(), followerStart: state.followers };
+  state.achievements = Array.isArray(state.achievements) ? state.achievements : [];
+  if (!state.nextCompetition) state.nextCompetition = "Liga";
+  if (!Array.isArray(state.traits)) state.traits = [];
+  if (!Array.isArray(state.lifestyle)) state.lifestyle = [];
+  if (!Array.isArray(state.trophies)) state.trophies = [];
+  if (state.daily.date !== todayKey()) {
+    state.daily = { date: todayKey(), rewardClaimed: false, objectives: createDailyObjectives() };
+  }
+  if (state.weekly.season !== state.season || Math.floor((state.weekly.week - 1) / 4) !== Math.floor((state.week - 1) / 4)) {
+    state.weekly = { season: state.season, week: state.week, objectives: createWeeklyObjectives(), followerStart: state.followers };
+  }
+}
+
+function updateMissionProgress(type, amount = 1) {
+  if (!state?.daily || !state?.weekly) return;
+  const apply = (list, id, value) => {
+    const objective = list.find((item) => item.id === id);
+    if (objective) objective.value = clamp(objective.value + value, 0, objective.target);
+  };
+  if (type === "training") {
+    apply(state.daily.objectives, "train", 1);
+    apply(state.weekly.objectives, "weeklyTraining", 1);
+  }
+  if (type === "match") {
+    apply(state.daily.objectives, "match", 1);
+  }
+  if (type === "social") {
+    apply(state.daily.objectives, "social", 1);
+  }
+  if (type === "rating") {
+    const objective = state.weekly.objectives.find((item) => item.id === "weeklyRating");
+    if (objective) objective.value = Math.max(objective.value, Math.round(amount * 10));
+  }
+  if (type === "followers") {
+    const objective = state.weekly.objectives.find((item) => item.id === "weeklyFans");
+    if (objective) objective.value = clamp(state.followers - (state.weekly.followerStart || state.followers), 0, objective.target);
+  }
+}
+
+function claimCompletedMissions() {
+  for (const list of [state.daily?.objectives || [], state.weekly?.objectives || []]) {
+    list.forEach((objective) => {
+      if (objective.value >= objective.target && !objective.claimed) {
+        objective.claimed = true;
+        state.money += objective.rewardMoney || 0;
+        addXp(objective.rewardXp || 0);
+        addNews(`Objetivo completado: ${objective.label}.`);
+      }
+    });
+  }
+}
+
+function checkAchievements() {
+  achievementDefs.forEach((achievement) => {
+    if (state.achievements.includes(achievement.id) || !achievement.test()) return;
+    state.achievements.push(achievement.id);
+    addXp(achievement.rewardXp || 0);
+    addNews(`Logro desbloqueado: ${achievement.title}.`);
+  });
+}
 
 function topPlayersForClub(clubName) {
   const normalized = normalizeClubName(clubName);
@@ -459,6 +597,9 @@ function newState(profile) {
     season: 1,
     week: 1,
     xp: 0,
+    level: 1,
+    skillPoints: 0,
+    potential: clamp(78 + club.tier * 3, 80, 94),
     money: 20,
     followers: 1200,
     popularity: 48,
@@ -472,6 +613,8 @@ function newState(profile) {
     contractYears: 2,
     attrs,
     traits: [styleBonuses[profile.style].trait],
+    unlockedSkills: [],
+    secondaryPositions: [],
     sponsors: [],
     lifestyle: [],
     offers: [],
@@ -482,6 +625,9 @@ function newState(profile) {
     careerStats: blankStats(),
     history: [],
     trophies: [],
+    achievements: [],
+    daily: { date: todayKey(), rewardClaimed: false, objectives: createDailyObjectives() },
+    weekly: { season: 1, week: 1, objectives: createWeeklyObjectives(), followerStart: 1200 },
     retired: false,
     trainedThisWeek: false,
     playedThisWeek: false,
@@ -614,7 +760,10 @@ function averageRating() {
 
 function render() {
   if (!state) return;
+  ensureStateDefaults();
   syncObjectives();
+  claimCompletedMissions();
+  checkAchievements();
   const profile = positionProfiles[state.profile.position];
   const ov = overall();
   if (!Array.isArray(state.competitions)) {
@@ -641,6 +790,8 @@ function render() {
   $("#salaryValue").textContent = moneyText(state.salary);
   $("#moneyValue").textContent = moneyText(state.money);
   $("#followersValue").textContent = compact(state.followers);
+  $("#levelValue").textContent = state.level;
+  $("#potentialValue").textContent = state.potential;
   $("#popularityValue").textContent = state.popularity;
   $("#reputationValue").textContent = state.reputation;
   $("#nextOpponent").textContent = state.nextOpponent;
@@ -652,6 +803,7 @@ function render() {
   updateBars();
   renderObjectives();
   renderAttributes();
+  renderProgress();
   renderTraining();
   renderNews();
   renderSocial();
@@ -696,6 +848,58 @@ function renderAttributes() {
       <div class="meter"><span style="width:${value}%"></span></div>
     </div>
   `).join("");
+}
+
+function renderProgress() {
+  const nextXp = xpToNext(state.level);
+  const xpPercent = clamp((state.xp / nextXp) * 100, 0, 100);
+  $("#progressSummary").innerHTML = `
+    Nivel ${state.level} - ${state.xp}/${nextXp} XP - ${state.skillPoints} puntos disponibles
+    <div class="meter xp-meter"><span style="width:${xpPercent}%"></span></div>
+    <span class="subtle-line">Potencial ${state.potential} - Rasgos: ${state.traits.join(", ") || "Sin rasgos"}</span>
+  `;
+
+  $("#skillTree").innerHTML = skillNodes.map((node) => {
+    const unlocked = state.unlockedSkills.includes(node.id);
+    const lockedByReq = node.req && !state.unlockedSkills.includes(node.req);
+    const disabled = unlocked || lockedByReq || state.skillPoints < node.cost || state.retired;
+    const reqText = lockedByReq ? "Requiere otra mejora" : `${node.cost} punto${node.cost > 1 ? "s" : ""}`;
+    return `<div class="skill-node ${unlocked ? "unlocked" : ""}">
+      <header>
+        <h3>${node.title}</h3>
+        <strong>${unlocked ? "Activo" : reqText}</strong>
+      </header>
+      <p>${node.desc}</p>
+      <button data-skill="${node.id}" ${disabled ? "disabled" : ""}>${unlocked ? "Desbloqueado" : "Desbloquear"}</button>
+    </div>`;
+  }).join("");
+
+  const missionCard = (objective, scope) => {
+    const percent = clamp((objective.value / objective.target) * 100, 0, 100);
+    const reward = `XP +${objective.rewardXp} - ${moneyText(objective.rewardMoney)}`;
+    return `<div class="objective ${objective.claimed ? "claimed" : ""}">
+      <strong>${scope}: ${objective.label}</strong>
+      <div class="meter"><span style="width:${percent}%"></span></div>
+      <p>${objective.value}/${objective.target} - ${objective.claimed ? "Cobrado" : reward}</p>
+    </div>`;
+  };
+  $("#dailyWeeklyList").innerHTML = [
+    ...state.daily.objectives.map((objective) => missionCard(objective, "Diario")),
+    ...state.weekly.objectives.map((objective) => missionCard(objective, "Semanal"))
+  ].join("");
+
+  $("#achievementsList").innerHTML = achievementDefs.map((achievement) => {
+    const unlocked = state.achievements.includes(achievement.id);
+    return `<div class="achievement ${unlocked ? "unlocked" : ""}">
+      <strong>${achievement.title}</strong>
+      <p>${achievement.desc}</p>
+      <span>${unlocked ? "Desbloqueado" : `XP +${achievement.rewardXp}`}</span>
+    </div>`;
+  }).join("");
+
+  const dailyRewardBtn = $("#dailyRewardBtn");
+  dailyRewardBtn.disabled = state.daily.rewardClaimed || state.retired;
+  dailyRewardBtn.textContent = state.daily.rewardClaimed ? "Recompensa cobrada" : "Recompensa diaria";
 }
 
 function labelAttr(key) {
@@ -817,7 +1021,8 @@ function renderLegacy() {
     ["Vallas", stats.cleanSheets],
     ["Titulos", stats.titles],
     ["Premios", stats.awards],
-    ["Seleccion", stats.nationalCaps]
+    ["Seleccion", stats.nationalCaps],
+    ["Logros", state.achievements.length]
   ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
 
   $("#seasonHistory").innerHTML = state.history.length
@@ -832,10 +1037,10 @@ function train(id) {
   const session = trainingSessions.find((item) => item.id === id);
   if (!session || state.trainedThisWeek) return;
   Object.entries(session.attrs).forEach(([attr, value]) => {
-    const trainerBonus = state.lifestyle.includes("trainer") ? 1 : 0;
     state.attrs[attr] = clamp(state.attrs[attr] + value, 1, 99);
-    state.xp += session.xp + trainerBonus;
   });
+  const trainerBonus = state.lifestyle.includes("trainer") ? 5 : 0;
+  addXp(session.xp + trainerBonus, "training");
   state.fatigue = clamp(state.fatigue + session.fatigue, 0, 100);
   state.morale = clamp(state.morale + (session.id === "recovery" ? 2 : 0), 0, 100);
   state.trainedThisWeek = true;
@@ -862,9 +1067,12 @@ function playMatch() {
   const isAttacker = ["DC", "EI", "MCO"].includes(pos);
   const isMid = ["MC", "MCO"].includes(pos);
   const isDef = ["DFC", "POR"].includes(pos);
-  const goals = isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220) : chanceCount((ov + rating * 7) / 420);
-  const assists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260) : chanceCount((ov + rating * 6) / 520);
-  const cleanSheet = isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320, 0.12, 0.72) ? 1 : 0;
+  const finisherBoost = state.traits.includes("Matador") ? 0.05 : 0;
+  const creatorBoost = state.traits.includes("Arquitecto") ? 0.05 : 0;
+  const defenderBoost = state.traits.includes("Anticipador") ? 0.06 : 0;
+  const goals = isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420);
+  const assists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
+  const cleanSheet = isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0;
   const teamGoals = clamp(goals + assists + random(0, 2), 0, 5);
   const rivalGoals = cleanSheet ? 0 : random(0, 4);
   const won = teamGoals > rivalGoals;
@@ -877,10 +1085,14 @@ function playMatch() {
   state.coach = clamp(state.coach + Math.round((rating - 6.6) * 3), 0, 100);
   state.popularity = clamp(state.popularity + goals * 3 + assists * 2 + (won ? 2 : -1), 0, 100);
   state.reputation = clamp(state.reputation + Math.max(0, Math.round(rating - 6.2)), 0, 100);
-  state.followers += Math.round(180 + rating * 80 + goals * 500 + assists * 260 + (state.lifestyle.includes("styleBrand") ? 260 : 0));
+  const followerGain = Math.round(180 + rating * 80 + goals * 500 + assists * 260 + (state.lifestyle.includes("styleBrand") ? 260 : 0));
+  state.followers += followerGain;
   state.money += state.salary + sponsorBonus(goals, assists);
   state.marketValue = Math.round(state.marketValue * (1 + (rating - 6) / 160) + goals * 18 + assists * 10);
   state.playedThisWeek = true;
+  addXp(Math.round(18 + rating * 4 + goals * 8 + assists * 5 + (won ? 8 : 0)), "match");
+  updateMissionProgress("rating", rating);
+  updateMissionProgress("followers", followerGain);
   maybeInjury("match");
   const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
   $("#matchResult").innerHTML = `<h3>${state.club} ${teamGoals} - ${rivalGoals} ${state.nextOpponent}</h3>
@@ -953,7 +1165,7 @@ function advanceWeek() {
   state.nextOpponent = fixture.opponent;
   state.nextCompetition = fixture.competition;
   if (state.injuryWeeks > 0) state.injuryWeeks -= 1;
-  state.fatigue = clamp(state.fatigue - 8, 0, 100);
+  state.fatigue = clamp(state.fatigue - 8 - (state.traits.includes("Inagotable") ? 5 : 0), 0, 100);
   if (Math.random() < 0.45) state.socialQueue = [randomSocial()];
   if ([10, 20, 30].includes(state.week) || Math.random() < 0.08) generateOffers();
   if (state.week > 38) endSeason();
@@ -1052,9 +1264,46 @@ function applySocial(postIndex, optionIndex) {
   state.fatigue = clamp(state.fatigue + (option.fatigue || 0), 0, 100);
   state.coach = clamp(state.coach + (option.coach || 0), 0, 100);
   state.money = Math.max(0, state.money + (option.money || 0));
-  state.followers += Math.max(0, (option.popularity || 0) * 150);
+  const followerGain = Math.max(0, (option.popularity || 0) * 150);
+  state.followers += followerGain;
+  updateMissionProgress("social", 1);
+  updateMissionProgress("followers", followerGain);
+  addXp(12);
   state.socialQueue.splice(postIndex, 1);
   addNews(`Redes: ${option.text}`);
+  render();
+}
+
+function unlockSkill(id) {
+  const node = skillNodes.find((item) => item.id === id);
+  if (!node || state.unlockedSkills.includes(id)) return;
+  if (node.req && !state.unlockedSkills.includes(node.req)) return;
+  if (state.skillPoints < node.cost) return;
+  state.skillPoints -= node.cost;
+  state.unlockedSkills.push(id);
+  Object.entries(node.attrs || {}).forEach(([attr, value]) => {
+    state.attrs[attr] = clamp(state.attrs[attr] + value, 1, 99);
+  });
+  if (node.trait && !state.traits.includes(node.trait)) state.traits.push(node.trait);
+  if (node.coach) state.coach = clamp(state.coach + node.coach, 0, 100);
+  if (node.reputation) state.reputation = clamp(state.reputation + node.reputation, 0, 100);
+  if (node.potential) state.potential = clamp(state.potential + node.potential, 70, 99);
+  if (node.secondary) {
+    const secondary = secondaryPositionFor(state.profile.position);
+    if (!state.secondaryPositions.includes(secondary)) state.secondaryPositions.push(secondary);
+  }
+  addNews(`Habilidad desbloqueada: ${node.title}.`);
+  render();
+}
+
+function claimDailyReward() {
+  ensureStateDefaults();
+  if (state.daily.rewardClaimed) return;
+  state.daily.rewardClaimed = true;
+  state.money += 18;
+  state.followers += 650;
+  addXp(45);
+  addNews("Recompensa diaria cobrada: dinero, XP y seguidores.");
   render();
 }
 
@@ -1127,11 +1376,13 @@ function setupEvents() {
     if (target.dataset.reject) rejectOffer(Number(target.dataset.reject));
     if (target.dataset.sponsor) signSponsor(target.dataset.sponsor);
     if (target.dataset.lifestyle) buyLifestyle(target.dataset.lifestyle);
+    if (target.dataset.skill) unlockSkill(target.dataset.skill);
   });
 
   $("#playMatchBtn").addEventListener("click", playMatch);
   $("#restBtn").addEventListener("click", rest);
   $("#advanceWeekBtn").addEventListener("click", advanceWeek);
+  $("#dailyRewardBtn").addEventListener("click", claimDailyReward);
   $("#agentBtn").addEventListener("click", () => {
     generateOffers(true);
     render();
