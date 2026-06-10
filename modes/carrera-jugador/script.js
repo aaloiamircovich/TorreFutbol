@@ -134,6 +134,107 @@ const extraCareerClubs = [
   { name: "Tigres", tier: 3, league: "Liga MX", salary: 38, rep: 72 }
 ];
 
+const secondDivisionLeagueNames = new Set([
+  "LaLiga Hypermotion",
+  "Championship",
+  "Serie B",
+  "2. Bundesliga",
+  "Ligue 2",
+  "Liga Portugal 2",
+  "Saudi First Division",
+  "Primera Nacional",
+  "Brasileirao Serie B",
+  "USL Championship",
+  "Eerste Divisie",
+  "Liga de Expansion MX",
+  "Challenger Pro League",
+  "Scottish Championship",
+  "TFF 1. Lig",
+  "Austrian 2. Liga",
+  "Swiss Challenge League",
+  "Danish 1st Division",
+  "Greek Super League 2"
+]);
+
+const secondDivisionSeedClubs = [
+  { name: "Deportivo La Coruna", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 18, rep: 61 },
+  { name: "Real Zaragoza", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 18, rep: 62 },
+  { name: "Sporting Gijon", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 17, rep: 60 },
+  { name: "Granada", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 20, rep: 64 },
+  { name: "Leicester City", league: "Championship", country: "Inglaterra", tier: 3, salary: 34, rep: 74 },
+  { name: "Southampton", league: "Championship", country: "Inglaterra", tier: 3, salary: 30, rep: 70 },
+  { name: "Middlesbrough", league: "Championship", country: "Inglaterra", tier: 2, salary: 24, rep: 66 },
+  { name: "West Brom", league: "Championship", country: "Inglaterra", tier: 2, salary: 25, rep: 67 },
+  { name: "Palermo", league: "Serie B", country: "Italia", tier: 2, salary: 17, rep: 61 },
+  { name: "Sampdoria", league: "Serie B", country: "Italia", tier: 2, salary: 19, rep: 64 },
+  { name: "Bari", league: "Serie B", country: "Italia", tier: 2, salary: 16, rep: 59 },
+  { name: "Spezia", league: "Serie B", country: "Italia", tier: 2, salary: 16, rep: 58 },
+  { name: "Schalke 04", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 22, rep: 68 },
+  { name: "Hertha BSC", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 21, rep: 66 },
+  { name: "Hannover 96", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 19, rep: 63 },
+  { name: "Fortuna Dusseldorf", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 20, rep: 64 },
+  { name: "Bastia", league: "Ligue 2", country: "Francia", tier: 2, salary: 14, rep: 57 },
+  { name: "Guingamp", league: "Ligue 2", country: "Francia", tier: 2, salary: 14, rep: 56 },
+  { name: "Grenoble", league: "Ligue 2", country: "Francia", tier: 1, salary: 12, rep: 53 },
+  { name: "Caen", league: "Ligue 2", country: "Francia", tier: 2, salary: 15, rep: 58 },
+  { name: "Maritimo", league: "Liga Portugal 2", country: "Portugal", tier: 2, salary: 13, rep: 56 },
+  { name: "Pacos Ferreira", league: "Liga Portugal 2", country: "Portugal", tier: 1, salary: 12, rep: 53 },
+  { name: "Leixoes", league: "Liga Portugal 2", country: "Portugal", tier: 1, salary: 11, rep: 52 },
+  { name: "Academico Viseu", league: "Liga Portugal 2", country: "Portugal", tier: 1, salary: 11, rep: 52 },
+  { name: "Al Faisaly", league: "Saudi First Division", country: "Arabia Saudita", tier: 2, salary: 18, rep: 58 },
+  { name: "Al Adalah", league: "Saudi First Division", country: "Arabia Saudita", tier: 2, salary: 17, rep: 57 },
+  { name: "Al Jabalain", league: "Saudi First Division", country: "Arabia Saudita", tier: 1, salary: 14, rep: 53 },
+  { name: "Al Ula", league: "Saudi First Division", country: "Arabia Saudita", tier: 2, salary: 18, rep: 58 },
+  { name: "Chacarita Juniors", league: "Primera Nacional", country: "Argentina", tier: 2, salary: 12, rep: 57 },
+  { name: "Ferro", league: "Primera Nacional", country: "Argentina", tier: 2, salary: 12, rep: 56 },
+  { name: "Quilmes", league: "Primera Nacional", country: "Argentina", tier: 2, salary: 13, rep: 58 },
+  { name: "Nueva Chicago", league: "Primera Nacional", country: "Argentina", tier: 1, salary: 10, rep: 53 },
+  { name: "Coritiba", league: "Brasileirao Serie B", country: "Brasil", tier: 2, salary: 17, rep: 61 },
+  { name: "Goias", league: "Brasileirao Serie B", country: "Brasil", tier: 2, salary: 16, rep: 60 },
+  { name: "Atletico Goianiense", league: "Brasileirao Serie B", country: "Brasil", tier: 2, salary: 16, rep: 59 },
+  { name: "Avai", league: "Brasileirao Serie B", country: "Brasil", tier: 1, salary: 13, rep: 55 },
+  { name: "Louisville City", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 53 },
+  { name: "Phoenix Rising", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 53 },
+  { name: "Tampa Bay Rowdies", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 54 },
+  { name: "Sacramento Republic", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 54 },
+  { name: "ADO Den Haag", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 12, rep: 55 },
+  { name: "Roda JC", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 11, rep: 54 },
+  { name: "De Graafschap", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 11, rep: 54 },
+  { name: "Cambuur", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 12, rep: 55 },
+  { name: "Atlante", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 13, rep: 56 },
+  { name: "Leones Negros", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 12, rep: 54 },
+  { name: "Cancun FC", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 12, rep: 54 },
+  { name: "Tapatio", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 11, rep: 53 },
+  { name: "Lommel", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 11, rep: 53 },
+  { name: "Beveren", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 11, rep: 53 },
+  { name: "Lierse", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 10, rep: 52 },
+  { name: "RWDM", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 12, rep: 55 },
+  { name: "Partick Thistle", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 52 },
+  { name: "Dunfermline", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 51 },
+  { name: "Raith Rovers", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 52 },
+  { name: "Ayr United", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 52 },
+  { name: "Sakaryaspor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 12, rep: 55 },
+  { name: "Kocaelispor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 12, rep: 55 },
+  { name: "Bandirmaspor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 11, rep: 53 },
+  { name: "Erzurumspor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 11, rep: 53 },
+  { name: "Admira Wacker", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 10, rep: 52 },
+  { name: "First Vienna", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 10, rep: 52 },
+  { name: "Kapfenberger SV", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 9, rep: 50 },
+  { name: "St Polten", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 10, rep: 52 },
+  { name: "Aarau", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 11, rep: 53 },
+  { name: "Xamax", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 10, rep: 52 },
+  { name: "Wil", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 10, rep: 52 },
+  { name: "Bellinzona", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 10, rep: 52 },
+  { name: "Horsens", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 10, rep: 52 },
+  { name: "Hillerod", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 9, rep: 50 },
+  { name: "Kolding IF", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 9, rep: 50 },
+  { name: "Hobro", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 9, rep: 50 },
+  { name: "AEL Larissa", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 10, rep: 52 },
+  { name: "Iraklis", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 10, rep: 52 },
+  { name: "Kalamata", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 9, rep: 51 },
+  { name: "Panachaiki", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 9, rep: 50 }
+].map((club) => ({ ...club, division: 2, competitions: [], stars: [] }));
+
 function normalizeClubName(name) {
   if (!name) return "";
   const trimmed = String(name).trim();
@@ -187,6 +288,7 @@ function databaseTeams() {
     leagueId: league.id,
     country: league.country,
     level: league.level || 1,
+    division: league.division || (secondDivisionLeagueNames.has(league.name) ? 2 : 1),
     competitions: competitionsForClub(team.name)
   })));
 }
@@ -301,6 +403,7 @@ function buildCareerClubs() {
       tier: finalTier,
       league: databaseTeam?.league || leagueForClub(name),
       country: databaseTeam?.country || "",
+      division: databaseTeam?.division || 1,
       competitions: databaseTeam?.competitions || [],
       transfermarkt: databaseTeam?.transfermarkt || "",
       salary: databaseTeam?.salary || Math.round(10 + finalTier * 18 + maxRating * finalTier * 0.35),
@@ -311,8 +414,9 @@ function buildCareerClubs() {
 
   const extras = extraCareerClubs.filter((club) => !clubsFromPlayers.some((item) => item.name === club.name));
   const realClubList = [...clubsFromPlayers, ...extras].filter((club) => clubLogoFor(club.name) || club.stars?.length);
-  const source = realClubList.length >= 8 ? realClubList : fallbackClubs;
-  return source.sort((a, b) => a.tier - b.tier || a.name.localeCompare(b.name));
+  const seededSecondClubs = secondDivisionSeedClubs.filter((club) => !realClubList.some((item) => item.name === club.name));
+  const source = realClubList.length >= 8 ? [...realClubList, ...seededSecondClubs] : [...fallbackClubs, ...seededSecondClubs];
+  return source.sort((a, b) => (b.division || 1) - (a.division || 1) || a.tier - b.tier || a.name.localeCompare(b.name));
 }
 
 let clubs = buildCareerClubs();
@@ -321,11 +425,19 @@ let opponents = clubs.length ? clubs.map((club) => club.name) : fallbackOpponent
 const positionProfiles = {
   DC: { number: 9, focus: ["definicion", "fuerza", "velocidad"], goals: 18, assists: 6, cleanSheets: 0, y: 22 },
   EI: { number: 11, focus: ["velocidad", "regate", "pase"], goals: 12, assists: 12, cleanSheets: 0, y: 28 },
+  ED: { number: 7, focus: ["velocidad", "regate", "definicion"], goals: 12, assists: 11, cleanSheets: 0, y: 28 },
   MCO: { number: 10, focus: ["vision", "pase", "regate"], goals: 10, assists: 16, cleanSheets: 0, y: 38 },
   MC: { number: 8, focus: ["pase", "resistencia", "vision"], goals: 6, assists: 12, cleanSheets: 0, y: 48 },
+  MCD: { number: 5, focus: ["defensa", "resistencia", "pase"], goals: 3, assists: 8, cleanSheets: 8, y: 56 },
+  LD: { number: 2, focus: ["velocidad", "defensa", "resistencia"], goals: 2, assists: 9, cleanSheets: 12, y: 64 },
+  LI: { number: 3, focus: ["velocidad", "defensa", "pase"], goals: 2, assists: 9, cleanSheets: 12, y: 64 },
   DFC: { number: 4, focus: ["defensa", "fuerza", "resistencia"], goals: 3, assists: 3, cleanSheets: 14, y: 68 },
   POR: { number: 1, focus: ["defensa", "vision", "fuerza"], goals: 0, assists: 0, cleanSheets: 16, y: 82 }
 };
+
+const attackingPositions = new Set(["DC", "EI", "ED", "MCO"]);
+const midfieldPositions = new Set(["MCD", "MC", "MCO", "EI", "ED", "LD", "LI"]);
+const defensivePositions = new Set(["POR", "DFC", "LD", "LI", "MCD"]);
 
 const styleBonuses = {
   finisher: { definicion: 7, fuerza: 2, trait: "Francotirador" },
@@ -580,10 +692,14 @@ function addXp(amount, reason = "") {
 function secondaryPositionFor(position) {
   const map = {
     DC: "EI",
+    ED: "EI",
     EI: "MCO",
+    LD: "LI",
+    LI: "LD",
+    MCD: "MC",
     MCO: "MC",
-    MC: "MCO",
-    DFC: "MC",
+    MC: "MCD",
+    DFC: "MCD",
     POR: "DFC"
   };
   return map[position] || "MC";
@@ -592,9 +708,13 @@ function secondaryPositionFor(position) {
 function archetypeLabel(position = state?.profile?.position) {
   const labels = {
     DC: "9 de area",
-    EI: "Extremo desequilibrante",
+    EI: "Extremo izquierdo",
+    ED: "Extremo derecho",
     MCO: "Creador ofensivo",
     MC: "Motor del medio",
+    MCD: "Volante de corte",
+    LD: "Lateral derecho",
+    LI: "Lateral izquierdo",
     DFC: "Central dominante",
     POR: "Arquero moderno"
   };
@@ -610,8 +730,12 @@ function defaultSkillTab(position = state?.profile?.position) {
   const byPosition = {
     DC: "tiros",
     EI: "regates",
+    ED: "regates",
     MCO: "pases",
     MC: "pases",
+    MCD: "defensa",
+    LD: "defensa",
+    LI: "defensa",
     DFC: "defensa",
     POR: "porteria"
   };
@@ -726,9 +850,9 @@ function createWeeklyObjectives() {
 }
 
 function createMatchObjectives(position = state?.profile?.position || "DC") {
-  const isAttacker = ["DC", "EI", "MCO"].includes(position);
-  const isMid = ["MC", "MCO", "EI"].includes(position);
-  const isDef = ["DFC", "POR", "MC"].includes(position);
+  const isAttacker = attackingPositions.has(position);
+  const isMid = midfieldPositions.has(position);
+  const isDef = defensivePositions.has(position);
   const list = [{ id: "rating", label: "Conseguir media 7.0", target: 7, value: 0, type: "rating", rewardXp: 18 }];
   if (isAttacker) list.push({ id: "goalContribution", label: "Participar en un gol", target: 1, value: 0, rewardXp: 22 });
   if (isMid) list.push({ id: "keyPasses", label: "Dar 2 pases clave", target: 2, value: 0, rewardXp: 18 });
@@ -971,12 +1095,22 @@ function topPlayersForClub(clubName) {
     .slice(0, 3);
 }
 
+function isSecondDivisionClub(club) {
+  return club?.division === 2 || secondDivisionLeagueNames.has(club?.league);
+}
+
+function startingCareerClubs() {
+  const secondClubs = clubs.filter(isSecondDivisionClub);
+  if (secondClubs.length) return secondClubs;
+  return clubs.filter((club) => (club.tier || 1) <= 2);
+}
+
 function renderClubSelect() {
   const select = $("#playerClub");
   if (!select) return;
-  const preferred = ["Boca Juniors", "River Plate", "Real Madrid", "Barcelona", "Manchester City", "PSG"];
-  const firstValue = preferred.find((name) => clubs.some((club) => club.name === name)) || clubs[0]?.name || "";
-  select.innerHTML = clubs.map((club) => {
+  const startClubs = startingCareerClubs();
+  const firstValue = startClubs[0]?.name || clubs[0]?.name || "";
+  select.innerHTML = startClubs.map((club) => {
     const stars = topPlayersForClub(club.name).slice(0, 2).map((player) => player.name).join(", ");
     const label = stars ? `${club.name} - ${club.league} (${stars})` : `${club.name} - ${club.league}`;
     return `<option value="${club.name}">${label}</option>`;
@@ -1016,7 +1150,8 @@ function createObjectives(position) {
 }
 
 function newState(profile) {
-  const club = clubs.find((item) => item.name === profile.club) || clubs[0];
+  const allowedStartClubs = startingCareerClubs();
+  const club = allowedStartClubs.find((item) => item.name === profile.club) || allowedStartClubs[0] || clubs[0];
   const attrs = baseAttributes(profile.position, profile.style);
   const fixture = nextFixture(club.name);
   return {
@@ -1924,7 +2059,7 @@ function matchSquad(clubName, includeUser = false) {
     pos: player.pos || "Jugador",
     base: player.rating || 72
   }));
-  const fillers = ["POR", "DFC", "MC", "MCO", "EI", "DC"].map((pos, index) => ({
+  const fillers = ["POR", "LD", "DFC", "LI", "MCD", "MC", "MCO", "ED", "EI", "DC"].map((pos, index) => ({
     name: `${pos} ${clubName.split(" ")[0]} ${index + 1}`,
     pos,
     base: 66 + random(0, 10)
@@ -2032,9 +2167,9 @@ function playMatch() {
   const form = (state.morale - state.fatigue) / 22 + (state.coach - 50) / 35;
   const rating = clamp(Number((5.4 + ov / 22 + form + modeBoost + Math.random() * 1.4).toFixed(1)), 4.0, 10.0);
   const pos = state.profile.position;
-  const isAttacker = ["DC", "EI", "MCO"].includes(pos);
-  const isMid = ["MC", "MCO"].includes(pos);
-  const isDef = ["DFC", "POR"].includes(pos);
+  const isAttacker = attackingPositions.has(pos);
+  const isMid = midfieldPositions.has(pos);
+  const isDef = defensivePositions.has(pos);
   const finisherBoost = state.traits.includes("Matador") ? 0.05 : 0;
   const creatorBoost = state.traits.includes("Arquitecto") ? 0.05 : 0;
   const defenderBoost = state.traits.includes("Anticipador") ? 0.06 : 0;

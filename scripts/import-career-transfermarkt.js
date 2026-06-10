@@ -20,14 +20,32 @@ const competitions = [
   { id: "mls", name: "Major League Soccer", country: "Estados Unidos", level: 2, code: "MLS1", slug: "major-league-soccer" },
   { id: "eredivisie", name: "Eredivisie", country: "Paises Bajos", level: 3, code: "NL1", slug: "eredivisie" },
   { id: "liga-mx", name: "Liga MX", country: "Mexico", level: 2, code: "MEXA", slug: "liga-mx-apertura" },
-  { id: "championship", name: "Championship", country: "Inglaterra", level: 2, code: "GB2", slug: "championship" },
+  { id: "championship", name: "Championship", country: "Inglaterra", level: 2, division: 2, code: "GB2", slug: "championship" },
   { id: "belgian-pro-league", name: "Belgian Pro League", country: "Belgica", level: 2, code: "BE1", slug: "jupiler-pro-league" },
   { id: "scottish-premiership", name: "Scottish Premiership", country: "Escocia", level: 2, code: "SC1", slug: "scottish-premiership" },
   { id: "super-lig", name: "Super Lig", country: "Turquia", level: 3, code: "TR1", slug: "super-lig" },
   { id: "austrian-bundesliga", name: "Austrian Bundesliga", country: "Austria", level: 2, code: "A1", slug: "bundesliga" },
   { id: "swiss-super-league", name: "Swiss Super League", country: "Suiza", level: 2, code: "C1", slug: "super-league" },
   { id: "danish-superliga", name: "Danish Superliga", country: "Dinamarca", level: 2, code: "DK1", slug: "superligaen" },
-  { id: "greek-super-league", name: "Greek Super League", country: "Grecia", level: 2, code: "GR1", slug: "super-league-1" }
+  { id: "greek-super-league", name: "Greek Super League", country: "Grecia", level: 2, code: "GR1", slug: "super-league-1" },
+  { id: "laliga-hypermotion", name: "LaLiga Hypermotion", country: "Espana", level: 2, division: 2, code: "ES2", slug: "laliga2" },
+  { id: "serie-b", name: "Serie B", country: "Italia", level: 2, division: 2, code: "IT2", slug: "serie-b" },
+  { id: "2-bundesliga", name: "2. Bundesliga", country: "Alemania", level: 2, division: 2, code: "L2", slug: "2-bundesliga" },
+  { id: "ligue-2", name: "Ligue 2", country: "Francia", level: 2, division: 2, code: "FR2", slug: "ligue-2" },
+  { id: "liga-portugal-2", name: "Liga Portugal 2", country: "Portugal", level: 1, division: 2, code: "PO2", slug: "liga-portugal-2" },
+  { id: "saudi-first-division", name: "Saudi First Division", country: "Arabia Saudita", level: 1, division: 2, code: "SA2", slug: "saudi-first-division-league" },
+  { id: "primera-nacional", name: "Primera Nacional", country: "Argentina", level: 1, division: 2, code: "AR2N", slug: "primera-nacional" },
+  { id: "brasileirao-serie-b", name: "Brasileirao Serie B", country: "Brasil", level: 2, division: 2, code: "BRA2", slug: "campeonato-brasileiro-serie-b" },
+  { id: "usl-championship", name: "USL Championship", country: "Estados Unidos", level: 1, division: 2, code: "USL", slug: "usl-championship" },
+  { id: "eerste-divisie", name: "Eerste Divisie", country: "Paises Bajos", level: 1, division: 2, code: "NL2", slug: "eerste-divisie" },
+  { id: "liga-expansion-mx", name: "Liga de Expansion MX", country: "Mexico", level: 1, division: 2, code: "MEX2", slug: "liga-de-expansion-mx-apertura" },
+  { id: "challenger-pro-league", name: "Challenger Pro League", country: "Belgica", level: 1, division: 2, code: "BE2", slug: "challenger-pro-league" },
+  { id: "scottish-championship", name: "Scottish Championship", country: "Escocia", level: 1, division: 2, code: "SC2", slug: "scottish-championship" },
+  { id: "tff-1-lig", name: "TFF 1. Lig", country: "Turquia", level: 1, division: 2, code: "TR2", slug: "1-lig" },
+  { id: "austrian-2-liga", name: "Austrian 2. Liga", country: "Austria", level: 1, division: 2, code: "A2", slug: "2-liga" },
+  { id: "swiss-challenge-league", name: "Swiss Challenge League", country: "Suiza", level: 1, division: 2, code: "C2", slug: "challenge-league" },
+  { id: "danish-1st-division", name: "Danish 1st Division", country: "Dinamarca", level: 1, division: 2, code: "DK2", slug: "1-division" },
+  { id: "greek-super-league-2", name: "Greek Super League 2", country: "Grecia", level: 1, division: 2, code: "GR2", slug: "super-league-2" }
 ];
 
 const internationalCompetitions = [
@@ -71,10 +89,10 @@ const teamAliases = {
 
 const positionMap = [
   [/goalkeeper/i, "POR"],
-  [/right-back/i, "LD"],
-  [/left-back/i, "LI"],
+  [/right-back|right wing-back/i, "LD"],
+  [/left-back|left wing-back/i, "LI"],
   [/centre-back|center-back/i, "DFC"],
-  [/defensive midfield/i, "MC"],
+  [/defensive midfield|holding midfield/i, "MCD"],
   [/central midfield|midfield/i, "MC"],
   [/attacking midfield|second striker/i, "MCO"],
   [/left winger|left midfield/i, "EI"],
@@ -217,7 +235,7 @@ async function buildDatabase() {
   for (const competition of competitions) {
     console.log(`Liga: ${competition.name}`);
     const teams = await fetchTeams(competition);
-    const league = { id: competition.id, name: competition.name, country: competition.country, level: competition.level, teams: [] };
+    const league = { id: competition.id, name: competition.name, country: competition.country, level: competition.level, division: competition.division || 1, teams: [] };
     for (const team of teams) {
       await sleep(450);
       try {
