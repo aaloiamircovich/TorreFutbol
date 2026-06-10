@@ -421,6 +421,19 @@ const lifestyleItems = [
   { id: "styleBrand", title: "Marca personal", cost: 350, effect: "Aumenta seguidores al jugar bien.", minPop: 65 }
 ];
 
+const sponsorDeals = [
+  { id: "nike", name: "Nike", tier: "Elite", pay: 360, minPop: 82, minRep: 72, goalBonus: 16, assistBonus: 8, ratingBonus: 32, effect: "Contrato global de botines y campana. Bonos altos por goles y partidos de figura." },
+  { id: "adidas", name: "adidas", tier: "Elite", pay: 340, minPop: 78, minRep: 76, goalBonus: 12, assistBonus: 12, ratingBonus: 34, effect: "Marca tecnica para jugadores decisivos. Bonos por asistencias y media alta." },
+  { id: "puma", name: "Puma", tier: "Pro", pay: 220, minPop: 66, minRep: 60, goalBonus: 10, assistBonus: 7, ratingBonus: 20, effect: "Acuerdo de imagen para jugador en crecimiento. Buen equilibrio de bonos." },
+  { id: "underarmour", name: "Under Armour", tier: "Fisico", pay: 180, minPop: 58, minRep: 56, cleanSheetBonus: 14, ratingBonus: 18, effect: "Sponsor de rendimiento fisico. Premia defensa, resistencia y regularidad." },
+  { id: "redbull", name: "Red Bull", tier: "Lifestyle", pay: 260, minPop: 72, minRep: 52, followerBonus: 420, ratingBonus: 16, effect: "Campanas virales y contenido. Sube seguidores si rendis bien." },
+  { id: "pepsi", name: "Pepsi", tier: "Imagen", pay: 240, minPop: 70, minRep: 50, followerBonus: 360, goalBonus: 8, effect: "Publicidad masiva. Premia popularidad, goles y crecimiento en redes." },
+  { id: "easports", name: "EA Sports FC", tier: "Gaming", pay: 300, minPop: 76, minRep: 64, ratingBonus: 28, followerBonus: 300, effect: "Embajador de videojuego. Bonos por media alta y exposicion global." },
+  { id: "boots", name: "Botines Veloz", tier: "Local", pay: 60, minPop: 45, minRep: 0, goalBonus: 8, assistBonus: 4, effect: "Contrato local heredado. Bono por goles y asistencias." },
+  { id: "drink", name: "Energia 90", tier: "Local", pay: 120, minPop: 60, minRep: 0, flatBonus: 10, effect: "Contrato local heredado. Ingreso extra por partido." },
+  { id: "global", name: "Global Sports", tier: "Local", pay: 260, minPop: 78, minRep: 0, flatBonus: 25, effect: "Contrato local heredado. Marca internacional para estrellas." }
+];
+
 const skillBranches = {
   core: { title: "Base profesional", desc: "Fisico, mentalidad y techo de carrera." },
   striker: { title: "9 de area", desc: "Desmarque, definicion y olfato goleador." },
@@ -1511,15 +1524,22 @@ function renderMatchStatsPanel() {
     return;
   }
   const details = state.lastMatchDetails;
-  $("#matchStatsPanel").innerHTML = [
+  const statCards = [
     ["Modo", matchModeLabel(details.mode)],
     ["Media", details.rating],
+    ["Resultado", `${details.teamGoals ?? "-"}-${details.rivalGoals ?? "-"}`],
+    ["Posesion", details.teamStats ? `${details.teamStats.possession}%` : "-"],
     ["Tiros", details.shots],
     ["Pases clave", details.keyPasses],
     ["Entradas", details.tackles],
     ["Atajadas", details.saves],
     ["Tarjetas", `${details.yellowCard ? "A" : "0"}${details.redCard ? " / R" : ""}`]
   ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+  const teamTop = details.teamRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
+  const rivalTop = details.rivalRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
+  $("#matchStatsPanel").innerHTML = `${statCards}
+    <div class="stat-card match-performers"><span>Figuras propias</span>${teamTop || "<p>Sin datos</p>"}</div>
+    <div class="stat-card match-performers"><span>Figuras rivales</span>${rivalTop || "<p>Sin datos</p>"}</div>`;
 }
 
 function renderNews() {
@@ -1617,11 +1637,23 @@ function renderMarket() {
 
   $("#offersList").innerHTML = rumorHtml + offersHtml;
 
-  $("#sponsorsList").innerHTML = availableSponsors().map((sponsor) => `<div class="offer-card">
+  $("#sponsorsList").innerHTML = availableSponsors().map((sponsor) => {
+    const signed = state.sponsors.includes(sponsor.id);
+    const eligible = sponsorRequirementMet(sponsor);
+    const bonusText = [
+      sponsor.goalBonus ? `gol +${moneyText(sponsor.goalBonus)}` : "",
+      sponsor.assistBonus ? `asistencia +${moneyText(sponsor.assistBonus)}` : "",
+      sponsor.cleanSheetBonus ? `valla +${moneyText(sponsor.cleanSheetBonus)}` : "",
+      sponsor.ratingBonus ? `media 8+ +${moneyText(sponsor.ratingBonus)}` : "",
+      sponsor.followerBonus ? `seguidores +${compact(sponsor.followerBonus)}` : ""
+    ].filter(Boolean).join(" - ");
+    return `<div class="offer-card sponsor-card ${signed ? "signed" : ""}">
     <header><h3>${sponsor.name}</h3><strong>${moneyText(sponsor.pay)}</strong></header>
     <p>${sponsor.effect}</p>
-    <button data-sponsor="${sponsor.id}" ${state.sponsors.includes(sponsor.id) ? "disabled" : ""}>${state.sponsors.includes(sponsor.id) ? "Firmado" : "Firmar"}</button>
-  </div>`).join("");
+    <p class="offer-details">${sponsor.tier} - requiere popularidad ${sponsor.minPop}${sponsor.minRep ? ` y reputacion ${sponsor.minRep}` : ""}${bonusText ? ` - ${bonusText}` : ""}</p>
+    <button data-sponsor="${sponsor.id}" ${signed || !eligible ? "disabled" : ""}>${signed ? "Firmado" : eligible ? "Firmar" : "Bloqueado"}</button>
+  </div>`;
+  }).join("");
 
   $("#lifestyleList").innerHTML = lifestyleItems.map((item) => `<div class="offer-card">
     <header><h3>${item.title}</h3><strong>${moneyText(item.cost)}</strong></header>
@@ -1631,12 +1663,11 @@ function renderMarket() {
 }
 
 function availableSponsors() {
-  const list = [
-    { id: "boots", name: "Botines Veloz", pay: 60, minPop: 45, effect: "Bono por goles y seguidores." },
-    { id: "drink", name: "Energia 90", pay: 120, minPop: 60, effect: "Ingreso extra y mas popularidad." },
-    { id: "global", name: "Global Sports", pay: 260, minPop: 78, effect: "Marca internacional para estrellas." }
-  ];
-  return list.filter((item) => state.popularity >= item.minPop || state.sponsors.includes(item.id));
+  return sponsorDeals.filter((item) => item.tier !== "Local" || state.sponsors.includes(item.id));
+}
+
+function sponsorRequirementMet(sponsor) {
+  return state.popularity >= (sponsor.minPop || 0) && state.reputation >= (sponsor.minRep || 0);
 }
 
 function renderLegacy() {
@@ -1737,6 +1768,110 @@ function cardOutcome(mode, isDef) {
   };
 }
 
+function matchSquad(clubName, includeUser = false) {
+  const base = topPlayersForClub(clubName).map((player) => ({
+    name: player.name,
+    pos: player.pos || "Jugador",
+    base: player.rating || 72
+  }));
+  const fillers = ["POR", "DFC", "MC", "MCO", "EI", "DC"].map((pos, index) => ({
+    name: `${pos} ${clubName.split(" ")[0]} ${index + 1}`,
+    pos,
+    base: 66 + random(0, 10)
+  }));
+  const squad = [...base, ...fillers].slice(0, 8);
+  if (includeUser) {
+    squad.unshift({ name: state.profile.name, pos: state.profile.position, base: overall(), user: true });
+  }
+  return squad.slice(0, 9);
+}
+
+function pickPerformer(squad, avoidUser = false) {
+  const pool = avoidUser ? squad.filter((player) => !player.user) : squad;
+  return pool[random(0, Math.max(0, pool.length - 1))] || squad[0];
+}
+
+function playerRating(base, teamMod = 0, userBoost = 0) {
+  return clamp(Number((5.2 + base / 34 + teamMod + userBoost + random(-8, 10) / 10).toFixed(1)), 4.0, 10.0);
+}
+
+function buildIndividualRatings(teamSquad, rivalSquad, resultMod, rivalMod, userRating) {
+  const teamRatings = teamSquad.map((player) => ({
+    ...player,
+    rating: player.user ? userRating : playerRating(player.base, resultMod)
+  })).sort((a, b) => b.rating - a.rating);
+  const rivalRatings = rivalSquad.map((player) => ({
+    ...player,
+    rating: playerRating(player.base, rivalMod)
+  })).sort((a, b) => b.rating - a.rating);
+  return { teamRatings, rivalRatings };
+}
+
+function buildMatchTimeline({ teamGoals, rivalGoals, goals, assists, yellowCard, redCard, saves, mode, teamSquad, rivalSquad, matchCompetition }) {
+  const events = [];
+  const usedMinutes = new Set();
+  const nextMinute = (min = 2, max = 90) => {
+    let minute = random(min, max);
+    while (usedMinutes.has(minute)) minute = clamp(minute + 1, min, 90);
+    usedMinutes.add(minute);
+    return minute;
+  };
+  events.push({ minute: 1, type: "kickoff", text: `Arranca ${matchCompetition}. ${state.club} intenta imponer ritmo desde el primer pase.` });
+  for (let i = 0; i < teamGoals; i += 1) {
+    const scorer = i < goals ? teamSquad.find((player) => player.user) : pickPerformer(teamSquad, true);
+    const assister = i < assists ? teamSquad.find((player) => player.user) : (Math.random() < 0.55 ? pickPerformer(teamSquad, scorer?.user) : null);
+    events.push({
+      minute: nextMinute(8, 86),
+      type: "goal",
+      text: `Gol de ${state.club}: ${scorer?.name || state.profile.name} define ${assister ? `tras pase de ${assister.name}` : "despues de una jugada colectiva"}.`
+    });
+  }
+  for (let i = 0; i < rivalGoals; i += 1) {
+    const scorer = pickPerformer(rivalSquad);
+    events.push({
+      minute: nextMinute(10, 88),
+      type: "goal-against",
+      text: `Gol de ${state.nextOpponent}: ${scorer.name} castiga una desconcentracion defensiva.`
+    });
+  }
+  if (saves) {
+    events.push({ minute: nextMinute(18, 78), type: "save", text: `${state.profile.name} sostiene al equipo con una atajada clave abajo.` });
+  }
+  if (yellowCard) events.push({ minute: nextMinute(22, 74), type: "card", text: `${state.profile.name} ve amarilla por cortar una transicion.` });
+  if (redCard) events.push({ minute: nextMinute(35, 82), type: "red", text: `Roja para ${state.profile.name}. El equipo queda condicionado hasta el final.` });
+  events.push({
+    minute: nextMinute(12, 38),
+    type: "chance",
+    text: `${pickPerformer(teamSquad).name} prueba desde media distancia y obliga al arquero rival a trabajar.`
+  });
+  events.push({
+    minute: nextMinute(46, 70),
+    type: "tactical",
+    text: `El cuerpo tecnico ajusta presion y altura defensiva en modo ${matchModeLabel(mode)}.`
+  });
+  events.push({
+    minute: nextMinute(65, 88),
+    type: "duel",
+    text: `${state.profile.name} gana un duelo importante ante ${pickPerformer(rivalSquad).name}.`
+  });
+  events.push({ minute: 90, type: "fulltime", text: `Final: ${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}.` });
+  return events.sort((a, b) => a.minute - b.minute);
+}
+
+function buildTeamStats({ teamGoals, rivalGoals, shots, keyPasses, tackles, saves, rating }) {
+  const possession = clamp(Math.round(48 + (rating - 6.5) * 5 + random(-8, 8)), 34, 66);
+  const teamShots = clamp(shots + random(teamGoals + 4, teamGoals + 10), teamGoals, 22);
+  const rivalShots = clamp(rivalGoals + random(4, 13) - Math.round(tackles / 4) - saves, rivalGoals, 20);
+  return {
+    possession,
+    teamShots,
+    rivalShots,
+    xg: Number(clamp(teamGoals * 0.72 + teamShots / 9 + keyPasses / 10, 0.2, 4.8).toFixed(1)),
+    rivalXg: Number(clamp(rivalGoals * 0.7 + rivalShots / 10, 0.1, 4.6).toFixed(1)),
+    recoveries: clamp(tackles + random(12, 34), 8, 52)
+  };
+}
+
 function playMatch() {
   if (state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired) return;
   const ov = overall();
@@ -1760,6 +1895,7 @@ function playMatch() {
   const rivalGoals = cleanSheet ? 0 : random(0, 4);
   const won = teamGoals > rivalGoals;
   const drew = teamGoals === rivalGoals;
+  const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
   const rivalStar = topPlayersForClub(state.nextOpponent)[0];
   const duelText = rivalStar ? ` Duelo destacado contra ${rivalStar.name}.` : "";
   const shots = isAttacker ? random(goals, goals + 4 + (mode === "full" ? 2 : 0)) : random(0, 2);
@@ -1768,7 +1904,14 @@ function playMatch() {
   const saves = pos === "POR" ? random(cleanSheet ? 2 : 0, cleanSheet ? 7 : 5) : 0;
   const passAccuracy = clamp(Math.round(64 + rating * 3 + state.attrs.pase / 4 + random(-5, 6)), 52, 96);
   const { yellowCard, redCard } = cardOutcome(mode, isDef || pos === "MC");
-  const details = { mode, rating, goals, assists, cleanSheet, shots, keyPasses, tackles, saves, passAccuracy, yellowCard, redCard };
+  const teamSquad = matchSquad(state.club, true);
+  const rivalSquad = matchSquad(state.nextOpponent);
+  const resultMod = won ? 0.55 : drew ? 0.12 : -0.28;
+  const rivalMod = won ? -0.25 : drew ? 0.08 : 0.48;
+  const { teamRatings, rivalRatings } = buildIndividualRatings(teamSquad, rivalSquad, resultMod, rivalMod, rating);
+  const teamStats = buildTeamStats({ teamGoals, rivalGoals, shots, keyPasses, tackles, saves, rating });
+  const timeline = buildMatchTimeline({ teamGoals, rivalGoals, goals, assists, yellowCard, redCard, saves, mode, teamSquad, rivalSquad, matchCompetition });
+  const details = { mode, rating, goals, assists, cleanSheet, shots, keyPasses, tackles, saves, passAccuracy, yellowCard, redCard, teamGoals, rivalGoals, teamStats, timeline, teamRatings, rivalRatings };
   updateStats(details);
   state.lastMatchDetails = details;
   completeMatchObjectives(details);
@@ -1777,9 +1920,11 @@ function playMatch() {
   state.coach = clamp(state.coach + Math.round((rating - 6.6) * 3), 0, 100);
   state.popularity = clamp(state.popularity + goals * 3 + assists * 2 + (won ? 2 : -1), 0, 100);
   state.reputation = clamp(state.reputation + Math.max(0, Math.round(rating - 6.2)), 0, 100);
-  const followerGain = Math.round(180 + rating * 80 + goals * 500 + assists * 260 + (state.lifestyle.includes("styleBrand") ? 260 : 0));
+  const sponsorFans = sponsorFollowerBonus(details);
+  const matchSponsorBonus = sponsorBonus(details);
+  const followerGain = Math.round(180 + rating * 80 + goals * 500 + assists * 260 + sponsorFans + (state.lifestyle.includes("styleBrand") ? 260 : 0));
   state.followers += followerGain;
-  state.money += state.salary + sponsorBonus(goals, assists);
+  state.money += state.salary + matchSponsorBonus;
   state.marketValue = Math.round(state.marketValue * (1 + (rating - 6) / 160) + goals * 18 + assists * 10);
   state.playedThisWeek = true;
   if (yellowCard) state.yellowCards += 1;
@@ -1794,11 +1939,29 @@ function playMatch() {
   updateMissionProgress("rating", rating);
   updateMissionProgress("followers", followerGain);
   maybeInjury("match");
-  const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
   $("#matchResult").innerHTML = `<h3>${state.club} ${teamGoals} - ${rivalGoals} ${state.nextOpponent}</h3>
     <p>${matchCompetition} - ${matchModeLabel(mode)}</p>
-    <p>Media ${rating}, ${goals} goles, ${assists} asistencias, ${shots} tiros, ${keyPasses} pases clave, ${tackles} entradas${saves ? `, ${saves} atajadas` : ""}${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>
-    <p>${yellowCard ? "Tarjeta amarilla." : ""}${redCard ? " Tarjeta roja y suspension." : ""}</p>`;
+    <p>Tu media ${rating}, ${goals} goles, ${assists} asistencias, ${shots} tiros, ${keyPasses} pases clave, ${tackles} entradas${saves ? `, ${saves} atajadas` : ""}${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>
+    <div class="match-team-stats">
+      <span>Posesion ${teamStats.possession}%</span>
+      <span>Tiros ${teamStats.teamShots}-${teamStats.rivalShots}</span>
+      <span>xG ${teamStats.xg}-${teamStats.rivalXg}</span>
+      <span>Recuperaciones ${teamStats.recoveries}</span>
+    </div>
+    <div class="match-timeline">
+      ${timeline.map((event) => `<div class="match-event ${event.type}"><strong>${event.minute}'</strong><p>${event.text}</p></div>`).join("")}
+    </div>
+    <div class="match-ratings">
+      <div>
+        <h4>${state.club}</h4>
+        ${teamRatings.slice(0, 5).map((player) => `<p><strong>${player.rating}</strong> ${player.name} <span>${player.pos}</span></p>`).join("")}
+      </div>
+      <div>
+        <h4>${state.nextOpponent}</h4>
+        ${rivalRatings.slice(0, 5).map((player) => `<p><strong>${player.rating}</strong> ${player.name} <span>${player.pos}</span></p>`).join("")}
+      </div>
+    </div>
+    <p>${yellowCard ? "Tarjeta amarilla." : ""}${redCard ? " Tarjeta roja y suspension." : ""}${matchSponsorBonus ? ` Bonos de patrocinio: ${moneyText(matchSponsorBonus)}.` : ""}</p>`;
   addNews(`${matchCompetition}: ${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}. Media ${rating}.${redCard ? " Expulsado." : ""}${duelText}`);
   if (rating >= 8.6) maybeAward("Jugador de la semana");
   maybeNationalCall(rating);
@@ -1832,12 +1995,29 @@ function updateStats({ rating, goals, assists, cleanSheet, shots = 0, keyPasses 
   }
 }
 
-function sponsorBonus(goals, assists) {
-  let bonus = 0;
-  if (state.sponsors.includes("boots")) bonus += goals * 8 + assists * 4;
-  if (state.sponsors.includes("drink")) bonus += 10;
-  if (state.sponsors.includes("global")) bonus += 25;
-  return bonus;
+function sponsorBonus(details = {}) {
+  return state.sponsors.reduce((bonus, id) => {
+    const sponsor = sponsorDeals.find((item) => item.id === id);
+    if (!sponsor) return bonus;
+    const ratingBonus = details.rating >= 8 ? (sponsor.ratingBonus || 0) : 0;
+    const cleanBonus = details.cleanSheet ? (sponsor.cleanSheetBonus || 0) : 0;
+    const followerMoney = sponsor.followerBonus ? Math.round((sponsor.followerBonus || 0) / 80) : 0;
+    return bonus
+      + (sponsor.flatBonus || 0)
+      + (details.goals || 0) * (sponsor.goalBonus || 0)
+      + (details.assists || 0) * (sponsor.assistBonus || 0)
+      + ratingBonus
+      + cleanBonus
+      + followerMoney;
+  }, 0);
+}
+
+function sponsorFollowerBonus(details = {}) {
+  if (details.rating < 7.6) return 0;
+  return state.sponsors.reduce((sum, id) => {
+    const sponsor = sponsorDeals.find((item) => item.id === id);
+    return sum + (sponsor?.followerBonus || 0);
+  }, 0);
 }
 
 function maybeAward(title) {
@@ -2179,12 +2359,14 @@ function claimDailyReward() {
 
 function signSponsor(id) {
   const sponsor = availableSponsors().find((item) => item.id === id);
-  if (!sponsor || state.sponsors.includes(id)) return;
+  if (!sponsor || state.sponsors.includes(id) || !sponsorRequirementMet(sponsor)) return;
   state.sponsors.push(id);
   state.money += sponsor.pay;
-  state.popularity = clamp(state.popularity + 4, 0, 100);
-  addNews(`Patrocinio firmado: ${sponsor.name}.`);
+  state.popularity = clamp(state.popularity + (sponsor.tier === "Elite" ? 7 : 4), 0, 100);
+  state.reputation = clamp(state.reputation + (sponsor.tier === "Elite" ? 4 : 2), 0, 100);
+  addNews(`Patrocinio firmado con ${sponsor.name}: prima ${moneyText(sponsor.pay)} y bonos por rendimiento.`);
   render();
+  pulseElement("#tab-market", "panel-flash");
 }
 
 function buyLifestyle(id) {

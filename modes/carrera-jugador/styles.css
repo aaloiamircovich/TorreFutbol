@@ -556,6 +556,91 @@ h2 {
   min-height: 92px;
 }
 
+.match-team-stats,
+.match-ratings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.match-team-stats span {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 9px;
+  background: rgba(255,255,255,0.045);
+  color: var(--gold);
+  font-weight: 900;
+}
+
+.match-timeline {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.match-event {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 10px;
+  align-items: start;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,0.04);
+}
+
+.match-event strong {
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+.match-event p {
+  margin: 0;
+}
+
+.match-event.goal,
+.match-event.save {
+  border-color: rgba(25,230,129,0.32);
+  background: rgba(25,230,129,0.07);
+}
+
+.match-event.goal-against,
+.match-event.red {
+  border-color: rgba(255,92,112,0.34);
+  background: rgba(255,92,112,0.07);
+}
+
+.match-event.card {
+  border-color: rgba(255,200,87,0.34);
+  background: rgba(255,200,87,0.07);
+}
+
+.match-ratings > div {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,0.045);
+}
+
+.match-ratings h4 {
+  margin: 0 0 8px;
+}
+
+.match-ratings p,
+.match-performers p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 5px 0;
+  color: var(--muted);
+}
+
+.match-ratings p strong,
+.match-performers p strong {
+  color: var(--gold);
+}
+
 .match-mode-label {
   margin: 12px 0;
 }
@@ -812,6 +897,26 @@ h2 {
 
 .offer-card strong {
   color: var(--gold);
+}
+
+.sponsor-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--green), var(--gold));
+}
+
+.sponsor-card.signed {
+  border-color: rgba(25,230,129,0.36);
+  background:
+    linear-gradient(180deg, rgba(25,230,129,0.08), rgba(255,255,255,0.035)),
+    rgba(255,255,255,0.045);
 }
 
 .offer-details,
