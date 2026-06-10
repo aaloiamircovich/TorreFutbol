@@ -457,6 +457,27 @@ function createWeeklyObjectives() {
   ];
 }
 
+function createMatchObjectives(position = state?.profile?.position || "DC") {
+  const isAttacker = ["DC", "EI", "MCO"].includes(position);
+  const isMid = ["MC", "MCO", "EI"].includes(position);
+  const isDef = ["DFC", "POR", "MC"].includes(position);
+  const list = [{ id: "rating", label: "Conseguir media 7.0", target: 7, value: 0, type: "rating", rewardXp: 18 }];
+  if (isAttacker) list.push({ id: "goalContribution", label: "Participar en un gol", target: 1, value: 0, rewardXp: 22 });
+  if (isMid) list.push({ id: "keyPasses", label: "Dar 2 pases clave", target: 2, value: 0, rewardXp: 18 });
+  if (isDef) list.push({ id: "defensiveActions", label: "Ganar 4 acciones defensivas", target: 4, value: 0, rewardXp: 18 });
+  list.push({ id: "discipline", label: "Terminar sin tarjeta roja", target: 1, value: 0, rewardXp: 12 });
+  return list;
+}
+
+function matchModeLabel(mode = state?.matchMode) {
+  const labels = {
+    simulate: "Simulacion",
+    key: "Momentos clave",
+    full: "Partido completo"
+  };
+  return labels[mode] || labels.simulate;
+}
+
 function ensureStateDefaults() {
   if (!state) return;
   state.level = Number(state.level) || 1;
@@ -471,6 +492,13 @@ function ensureStateDefaults() {
   if (!Array.isArray(state.traits)) state.traits = [];
   if (!Array.isArray(state.lifestyle)) state.lifestyle = [];
   if (!Array.isArray(state.trophies)) state.trophies = [];
+  state.yellowCards = Number(state.yellowCards) || 0;
+  state.suspensionWeeks = Number(state.suspensionWeeks) || 0;
+  state.matchMode = state.matchMode || "simulate";
+  state.currentMatchObjectives = Array.isArray(state.currentMatchObjectives) ? state.currentMatchObjectives : createMatchObjectives();
+  state.lastMatchDetails = state.lastMatchDetails || null;
+  ensureStatsDefaults(state.seasonStats);
+  ensureStatsDefaults(state.careerStats);
   ensureClubHistory();
   if (!state.contract) {
     const club = currentClubData();
@@ -537,6 +565,13 @@ function checkAchievements() {
     state.achievements.push(achievement.id);
     addXp(achievement.rewardXp || 0);
     addNews(`Logro desbloqueado: ${achievement.title}.`);
+  });
+}
+
+function ensureStatsDefaults(stats) {
+  const defaults = blankStats();
+  Object.keys(defaults).forEach((key) => {
+    if (stats[key] === undefined) stats[key] = defaults[key];
   });
 }
 
@@ -732,6 +767,8 @@ function newState(profile) {
     fatigue: 12,
     coach: 42,
     injuryWeeks: 0,
+    suspensionWeeks: 0,
+    yellowCards: 0,
     marketValue: 420,
     salary: club.salary,
     contractYears: 2,
@@ -768,6 +805,9 @@ function newState(profile) {
     retired: false,
     trainedThisWeek: false,
     playedThisWeek: false,
+    matchMode: "simulate",
+    currentMatchObjectives: createMatchObjectives(profile.position),
+    lastMatchDetails: null,
     nextOpponent: fixture.opponent,
     nextCompetition: fixture.competition
   };
@@ -780,6 +820,13 @@ function blankStats() {
     assists: 0,
     cleanSheets: 0,
     avgRatingTotal: 0,
+    shots: 0,
+    keyPasses: 0,
+    tackles: 0,
+    saves: 0,
+    yellowCards: 0,
+    redCards: 0,
+    playerOfTheMatch: 0,
     awards: 0,
     titles: 0,
     nationalCaps: 0
@@ -935,9 +982,22 @@ function render() {
   $("#reputationValue").textContent = state.reputation;
   $("#nextOpponent").textContent = state.nextOpponent;
   const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
-  $("#matchContext").textContent = state.injuryWeeks ? `Lesionado: ${state.injuryWeeks} semanas` : `${matchCompetition} - fecha ${state.week}`;
+  const statusText = state.injuryWeeks
+    ? `Lesionado: ${state.injuryWeeks} semanas`
+    : state.suspensionWeeks
+      ? `Suspendido: ${state.suspensionWeeks} fecha${state.suspensionWeeks > 1 ? "s" : ""}`
+      : `${matchCompetition} - fecha ${state.week}`;
+  $("#matchContext").textContent = statusText;
+  $("#matchMode").value = state.matchMode;
   renderRivalStars();
-  $("#playMatchBtn").disabled = state.playedThisWeek || state.injuryWeeks > 0 || state.retired;
+  renderMatchObjectives();
+  renderMatchStatsPanel();
+  $("#playMatchBtn").disabled = state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired;
+  $("#playMatchBtn").textContent = state.matchMode === "full"
+    ? "Jugar partido completo"
+    : state.matchMode === "key"
+      ? "Jugar momentos clave"
+      : "Simular partido";
   $("#trainingHint").textContent = state.trainedThisWeek ? "Ya entrenaste esta semana." : "Elegir una sesion consume energia.";
   updateBars();
   renderObjectives();
@@ -1094,6 +1154,38 @@ function renderRivalStars() {
   `;
 }
 
+function renderMatchObjectives() {
+  if (!state.currentMatchObjectives?.length) state.currentMatchObjectives = createMatchObjectives();
+  $("#matchObjectives").innerHTML = state.currentMatchObjectives.map((objective) => {
+    const percent = objective.type === "rating"
+      ? clamp((objective.value / objective.target) * 100, 0, 100)
+      : clamp((objective.value / objective.target) * 100, 0, 100);
+    const value = objective.type === "rating" ? Number(objective.value || 0).toFixed(1) : objective.value;
+    return `<div class="match-objective ${objective.completed ? "complete" : ""}">
+      <strong>${objective.label}</strong>
+      <span>${value}/${objective.target}</span>
+      <div class="meter"><span style="width:${percent}%"></span></div>
+    </div>`;
+  }).join("");
+}
+
+function renderMatchStatsPanel() {
+  if (!state.lastMatchDetails) {
+    $("#matchStatsPanel").innerHTML = `<div class="stat-card"><span>Ultimo partido</span><strong>Sin datos</strong></div>`;
+    return;
+  }
+  const details = state.lastMatchDetails;
+  $("#matchStatsPanel").innerHTML = [
+    ["Modo", matchModeLabel(details.mode)],
+    ["Media", details.rating],
+    ["Tiros", details.shots],
+    ["Pases clave", details.keyPasses],
+    ["Entradas", details.tackles],
+    ["Atajadas", details.saves],
+    ["Tarjetas", `${details.yellowCard ? "A" : "0"}${details.redCard ? " / R" : ""}`]
+  ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+}
+
 function renderNews() {
   $("#newsFeed").innerHTML = state.news.slice(-8).reverse().map((item) => `<p>${item}</p>`).join("");
 }
@@ -1181,6 +1273,12 @@ function renderLegacy() {
     ["Goles", stats.goals],
     ["Asistencias", stats.assists],
     ["Vallas", stats.cleanSheets],
+    ["Tiros", stats.shots],
+    ["Pases clave", stats.keyPasses],
+    ["Entradas", stats.tackles],
+    ["Atajadas", stats.saves],
+    ["Tarjetas", `${stats.yellowCards}/${stats.redCards}`],
+    ["MVP", stats.playerOfTheMatch],
     ["Titulos", stats.titles],
     ["Premios", stats.awards],
     ["Seleccion", stats.nationalCaps],
@@ -1234,11 +1332,46 @@ function maybeInjury(source) {
   }
 }
 
+function completeMatchObjectives(details) {
+  let reward = 0;
+  state.currentMatchObjectives.forEach((objective) => {
+    if (objective.id === "rating") objective.value = details.rating;
+    if (objective.id === "goalContribution") objective.value = details.goals + details.assists;
+    if (objective.id === "keyPasses") objective.value = details.keyPasses;
+    if (objective.id === "defensiveActions") objective.value = details.tackles + details.saves;
+    if (objective.id === "discipline") objective.value = details.redCard ? 0 : 1;
+    const completed = objective.value >= objective.target;
+    if (completed && !objective.completed) {
+      objective.completed = true;
+      reward += objective.rewardXp || 0;
+    }
+  });
+  if (reward) {
+    addXp(reward);
+    addNews(`Objetivos de partido completados: XP +${reward}.`);
+  }
+}
+
+function cardOutcome(mode, isDef) {
+  const modeRisk = mode === "full" ? 0.05 : mode === "key" ? 0.03 : 0;
+  const yellowChance = clamp(0.08 + (isDef ? 0.06 : 0) + state.fatigue / 520 + modeRisk, 0.04, 0.34);
+  const redChance = clamp(0.012 + (isDef ? 0.012 : 0) + state.fatigue / 1800 + (mode === "full" ? 0.01 : 0), 0.006, 0.09);
+  const redCard = Math.random() < redChance;
+  return {
+    yellowCard: !redCard && Math.random() < yellowChance,
+    redCard
+  };
+}
+
 function playMatch() {
-  if (state.playedThisWeek || state.injuryWeeks > 0 || state.retired) return;
+  if (state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired) return;
   const ov = overall();
+  const mode = state.matchMode || "simulate";
+  const modeBoost = mode === "full" ? 0.35 : mode === "key" ? 0.18 : 0;
+  const modeFatigue = mode === "full" ? 30 : mode === "key" ? 22 : 16;
+  const modeXp = mode === "full" ? 1.35 : mode === "key" ? 1.18 : 1;
   const form = (state.morale - state.fatigue) / 22 + (state.coach - 50) / 35;
-  const rating = clamp(Number((5.4 + ov / 22 + form + Math.random() * 1.4).toFixed(1)), 4.0, 10.0);
+  const rating = clamp(Number((5.4 + ov / 22 + form + modeBoost + Math.random() * 1.4).toFixed(1)), 4.0, 10.0);
   const pos = state.profile.position;
   const isAttacker = ["DC", "EI", "MCO"].includes(pos);
   const isMid = ["MC", "MCO"].includes(pos);
@@ -1255,8 +1388,17 @@ function playMatch() {
   const drew = teamGoals === rivalGoals;
   const rivalStar = topPlayersForClub(state.nextOpponent)[0];
   const duelText = rivalStar ? ` Duelo destacado contra ${rivalStar.name}.` : "";
-  updateStats({ rating, goals, assists, cleanSheet });
-  state.fatigue = clamp(state.fatigue + random(12, 22), 0, 100);
+  const shots = isAttacker ? random(goals, goals + 4 + (mode === "full" ? 2 : 0)) : random(0, 2);
+  const keyPasses = isMid || isAttacker ? random(assists, assists + 3 + (mode !== "simulate" ? 1 : 0)) : random(0, 1);
+  const tackles = isDef || pos === "MC" ? random(2, 7 + (mode === "full" ? 2 : 0)) : random(0, 3);
+  const saves = pos === "POR" ? random(cleanSheet ? 2 : 0, cleanSheet ? 7 : 5) : 0;
+  const passAccuracy = clamp(Math.round(64 + rating * 3 + state.attrs.pase / 4 + random(-5, 6)), 52, 96);
+  const { yellowCard, redCard } = cardOutcome(mode, isDef || pos === "MC");
+  const details = { mode, rating, goals, assists, cleanSheet, shots, keyPasses, tackles, saves, passAccuracy, yellowCard, redCard };
+  updateStats(details);
+  state.lastMatchDetails = details;
+  completeMatchObjectives(details);
+  state.fatigue = clamp(state.fatigue + random(modeFatigue - 4, modeFatigue + 5), 0, 100);
   state.morale = clamp(state.morale + (won ? 8 : drew ? 1 : -7) + goals * 2 + assists, 0, 100);
   state.coach = clamp(state.coach + Math.round((rating - 6.6) * 3), 0, 100);
   state.popularity = clamp(state.popularity + goals * 3 + assists * 2 + (won ? 2 : -1), 0, 100);
@@ -1266,15 +1408,24 @@ function playMatch() {
   state.money += state.salary + sponsorBonus(goals, assists);
   state.marketValue = Math.round(state.marketValue * (1 + (rating - 6) / 160) + goals * 18 + assists * 10);
   state.playedThisWeek = true;
-  addXp(Math.round(18 + rating * 4 + goals * 8 + assists * 5 + (won ? 8 : 0)), "match");
+  if (yellowCard) state.yellowCards += 1;
+  if (redCard) {
+    state.suspensionWeeks = Math.max(state.suspensionWeeks, random(1, 3));
+    state.yellowCards = 0;
+  } else if (state.yellowCards >= 5) {
+    state.suspensionWeeks = Math.max(state.suspensionWeeks, 1);
+    state.yellowCards = 0;
+  }
+  addXp(Math.round((18 + rating * 4 + goals * 8 + assists * 5 + (won ? 8 : 0)) * modeXp), "match");
   updateMissionProgress("rating", rating);
   updateMissionProgress("followers", followerGain);
   maybeInjury("match");
   const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
   $("#matchResult").innerHTML = `<h3>${state.club} ${teamGoals} - ${rivalGoals} ${state.nextOpponent}</h3>
-    <p>${matchCompetition}</p>
-    <p>Tu partido: media ${rating}, ${goals} goles, ${assists} asistencias${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>`;
-  addNews(`${matchCompetition}: ${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}. Media personal ${rating}.${duelText}`);
+    <p>${matchCompetition} - ${matchModeLabel(mode)}</p>
+    <p>Media ${rating}, ${goals} goles, ${assists} asistencias, ${shots} tiros, ${keyPasses} pases clave, ${tackles} entradas${saves ? `, ${saves} atajadas` : ""}${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>
+    <p>${yellowCard ? "Tarjeta amarilla." : ""}${redCard ? " Tarjeta roja y suspension." : ""}</p>`;
+  addNews(`${matchCompetition}: ${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}. Media ${rating}.${redCard ? " Expulsado." : ""}${duelText}`);
   if (rating >= 8.6) maybeAward("Jugador de la semana");
   maybeNationalCall(rating);
   render();
@@ -1287,13 +1438,21 @@ function chanceCount(probability) {
   return count;
 }
 
-function updateStats({ rating, goals, assists, cleanSheet }) {
+function updateStats({ rating, goals, assists, cleanSheet, shots = 0, keyPasses = 0, tackles = 0, saves = 0, yellowCard = false, redCard = false }) {
   for (const stats of [state.seasonStats, state.careerStats]) {
+    ensureStatsDefaults(stats);
     stats.matches += 1;
     stats.goals += goals;
     stats.assists += assists;
     stats.cleanSheets += cleanSheet;
     stats.avgRatingTotal += rating;
+    stats.shots += shots;
+    stats.keyPasses += keyPasses;
+    stats.tackles += tackles;
+    stats.saves += saves;
+    stats.yellowCards += yellowCard ? 1 : 0;
+    stats.redCards += redCard ? 1 : 0;
+    stats.playerOfTheMatch += rating >= 8.6 ? 1 : 0;
   }
 }
 
@@ -1341,6 +1500,8 @@ function advanceWeek() {
   state.nextOpponent = fixture.opponent;
   state.nextCompetition = fixture.competition;
   if (state.injuryWeeks > 0) state.injuryWeeks -= 1;
+  if (state.suspensionWeeks > 0) state.suspensionWeeks -= 1;
+  state.currentMatchObjectives = createMatchObjectives();
   state.fatigue = clamp(state.fatigue - 8 - (state.traits.includes("Inagotable") ? 5 : 0), 0, 100);
   if (Math.random() < 0.45) state.socialQueue = [randomSocial()];
   if ([10, 20, 30].includes(state.week) || Math.random() < 0.08) generateOffers();
@@ -1374,7 +1535,7 @@ function endSeason() {
     goals: state.seasonStats.goals,
     assists: state.seasonStats.assists,
     avgRating,
-    note: `${completed}/${total} objetivos${titleNote ? `, campeon de ${titleNote}` : ""}`
+    note: `${completed}/${total} objetivos, ${state.seasonStats.keyPasses} pases clave, ${state.seasonStats.tackles} entradas${titleNote ? `, campeon de ${titleNote}` : ""}`
   });
   state.money += completed * 35 + (wonTitle ? 120 : 0) + wonCups.length * 160;
   state.reputation = clamp(state.reputation + completed * 3 + (wonTitle ? 8 : 0) + wonCups.length * 10, 0, 100);
@@ -1645,6 +1806,10 @@ function setupEvents() {
   });
 
   $("#playMatchBtn").addEventListener("click", playMatch);
+  $("#matchMode").addEventListener("change", (event) => {
+    state.matchMode = event.target.value;
+    render();
+  });
   $("#restBtn").addEventListener("click", rest);
   $("#advanceWeekBtn").addEventListener("click", advanceWeek);
   $("#dailyRewardBtn").addEventListener("click", claimDailyReward);

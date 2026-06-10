@@ -556,6 +556,47 @@ h2 {
   min-height: 92px;
 }
 
+.match-mode-label {
+  margin: 12px 0;
+}
+
+.match-objectives {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.match-objective {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,0.045);
+}
+
+.match-objective strong,
+.match-objective span {
+  display: block;
+}
+
+.match-objective span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.match-objective.complete {
+  border-color: rgba(25,230,129,0.36);
+  background: rgba(25,230,129,0.08);
+}
+
+.match-stats-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
 .rival-stars {
   display: grid;
   gap: 10px;

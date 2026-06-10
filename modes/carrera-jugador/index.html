@@ -195,10 +195,20 @@
                 <h2 id="nextOpponent">Rival</h2>
                 <p id="matchContext">Liga juvenil</p>
                 <div id="rivalStars" class="rival-stars"></div>
+                <label class="match-mode-label">
+                  Modo de partido
+                  <select id="matchMode">
+                    <option value="simulate">Simular partido</option>
+                    <option value="key">Jugar momentos clave</option>
+                    <option value="full">Jugar partido completo</option>
+                  </select>
+                </label>
+                <div id="matchObjectives" class="match-objectives"></div>
                 <button id="playMatchBtn" class="primary">Jugar partido</button>
                 <button id="restBtn" class="outline">Descansar</button>
               </div>
             </div>
+            <div id="matchStatsPanel" class="match-stats-panel"></div>
             <div id="matchResult" class="match-result"></div>
           </article>
 
