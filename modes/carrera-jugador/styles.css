@@ -872,6 +872,271 @@ h2 {
   box-shadow: 0 18px 42px rgba(0,0,0,0.38);
 }
 
+.career-header,
+.player-card,
+.quick-stats,
+.condition-card,
+.tab-panel:not(.hidden) {
+  animation: careerEnter 0.34s ease both;
+}
+
+.tab.active {
+  animation: activeTabPulse 1.4s ease infinite;
+}
+
+.objective,
+.attribute,
+.training-card,
+.match-objective,
+.social-post,
+.offer-card,
+.skill-node,
+.achievement,
+.stat-card {
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.training-card:hover,
+.match-objective:hover,
+.social-post:hover,
+.offer-card:hover,
+.skill-node:hover,
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(25,230,129,0.32);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.24);
+}
+
+.panel-enter {
+  animation: panelSlideIn 0.32s ease both;
+}
+
+.panel-flash {
+  animation: panelFlash 0.72s ease both;
+}
+
+.career-pulse,
+.calendar-flash {
+  animation: careerPulse 0.82s ease both;
+}
+
+.match-result-pop {
+  animation: matchResultPop 0.86s ease both;
+}
+
+.toast {
+  animation: toastIn 0.24s ease both;
+}
+
+.calendar-advance {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(3, 9, 6, 0.68);
+  backdrop-filter: blur(10px);
+  animation: calendarOverlayIn 0.22s ease both;
+}
+
+.calendar-advance.leaving {
+  animation: calendarOverlayOut 0.42s ease both;
+}
+
+.calendar-card {
+  width: min(640px, 100%);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 8px;
+  padding: clamp(18px, 4vw, 28px);
+  background:
+    linear-gradient(135deg, rgba(25,230,129,0.12), rgba(255,200,87,0.08)),
+    rgba(10, 18, 15, 0.96);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.46);
+  overflow: hidden;
+  animation: calendarCardIn 0.36s ease both;
+}
+
+.calendar-card h2 {
+  margin: 4px 0 16px;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+.calendar-track {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calendar-track span {
+  min-height: 74px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.055);
+  animation: dayFlip 0.58s ease both;
+}
+
+.calendar-track span:nth-child(2) { animation-delay: 0.12s; }
+.calendar-track span:nth-child(3) { animation-delay: 0.24s; }
+.calendar-track span:nth-child(4) { animation-delay: 0.36s; }
+.calendar-track span:nth-child(5) { animation-delay: 0.48s; }
+.calendar-track span:nth-child(6) { animation-delay: 0.60s; }
+.calendar-track span:nth-child(7) { animation-delay: 0.72s; }
+
+.calendar-track strong {
+  color: var(--gold);
+  font-size: 1.05rem;
+}
+
+.calendar-track small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.calendar-progress {
+  height: 8px;
+  margin-top: 18px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+.calendar-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--gold));
+  animation: calendarFill 1.65s ease both;
+}
+
+.calendar-next {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-weight: 900;
+}
+
+@keyframes careerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panelSlideIn {
+  from {
+    opacity: 0.4;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes panelFlash {
+  0%,
+  100% {
+    box-shadow: 0 18px 38px rgba(0,0,0,0.26);
+  }
+  45% {
+    border-color: rgba(255,200,87,0.7);
+    box-shadow: 0 0 0 4px rgba(255,200,87,0.12), 0 18px 38px rgba(0,0,0,0.26);
+  }
+}
+
+@keyframes careerPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.012);
+  }
+}
+
+@keyframes matchResultPop {
+  0% {
+    opacity: 0.4;
+    transform: translateY(10px) scale(0.985);
+  }
+  55% {
+    opacity: 1;
+    border-color: rgba(25,230,129,0.6);
+    transform: translateY(-2px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes activeTabPulse {
+  0%,
+  100% {
+    box-shadow: inset 0 -2px 0 rgba(25,230,129,0.8);
+  }
+  50% {
+    box-shadow: inset 0 -2px 0 rgba(255,200,87,0.95);
+  }
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes calendarOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes calendarOverlayOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes calendarCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dayFlip {
+  from {
+    opacity: 0;
+    transform: rotateX(72deg) translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0) translateY(0);
+  }
+}
+
+@keyframes calendarFill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
 @media (max-width: 1020px) {
   .create-screen,
   .hero-grid,

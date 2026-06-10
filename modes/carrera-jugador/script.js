@@ -411,7 +411,7 @@ const valueText = (value) => `$${(Math.max(0.1, value) / 1000).toFixed(1)}M`;
 const todayKey = () => new Date().toISOString().slice(0, 10);
 
 function xpToNext(level) {
-  return 90 + level * 35;
+  return 130 + level * 48 + Math.round(Math.pow(level, 1.18) * 10);
 }
 
 function addXp(amount, reason = "") {
@@ -497,6 +497,9 @@ function ensureStateDefaults() {
   state.matchMode = state.matchMode || "simulate";
   state.currentMatchObjectives = Array.isArray(state.currentMatchObjectives) ? state.currentMatchObjectives : createMatchObjectives();
   state.lastMatchDetails = state.lastMatchDetails || null;
+  state.trainedThisWeek = Boolean(state.trainedThisWeek);
+  state.playedThisWeek = Boolean(state.playedThisWeek);
+  state.restedThisWeek = Boolean(state.restedThisWeek);
   ensureStatsDefaults(state.seasonStats);
   ensureStatsDefaults(state.careerStats);
   ensureClubHistory();
@@ -805,6 +808,7 @@ function newState(profile) {
     retired: false,
     trainedThisWeek: false,
     playedThisWeek: false,
+    restedThisWeek: false,
     matchMode: "simulate",
     currentMatchObjectives: createMatchObjectives(profile.position),
     lastMatchDetails: null,
@@ -917,6 +921,49 @@ function showToast(text) {
   setTimeout(() => toast.remove(), 2600);
 }
 
+function hasMandatoryMatchPending() {
+  if (!state || state.retired || state.playedThisWeek) return false;
+  return state.injuryWeeks <= 0 && state.suspensionWeeks <= 0;
+}
+
+function pulseElement(selector, className = "career-pulse") {
+  const node = document.querySelector(selector);
+  if (!node) return;
+  node.classList.remove(className);
+  void node.offsetWidth;
+  node.classList.add(className);
+}
+
+function animateCalendarAdvance(fromSeason, fromWeek, toSeason, toWeek) {
+  const old = document.querySelector(".calendar-advance");
+  if (old) old.remove();
+  const overlay = document.createElement("div");
+  overlay.className = "calendar-advance";
+  const days = [
+    ["Lun", "Entreno"],
+    ["Mar", "Analisis"],
+    ["Mie", "Ritmo"],
+    ["Jue", "Plantel"],
+    ["Vie", "Viaje"],
+    ["Sab", "Partido"],
+    ["Dom", "Recuperacion"]
+  ];
+  overlay.innerHTML = `
+    <div class="calendar-card">
+      <p class="eyebrow">Calendario</p>
+      <h2>Temporada ${fromSeason} - Semana ${fromWeek}</h2>
+      <div class="calendar-track">
+        ${days.map(([day, label]) => `<span><strong>${day}</strong><small>${label}</small></span>`).join("")}
+      </div>
+      <div class="calendar-progress"><span></span></div>
+      <p class="calendar-next">Avanza a temporada ${toSeason}, semana ${toWeek}</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  setTimeout(() => overlay.classList.add("leaving"), 2050);
+  setTimeout(() => overlay.remove(), 2500);
+}
+
 function updateBars() {
   $("#moraleValue").textContent = state.morale;
   $("#fatigueValue").textContent = state.fatigue;
@@ -982,11 +1029,12 @@ function render() {
   $("#reputationValue").textContent = state.reputation;
   $("#nextOpponent").textContent = state.nextOpponent;
   const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
+  const matchPending = hasMandatoryMatchPending();
   const statusText = state.injuryWeeks
     ? `Lesionado: ${state.injuryWeeks} semanas`
     : state.suspensionWeeks
       ? `Suspendido: ${state.suspensionWeeks} fecha${state.suspensionWeeks > 1 ? "s" : ""}`
-      : `${matchCompetition} - fecha ${state.week}`;
+      : `${matchCompetition} - fecha ${state.week} - ${state.playedThisWeek ? "partido jugado" : "partido pendiente"}`;
   $("#matchContext").textContent = statusText;
   $("#matchMode").value = state.matchMode;
   renderRivalStars();
@@ -998,6 +1046,11 @@ function render() {
     : state.matchMode === "key"
       ? "Jugar momentos clave"
       : "Simular partido";
+  $("#restBtn").disabled = state.restedThisWeek || state.retired;
+  $("#restBtn").textContent = state.restedThisWeek ? "Descanso usado" : "Descansar";
+  $("#advanceWeekBtn").disabled = state.retired || matchPending;
+  $("#advanceWeekBtn").textContent = matchPending ? "Juega el partido para avanzar" : "Avanzar semana";
+  $("#advanceWeekBtn").title = matchPending ? "Tienes que jugar el partido de esta semana antes de avanzar." : "";
   $("#trainingHint").textContent = state.trainedThisWeek ? "Ya entrenaste esta semana." : "Elegir una sesion consume energia.";
   updateBars();
   renderObjectives();
@@ -1321,6 +1374,7 @@ function train(id) {
   maybeInjury("training");
   addNews(`Entrenamiento completado: ${session.title}.`);
   render();
+  pulseElement("#tab-training", "panel-flash");
 }
 
 function maybeInjury(source) {
@@ -1429,6 +1483,8 @@ function playMatch() {
   if (rating >= 8.6) maybeAward("Jugador de la semana");
   maybeNationalCall(rating);
   render();
+  pulseElement("#matchResult", "match-result-pop");
+  showToast("Partido jugado. Ya puedes avanzar la semana.");
 }
 
 function chanceCount(probability) {
@@ -1482,20 +1538,32 @@ function maybeNationalCall(rating) {
 }
 
 function rest() {
+  if (state.retired || state.restedThisWeek) return;
   const recoveryBonus = state.lifestyle.includes("recoveryRoom") ? 12 : 0;
   state.fatigue = clamp(state.fatigue - 24 - recoveryBonus, 0, 100);
   state.morale = clamp(state.morale + 3, 0, 100);
   if (state.injuryWeeks > 0) state.injuryWeeks -= 1;
-  addNews("Semana de descanso y recuperacion.");
+  state.restedThisWeek = true;
+  addNews("Sesion de recuperacion completada. La semana sigue activa.");
   render();
+  pulseElement("#tab-match", "panel-flash");
+  showToast("Recuperaste fisico, pero el calendario no avanzo.");
 }
 
 function advanceWeek() {
   if (state.retired) return;
+  if (hasMandatoryMatchPending()) {
+    showToast("Primero juega el partido pendiente de esta semana.");
+    pulseElement("#tab-match", "panel-flash");
+    return;
+  }
+  const fromSeason = state.season;
+  const fromWeek = state.week;
   state.week += 1;
   state.money += state.salary;
   state.trainedThisWeek = false;
   state.playedThisWeek = false;
+  state.restedThisWeek = false;
   const fixture = nextFixture(state.club);
   state.nextOpponent = fixture.opponent;
   state.nextCompetition = fixture.competition;
@@ -1507,6 +1575,8 @@ function advanceWeek() {
   if ([10, 20, 30].includes(state.week) || Math.random() < 0.08) generateOffers();
   if (state.week > 38) endSeason();
   render();
+  animateCalendarAdvance(fromSeason, fromWeek, state.season, state.week);
+  pulseElement(".career-header", "calendar-flash");
 }
 
 function endSeason() {
@@ -1785,7 +1855,9 @@ function setupEvents() {
     button.addEventListener("click", () => {
       document.querySelectorAll(".tab").forEach((item) => item.classList.toggle("active", item === button));
       document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.add("hidden"));
-      $(`#tab-${button.dataset.tab}`).classList.remove("hidden");
+      const panel = $(`#tab-${button.dataset.tab}`);
+      panel.classList.remove("hidden");
+      pulseElement(`#tab-${button.dataset.tab}`, "panel-enter");
     });
   });
 
