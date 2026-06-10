@@ -635,6 +635,41 @@ h2 {
   flex-wrap: wrap;
 }
 
+.market-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.contract-status {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contract-status div {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(255,255,255,0.045);
+}
+
+.contract-status span,
+.offer-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.contract-status strong {
+  display: block;
+  margin: 4px 0;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
 .reputation-pills span,
 .trait-pill,
 .sponsor-pill {
@@ -678,13 +713,20 @@ h2 {
   gap: 8px;
 }
 
-.offer-card h3 img {
+.offer-card h3 img,
+.history-card h3 img {
   width: 30px;
   height: 30px;
   object-fit: contain;
   border-radius: 7px;
   padding: 4px;
   background: rgba(255,255,255,0.92);
+}
+
+.history-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .offer-card strong {
@@ -794,7 +836,8 @@ h2 {
   .hero-grid,
   .split,
   .match-panel,
-  .progress-layout {
+  .progress-layout,
+  .contract-status {
     grid-template-columns: 1fr;
   }
 

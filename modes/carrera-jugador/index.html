@@ -216,8 +216,12 @@
           <article id="tab-market" class="tab-panel hidden">
             <div class="panel-head">
               <h2>Mercado, contrato y patrocinios</h2>
-              <button id="agentBtn" class="outline">Hablar con agente</button>
+              <div class="market-actions">
+                <button id="renewalBtn" class="outline">Pedir renovacion</button>
+                <button id="agentBtn" class="outline">Hablar con agente</button>
+              </div>
             </div>
+            <div id="contractStatus" class="contract-status"></div>
             <div class="split">
               <div>
                 <h3>Ofertas</h3>
@@ -237,6 +241,9 @@
               <button id="retireBtn" class="danger">Retirarse</button>
             </div>
             <div id="careerStats" class="career-stats"></div>
+            <h3>Clubes</h3>
+            <div id="clubHistoryList" class="history-list"></div>
+            <h3>Temporadas</h3>
             <div id="seasonHistory" class="history-list"></div>
           </article>
         </section>

@@ -471,6 +471,19 @@ function ensureStateDefaults() {
   if (!Array.isArray(state.traits)) state.traits = [];
   if (!Array.isArray(state.lifestyle)) state.lifestyle = [];
   if (!Array.isArray(state.trophies)) state.trophies = [];
+  ensureClubHistory();
+  if (!state.contract) {
+    const club = currentClubData();
+    state.contract = createContract(club, state.contractYears || 2, state.salary || club.salary, "Contrato");
+  }
+  state.contractYears = Math.max(0, Number(state.contractYears) || Math.max(1, state.contract.endSeason - state.season));
+  state.contract.releaseClause = Number(state.contract.releaseClause) || contractClauseFor({
+    salary: state.salary,
+    years: state.contractYears || 1,
+    marketValue: state.marketValue,
+    tier: currentClubData().tier
+  });
+  if (state.loan && state.loan.untilSeason <= state.season && state.week <= 1) returnFromLoan();
   if (state.daily.date !== todayKey()) {
     state.daily = { date: todayKey(), rewardClaimed: false, objectives: createDailyObjectives() };
   }
@@ -525,6 +538,117 @@ function checkAchievements() {
     addXp(achievement.rewardXp || 0);
     addNews(`Logro desbloqueado: ${achievement.title}.`);
   });
+}
+
+function contractClauseFor({ salary, years, marketValue, tier }) {
+  const base = Math.max(marketValue * 2.2, salary * years * 42);
+  return Math.round(base * (1 + tier * 0.08));
+}
+
+function createContract(club, years, salary, type = "transfer") {
+  return {
+    club: club.name,
+    league: club.league,
+    type,
+    startSeason: state?.season || 1,
+    endSeason: (state?.season || 1) + years,
+    years,
+    salary,
+    releaseClause: contractClauseFor({
+      salary,
+      years,
+      marketValue: state?.marketValue || 420,
+      tier: club.tier || 1
+    }),
+    signedAt: todayKey()
+  };
+}
+
+function currentClubData(name = state?.club) {
+  return clubs.find((club) => club.name === name) || {
+    name: name || "Club",
+    league: state?.league || "Liga Internacional",
+    tier: 1,
+    salary: state?.salary || 5,
+    rep: state?.reputation || 40
+  };
+}
+
+function ensureClubHistory() {
+  if (!Array.isArray(state.clubHistory)) {
+    state.clubHistory = [{
+      club: state.club,
+      league: state.league,
+      fromSeason: 1,
+      toSeason: null,
+      type: "Contrato",
+      apps: 0,
+      goals: 0,
+      assists: 0,
+      titles: 0
+    }];
+  }
+}
+
+function closeCurrentClubHistory() {
+  ensureClubHistory();
+  const current = state.clubHistory[state.clubHistory.length - 1];
+  if (current && !current.toSeason) {
+    current.toSeason = state.season;
+    current.apps = state.careerStats.matches;
+    current.goals = state.careerStats.goals;
+    current.assists = state.careerStats.assists;
+    current.titles = state.careerStats.titles;
+  }
+}
+
+function openClubHistory(club, type) {
+  ensureClubHistory();
+  state.clubHistory.push({
+    club: club.name,
+    league: club.league,
+    fromSeason: state.season,
+    toSeason: null,
+    type,
+    apps: 0,
+    goals: 0,
+    assists: 0,
+    titles: 0
+  });
+}
+
+function moveToClub(club, offer, type) {
+  closeCurrentClubHistory();
+  state.club = club.name;
+  state.league = club.league;
+  state.competitions = competitionsForClub(club.name);
+  state.salary = offer.salary;
+  state.contractYears = offer.years;
+  state.contract = createContract(club, offer.years, offer.salary, type);
+  state.contract.releaseClause = offer.releaseClause || state.contract.releaseClause;
+  state.coach = clamp(38 + state.reputation / 3 + (type === "loan" ? 8 : 0), 0, 100);
+  const fixture = nextFixture(state.club);
+  state.nextOpponent = fixture.opponent;
+  state.nextCompetition = fixture.competition;
+  openClubHistory(club, type === "loan" ? "Prestamo" : "Traspaso");
+}
+
+function returnFromLoan() {
+  if (!state.loan) return;
+  const parent = currentClubData(state.loan.parentClub);
+  closeCurrentClubHistory();
+  state.club = parent.name;
+  state.league = parent.league;
+  state.competitions = competitionsForClub(parent.name);
+  state.salary = state.loan.parentSalary;
+  state.contractYears = Math.max(1, state.loan.parentYears - 1);
+  state.contract = createContract(parent, state.contractYears, state.salary, "Regreso de prestamo");
+  state.loan = null;
+  const fixture = nextFixture(state.club);
+  state.nextOpponent = fixture.opponent;
+  state.nextCompetition = fixture.competition;
+  openClubHistory(parent, "Regreso");
+  addNews(`Volviste a ${parent.name} tras terminar el prestamo.`);
 }
 
 function topPlayersForClub(clubName) {
@@ -611,6 +735,8 @@ function newState(profile) {
     marketValue: 420,
     salary: club.salary,
     contractYears: 2,
+    contract: createContract(club, 2, club.salary, "Contrato juvenil"),
+    loan: null,
     attrs,
     traits: [styleBonuses[profile.style].trait],
     unlockedSkills: [],
@@ -624,6 +750,17 @@ function newState(profile) {
     seasonStats: blankStats(),
     careerStats: blankStats(),
     history: [],
+    clubHistory: [{
+      club: club.name,
+      league: club.league,
+      fromSeason: 1,
+      toSeason: null,
+      type: "Contrato",
+      apps: 0,
+      goals: 0,
+      assists: 0,
+      titles: 0
+    }],
     trophies: [],
     achievements: [],
     daily: { date: todayKey(), rewardClaimed: false, objectives: createDailyObjectives() },
@@ -785,7 +922,9 @@ function render() {
   $("#pitchDot").style.top = `${profile.y}%`;
   $("#overallLabel").textContent = ov;
   $("#roleLabel").textContent = roleLabel(ov);
-  $("#contractLabel").textContent = `${state.contractYears} anios restantes`;
+  $("#contractLabel").textContent = state.loan
+    ? `Cedido por ${state.loan.parentClub}`
+    : `${state.contractYears} anios - clausula ${valueText(state.contract.releaseClause)}`;
   $("#marketValue").textContent = valueText(state.marketValue);
   $("#salaryValue").textContent = moneyText(state.salary);
   $("#moneyValue").textContent = moneyText(state.money);
@@ -973,17 +1112,40 @@ function renderSocial() {
 }
 
 function renderMarket() {
+  const contractType = state.loan ? `Prestado desde ${state.loan.parentClub}` : state.contract.type;
+  $("#contractStatus").innerHTML = `
+    <div>
+      <span>Contrato actual</span>
+      <strong>${state.club}</strong>
+      <p>${contractType} - ${state.contractYears} anios restantes</p>
+    </div>
+    <div>
+      <span>Salario semanal</span>
+      <strong>${moneyText(state.salary)}</strong>
+      <p>Prima de renovacion segun rendimiento</p>
+    </div>
+    <div>
+      <span>Clausula</span>
+      <strong>${valueText(state.contract.releaseClause)}</strong>
+      <p>Valor de mercado ${valueText(state.marketValue)}</p>
+    </div>
+  `;
+
   $("#offersList").innerHTML = state.offers.length
     ? state.offers.map((offer, index) => {
       const logo = clubLogoFor(offer.club);
+      const typeLabel = offer.type === "loan" ? "Prestamo" : offer.type === "renewal" ? "Renovacion" : "Traspaso";
+      const clauseText = offer.type === "loan" ? `duracion ${offer.years} temporada` : `clausula ${valueText(offer.releaseClause)}`;
       return `<div class="offer-card">
         <header>
           <h3>${logo ? `<img src="${logo}" alt="Escudo de ${offer.club}" loading="lazy" />` : ""}${offer.club}</h3>
           <strong>${moneyText(offer.salary)}/sem</strong>
         </header>
-        <p>${offer.league} - contrato ${offer.years} anios - prima ${moneyText(offer.bonus)}</p>
+        <p>${typeLabel} - ${offer.league} - contrato ${offer.years} anios - prima ${moneyText(offer.bonus)} - ${clauseText}</p>
+        ${offer.message ? `<p class="offer-note">${offer.message}</p>` : ""}
         <div class="offer-actions">
           <button data-offer="${index}" class="primary">Aceptar</button>
+          <button data-negotiate="${index}" ${offer.locked || offer.type === "loan" ? "disabled" : ""}>Contraoferta</button>
           <button data-reject="${index}">Rechazar</button>
         </div>
       </div>`;
@@ -1024,6 +1186,20 @@ function renderLegacy() {
     ["Seleccion", stats.nationalCaps],
     ["Logros", state.achievements.length]
   ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+
+  ensureClubHistory();
+  $("#clubHistoryList").innerHTML = state.clubHistory.slice().reverse().map((item, index) => {
+    const isCurrent = index === 0 && !item.toSeason;
+    const range = item.toSeason ? `T${item.fromSeason} - T${item.toSeason}` : `Desde T${item.fromSeason}`;
+    const logo = clubLogoFor(item.club);
+    return `<div class="history-card">
+      <header>
+        <h3>${logo ? `<img src="${logo}" alt="Escudo de ${item.club}" loading="lazy" />` : ""}${item.club}</h3>
+        <strong>${isCurrent ? "Actual" : item.type}</strong>
+      </header>
+      <p>${item.league} - ${range} - ${item.type}</p>
+    </div>`;
+  }).join("");
 
   $("#seasonHistory").innerHTML = state.history.length
     ? state.history.slice().reverse().map((item) => `<div class="history-card">
@@ -1220,37 +1396,125 @@ function generateOffers(force = false) {
   const minRep = force ? 0 : state.reputation;
   const pool = clubs.filter((club) => club.name !== state.club && club.rep <= minRep + ov * 0.8 && club.tier <= current.tier + 2);
   const choices = (pool.length ? pool : clubs.filter((club) => club.name !== state.club)).sort(() => Math.random() - 0.5).slice(0, force ? 3 : random(1, 3));
-  state.offers = choices.map((club) => ({
+  const transferOffers = choices.map((club) => makeClubOffer(club, "transfer"));
+  const loanPool = clubs
+    .filter((club) => club.name !== state.club && club.tier <= current.tier && club.tier >= Math.max(1, current.tier - 2))
+    .sort(() => Math.random() - 0.5)
+    .slice(0, state.profile.age <= 23 || ov < 72 ? 2 : 0)
+    .map((club) => makeClubOffer(club, "loan"));
+  state.offers = [...transferOffers, ...loanPool];
+  if (state.offers.length) addNews("Tu agente recibio nuevas ofertas de clubes.");
+}
+
+function makeClubOffer(club, type = "transfer") {
+  const ov = overall();
+  const years = type === "loan" ? 1 : random(2, 5);
+  const salary = Math.round((club.salary + ov * club.tier * 0.45 + state.reputation / 4) * (type === "loan" ? 0.72 : 1));
+  return {
     club: club.name,
     league: club.league,
-    salary: Math.round(club.salary + ov * club.tier * 0.45 + state.reputation / 4),
-    years: random(2, 5),
-    bonus: Math.round(club.salary * random(6, 16))
-  }));
-  if (state.offers.length) addNews("Tu agente recibio nuevas ofertas de clubes.");
+    type,
+    salary,
+    years,
+    bonus: type === "loan" ? 0 : Math.round(club.salary * random(6, 16)),
+    releaseClause: contractClauseFor({ salary, years, marketValue: state.marketValue, tier: club.tier }),
+    negotiations: 0,
+    locked: false,
+    message: type === "loan" ? "El club busca darte minutos y continuidad." : ""
+  };
 }
 
 function acceptOffer(index) {
   const offer = state.offers[index];
   if (!offer) return;
-  state.club = offer.club;
-  state.league = offer.league;
-  state.competitions = competitionsForClub(offer.club);
-  state.salary = offer.salary;
-  state.contractYears = offer.years;
-  state.money += offer.bonus;
-  state.coach = clamp(38 + state.reputation / 3, 0, 100);
-  const fixture = nextFixture(state.club);
-  state.nextOpponent = fixture.opponent;
-  state.nextCompetition = fixture.competition;
+  const club = currentClubData(offer.club);
+  if (offer.type === "renewal") {
+    state.salary = offer.salary;
+    state.contractYears = offer.years;
+    state.contract = createContract(club, offer.years, offer.salary, "Renovacion");
+    state.contract.releaseClause = offer.releaseClause;
+    state.money += offer.bonus;
+    state.coach = clamp(state.coach + 4, 0, 100);
+    addNews(`Renovaste con ${offer.club}. Salario: ${moneyText(offer.salary)} por semana.`);
+  } else if (offer.type === "loan") {
+    state.loan = {
+      parentClub: state.club,
+      parentLeague: state.league,
+      parentSalary: state.salary,
+      parentYears: state.contractYears,
+      untilSeason: state.season + 1
+    };
+    moveToClub(club, offer, "loan");
+    addNews(`Te vas cedido a ${offer.club} por una temporada.`);
+  } else {
+    moveToClub(club, offer, "transfer");
+    state.money += offer.bonus;
+    addNews(`Fichaste por ${offer.club}. Nuevo salario: ${moneyText(offer.salary)} por semana.`);
+  }
   state.offers = [];
-  addNews(`Fichaste por ${offer.club}. Nuevo salario: ${moneyText(offer.salary)} por semana.`);
   render();
 }
 
 function rejectOffer(index) {
   state.offers.splice(index, 1);
   state.reputation = clamp(state.reputation + 1, 0, 100);
+  render();
+}
+
+function requestRenewal() {
+  if (state.loan) {
+    addNews("No puedes renovar mientras estas cedido. Primero termina el prestamo.");
+    render();
+    return;
+  }
+  const club = currentClubData();
+  const ov = overall();
+  const renewalScore = ov + state.coach * 0.45 + state.reputation * 0.35 + (state.contractYears <= 1 ? 18 : 0);
+  if (renewalScore < 96) {
+    addNews(`${club.name} prefiere esperar antes de ofrecer una renovacion.`);
+    state.coach = clamp(state.coach - 2, 0, 100);
+    render();
+    return;
+  }
+  const years = random(2, 5);
+  const salary = Math.round(Math.max(state.salary + 4, state.salary * (1.12 + ov / 360)));
+  const offer = {
+    club: club.name,
+    league: club.league,
+    type: "renewal",
+    salary,
+    years,
+    bonus: Math.round(salary * random(5, 12)),
+    releaseClause: contractClauseFor({ salary, years, marketValue: state.marketValue, tier: club.tier }),
+    negotiations: 0,
+    locked: false,
+    message: "Tu club quiere asegurar tu continuidad."
+  };
+  state.offers = [offer, ...state.offers.filter((item) => item.type !== "renewal")];
+  addNews(`${club.name} envio una propuesta de renovacion.`);
+  render();
+}
+
+function negotiateOffer(index) {
+  const offer = state.offers[index];
+  if (!offer || offer.locked || offer.type === "loan") return;
+  const club = currentClubData(offer.club);
+  const chance = clamp((state.reputation + state.coach + overall()) / 260 - offer.negotiations * 0.18, 0.18, 0.82);
+  offer.negotiations += 1;
+  if (Math.random() > chance) {
+    offer.locked = true;
+    offer.message = "El club rechazo mejorar la propuesta. Puedes aceptar o rechazar.";
+    state.reputation = clamp(state.reputation - 1, 0, 100);
+    addNews(`${offer.club} no acepto la contraoferta.`);
+    render();
+    return;
+  }
+  offer.salary = Math.round(offer.salary * 1.12 + 3);
+  offer.bonus = Math.round(offer.bonus * 1.18 + club.salary);
+  offer.releaseClause = Math.round(offer.releaseClause * 1.12);
+  offer.message = `Contraoferta aceptada (${offer.negotiations}/2).`;
+  if (offer.negotiations >= 2) offer.locked = true;
+  addNews(`${offer.club} mejoro su oferta contractual.`);
   render();
 }
 
@@ -1372,8 +1636,9 @@ function setupEvents() {
       const [post, option] = target.dataset.social.split(":").map(Number);
       applySocial(post, option);
     }
-    if (target.dataset.offer) acceptOffer(Number(target.dataset.offer));
-    if (target.dataset.reject) rejectOffer(Number(target.dataset.reject));
+    if (target.dataset.offer !== undefined) acceptOffer(Number(target.dataset.offer));
+    if (target.dataset.reject !== undefined) rejectOffer(Number(target.dataset.reject));
+    if (target.dataset.negotiate !== undefined) negotiateOffer(Number(target.dataset.negotiate));
     if (target.dataset.sponsor) signSponsor(target.dataset.sponsor);
     if (target.dataset.lifestyle) buyLifestyle(target.dataset.lifestyle);
     if (target.dataset.skill) unlockSkill(target.dataset.skill);
@@ -1387,6 +1652,7 @@ function setupEvents() {
     generateOffers(true);
     render();
   });
+  $("#renewalBtn").addEventListener("click", requestRenewal);
   $("#saveBtn").addEventListener("click", () => {
     save();
     showToast("Carrera guardada.");
