@@ -434,17 +434,17 @@ const sponsorDeals = [
   { id: "global", name: "Global Sports", tier: "Local", pay: 260, minPop: 78, minRep: 0, flatBonus: 25, effect: "Contrato local heredado. Marca internacional para estrellas." }
 ];
 
-const skillBranches = {
-  core: { title: "Base profesional", desc: "Fisico, mentalidad y techo de carrera." },
-  striker: { title: "9 de area", desc: "Desmarque, definicion y olfato goleador." },
-  winger: { title: "Extremo desequilibrante", desc: "Arranque, regate y centros agresivos." },
-  playmaker: { title: "Creador ofensivo", desc: "Vision, ultimo pase y pausa entre lineas." },
-  midfielder: { title: "Motor del medio", desc: "Ritmo, pase seguro y cobertura total." },
-  defender: { title: "Central dominante", desc: "Anticipacion, fuerza y liderazgo defensivo." },
-  goalkeeper: { title: "Arquero moderno", desc: "Reflejos, salida y mando del area." }
-};
+const skillCategories = [
+  { id: "fisico", label: "Fisico", desc: "Cuerpo, resistencia y potencia para sostener la temporada." },
+  { id: "defensa", label: "Defensa", desc: "Marca, anticipacion y duelos defensivos." },
+  { id: "regates", label: "Regates", desc: "Control, conduccion y desequilibrio en espacios cortos." },
+  { id: "pases", label: "Pases", desc: "Precision, vision y ultimo pase." },
+  { id: "tiros", label: "Tiros", desc: "Definicion, potencia y sangre fria en el area." },
+  { id: "ritmo", label: "Ritmo", desc: "Aceleracion, velocidad punta y cambios de marcha." },
+  { id: "porteria", label: "Porteria", desc: "Reflejos, mando del area y salida con pelota.", positions: ["POR"] }
+];
 
-const skillNodes = [
+const legacySkillNodes = [
   { id: "core_burst", branch: "core", tier: 1, title: "Primeros metros", desc: "Arranque corto para ganar duelos cercanos.", cost: 1, attrs: { velocidad: 2, resistencia: 1 }, trait: "Velocista" },
   { id: "core_engine", branch: "core", tier: 2, title: "Motor semanal", desc: "Aguantas mejor entrenamientos y partidos seguidos.", cost: 2, attrs: { resistencia: 4 }, trait: "Inagotable", req: "core_burst" },
   { id: "core_leader", branch: "core", tier: 2, title: "Voz de vestuario", desc: "Mejora la confianza del entrenador y tu reputacion.", cost: 2, coach: 5, reputation: 4, trait: "Capitan", req: "core_burst" },
@@ -480,6 +480,64 @@ const skillNodes = [
   { id: "gk_area", branch: "goalkeeper", tier: 2, positions: ["POR"], title: "Mando del area", desc: "Mejor salida en centros y corners.", cost: 2, attrs: { defensa: 3, vision: 2 }, trait: "Dueño del Area", req: "gk_reflex" },
   { id: "gk_sweeper", branch: "goalkeeper", tier: 3, positions: ["POR"], title: "Arquero libero", desc: "Lectura para cortar pelotas largas y salir jugando.", cost: 2, attrs: { velocidad: 2, pase: 2, vision: 1 }, trait: "Arquero Libero", req: "gk_area" },
   { id: "gk_wall", branch: "goalkeeper", tier: 4, positions: ["POR"], title: "Ultima muralla", desc: "Pico alto de reflejos, mando y regularidad.", cost: 3, attrs: { defensa: 4, fuerza: 2 }, trait: "Portero Elite", req: "gk_sweeper" }
+];
+
+const skillNodes = [
+  { id: "fisico_base", category: "fisico", title: "Base atletica", desc: "Sube la resistencia inicial para aguantar mas minutos.", cost: 1, attrs: { resistencia: 2, fuerza: 1 }, x: 50, y: 8, icon: "FI" },
+  { id: "fisico_tren", category: "fisico", title: "Tren inferior", desc: "Mas fuerza en choques, giros y apoyos.", cost: 1, attrs: { fuerza: 2 }, req: "fisico_base", x: 33, y: 25, icon: "FR" },
+  { id: "fisico_pulmon", category: "fisico", title: "Pulmon de liga", desc: "Mejora los esfuerzos repetidos durante el partido.", cost: 2, attrs: { resistencia: 3 }, req: "fisico_base", x: 67, y: 25, icon: "RE" },
+  { id: "fisico_contacto", category: "fisico", title: "Contacto fuerte", desc: "Ganas mas disputas cuerpo a cuerpo.", cost: 2, attrs: { fuerza: 3, defensa: 1 }, req: "fisico_tren", x: 22, y: 45, icon: "CO" },
+  { id: "fisico_equilibrio", category: "fisico", title: "Equilibrio en carrera", desc: "Sostienes la pelota despues del primer contacto.", cost: 2, attrs: { regate: 2, fuerza: 1 }, req: ["fisico_tren", "fisico_pulmon"], x: 50, y: 45, icon: "EQ" },
+  { id: "fisico_recuperacion", category: "fisico", title: "Recuperacion rapida", desc: "Bajas fatiga y rindes mejor en semanas cargadas.", cost: 2, attrs: { resistencia: 2, velocidad: 1 }, trait: "Inagotable", req: "fisico_pulmon", x: 78, y: 45, icon: "RX" },
+  { id: "fisico_dominante", category: "fisico", title: "Dominio fisico", desc: "Paquete elite de potencia, aguante y presencia.", cost: 3, attrs: { fuerza: 3, resistencia: 3 }, trait: "Dominante", req: ["fisico_contacto", "fisico_equilibrio", "fisico_recuperacion"], x: 50, y: 72, icon: "DF" },
+
+  { id: "defensa_marca", category: "defensa", title: "Marca cercana", desc: "Mejor posicion corporal en duelos defensivos.", cost: 1, attrs: { defensa: 2, fuerza: 1 }, x: 50, y: 8, icon: "MA" },
+  { id: "defensa_corte", category: "defensa", title: "Corte limpio", desc: "Anticipas pases interiores y balones divididos.", cost: 1, attrs: { defensa: 2, vision: 1 }, req: "defensa_marca", x: 33, y: 25, icon: "CT" },
+  { id: "defensa_presion", category: "defensa", title: "Presion agresiva", desc: "Aumenta intensidad al recuperar alto.", cost: 2, attrs: { defensa: 2, resistencia: 2 }, req: "defensa_marca", x: 67, y: 25, icon: "PR" },
+  { id: "defensa_entrada", category: "defensa", title: "Entrada fuerte", desc: "Mas seguridad al ir al suelo y disputar frontal.", cost: 2, attrs: { defensa: 3 }, trait: "Anticipador", req: "defensa_corte", x: 22, y: 45, icon: "EN" },
+  { id: "defensa_aerea", category: "defensa", title: "Duelos aereos", desc: "Ganas mas centros defensivos y pelotas paradas.", cost: 2, attrs: { fuerza: 2, defensa: 2 }, req: ["defensa_corte", "defensa_presion"], x: 50, y: 45, icon: "AE" },
+  { id: "defensa_salida", category: "defensa", title: "Salida limpia", desc: "Defiendes y encuentras el primer pase tras recuperar.", cost: 2, attrs: { pase: 2, vision: 1, defensa: 1 }, req: "defensa_presion", x: 78, y: 45, icon: "SL" },
+  { id: "defensa_muralla", category: "defensa", title: "Muralla", desc: "Nivel superior de quite, lectura y liderazgo atras.", cost: 3, attrs: { defensa: 4, fuerza: 2 }, trait: "Comandante", req: ["defensa_entrada", "defensa_aerea", "defensa_salida"], x: 50, y: 72, icon: "MU" },
+
+  { id: "regate_control", category: "regates", title: "Control orientado", desc: "Primer toque mas fino para salir perfilado.", cost: 1, attrs: { regate: 2, pase: 1 }, x: 50, y: 8, icon: "CO" },
+  { id: "regate_cadera", category: "regates", title: "Cambio de cadera", desc: "Mejor giro para escapar de presion.", cost: 1, attrs: { regate: 2, velocidad: 1 }, req: "regate_control", x: 33, y: 25, icon: "GI" },
+  { id: "regate_conduccion", category: "regates", title: "Conduccion tensa", desc: "Llevas la pelota mas pegada en carrera.", cost: 2, attrs: { regate: 3 }, req: "regate_control", x: 67, y: 25, icon: "CD" },
+  { id: "regate_finta", category: "regates", title: "Finta corta", desc: "Mas eficacia para eliminar rivales en uno contra uno.", cost: 2, attrs: { regate: 3, vision: 1 }, req: "regate_cadera", x: 22, y: 45, icon: "FI" },
+  { id: "regate_proteccion", category: "regates", title: "Proteccion", desc: "Aguantas la pelota bajo contacto.", cost: 2, attrs: { regate: 2, fuerza: 2 }, req: ["regate_cadera", "regate_conduccion"], x: 50, y: 45, icon: "PT" },
+  { id: "regate_diagonal", category: "regates", title: "Diagonal venenosa", desc: "Mejora conduccion hacia dentro y decision final.", cost: 2, attrs: { regate: 2, definicion: 1, vision: 1 }, req: "regate_conduccion", x: 78, y: 45, icon: "DG" },
+  { id: "regate_imparable", category: "regates", title: "Desequilibrio elite", desc: "Rasgo de gambeta para partidos grandes.", cost: 3, attrs: { regate: 4, velocidad: 2 }, trait: "Imparable", req: ["regate_finta", "regate_proteccion", "regate_diagonal"], x: 50, y: 72, icon: "EL" },
+
+  { id: "pase_corto", category: "pases", title: "Pase corto", desc: "Mas precision en circulacion y apoyos.", cost: 1, attrs: { pase: 2, vision: 1 }, x: 50, y: 8, icon: "PC" },
+  { id: "pase_orientacion", category: "pases", title: "Orientacion previa", desc: "Escaneas antes de recibir y decides mas rapido.", cost: 1, attrs: { vision: 2, pase: 1 }, req: "pase_corto", x: 33, y: 25, icon: "OR" },
+  { id: "pase_largo", category: "pases", title: "Cambio de frente", desc: "Pase largo mas seguro para girar el juego.", cost: 2, attrs: { pase: 3 }, req: "pase_corto", x: 67, y: 25, icon: "LF" },
+  { id: "pase_filtrado", category: "pases", title: "Pase filtrado", desc: "Aumenta asistencias potenciales entre lineas.", cost: 2, attrs: { pase: 3, vision: 2 }, trait: "Arquitecto", req: "pase_orientacion", x: 22, y: 45, icon: "PF" },
+  { id: "pase_pausa", category: "pases", title: "Pausa", desc: "Mejor control del tempo cuando el equipo necesita calma.", cost: 2, attrs: { vision: 3, resistencia: 1 }, req: ["pase_orientacion", "pase_largo"], x: 50, y: 45, icon: "PA" },
+  { id: "pase_centro", category: "pases", title: "Centro tenso", desc: "Pases laterales y centros con mas peligro.", cost: 2, attrs: { pase: 2, definicion: 1, vision: 1 }, req: "pase_largo", x: 78, y: 45, icon: "CE" },
+  { id: "pase_director", category: "pases", title: "Director de juego", desc: "Paquete elite de vision, pase y liderazgo.", cost: 3, attrs: { pase: 4, vision: 3 }, trait: "Metronomo", req: ["pase_filtrado", "pase_pausa", "pase_centro"], x: 50, y: 72, icon: "DJ" },
+
+  { id: "tiro_colocacion", category: "tiros", title: "Colocacion", desc: "Remate colocado con menos margen de error.", cost: 1, attrs: { definicion: 2, vision: 1 }, x: 50, y: 8, icon: "CO" },
+  { id: "tiro_potencia", category: "tiros", title: "Potencia de remate", desc: "Golpeas mas fuerte desde media distancia.", cost: 1, attrs: { definicion: 2, fuerza: 1 }, req: "tiro_colocacion", x: 33, y: 25, icon: "PO" },
+  { id: "tiro_area", category: "tiros", title: "Remate de area", desc: "Mejora definicion con poco tiempo dentro del area.", cost: 2, attrs: { definicion: 3 }, req: "tiro_colocacion", x: 67, y: 25, icon: "RA" },
+  { id: "tiro_cabeza", category: "tiros", title: "Precision de cabezazos", desc: "Atacas mejor centros y corners.", cost: 2, attrs: { definicion: 2, fuerza: 2 }, req: "tiro_potencia", x: 22, y: 45, icon: "CA" },
+  { id: "tiro_libre", category: "tiros", title: "Tiro libre", desc: "Mas amenaza en pelota parada directa.", cost: 2, attrs: { definicion: 2, vision: 2 }, req: ["tiro_potencia", "tiro_area"], x: 50, y: 45, icon: "TL" },
+  { id: "tiro_penal", category: "tiros", title: "Penales frios", desc: "Mejor temple en definiciones desde el punto penal.", cost: 2, attrs: { definicion: 3, pase: 1 }, req: "tiro_area", x: 78, y: 45, icon: "PE" },
+  { id: "tiro_matador", category: "tiros", title: "Instinto matador", desc: "Rasgo de goleador para convertir mas chances claras.", cost: 3, attrs: { definicion: 5 }, trait: "Matador", req: ["tiro_cabeza", "tiro_libre", "tiro_penal"], x: 50, y: 72, icon: "MT" },
+
+  { id: "ritmo_arranque", category: "ritmo", title: "Arranque explosivo", desc: "Primeros metros mas rapidos.", cost: 1, attrs: { velocidad: 2, resistencia: 1 }, x: 50, y: 8, icon: "AR" },
+  { id: "ritmo_zancada", category: "ritmo", title: "Zancada larga", desc: "Mejora velocidad punta en campo abierto.", cost: 1, attrs: { velocidad: 3 }, req: "ritmo_arranque", x: 33, y: 25, icon: "ZA" },
+  { id: "ritmo_reaccion", category: "ritmo", title: "Reaccion", desc: "Sales antes tras rebotes, robos y pases profundos.", cost: 2, attrs: { velocidad: 2, vision: 1 }, req: "ritmo_arranque", x: 67, y: 25, icon: "RC" },
+  { id: "ritmo_sprint", category: "ritmo", title: "Sprint largo", desc: "Sostienes carreras largas sin perder tanta energia.", cost: 2, attrs: { velocidad: 2, resistencia: 2 }, req: "ritmo_zancada", x: 22, y: 45, icon: "SP" },
+  { id: "ritmo_cambio", category: "ritmo", title: "Cambio de ritmo", desc: "Aceleras y frenas con pelota dominada.", cost: 2, attrs: { velocidad: 2, regate: 2 }, req: ["ritmo_zancada", "ritmo_reaccion"], x: 50, y: 45, icon: "CR" },
+  { id: "ritmo_presion", category: "ritmo", title: "Presion veloz", desc: "Cierras lineas con mas agresividad.", cost: 2, attrs: { velocidad: 1, defensa: 2, resistencia: 1 }, req: "ritmo_reaccion", x: 78, y: 45, icon: "PV" },
+  { id: "ritmo_velocista", category: "ritmo", title: "Velocista elite", desc: "Rasgo de velocidad para romper partidos.", cost: 3, attrs: { velocidad: 5, resistencia: 1 }, trait: "Velocista", req: ["ritmo_sprint", "ritmo_cambio", "ritmo_presion"], x: 50, y: 72, icon: "VE" },
+
+  { id: "por_reflejos", category: "porteria", positions: ["POR"], title: "Reflejos bajos", desc: "Respuesta rapida en remates cercanos.", cost: 1, attrs: { defensa: 3, fuerza: 1 }, x: 50, y: 8, icon: "RF" },
+  { id: "por_colocacion", category: "porteria", positions: ["POR"], title: "Colocacion", desc: "Mejor posicion antes del remate.", cost: 1, attrs: { defensa: 2, vision: 1 }, req: "por_reflejos", x: 33, y: 25, icon: "CL" },
+  { id: "por_salida", category: "porteria", positions: ["POR"], title: "Salida a centros", desc: "Mando del area en corners y pelotas cruzadas.", cost: 2, attrs: { defensa: 3, fuerza: 1 }, req: "por_reflejos", x: 67, y: 25, icon: "SA" },
+  { id: "por_mano", category: "porteria", positions: ["POR"], title: "Mano a mano", desc: "Mejora achiques contra delanteros.", cost: 2, attrs: { defensa: 3, velocidad: 1 }, req: "por_colocacion", x: 22, y: 45, icon: "MM" },
+  { id: "por_juego_pies", category: "porteria", positions: ["POR"], title: "Juego de pies", desc: "Salida corta y cambio largo con mas precision.", cost: 2, attrs: { pase: 3, vision: 1 }, req: ["por_colocacion", "por_salida"], x: 50, y: 45, icon: "JP" },
+  { id: "por_libero", category: "porteria", positions: ["POR"], title: "Arquero libero", desc: "Cortas balones largos fuera del area.", cost: 2, attrs: { velocidad: 2, vision: 2 }, trait: "Arquero Libero", req: "por_salida", x: 78, y: 45, icon: "AL" },
+  { id: "por_muralla", category: "porteria", positions: ["POR"], title: "Ultima muralla", desc: "Pico elite de reflejos, mando y seguridad.", cost: 3, attrs: { defensa: 5, fuerza: 1 }, trait: "Portero Elite", req: ["por_mano", "por_juego_pies", "por_libero"], x: 50, y: 72, icon: "UM" }
 ];
 
 const achievementDefs = [
@@ -546,6 +604,82 @@ function archetypeLabel(position = state?.profile?.position) {
 function visibleSkillNodes() {
   const position = state?.profile?.position;
   return skillNodes.filter((node) => !node.positions || node.positions.includes(position));
+}
+
+function defaultSkillTab(position = state?.profile?.position) {
+  const byPosition = {
+    DC: "tiros",
+    EI: "regates",
+    MCO: "pases",
+    MC: "pases",
+    DFC: "defensa",
+    POR: "porteria"
+  };
+  return byPosition[position] || "fisico";
+}
+
+function activeSkillCategory() {
+  const position = state?.profile?.position;
+  const current = skillCategories.find((category) => category.id === state?.skillTreeTab);
+  if (current && (!current.positions || current.positions.includes(position))) return current;
+  return skillCategories.find((category) => category.id === defaultSkillTab()) || skillCategories[0];
+}
+
+function skillNodesForCategory(categoryId = activeSkillCategory().id) {
+  return visibleSkillNodes().filter((node) => node.category === categoryId);
+}
+
+function selectedSkillNode(nodes) {
+  const selected = nodes.find((node) => node.id === state.selectedSkillId);
+  if (selected) return selected;
+  return nodes.find((node) => !state.unlockedSkills.includes(node.id) && skillReqsMet(node)) || nodes[0] || null;
+}
+
+function skillNodeState(node) {
+  const unlocked = state.unlockedSkills.includes(node.id);
+  const lockedByReq = !skillReqsMet(node);
+  const affordable = state.skillPoints >= node.cost;
+  if (unlocked) return "unlocked";
+  if (lockedByReq) return "locked";
+  if (affordable) return "available";
+  return "waiting";
+}
+
+function skillConnectionSvg(nodes) {
+  const byId = Object.fromEntries(nodes.map((node) => [node.id, node]));
+  const lines = nodes.flatMap((node) => skillRequirements(node)
+    .map((req) => byId[req])
+    .filter(Boolean)
+    .map((parent) => {
+      const unlocked = state.unlockedSkills.includes(parent.id) && state.unlockedSkills.includes(node.id);
+      const available = !state.unlockedSkills.includes(node.id) && skillReqsMet(node);
+      return `<line class="${unlocked ? "unlocked" : available ? "available" : ""}" x1="${parent.x}" y1="${parent.y}" x2="${node.x}" y2="${node.y}"></line>`;
+    }));
+  return `<svg class="skill-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${lines.join("")}</svg>`;
+}
+
+function skillActionLabel(node) {
+  if (!node) return "Sin mejora";
+  if (state.unlockedSkills.includes(node.id)) return "Desbloqueado";
+  if (!skillReqsMet(node)) return `Requiere ${skillReqText(node)}`;
+  if (state.skillPoints < node.cost) return `Faltan ${node.cost - state.skillPoints} punto${node.cost - state.skillPoints > 1 ? "s" : ""}`;
+  return `Colocar mejora (${node.cost})`;
+}
+
+function skillDetailBars(node) {
+  const entries = Object.entries(node?.attrs || {});
+  if (!entries.length) return `<p class="subtle-line">Esta mejora desbloquea efectos especiales de carrera.</p>`;
+  return entries.map(([attr, boost]) => {
+    const current = Number(state.attrs[attr]) || 1;
+    const next = clamp(current + boost, 1, 99);
+    return `<div class="skill-attr-row">
+      <strong><span>${labelAttr(attr)}</span><span>${current} +${boost}</span></strong>
+      <div class="skill-attr-track">
+        <span class="current" style="width:${current}%"></span>
+        <span class="boost" style="left:${current}%; width:${Math.max(0, next - current)}%"></span>
+      </div>
+    </div>`;
+  }).join("");
 }
 
 function skillRequirements(node) {
@@ -616,6 +750,8 @@ function ensureStateDefaults() {
   if (!state) return;
   state.level = Number(state.level) || 1;
   state.skillPoints = Number(state.skillPoints) || 0;
+  state.skillTreeTab = skillCategories.some((category) => category.id === state.skillTreeTab) ? state.skillTreeTab : defaultSkillTab();
+  state.selectedSkillId = typeof state.selectedSkillId === "string" ? state.selectedSkillId : "";
   state.potential = Number(state.potential) || clamp(78 + (clubs.find((club) => club.name === state.club)?.tier || 1) * 3, 78, 94);
   state.unlockedSkills = Array.isArray(state.unlockedSkills) ? state.unlockedSkills : [];
   state.secondaryPositions = Array.isArray(state.secondaryPositions) ? state.secondaryPositions : [];
@@ -918,6 +1054,8 @@ function newState(profile) {
     attrs,
     traits: [styleBonuses[profile.style].trait],
     unlockedSkills: [],
+    skillTreeTab: defaultSkillTab(profile.position),
+    selectedSkillId: "",
     secondaryPositions: [],
     sponsors: [],
     lifestyle: [],
@@ -1379,48 +1517,60 @@ function renderProgress() {
     <span class="subtle-line">Arquetipo activo: ${archetypeLabel()} - Potencial ${state.potential} - Rasgos: ${state.traits.join(", ") || "Sin rasgos"}</span>
   `;
 
-  const branchOrder = ["core", "striker", "winger", "playmaker", "midfielder", "defender", "goalkeeper"];
-  const nodesByBranch = visibleSkillNodes().reduce((groups, node) => {
-    groups[node.branch] = groups[node.branch] || [];
-    groups[node.branch].push(node);
-    return groups;
-  }, {});
-  $("#skillTree").innerHTML = branchOrder
-    .filter((branchId) => nodesByBranch[branchId]?.length)
-    .map((branchId) => {
-      const branch = skillBranches[branchId];
-      const nodes = nodesByBranch[branchId].sort((a, b) => a.tier - b.tier);
-      return `<section class="skill-branch skill-branch-${branchId}">
-        <header class="skill-branch-head">
-          <div>
-            <span>${branchId === "core" ? "Base" : "Arquetipo"}</span>
-            <h3>${branch.title}</h3>
-          </div>
-          <strong>${nodes.filter((node) => state.unlockedSkills.includes(node.id)).length}/${nodes.length}</strong>
-        </header>
-        <p>${branch.desc}</p>
-        <div class="skill-lane">
-          ${nodes.map((node) => {
-            const unlocked = state.unlockedSkills.includes(node.id);
-            const lockedByReq = !skillReqsMet(node);
-            const affordable = state.skillPoints >= node.cost;
-            const disabled = unlocked || lockedByReq || !affordable || state.retired;
-            const reqText = lockedByReq ? `Requiere ${skillReqText(node)}` : `${node.cost} punto${node.cost > 1 ? "s" : ""}`;
-            const status = unlocked ? "Activo" : lockedByReq ? "Bloqueado" : affordable ? "Disponible" : "Sin puntos";
-            return `<article class="skill-node ${unlocked ? "unlocked" : ""} ${lockedByReq ? "locked" : ""} ${affordable && !unlocked && !lockedByReq ? "available" : ""}">
-              <header>
-                <span>Nivel ${node.tier}</span>
-                <strong>${status}</strong>
-              </header>
-              <h3>${node.title}</h3>
-              <p>${node.desc}</p>
-              <small>${skillBoostText(node)}</small>
-              <button data-skill="${node.id}" ${disabled ? "disabled" : ""}>${unlocked ? "Desbloqueado" : reqText}</button>
-            </article>`;
-          }).join("")}
-        </div>
-      </section>`;
-    }).join("");
+  const activeCategory = activeSkillCategory();
+  const categoryNodes = skillNodesForCategory(activeCategory.id);
+  const selectedNode = selectedSkillNode(categoryNodes);
+  if (selectedNode && state.selectedSkillId !== selectedNode.id) state.selectedSkillId = selectedNode.id;
+  const unlockedInCategory = categoryNodes.filter((node) => state.unlockedSkills.includes(node.id)).length;
+  const buttonDisabled = !selectedNode
+    || state.unlockedSkills.includes(selectedNode.id)
+    || !skillReqsMet(selectedNode)
+    || state.skillPoints < selectedNode.cost
+    || state.retired;
+
+  $("#skillTree").innerHTML = `<div class="attribute-skill-shell">
+    <header class="attribute-skill-head">
+      <div>
+        <span>Atributos</span>
+        <strong>${state.skillPoints} puntos de habilidad</strong>
+      </div>
+      <p>${activeCategory.desc}</p>
+    </header>
+    <div class="skill-tabs">
+      ${skillCategories.map((category) => {
+        const allowed = !category.positions || category.positions.includes(state.profile.position);
+        return `<button class="${category.id === activeCategory.id ? "active" : ""}" data-skill-tab="${category.id}" ${!allowed ? "disabled" : ""}>${category.label}</button>`;
+      }).join("")}
+    </div>
+    <div class="skill-tree-stage">
+      <div class="skill-map">
+        ${categoryNodes.length ? skillConnectionSvg(categoryNodes) : ""}
+        ${categoryNodes.length ? categoryNodes.map((node) => {
+          const status = skillNodeState(node);
+          const selected = selectedNode?.id === node.id;
+          return `<button class="skill-map-node ${status} ${selected ? "selected" : ""}" data-skill-select="${node.id}" style="--x:${node.x}%; --y:${node.y}%;" aria-label="${node.title}">
+            <span>${node.icon || node.title.slice(0, 2).toUpperCase()}</span>
+            <small>${state.unlockedSkills.includes(node.id) ? "1/1" : "0/1"}</small>
+          </button>`;
+        }).join("") : `<div class="skill-empty">
+          <strong>Porteria disponible para arqueros</strong>
+          <p>Esta rama se activa al crear una carrera como POR.</p>
+        </div>`}
+      </div>
+      <aside class="skill-detail">
+        ${selectedNode ? `<span>${activeCategory.label} - ${unlockedInCategory}/${categoryNodes.length}</span>
+          <h3>${selectedNode.title}</h3>
+          <p>${selectedNode.desc}</p>
+          <strong class="skill-cost">Coste: ${selectedNode.cost}</strong>
+          <div class="skill-detail-bars">${skillDetailBars(selectedNode)}</div>
+          <small>${skillBoostText(selectedNode)}</small>
+          <button data-skill="${selectedNode.id}" ${buttonDisabled ? "disabled" : ""}>${skillActionLabel(selectedNode)}</button>`
+        : `<span>${activeCategory.label}</span>
+          <h3>Sin mejoras para esta posicion</h3>
+          <p>Cambia de rama para seguir mejorando tu jugador.</p>`}
+      </aside>
+    </div>
+  </div>`;
 
   const missionCard = (objective, scope) => {
     const percent = clamp((objective.value / objective.target) * 100, 0, 100);
@@ -2421,6 +2571,24 @@ function setupEvents() {
   document.addEventListener("click", (event) => {
     const target = event.target;
     if (!(target instanceof HTMLElement)) return;
+    const skillTabButton = target.closest("[data-skill-tab]");
+    if (skillTabButton) {
+      state.skillTreeTab = skillTabButton.dataset.skillTab;
+      state.selectedSkillId = "";
+      render();
+      return;
+    }
+    const skillSelectButton = target.closest("[data-skill-select]");
+    if (skillSelectButton) {
+      state.selectedSkillId = skillSelectButton.dataset.skillSelect;
+      render();
+      return;
+    }
+    const skillButton = target.closest("[data-skill]");
+    if (skillButton) {
+      unlockSkill(skillButton.dataset.skill);
+      return;
+    }
     if (target.dataset.training) train(target.dataset.training);
     if (target.dataset.social) {
       const [post, option] = target.dataset.social.split(":").map(Number);
@@ -2431,7 +2599,6 @@ function setupEvents() {
     if (target.dataset.negotiate !== undefined) negotiateOffer(Number(target.dataset.negotiate));
     if (target.dataset.sponsor) signSponsor(target.dataset.sponsor);
     if (target.dataset.lifestyle) buyLifestyle(target.dataset.lifestyle);
-    if (target.dataset.skill) unlockSkill(target.dataset.skill);
   });
 
   $("#playMatchBtn").addEventListener("click", playMatch);
