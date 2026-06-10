@@ -19,7 +19,22 @@ const competitions = [
   { id: "brasileirao", name: "Brasileirao Serie A", country: "Brasil", level: 3, code: "BRA1", slug: "campeonato-brasileiro-serie-a" },
   { id: "mls", name: "Major League Soccer", country: "Estados Unidos", level: 2, code: "MLS1", slug: "major-league-soccer" },
   { id: "eredivisie", name: "Eredivisie", country: "Paises Bajos", level: 3, code: "NL1", slug: "eredivisie" },
-  { id: "liga-mx", name: "Liga MX", country: "Mexico", level: 2, code: "MEXA", slug: "liga-mx-apertura" }
+  { id: "liga-mx", name: "Liga MX", country: "Mexico", level: 2, code: "MEXA", slug: "liga-mx-apertura" },
+  { id: "championship", name: "Championship", country: "Inglaterra", level: 2, code: "GB2", slug: "championship" },
+  { id: "belgian-pro-league", name: "Belgian Pro League", country: "Belgica", level: 2, code: "BE1", slug: "jupiler-pro-league" },
+  { id: "scottish-premiership", name: "Scottish Premiership", country: "Escocia", level: 2, code: "SC1", slug: "scottish-premiership" },
+  { id: "super-lig", name: "Super Lig", country: "Turquia", level: 3, code: "TR1", slug: "super-lig" },
+  { id: "austrian-bundesliga", name: "Austrian Bundesliga", country: "Austria", level: 2, code: "A1", slug: "bundesliga" },
+  { id: "swiss-super-league", name: "Swiss Super League", country: "Suiza", level: 2, code: "C1", slug: "super-league" },
+  { id: "danish-superliga", name: "Danish Superliga", country: "Dinamarca", level: 2, code: "DK1", slug: "superligaen" },
+  { id: "greek-super-league", name: "Greek Super League", country: "Grecia", level: 2, code: "GR1", slug: "super-league-1" }
+];
+
+const internationalCompetitions = [
+  { id: "champions-league", name: "UEFA Champions League", region: "Europa", level: 5, code: "CL", slug: "uefa-champions-league" },
+  { id: "europa-league", name: "UEFA Europa League", region: "Europa", level: 4, code: "EL", slug: "europa-league" },
+  { id: "copa-libertadores", name: "Copa Libertadores", region: "CONMEBOL", level: 4, code: "CLI", slug: "copa-libertadores" },
+  { id: "copa-sudamericana", name: "Copa Sudamericana", region: "CONMEBOL", level: 3, code: "CS", slug: "copa-sudamericana" }
 ];
 
 const teamAliases = {
@@ -107,18 +122,33 @@ function ratingFromMarketValue(marketValue, leagueLevel) {
 }
 
 async function fetchHtml(url) {
-  const response = await axios.get(url, {
-    headers: {
-      "User-Agent": "Mozilla/5.0 TorreFutbolCareerImporter/1.0",
-      "Accept-Language": "en-US,en;q=0.9,es;q=0.8"
-    },
-    timeout: 30000
-  });
-  return response.data;
+  let lastError = null;
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    try {
+      const response = await axios.get(url, {
+        headers: {
+          "User-Agent": "Mozilla/5.0 TorreFutbolCareerImporter/1.0",
+          "Accept-Language": "en-US,en;q=0.9,es;q=0.8"
+        },
+        timeout: 30000
+      });
+      return response.data;
+    } catch (error) {
+      lastError = error;
+      const status = error.response?.status;
+      if (![429, 500, 502, 503, 504].includes(status) && error.code !== "ECONNABORTED") break;
+      await sleep(900 * attempt);
+    }
+  }
+  throw lastError;
 }
 
 function competitionUrl(competition) {
-  return `${BASE}/${competition.slug}/startseite/wettbewerb/${competition.code}`;
+  if (competition.region) {
+    return `${BASE}/${competition.slug}/teilnehmer/pokalwettbewerb/${competition.code}`;
+  }
+  const key = competition.region ? "pokalwettbewerb" : "wettbewerb";
+  return `${BASE}/${competition.slug}/startseite/${key}/${competition.code}`;
 }
 
 function squadUrlFromTeamHref(href) {
@@ -157,14 +187,18 @@ function parsePlayerRow($, row, leagueLevel) {
 }
 
 async function fetchSquad(team, leagueLevel) {
-  const html = await fetchHtml(team.transfermarkt);
-  const $ = cheerio.load(html);
-  const players = [];
-  $("table.items tbody tr.odd, table.items tbody tr.even").each((_, row) => {
-    const player = parsePlayerRow($, row, leagueLevel);
-    if (player) players.push(player);
-  });
-  return players;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    const html = await fetchHtml(team.transfermarkt);
+    const $ = cheerio.load(html);
+    const players = [];
+    $("table.items tbody tr.odd, table.items tbody tr.even").each((_, row) => {
+      const player = parsePlayerRow($, row, leagueLevel);
+      if (player) players.push(player);
+    });
+    if (players.length) return players;
+    await sleep(800 * attempt);
+  }
+  return [];
 }
 
 function teamRep(players, leagueLevel) {
@@ -209,18 +243,71 @@ async function buildDatabase() {
   return leagues;
 }
 
-function writeDatabase(leagues) {
+function domesticTeamMap(leagues) {
+  const map = new Map();
+  leagues.forEach((league) => {
+    league.teams.forEach((team) => {
+      map.set(normalizeTeamName(team.name), { leagueId: league.id, league: league.name, team });
+    });
+  });
+  return map;
+}
+
+async function buildInternationalDatabase(leagues) {
+  const domesticMap = domesticTeamMap(leagues);
+  const tournaments = [];
+  for (const competition of internationalCompetitions) {
+    console.log(`Competicion: ${competition.name}`);
+    const teams = await fetchTeams(competition);
+    const tournament = { id: competition.id, name: competition.name, region: competition.region, level: competition.level, teams: [] };
+    for (const team of teams) {
+      const normalizedName = normalizeTeamName(team.name);
+      const domestic = domesticMap.get(normalizedName);
+      if (domestic) {
+        tournament.teams.push({
+          name: normalizedName,
+          transfermarkt: team.transfermarkt,
+          domesticLeagueId: domestic.leagueId,
+          domesticLeague: domestic.league
+        });
+        console.log(`  ${normalizedName}: usa ${domestic.league}`);
+        continue;
+      }
+      await sleep(450);
+      try {
+        const players = await fetchSquad(team, competition.level);
+        tournament.teams.push({
+          name: normalizedName,
+          transfermarkt: team.transfermarkt,
+          rep: teamRep(players, competition.level),
+          salary: teamSalary(players, competition.level),
+          players
+        });
+        console.log(`  ${normalizedName}: ${players.length}`);
+      } catch (error) {
+        console.warn(`  error ${normalizedName}: ${error.message}`);
+      }
+    }
+    tournaments.push(tournament);
+  }
+  return tournaments;
+}
+
+function writeDatabase(leagues, tournaments) {
   const header = "// Generado desde Transfermarkt con scripts/import-career-transfermarkt.js.\n";
-  const body = `const careerLeagueDatabase = ${JSON.stringify(leagues, null, 2)};\n`;
+  const body = `const careerLeagueDatabase = ${JSON.stringify(leagues, null, 2)};\n\nconst careerCompetitionDatabase = ${JSON.stringify(tournaments, null, 2)};\n`;
   fs.writeFileSync(OUT_FILE, header + body, "utf8");
 }
 
 buildDatabase()
-  .then((leagues) => {
-    writeDatabase(leagues);
+  .then(async (leagues) => {
+    const tournaments = await buildInternationalDatabase(leagues);
+    writeDatabase(leagues, tournaments);
     const teams = leagues.reduce((sum, league) => sum + league.teams.length, 0);
     const players = leagues.reduce((sum, league) => sum + league.teams.reduce((teamSum, team) => teamSum + team.players.length, 0), 0);
-    console.log(`OK: ${leagues.length} ligas, ${teams} equipos, ${players} jugadores`);
+    const cupTeams = tournaments.reduce((sum, tournament) => sum + tournament.teams.length, 0);
+    const cupPlayers = tournaments.reduce((sum, tournament) => sum + tournament.teams.reduce((teamSum, team) => teamSum + (team.players?.length || 0), 0), 0);
+    console.log(`OK: ${leagues.length} ligas, ${teams} equipos, ${players} jugadores, ${tournaments.length} copas, ${cupTeams} equipos en copas, ${cupPlayers} jugadores extra de copas`);
   })
   .catch((error) => {
     console.error(error);

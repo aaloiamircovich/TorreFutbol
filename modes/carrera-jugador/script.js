@@ -164,13 +164,30 @@ function careerLeagues() {
     : [];
 }
 
+function careerCompetitions() {
+  return typeof careerCompetitionDatabase !== "undefined" && Array.isArray(careerCompetitionDatabase)
+    ? careerCompetitionDatabase
+    : [];
+}
+
+function competitionEntriesForClub(name) {
+  const normalized = normalizeClubName(name);
+  return careerCompetitions()
+    .filter((competition) => (competition.teams || []).some((team) => normalizeClubName(team.name) === normalized));
+}
+
+function competitionsForClub(name) {
+  return competitionEntriesForClub(name).map((competition) => competition.name);
+}
+
 function databaseTeams() {
   return careerLeagues().flatMap((league) => (league.teams || []).map((team) => ({
     ...team,
     league: league.name,
     leagueId: league.id,
     country: league.country,
-    level: league.level || 1
+    level: league.level || 1,
+    competitions: competitionsForClub(team.name)
   })));
 }
 
@@ -284,6 +301,7 @@ function buildCareerClubs() {
       tier: finalTier,
       league: databaseTeam?.league || leagueForClub(name),
       country: databaseTeam?.country || "",
+      competitions: databaseTeam?.competitions || [],
       transfermarkt: databaseTeam?.transfermarkt || "",
       salary: databaseTeam?.salary || Math.round(10 + finalTier * 18 + maxRating * finalTier * 0.35),
       rep: databaseTeam?.rep || Math.max(45, Math.min(96, maxRating + finalTier * 2)),
@@ -426,6 +444,7 @@ function createObjectives(position) {
 function newState(profile) {
   const club = clubs.find((item) => item.name === profile.club) || clubs[0];
   const attrs = baseAttributes(profile.position, profile.style);
+  const fixture = nextFixture(club.name);
   return {
     profile: {
       name: profile.name || "Tu Promesa",
@@ -436,6 +455,7 @@ function newState(profile) {
     },
     club: club.name,
     league: club.league,
+    competitions: club.competitions || [],
     season: 1,
     week: 1,
     xp: 0,
@@ -465,7 +485,8 @@ function newState(profile) {
     retired: false,
     trainedThisWeek: false,
     playedThisWeek: false,
-    nextOpponent: randomOpponent(club.name)
+    nextOpponent: fixture.opponent,
+    nextCompetition: fixture.competition
   };
 }
 
@@ -486,7 +507,7 @@ function randomSocial() {
   return JSON.parse(JSON.stringify(socialTemplates[random(0, socialTemplates.length - 1)]));
 }
 
-function randomOpponent(currentClubOverride = "") {
+function randomLeagueOpponent(currentClubOverride = "") {
   const currentClub = currentClubOverride || state?.club || "";
   const current = clubs.find((club) => club.name === currentClub);
   const sameLeague = clubs.filter((club) => club.name !== currentClub && current?.league && club.league === current.league);
@@ -499,6 +520,39 @@ function randomOpponent(currentClubOverride = "") {
   const source = pool.length ? pool : clubs.filter((club) => club.name !== currentClub);
   if (source.length) return source[random(0, source.length - 1)].name;
   return opponents[random(0, opponents.length - 1)];
+}
+
+function randomCompetitionFixture(currentClubOverride = "") {
+  const currentClub = currentClubOverride || state?.club || "";
+  const competitions = competitionEntriesForClub(currentClub);
+  if (!competitions.length) return null;
+  const competition = competitions[random(0, competitions.length - 1)];
+  const normalizedCurrent = normalizeClubName(currentClub);
+  const candidates = (competition.teams || [])
+    .map((team) => normalizeClubName(team.name))
+    .filter((name, index, list) => name && name !== normalizedCurrent && list.indexOf(name) === index)
+    .filter((name) => clubs.some((club) => normalizeClubName(club.name) === name));
+  if (!candidates.length) return null;
+  return {
+    opponent: candidates[random(0, candidates.length - 1)],
+    competition: competition.name
+  };
+}
+
+function nextFixture(currentClubOverride = "") {
+  const shouldPlayCup = state
+    ? [6, 12, 18, 24, 30, 36].includes(state.week) || Math.random() < 0.12
+    : false;
+  const cupFixture = shouldPlayCup ? randomCompetitionFixture(currentClubOverride) : null;
+  if (cupFixture) return cupFixture;
+  return {
+    opponent: randomLeagueOpponent(currentClubOverride),
+    competition: "Liga"
+  };
+}
+
+function randomOpponent(currentClubOverride = "") {
+  return nextFixture(currentClubOverride).opponent;
 }
 
 function overall() {
@@ -563,8 +617,12 @@ function render() {
   syncObjectives();
   const profile = positionProfiles[state.profile.position];
   const ov = overall();
+  if (!Array.isArray(state.competitions)) {
+    state.competitions = competitionsForClub(state.club);
+  }
+  const competitionText = state.competitions.length ? ` - ${state.competitions.slice(0, 2).join(", ")}` : "";
   $("#careerName").textContent = state.profile.name;
-  $("#careerSub").textContent = `${state.club} - ${state.league} - ${state.profile.position} - ${state.profile.age} anios`;
+  $("#careerSub").textContent = `${state.club} - ${state.league}${competitionText} - ${state.profile.position} - ${state.profile.age} anios`;
   const logo = clubLogoFor(state.club);
   const logoNode = $("#clubLogo");
   logoNode.src = logo || "";
@@ -586,7 +644,8 @@ function render() {
   $("#popularityValue").textContent = state.popularity;
   $("#reputationValue").textContent = state.reputation;
   $("#nextOpponent").textContent = state.nextOpponent;
-  $("#matchContext").textContent = state.injuryWeeks ? `Lesionado: ${state.injuryWeeks} semanas` : `${state.league} - fecha ${state.week}`;
+  const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
+  $("#matchContext").textContent = state.injuryWeeks ? `Lesionado: ${state.injuryWeeks} semanas` : `${matchCompetition} - fecha ${state.week}`;
   renderRivalStars();
   $("#playMatchBtn").disabled = state.playedThisWeek || state.injuryWeeks > 0 || state.retired;
   $("#trainingHint").textContent = state.trainedThisWeek ? "Ya entrenaste esta semana." : "Elegir una sesion consume energia.";
@@ -823,9 +882,11 @@ function playMatch() {
   state.marketValue = Math.round(state.marketValue * (1 + (rating - 6) / 160) + goals * 18 + assists * 10);
   state.playedThisWeek = true;
   maybeInjury("match");
+  const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
   $("#matchResult").innerHTML = `<h3>${state.club} ${teamGoals} - ${rivalGoals} ${state.nextOpponent}</h3>
+    <p>${matchCompetition}</p>
     <p>Tu partido: media ${rating}, ${goals} goles, ${assists} asistencias${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>`;
-  addNews(`${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}. Media personal ${rating}.${duelText}`);
+  addNews(`${matchCompetition}: ${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}. Media personal ${rating}.${duelText}`);
   if (rating >= 8.6) maybeAward("Jugador de la semana");
   maybeNationalCall(rating);
   render();
@@ -888,7 +949,9 @@ function advanceWeek() {
   state.money += state.salary;
   state.trainedThisWeek = false;
   state.playedThisWeek = false;
-  state.nextOpponent = randomOpponent(state.club);
+  const fixture = nextFixture(state.club);
+  state.nextOpponent = fixture.opponent;
+  state.nextCompetition = fixture.competition;
   if (state.injuryWeeks > 0) state.injuryWeeks -= 1;
   state.fatigue = clamp(state.fatigue - 8, 0, 100);
   if (Math.random() < 0.45) state.socialQueue = [randomSocial()];
@@ -904,11 +967,18 @@ function endSeason() {
   const avgRating = averageRating();
   const titleChance = clamp((overall() + state.coach + completed * 10) / 260, 0.05, 0.72);
   const wonTitle = Math.random() < titleChance;
+  const wonCups = (state.competitions || []).filter(() => Math.random() < titleChance * 0.38);
   if (wonTitle) {
     state.seasonStats.titles += 1;
     state.careerStats.titles += 1;
     state.trophies.push(`${state.league} T${state.season}`);
   }
+  wonCups.forEach((competition) => {
+    state.seasonStats.titles += 1;
+    state.careerStats.titles += 1;
+    state.trophies.push(`${competition} T${state.season}`);
+  });
+  const titleNote = [wonTitle ? state.league : "", ...wonCups].filter(Boolean).join(", ");
   state.history.push({
     season: state.season,
     club: state.club,
@@ -916,11 +986,11 @@ function endSeason() {
     goals: state.seasonStats.goals,
     assists: state.seasonStats.assists,
     avgRating,
-    note: `${completed}/${total} objetivos${wonTitle ? ", campeon" : ""}`
+    note: `${completed}/${total} objetivos${titleNote ? `, campeon de ${titleNote}` : ""}`
   });
-  state.money += completed * 35 + (wonTitle ? 120 : 0);
-  state.reputation = clamp(state.reputation + completed * 3 + (wonTitle ? 8 : 0), 0, 100);
-  state.popularity = clamp(state.popularity + completed * 2 + (wonTitle ? 10 : 0), 0, 100);
+  state.money += completed * 35 + (wonTitle ? 120 : 0) + wonCups.length * 160;
+  state.reputation = clamp(state.reputation + completed * 3 + (wonTitle ? 8 : 0) + wonCups.length * 10, 0, 100);
+  state.popularity = clamp(state.popularity + completed * 2 + (wonTitle ? 10 : 0) + wonCups.length * 12, 0, 100);
   state.profile.age += 1;
   state.season += 1;
   state.week = 1;
@@ -929,7 +999,7 @@ function endSeason() {
   state.objectives = createObjectives(state.profile.position);
   state.offers = [];
   if (state.contractYears <= 0) generateOffers(true);
-  addNews(`Fin de temporada: ${completed}/${total} objetivos cumplidos${wonTitle ? " y titulo ganado" : ""}.`);
+  addNews(`Fin de temporada: ${completed}/${total} objetivos cumplidos${titleNote ? ` y titulo ganado: ${titleNote}` : ""}.`);
 }
 
 function generateOffers(force = false) {
@@ -953,10 +1023,14 @@ function acceptOffer(index) {
   if (!offer) return;
   state.club = offer.club;
   state.league = offer.league;
+  state.competitions = competitionsForClub(offer.club);
   state.salary = offer.salary;
   state.contractYears = offer.years;
   state.money += offer.bonus;
   state.coach = clamp(38 + state.reputation / 3, 0, 100);
+  const fixture = nextFixture(state.club);
+  state.nextOpponent = fixture.opponent;
+  state.nextCompetition = fixture.competition;
   state.offers = [];
   addNews(`Fichaste por ${offer.club}. Nuevo salario: ${moneyText(offer.salary)} por semana.`);
   render();

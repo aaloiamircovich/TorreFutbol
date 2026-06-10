@@ -47981,5 +47981,38202 @@ const careerLeagueDatabase = [
         ]
       }
     ]
+  },
+  {
+    "id": "championship",
+    "name": "Championship",
+    "country": "Inglaterra",
+    "level": 2,
+    "teams": [
+      {
+        "name": "Ipswich Town",
+        "transfermarkt": "https://www.transfermarkt.com/ipswich-town/kader/verein/677/saison_id/2025",
+        "rep": 89,
+        "salary": 64,
+        "players": [
+          {
+            "name": "Christian Walton",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Alex Palmer",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Cieran Slicker",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "David Button",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Dara O'Shea",
+            "pos": "DFC",
+            "rating": 84,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Jacob Greaves",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "England"
+          },
+          {
+            "name": "Cédric Kipré",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Elkan Baggott",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Indonesia"
+          },
+          {
+            "name": "Leif Davis",
+            "pos": "LI",
+            "rating": 86,
+            "nat": "England"
+          },
+          {
+            "name": "Conor Townsend",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Johnson",
+            "pos": "LD",
+            "rating": 78,
+            "nat": "England"
+          },
+          {
+            "name": "Darnell Furlong",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Ashley Young",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Azor Matusiwa",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Jens Cajuste",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Marcelino Núñez",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Chile"
+          },
+          {
+            "name": "Dan Neil",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Jack Taylor",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Cameron Humphreys",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Kasey McAteer",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Wes Burns",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Wales"
+          },
+          {
+            "name": "Anis Mehmeti",
+            "pos": "MC",
+            "rating": 84,
+            "nat": "Albania"
+          },
+          {
+            "name": "Jaden Philogene",
+            "pos": "EI",
+            "rating": 86,
+            "nat": "England"
+          },
+          {
+            "name": "Jack Clarke",
+            "pos": "EI",
+            "rating": 86,
+            "nat": "England"
+          },
+          {
+            "name": "Sindre Walle Egeli",
+            "pos": "ED",
+            "rating": 84,
+            "nat": "Norway"
+          },
+          {
+            "name": "Chiedozie Ogbene",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Ireland"
+          },
+          {
+            "name": "George Hirst",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Iván Azón",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Spain"
+          },
+          {
+            "name": "Chuba Akpom",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Coventry City",
+        "transfermarkt": "https://www.transfermarkt.com/coventry-city/kader/verein/990/saison_id/2025",
+        "rep": 88,
+        "salary": 63,
+        "players": [
+          {
+            "name": "Oliver Dovin",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Brad Collins",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Wilson",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Bobby Thomas",
+            "pos": "DFC",
+            "rating": 84,
+            "nat": "England"
+          },
+          {
+            "name": "Liam Kitching",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "England"
+          },
+          {
+            "name": "Joel Latibeaudiere",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Luke Woolfenden",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Jay Dasilva",
+            "pos": "LI",
+            "rating": 81,
+            "nat": "Wales"
+          },
+          {
+            "name": "Miguel Ángel Brau",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Spain"
+          },
+          {
+            "name": "Jake Bidwell",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Milan van Ewijk",
+            "pos": "LD",
+            "rating": 86,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Kaine Kesler-Hayden",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "England"
+          },
+          {
+            "name": "Matt Grimes",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Victor Torp",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Josh Eccles",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Kai Andrews",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Wales"
+          },
+          {
+            "name": "Jamie Allen",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Ephron Mason-Clark",
+            "pos": "MC",
+            "rating": 84,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Jack Rudoni",
+            "pos": "MC",
+            "rating": 86,
+            "nat": "England"
+          },
+          {
+            "name": "Raphael Borges Rodrigues",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Tatsuhiro Sakamoto",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Japan"
+          },
+          {
+            "name": "Jahnoah Markelo",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Min-hyeok Yang",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Haji Wright",
+            "pos": "DC",
+            "rating": 84,
+            "nat": "United States"
+          },
+          {
+            "name": "Brandon Thomas-Asante",
+            "pos": "DC",
+            "rating": 84,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Ellis Simms",
+            "pos": "DC",
+            "rating": 83,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Southampton FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-southampton/kader/verein/180/saison_id/2025",
+        "rep": 87,
+        "salary": 63,
+        "players": [
+          {
+            "name": "Gavin Bazunu",
+            "pos": "POR",
+            "rating": 80,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Daniel Peretz",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Israel"
+          },
+          {
+            "name": "Alex McCarthy",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "George Long",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Jamie Jones",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Taylor Harwood-Bellis",
+            "pos": "DFC",
+            "rating": 86,
+            "nat": "England"
+          },
+          {
+            "name": "Nathan Wood",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Joshua Quarshie",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Germany"
+          },
+          {
+            "name": "Joachim Kayi Sanda",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "Jack Stephens",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Welington",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ryan Manning",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Elias Jelert",
+            "pos": "LD",
+            "rating": 77,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Roerslev",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "James Bree",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Shea Charles",
+            "pos": "MC",
+            "rating": 84,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Flynn Downes",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Oriol Romeu",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Caspar Jander",
+            "pos": "MC",
+            "rating": 85,
+            "nat": "Germany"
+          },
+          {
+            "name": "Cameron Bragg",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Joe Aribo",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Tom Fellows",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "England"
+          },
+          {
+            "name": "Finn Azaz",
+            "pos": "MC",
+            "rating": 86,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Léo Scienza",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Kuryu Matsuki",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Japan"
+          },
+          {
+            "name": "Jay Robinson",
+            "pos": "EI",
+            "rating": 80,
+            "nat": "England"
+          },
+          {
+            "name": "Samuel Edozie",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Cameron Archer",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Brereton Díaz",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cyle Larin",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Canada"
+          },
+          {
+            "name": "Ross Stewart",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Middlesbrough FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-middlesbrough/kader/verein/641/saison_id/2025",
+        "rep": 86,
+        "salary": 62,
+        "players": [
+          {
+            "name": "Sol Brynn",
+            "pos": "POR",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Seny Dieng",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Jon McLaughlin",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Adilson Malanda",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "France"
+          },
+          {
+            "name": "Alfie Jones",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Canada"
+          },
+          {
+            "name": "Dael Fry",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "George Edmundson",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Darragh Lenihan",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Neto Borges",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Alex Bangura",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Sierra Leone"
+          },
+          {
+            "name": "Finley Munroe",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Callum Brittain",
+            "pos": "LD",
+            "rating": 79,
+            "nat": "England"
+          },
+          {
+            "name": "Luke Ayling",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Hayden Hackney",
+            "pos": "MC",
+            "rating": 89,
+            "nat": "England"
+          },
+          {
+            "name": "Dan Barlaser",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Aidan Morris",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "United States"
+          },
+          {
+            "name": "Riley McGree",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Australia"
+          },
+          {
+            "name": "Alan Browne",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Law McCabe",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Leo Castledine",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Alex Gilbert",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Jeremy Sarmiento",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Micah Hamilton",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Sam Silvera",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Australia"
+          },
+          {
+            "name": "Morgan Whittaker",
+            "pos": "ED",
+            "rating": 85,
+            "nat": "England"
+          },
+          {
+            "name": "Sontje Hansen",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Tommy Conway",
+            "pos": "DC",
+            "rating": 83,
+            "nat": "Scotland"
+          },
+          {
+            "name": "David Strelec",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Kaly Sène",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Marcus Forss",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Finland"
+          }
+        ]
+      },
+      {
+        "name": "Sheffield United",
+        "transfermarkt": "https://www.transfermarkt.com/sheffield-united/kader/verein/350/saison_id/2025",
+        "rep": 84,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Michael Cooper",
+            "pos": "POR",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Adam Davies",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Wales"
+          },
+          {
+            "name": "Luke Faxon",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Mark McGuinness",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Japhet Tanganga",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "England"
+          },
+          {
+            "name": "Tyler Bindon",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Leo Hjelde",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Ben Mee",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Harrison Burrows",
+            "pos": "LI",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Sam McCallum",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Femi Seriki",
+            "pos": "LD",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Jamie Shackleton",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Mihail Polendakov",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Sam Curtis",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Djibril Soumaré",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Jaïro Riedewald",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Gustavo Hamer",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Sydie Peck",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "England"
+          },
+          {
+            "name": "Andre Brooks",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Tom Davies",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Oliver Arblaster",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Alex Matos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Rothwell",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Callum O'Hare",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Tahith Chong",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Louie Marsh",
+            "pos": "MCO",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Tom Cannon",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Tyrese Campbell",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "England"
+          },
+          {
+            "name": "Danny Ings",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Patrick Bamford",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ryan Oné",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Leicester City",
+        "transfermarkt": "https://www.transfermarkt.com/leicester-city/kader/verein/1003/saison_id/2025",
+        "rep": 85,
+        "salary": 61,
+        "players": [
+          {
+            "name": "Jakub Stolarczyk",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Poland"
+          },
+          {
+            "name": "Fran Vieites",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Spain"
+          },
+          {
+            "name": "Asmir Begovic",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Caleb Okoli",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "Italy"
+          },
+          {
+            "name": "Harry Souttar",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Australia"
+          },
+          {
+            "name": "Ben Nelson",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Jannik Vestergaard",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jamaal Lascelles",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Victor Kristiansen",
+            "pos": "LI",
+            "rating": 81,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Luke Thomas",
+            "pos": "LI",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Ricardo Pereira",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Olabade Aluko",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Hamza Choudhury",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Bangladesh"
+          },
+          {
+            "name": "Oliver Skipp",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Harry Winks",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Jordan James",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Wales"
+          },
+          {
+            "name": "Louis Page",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Michael Golding",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Bobby De Cordova-Reid",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Will Alves",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Jeremy Monga",
+            "pos": "EI",
+            "rating": 84,
+            "nat": "England"
+          },
+          {
+            "name": "Stephy Mavididi",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Abdul Fatawu",
+            "pos": "ED",
+            "rating": 86,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Silko Thomas",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Wanya Marçal",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Patson Daka",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Zambia"
+          },
+          {
+            "name": "Jordan Ayew",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Ghana"
+          }
+        ]
+      },
+      {
+        "name": "Norwich City",
+        "transfermarkt": "https://www.transfermarkt.com/norwich-city/kader/verein/1123/saison_id/2025",
+        "rep": 82,
+        "salary": 59,
+        "players": [
+          {
+            "name": "Vladan Kovacevic",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Daniel Grimshaw",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Vicente Reyes",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Daniel Barden",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Wales"
+          },
+          {
+            "name": "Louie Moulden",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "José Córdoba",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Panama"
+          },
+          {
+            "name": "Harry Darling",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Ruairi McConville",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Jakov Medic",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Shane Duffy",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Harry Amass",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Chrisene",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Lucien Mahovo",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Kellen Fisher",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "England"
+          },
+          {
+            "name": "Jack Stacey",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Mirko Topić",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Jacob Wright",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "England"
+          },
+          {
+            "name": "Pelle Mattsson",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Anis Ben Slimane",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Amankwah Forson",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Liam Gibbs",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Paris Maghoma",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Kenny McLean",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Gabe Forsyth",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ali Ahmed",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Canada"
+          },
+          {
+            "name": "Jeffrey Schlupp",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Oscar Schwartau",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Emiliano Marcondes",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Papa Amadou Diallo",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Matěj Jurásek",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Tony Springett",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Jovon Makama",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "England"
+          },
+          {
+            "name": "Mohamed Touré",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Australia"
+          },
+          {
+            "name": "Mathias Kvistgaarden",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ante Crnac",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Errol Mundle-Smith",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Millwall FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-millwall/kader/verein/1028/saison_id/2025",
+        "rep": 84,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Anthony Patterson",
+            "pos": "POR",
+            "rating": 80,
+            "nat": "England"
+          },
+          {
+            "name": "Max Crocombe",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Lukas Jensen",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "George Evans",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Joel Coleman",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Tristan Crama",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "France"
+          },
+          {
+            "name": "Caleb Taylor",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Jake Cooper",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Wes Harding",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Kamarl Grant",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Zak Sturge",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Adam Mayor",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Bryan",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Danny McNamara",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Ryan Leonard",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Billy Mitchell",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "England"
+          },
+          {
+            "name": "Casper De Norre",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Will Smallbone",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Luke Cundle",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "England"
+          },
+          {
+            "name": "Derek Mazou-Sacko",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Daniel Kelly",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Massimo Luongo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Barry Bannan",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Femi Azeez",
+            "pos": "MC",
+            "rating": 84,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Alfie Doughty",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Thierno Ballo",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Austria"
+          },
+          {
+            "name": "Zak Lovelace",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Camiel Neghli",
+            "pos": "ED",
+            "rating": 78,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Ra'ees Bangura-Williams",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Benicio Baker",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Mihailo Ivanović",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Josh Coburn",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "England"
+          },
+          {
+            "name": "Macaulay Langstaff",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Ajay Matthews",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Hull City",
+        "transfermarkt": "https://www.transfermarkt.com/hull-city/kader/verein/3008/saison_id/2025",
+        "rep": 83,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Ivor Pandur",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Dillon Phillips",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Charlie Hughes",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Paddy McNair",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "John Egan",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Akin Famewo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Semi Ajayi",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Cathal McCarthy",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "James Debayo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ryan Giles",
+            "pos": "LI",
+            "rating": 83,
+            "nat": "England"
+          },
+          {
+            "name": "Matty Jacob",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Cody Drameh",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "England"
+          },
+          {
+            "name": "Lewie Coyle",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Regan Slater",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "England"
+          },
+          {
+            "name": "Toby Collyer",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Amir Hadziahmetovic",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "John Lundstram",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Darko Gyabi",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Eliot Matazo",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Matt Crooks",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Kieran Dowell",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Lewis Koumas",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Wales"
+          },
+          {
+            "name": "Liam Millar",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Canada"
+          },
+          {
+            "name": "Mohamed Belloumi",
+            "pos": "ED",
+            "rating": 78,
+            "nat": "Algeria"
+          },
+          {
+            "name": "David Akintola",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Yu Hirakawa",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Japan"
+          },
+          {
+            "name": "Joe Gelhardt",
+            "pos": "DC",
+            "rating": 83,
+            "nat": "England"
+          },
+          {
+            "name": "Kyle Joseph",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Oli McBurnie",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Watford FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-watford/kader/verein/1010/saison_id/2025",
+        "rep": 82,
+        "salary": 59,
+        "players": [
+          {
+            "name": "Egil Selvik",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Nathan Baxter",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Gabriel Ortelli",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Alfie Marriott",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Saba Goglichidze",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Kévin Keben",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "James Abankwah",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Mattie Pollock",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Stephen Mfuni",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Formose Mendy",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Marc Bola",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Jeremy Ngakia",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Jérémy Petris",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Martinique"
+          },
+          {
+            "name": "Pierre Ekwah",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Hector Kyprianou",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Nampalys Mendy",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Imrân Louza",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Edoardo Bove",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Italy"
+          },
+          {
+            "name": "Edo Kayembe",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Pierre Dwomoh",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Giorgi Chakvetadze",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Kwadwo Baah",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Germany"
+          },
+          {
+            "name": "Rocco Vata",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Othmane Maamma",
+            "pos": "ED",
+            "rating": 80,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Nestory Irankunda",
+            "pos": "ED",
+            "rating": 80,
+            "nat": "Australia"
+          },
+          {
+            "name": "Tom Ince",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Luca Kjerrumgaard",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mamadou Doumbia",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Mali"
+          },
+          {
+            "name": "Vivaldo Semedo",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Portugal"
+          }
+        ]
+      },
+      {
+        "name": "Swansea City",
+        "transfermarkt": "https://www.transfermarkt.com/swansea-city/kader/verein/2288/saison_id/2025",
+        "rep": 83,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Andy Fisher",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Lawrence Vigouroux",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Paul Farman",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Cabango",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "Wales"
+          },
+          {
+            "name": "Cameron Burgess",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Australia"
+          },
+          {
+            "name": "Ricardo Santos",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Josh Tymon",
+            "pos": "LI",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Josh Key",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Filip Lissah",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Sam Parker",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Wales"
+          },
+          {
+            "name": "Joel Ward",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Gonçalo Franco",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Marko Stamenić",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Ethan Galbraith",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Melker Widell",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Jay Fulton",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Liam Cullen",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Wales"
+          },
+          {
+            "name": "Leo Walta",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Finland"
+          },
+          {
+            "name": "Oliver Cooper",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Wales"
+          },
+          {
+            "name": "Ben Lloyd",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Wales"
+          },
+          {
+            "name": "Gustavo Nunes",
+            "pos": "EI",
+            "rating": 80,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Zeidane Inoussa",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Ji-sung Eom",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Ronald",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Florian Bianchini",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Zan Vipotnik",
+            "pos": "DC",
+            "rating": 86,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Adam Idah",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Ireland"
+          }
+        ]
+      },
+      {
+        "name": "Birmingham City",
+        "transfermarkt": "https://www.transfermarkt.com/birmingham-city/kader/verein/337/saison_id/2025",
+        "rep": 82,
+        "salary": 59,
+        "players": [
+          {
+            "name": "Ryan Allsop",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Bradley Mayo",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Christoph Klarer",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Austria"
+          },
+          {
+            "name": "Phil Neumann",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Germany"
+          },
+          {
+            "name": "Jonathan Panzo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Jack Robinson",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Alex Cochrane",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Kai Wagner",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Germany"
+          },
+          {
+            "name": "Lee Buchanan",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Bright Osayi-Samuel",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Ethan Laird",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Tomoki Iwata",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Japan"
+          },
+          {
+            "name": "Jhon Solís",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Marc Leonard",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Seung-ho Paik",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Kanya Fujimoto",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Japan"
+          },
+          {
+            "name": "Demarai Gray",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Carlos Vicente",
+            "pos": "ED",
+            "rating": 79,
+            "nat": "Spain"
+          },
+          {
+            "name": "Patrick Roberts",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Scott Wright",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jay Stansfield",
+            "pos": "DC",
+            "rating": 85,
+            "nat": "England"
+          },
+          {
+            "name": "August Priske",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Kyogo Furuhashi",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Japan"
+          },
+          {
+            "name": "Marvin Ducksch",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Germany"
+          }
+        ]
+      },
+      {
+        "name": "Stoke City",
+        "transfermarkt": "https://www.transfermarkt.com/stoke-city/kader/verein/512/saison_id/2025",
+        "rep": 83,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Viktor Johansson",
+            "pos": "POR",
+            "rating": 83,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Tommy Simkin",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Frank Fielding",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Wilmot",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "England"
+          },
+          {
+            "name": "Bosun Lawal",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Maksym Taloverov",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "Ben Gibson",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Eric-Junior Bocat",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Aaron Cresswell",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Junior Tchamadeu",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Sydney Agina",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Kenya"
+          },
+          {
+            "name": "Ben Pearson",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Steven Nzonzi",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Tomas Rigo",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Lewis Baker",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Tatsuki Seko",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Japan"
+          },
+          {
+            "name": "Jun-ho Bae",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Sorba Thomas",
+            "pos": "EI",
+            "rating": 83,
+            "nat": "Wales"
+          },
+          {
+            "name": "Million Manhoef",
+            "pos": "ED",
+            "rating": 79,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Lamine Cissé",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "France"
+          },
+          {
+            "name": "Ato Ampah",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Divin Mubama",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "England"
+          },
+          {
+            "name": "Róbert Boženík",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Milan Smit",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Sam Gallagher",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Emre Tezgel",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Nathan Lowe",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Wrexham AFC",
+        "transfermarkt": "https://www.transfermarkt.com/afc-wrexham/kader/verein/1112/saison_id/2025",
+        "rep": 83,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Arthur Okonkwo",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Danny Ward",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Wales"
+          },
+          {
+            "name": "Callum Burton",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Reuben Egan",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Callum Doyle",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "England"
+          },
+          {
+            "name": "Max Cleworth",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "England"
+          },
+          {
+            "name": "Zak Vyner",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Kenya"
+          },
+          {
+            "name": "Dominic Hyam",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Lewis Brunt",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Thomas O'Connor",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Dan Scarr",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Max Purvis",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Wales"
+          },
+          {
+            "name": "Liberato Cacace",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Issa Kaboré",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Ryan Barnett",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Aaron James",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Sheaf",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "England"
+          },
+          {
+            "name": "George Dobson",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Lewis O'Brien",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "England"
+          },
+          {
+            "name": "George Thomason",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Oliver Rathbone",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Matty James",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Alex Moore",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Tom Kelly",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Ryan Longman",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Josh Windass",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Nathan Broadhead",
+            "pos": "EI",
+            "rating": 79,
+            "nat": "Wales"
+          },
+          {
+            "name": "Callum Edwards",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Bailey Cadamarteri",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Kieffer Moore",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Wales"
+          },
+          {
+            "name": "Sam Smith",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Davis Keillor-Dunn",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Jay Rodríguez",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Bristol City",
+        "transfermarkt": "https://www.transfermarkt.com/bristol-city/kader/verein/698/saison_id/2025",
+        "rep": 82,
+        "salary": 59,
+        "players": [
+          {
+            "name": "Radek Vítek",
+            "pos": "POR",
+            "rating": 78,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Joe Lumley",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Lewis Thomas",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Wales"
+          },
+          {
+            "name": "Noah Eile",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Rob Atkinson",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Luke McNally",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Rob Dickie",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Jamie Knight-Lebel",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Canada"
+          },
+          {
+            "name": "Josh Campbell-Slowey",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Cameron Pring",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Elijah Morrison",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Seb Naylor",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ross McCrorie",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Scotland"
+          },
+          {
+            "name": "George Tanner",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Adam Randell",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "England"
+          },
+          {
+            "name": "Jason Knight",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Max Bird",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Williams",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Sam Morsy",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Egypt"
+          },
+          {
+            "name": "Adam Murphy",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Tomi Horvat",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Mark Sykes",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Scott Twine",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "England"
+          },
+          {
+            "name": "Josh Stokes",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Delano Burgzorg",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Sam Bell",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ephraim Yeboah",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Italy"
+          },
+          {
+            "name": "Emil Riis",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sinclair Armstrong",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Harry Cornick",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Queens Park Rangers",
+        "transfermarkt": "https://www.transfermarkt.com/queens-park-rangers/kader/verein/1039/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Joe Walsh",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Paul Nardi",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "Murphy Cooper",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Hamer",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Ronnie Edwards",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Amadou Mbengue",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Liam Morrison",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jake Clarke-Salter",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Steve Cook",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Esquerdinha",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Rhys Norrington-Davies",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Wales"
+          },
+          {
+            "name": "Ziyad Larkeche",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "France"
+          },
+          {
+            "name": "Jimmy Dunne",
+            "pos": "LD",
+            "rating": 77,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Kealey Adamson",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Sam Field",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Jonathan Varane",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Martinique"
+          },
+          {
+            "name": "Isaac Hayden",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Nicolas Madsen",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Kieran Morgan",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Harvey Vale",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Ilias Chair",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Karamoko Dembélé",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Koki Saito",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Japan"
+          },
+          {
+            "name": "Daniel Bennie",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Kwame Poku",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Paul Smyth",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Richard Kone",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Rumarn Burrell",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Rayan Kolli",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Alfie Lloyd",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Justin Obikwu",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Trinidad and Tobago"
+          }
+        ]
+      },
+      {
+        "name": "West Bromwich Albion",
+        "transfermarkt": "https://www.transfermarkt.com/west-bromwich-albion/kader/verein/984/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Max O'Leary",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Josh Griffiths",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Wildsmith",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Chris Mepham",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Wales"
+          },
+          {
+            "name": "Nat Phillips",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Krystian Bielik",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Poland"
+          },
+          {
+            "name": "George Campbell",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "United States"
+          },
+          {
+            "name": "Callum Styles",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Charlie Taylor",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Alfie Gilchrist",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Ousmane Diakité",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Mali"
+          },
+          {
+            "name": "Isaac Price",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Jayson Molumby",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Alex Mowatt",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Jamaldeen Jimoh-Aloba",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Ollie Bostock",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Wales"
+          },
+          {
+            "name": "Hindolo Mustapha",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Sierra Leone"
+          },
+          {
+            "name": "Mikey Johnston",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Jed Wallace",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Aune Heggebø",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Norway"
+          },
+          {
+            "name": "Josh Maja",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Karlan Grant",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Daryl Dike",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "United States"
+          },
+          {
+            "name": "Tammer Bany",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Jordan"
+          }
+        ]
+      },
+      {
+        "name": "Derby County",
+        "transfermarkt": "https://www.transfermarkt.com/derby-county/kader/verein/22/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Jacob Widell Zetterström",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Josh Vickers",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Richard O'Donnell",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Sondre Langås",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Norway"
+          },
+          {
+            "name": "Dion Sanderson",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Matt Clarke",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Jake Rooney",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Danny Batth",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Derry Murkin",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Callum Elder",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Craig Forsyth",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Max Johnston",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ryan Nyambe",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Namibia"
+          },
+          {
+            "name": "Lewis Travis",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Bobby Clark",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "England"
+          },
+          {
+            "name": "Oscar Fraulo",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Liam Thompson",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Osborn",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Owen Eames",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Ward",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Sammie Szmodics",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Corey Blackett-Taylor",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Patrick Agyemang",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "United States"
+          },
+          {
+            "name": "Carlton Morris",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Rhian Brewster",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Lars-Jørgen Salvesen",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Norway"
+          },
+          {
+            "name": "Dajaune Brown",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Jamaica"
+          }
+        ]
+      },
+      {
+        "name": "Preston North End",
+        "transfermarkt": "https://www.transfermarkt.com/preston-north-end/kader/verein/466/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Daniel Iversen",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jack Walton",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "David Cornell",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Wales"
+          },
+          {
+            "name": "James Pradic",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Wales"
+          },
+          {
+            "name": "Jordan Storey",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Lewis Gibson",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Odeluga Offiah",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Liam Lindsay",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Andrew Hughes",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Wales"
+          },
+          {
+            "name": "Thierry Small",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "England"
+          },
+          {
+            "name": "Jamal Lewis",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Andrija Vukcevic",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Kacper Pasiek",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Poland"
+          },
+          {
+            "name": "Pol Valentín",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Spain"
+          },
+          {
+            "name": "Brad Potts",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Noah Mawene",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Ali McCann",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Ben Whiteman",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Jordan Thompson",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Kaedyn Kamara",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Robbie Brady",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Alfie Devine",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "England"
+          },
+          {
+            "name": "Andrew Moran",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Kitt Nelson",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Theo Carroll",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Callum Lang",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Daniel Jebbison",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Canada"
+          },
+          {
+            "name": "Milos Lukovic",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Milutin Osmajic",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Will Keane",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Michael Smith",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Blackburn Rovers",
+        "transfermarkt": "https://www.transfermarkt.com/blackburn-rovers/kader/verein/164/saison_id/2025",
+        "rep": 78,
+        "salary": 56,
+        "players": [
+          {
+            "name": "Aynsley Pears",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Balázs Tóth",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Hayden Carter",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Scott Wharton",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Tom Atcheson",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "George Pratt",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Sean McLoughlin",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Connor O'Riordan",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Harry Pickering",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Yuri Ribeiro",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Ryan Alebiosu",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Lewis Miller",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Australia"
+          },
+          {
+            "name": "Taylor Gardner-Hickman",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Sidnei Tavares",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Jake Garrett",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Moussa Baradji",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Sondre Tronstad",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Axel Henriksson",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Kristi Montgomery",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Adam Forshaw",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Dion De Neve",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Todd Cantwell",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Ryoya Morishita",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Japan"
+          },
+          {
+            "name": "Mathias Jørgensen",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Oladapo Afolayan",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Ryan Hedges",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Wales"
+          },
+          {
+            "name": "Nathan Redmond",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Augustus Kargbo",
+            "pos": "MCO",
+            "rating": 70,
+            "nat": "Sierra Leone"
+          },
+          {
+            "name": "Andri Gudjohnsen",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Yuki Ohashi",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Japan"
+          }
+        ]
+      },
+      {
+        "name": "Portsmouth FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-portsmouth/kader/verein/1020/saison_id/2025",
+        "rep": 77,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Nicolas Schmid",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Josef Bursik",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ben Killip",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Jordan Archer",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Hayden Matthews",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Australia"
+          },
+          {
+            "name": "Regan Poole",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Wales"
+          },
+          {
+            "name": "Josh Knight",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Conor Shaughnessy",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Aji Alese",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Ibane Bowat",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Madiodio Dia",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Connor Ogilvie",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Jacob Farrell",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Terry Devlin",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Zak Swanson",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Jordan Williams",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Andre Dozzell",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Márk Kosznovszky",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Luke Le Roux",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "South Africa"
+          },
+          {
+            "name": "Ebou Adams",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Marlon Pack",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Reuben Swann",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "John Swift",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Harry Clout",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Josh Murphy",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Millenic Alli",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Gustavo Caballero",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Keshi Anderson",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Adrian Segečić",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Franco Umeh",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Harvey Blair",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Conor Chaplin",
+            "pos": "MCO",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Colby Bishop",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Jacob Brown",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Thomas Waddingham",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Makenzie Kirk",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Northern Ireland"
+          }
+        ]
+      },
+      {
+        "name": "Charlton Athletic",
+        "transfermarkt": "https://www.transfermarkt.com/charlton-athletic/kader/verein/358/saison_id/2025",
+        "rep": 77,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Thomas Kaminski",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Will Mannion",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Tiernan Brooks",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Lloyd Jones",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Conor Coady",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Reece Burke",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Alex Mitchell",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Amari'i Bell",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Collins Sichenje",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Kenya"
+          },
+          {
+            "name": "Macaulay Gillesphey",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Zach Mitchell",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Josh Edwards",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Harry Clarke",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Kayne Ramsay",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Rankin-Costello",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Nathan Asiimwe",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Uganda"
+          },
+          {
+            "name": "Conor Coventry",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Terry Taylor",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Wales"
+          },
+          {
+            "name": "Greg Docherty",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ibrahim Fullah",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Luke Berry",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Sonny Carey",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Harvey Knibbs",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Tyreece Campbell",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Rob Apter",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Kaheim Dixon",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Charlie Kelman",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "United States"
+          },
+          {
+            "name": "Miles Leaburn",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Lyndon Dykes",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Daniel Kanu",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Sierra Leone"
+          },
+          {
+            "name": "Tanto Olaofe",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Micah Mbick",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Matty Godden",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Oxford United",
+        "transfermarkt": "https://www.transfermarkt.com/oxford-united/kader/verein/988/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Jamie Cumming",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Matt Ingram",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Simon Eastwood",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Jacob Knightbridge",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ciaron Brown",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Michal Helik",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Poland"
+          },
+          {
+            "name": "Ben Davies",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Christ Makosso",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Congo"
+          },
+          {
+            "name": "Stuart Findlay",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Stephan Negru",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Moldova"
+          },
+          {
+            "name": "James Golding",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Jack Currie",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Ruben Roosken",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Greg Leigh",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Brodie Spencer",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Hidde ter Avest",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Peter Kioso",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Sam Long",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Brian De Keersmaecker",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Jamie McDonnell",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Will Vaulks",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Wales"
+          },
+          {
+            "name": "Cameron Brannagan",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Joshua Johnson",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Jamie Donley",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Myles Peart-Harris",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Przemyslaw Placheta",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Poland"
+          },
+          {
+            "name": "Aidomo Emakhu",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Siriki Dembélé",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tyler Goodrham",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Stanley Mills",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Jin-woo Jeon",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Owen Dale",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Nik Prelec",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Ole Romeny",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Indonesia"
+          },
+          {
+            "name": "Mark Harris",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Wales"
+          },
+          {
+            "name": "Will Goodwin",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Tom Bradshaw",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Wales"
+          },
+          {
+            "name": "Gatlin O'Donkor",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Sheffield Wednesday",
+        "transfermarkt": "https://www.transfermarkt.com/sheffield-wednesday/kader/verein/1035/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Pierce Charles",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Logan Stretch",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Wales"
+          },
+          {
+            "name": "Di'Shon Bernard",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Gabriel Otegbayo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Cole McGhee",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Dominic Iorfa",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Liam Cooper",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Max Lowe",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Reece Johnson",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Sean Fusire",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Zimbabwe"
+          },
+          {
+            "name": "Liam Palmer",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Guilherme Siqueira",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Marvelous Nakamba",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Zimbabwe"
+          },
+          {
+            "name": "Nathaniel Chalobah",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Jarvis Thornton",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Svante Ingelsson",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Rio Shipston",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Zain Silcott-Duberry",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Olaf Kobacki",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Poland"
+          },
+          {
+            "name": "Jerry Yates",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Iké Ugbo",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Canada"
+          },
+          {
+            "name": "Charlie McNeill",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Jamal Lowe",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Jamaica"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "belgian-pro-league",
+    "name": "Belgian Pro League",
+    "country": "Belgica",
+    "level": 2,
+    "teams": [
+      {
+        "name": "Club Brugge KV",
+        "transfermarkt": "https://www.transfermarkt.com/club-brugge-kv/kader/verein/2282",
+        "rep": 91,
+        "salary": 66,
+        "players": [
+          {
+            "name": "Nordin Jackers",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Simon Mignolet",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Dani van den Heuvel",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Axl De Corte",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Joel Ordóñez",
+            "pos": "DFC",
+            "rating": 89,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jorne Spileers",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Brandon Mechele",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Vince Osuji",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Joaquin Seys",
+            "pos": "LI",
+            "rating": 86,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Bjorn Meijer",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Kyriani Sabbe",
+            "pos": "LD",
+            "rating": 80,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Hugo Siquet",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Aleksandar Stanković",
+            "pos": "MC",
+            "rating": 89,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Raphael Onyedika",
+            "pos": "MC",
+            "rating": 87,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Lynnt Audoor",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Hugo Vetlesen",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Norway"
+          },
+          {
+            "name": "Ludovit Reis",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Alejandro Granados",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Félix Lemaréchal",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "France"
+          },
+          {
+            "name": "Hans Vanaken",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Cisse Sandra",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Christos Tzolis",
+            "pos": "EI",
+            "rating": 90,
+            "nat": "Greece"
+          },
+          {
+            "name": "Mamadou Diakhon",
+            "pos": "EI",
+            "rating": 79,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Shandre Campbell",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "South Africa"
+          },
+          {
+            "name": "Carlos Forbs",
+            "pos": "ED",
+            "rating": 86,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Nicolò Tresoldi",
+            "pos": "DC",
+            "rating": 87,
+            "nat": "Germany"
+          },
+          {
+            "name": "Romeo Vermant",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Gustaf Nilsson",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Sweden"
+          }
+        ]
+      },
+      {
+        "name": "RSC Anderlecht",
+        "transfermarkt": "https://www.transfermarkt.com/rsc-anderlecht/kader/verein/58",
+        "rep": 83,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Colin Coosemans",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Justin Heekeren",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Joachim Imbrechts",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Marco Kana",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Lucas Hey",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mihajlo Ilić",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Moussa Diarra",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Mali"
+          },
+          {
+            "name": "Mathys Angély",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Ludwig Augustinsson",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Ilay Camara",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Killian Sardella",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ali Maamar",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Thomas Foket",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Enric Llansana",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Mats Rits",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Nathan De Cat",
+            "pos": "MC",
+            "rating": 88,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Nathan-Dylan Saliba",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Canada"
+          },
+          {
+            "name": "Anas Tajaouart",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Mario Stroeykens",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Yari Verschaeren",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Thorgan Hazard",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Alexis Flips",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "César Huerta",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Coba da Costa",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "Ibrahim Kanaté",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Mali"
+          },
+          {
+            "name": "Tristan Degreef",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Mihajlo Cvetkovic",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Danylo Sikan",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "Adriano Bertaccini",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Elyèss Dao",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Morocco"
+          }
+        ]
+      },
+      {
+        "name": "KRC Genk",
+        "transfermarkt": "https://www.transfermarkt.com/krc-genk/kader/verein/1184/saison_id/2025",
+        "rep": 85,
+        "salary": 61,
+        "players": [
+          {
+            "name": "Lucca Brughmans",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Tobias Lawal",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Hendrik Van Crombrugge",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Emile Doucouré",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Brent Stevens",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Matte Smets",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Mujaid Sadick",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Spain"
+          },
+          {
+            "name": "Josué Kongolo",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Adrián Palacios",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yaimar Medina",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Joris Kayembe",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Zakaria El Ouahdi",
+            "pos": "LD",
+            "rating": 85,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Ken Nkuba",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ibrahima Sory Bangoura",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Nikolas Sattlberger",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Bryan Heynen",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Belgium"
+          },
+          {
+            "name": "August De Wannemacker",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Konstantinos Karetsas",
+            "pos": "MC",
+            "rating": 89,
+            "nat": "Greece"
+          },
+          {
+            "name": "Daan Heymans",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Noah Adedeji-Sternberg",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Yira Sor",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Ayumu Yokoyama",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Japan"
+          },
+          {
+            "name": "Jarne Steuckers",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Junya Ito",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Japan"
+          },
+          {
+            "name": "Robin Mirisola",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Aaron Bibout",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Jusef Erabi",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Sweden"
+          }
+        ]
+      },
+      {
+        "name": "Union Saint-Gilloise",
+        "transfermarkt": "https://www.transfermarkt.com/royale-union-saint-gilloise/kader/verein/3948/saison_id/2025",
+        "rep": 86,
+        "salary": 62,
+        "players": [
+          {
+            "name": "Kjell Scherpen",
+            "pos": "POR",
+            "rating": 80,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Vic Chambaere",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Giorgi Kavlashvili",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Jens Teunckens",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Kevin Mac Allister",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Ross Sykes",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Fedde Leysen",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Christian Burgess",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Mamadou Thierno Barry",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Massiré Sylla",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Louis Patris",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Guillaume François",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Adem Zorgane",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Kamiel Van De Perre",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Besfort Zeneli",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Rob Schoofs",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ivan Pavlic",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Anan Khalaili",
+            "pos": "MC",
+            "rating": 87,
+            "nat": "Israel"
+          },
+          {
+            "name": "Ousseynou Niang",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Anouar Ait El Hadj",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Guilherme Smith",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Promise David",
+            "pos": "DC",
+            "rating": 85,
+            "nat": "Canada"
+          },
+          {
+            "name": "Kevin Rodríguez",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Raul Florucz",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Austria"
+          },
+          {
+            "name": "Mohammed Fuseini",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Mateo Biondic",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Germany"
+          },
+          {
+            "name": "Marc Giger",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Switzerland"
+          }
+        ]
+      },
+      {
+        "name": "KAA Gent",
+        "transfermarkt": "https://www.transfermarkt.com/kaa-gent/kader/verein/157/saison_id/2025",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Davy Roef",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Kjell Peersman",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Tom Vandenberghe",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Bas Evers",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Maksim Paskotsi",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Estonia"
+          },
+          {
+            "name": "Siebe Van der Heyden",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Jean-Kévin Duverne",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Haiti"
+          },
+          {
+            "name": "Matties Volckaert",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Hatim Es-Saoubi",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Tiago Araújo",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Abdoul Ayinde",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Daiki Hashioka",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Japan"
+          },
+          {
+            "name": "Gilles De Meyer",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Mohammed El Âdfaoui",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Wout Asselman",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Mathias Delorge",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Tibe De Vlieger",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Atsuki Ito",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Japan"
+          },
+          {
+            "name": "Leonardo Lopes",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Matisse Samoise",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Hyun-seok Hong",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Abdelkahar Kadri",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Aimé Omgba",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Michal Skoras",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Poland"
+          },
+          {
+            "name": "Momodou Sonko",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Hyllarion Goore",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Wilfried Kanga",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Max Dean",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Ibrahima Cissé",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Moctar Diop",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Senegal"
+          }
+        ]
+      },
+      {
+        "name": "Standard Liège",
+        "transfermarkt": "https://www.transfermarkt.com/standard-luttich/kader/verein/3057/saison_id/2025",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Matthieu Epolo",
+            "pos": "POR",
+            "rating": 80,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Lucas Pirard",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Belmin Dizdarevic",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Matteo Godfroid",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ibe Hautekiet",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ibrahim Karamoko",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "France"
+          },
+          {
+            "name": "Josué Homawoo",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Togo"
+          },
+          {
+            "name": "David Bates",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Daan Dierckx",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Gustav Mortensen",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Alexandro Calut",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Souleyman Doumbia",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Boli Bolingoli",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Henry Lawrence",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Marlon Fossey",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "United States"
+          },
+          {
+            "name": "Steeven Assengue",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Marco Ilaimaharitra",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Madagascar"
+          },
+          {
+            "name": "Teddy Teuma",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Malta"
+          },
+          {
+            "name": "Nayel Mehssatou",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Casper Nielsen",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Léandre Kuavita",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Tobias Mohr",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Mohammed El Hankouri",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Rafiki Saïd",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Comoros"
+          },
+          {
+            "name": "Adnane Abid",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Dennis Eckert Ayensa",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Iran"
+          },
+          {
+            "name": "Timothé Nkada",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "René Mitongo",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Bernard Nguene",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Thomas Henry",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Grejohn Kyei",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "France"
+          }
+        ]
+      },
+      {
+        "name": "Sint-Truidense VV",
+        "transfermarkt": "https://www.transfermarkt.com/vv-st-truiden/kader/verein/475/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Leo Kokubo",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Japan"
+          },
+          {
+            "name": "Matt Lendfers",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Jo Coppens",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Loïc Mbe Soh",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Joedrick Pupe",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Visar Musliu",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Shogo Taniguchi",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Japan"
+          },
+          {
+            "name": "Wolke Janssens",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Hugo Lambotte",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Taiga Hata",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Japan"
+          },
+          {
+            "name": "Simen Juklerød",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Norway"
+          },
+          {
+            "name": "Robert-Jan Vanwesemael",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Rihito Yamamoto",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Japan"
+          },
+          {
+            "name": "Abdoulaye Sissako",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Alouis Diriken",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ryan Merlen",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Ryotaro Ito",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Japan"
+          },
+          {
+            "name": "Illyès Benachour",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Ilias Sebaoui",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Kaito Matsuzawa",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Japan"
+          },
+          {
+            "name": "Adam Nhaili",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Arbnor Muja",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Albania"
+          },
+          {
+            "name": "Isaías Delpupo",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Keisuke Goto",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Japan"
+          },
+          {
+            "name": "Oumar Diouf",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Shion Shinkawa",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Japan"
+          }
+        ]
+      },
+      {
+        "name": "Royal Antwerp FC",
+        "transfermarkt": "https://www.transfermarkt.com/royal-antwerpen-fc/kader/verein/1096/saison_id/2025",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Taishi Brandon Nozawa",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Japan"
+          },
+          {
+            "name": "Yannick Thoelen",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Niels Devalckeneer",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Zeno Van Den Bosch",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Rein Van Helden",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Yuto Tsunashima",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Japan"
+          },
+          {
+            "name": "Kiki Kouyaté",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Mali"
+          },
+          {
+            "name": "Andreas Verstraeten",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Björn Engels",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Daam Foulon",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Eran Tuypens",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Semm Renders",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Kobe Corbanie",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Glenn Bijl",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Mauricio Benítez",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jules Ahoka",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Xander Dierckx",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Dennis Praet",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Youssef Hamdaoui",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Mahamadou Diawara",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Thibo Somers",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Christopher Scott",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Germany"
+          },
+          {
+            "name": "Farouck Adekami",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Isaac Babadi",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Marwan Al-Sahafi",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Saudi Arabia"
+          },
+          {
+            "name": "Gyrano Kerk",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Anthony Valencia",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Mukhammadali Urinboev",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Uzbekistan"
+          },
+          {
+            "name": "Geoffry Hairemans",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Vincent Janssen",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Gerard Vandeplas",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Gabriel Jesus David",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Nigeria"
+          }
+        ]
+      },
+      {
+        "name": "KVC Westerlo",
+        "transfermarkt": "https://www.transfermarkt.com/kvc-westerlo/kader/verein/968/saison_id/2025",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Andreas Jungdal",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Koen Van Langendonck",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Oskar Annell",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Emin Bayram",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Seiji Kimura",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Japan"
+          },
+          {
+            "name": "Amando Lapage",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Clinton Nsiala",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Michée Ndembi",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Bakary Haidara",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Roman Neustädter",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Russia"
+          },
+          {
+            "name": "Dylan Ourega",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Bryan Reynolds",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "United States"
+          },
+          {
+            "name": "Lucas Mbamba",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Doğucan Haspolat",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Arthur Piedfort",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Sergiy Sydorchuk",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "Thomas Van den Keybus",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Reda Laalaoui",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Raf Smekens",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Isa Sakamoto",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Japan"
+          },
+          {
+            "name": "Josimar Alcócer",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Costa Rica"
+          },
+          {
+            "name": "Naoufal Bohamdi-Kamoni",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Allahyar Sayyadmanesh",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Iran"
+          },
+          {
+            "name": "Shunsuke Saito",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Japan"
+          },
+          {
+            "name": "Nacho Ferri",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Spain"
+          },
+          {
+            "name": "Enis Destan",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Afonso Patrão",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Eliot Bujupi",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Fernand Goure",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Cote d'Ivoire"
+          }
+        ]
+      },
+      {
+        "name": "KV Mechelen",
+        "transfermarkt": "https://www.transfermarkt.com/kv-mechelen/kader/verein/354/saison_id/2025",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Nacho Miras",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Spain"
+          },
+          {
+            "name": "Ortwin De Wolf",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Tijn Van Ingelgom",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Axel Willockx",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Redouane Halhal",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Morocco"
+          },
+          {
+            "name": "José Marsà",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Spain"
+          },
+          {
+            "name": "Tommy St. Jago",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Gora Diouf",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Ian Struyf",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Lovro Golic",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Moncef Zekri",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Thérence Koudou",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "France"
+          },
+          {
+            "name": "Fredrik Hammar",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Mory Konaté",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Massimo Decoene",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Dikeni Salifou",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Amine Ouahabi",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Mathis Servais",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Kerim Mrabti",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Bilal Bafdili",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Maksim Kireev",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Belarus"
+          },
+          {
+            "name": "Myron van Brederode",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Hassane Bandé",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Bill Antonio",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Zimbabwe"
+          },
+          {
+            "name": "Halil Özdemir",
+            "pos": "MCO",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Bouke Boersma",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Keano Vanrafelghem",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Benito Raman",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Mauro Lenaerts",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Belgium"
+          }
+        ]
+      },
+      {
+        "name": "Cercle Brugge",
+        "transfermarkt": "https://www.transfermarkt.com/cercle-brugge/kader/verein/520/saison_id/2025",
+        "rep": 79,
+        "salary": 57,
+        "players": [
+          {
+            "name": "Warleson",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Maxime Delanghe",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Bas Langenbick",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Geoffrey Kondo",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "France"
+          },
+          {
+            "name": "Christiaan Ravych",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Emmanuel Kakou",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Royer Caicedo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Nazinho",
+            "pos": "LI",
+            "rating": 78,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Valy Konaté",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Gary Magnée",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ibrahim Diakité",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Ibrahima Diaby",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Hannes Van Der Bruggen",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Edan Diop",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "France"
+          },
+          {
+            "name": "Lawrence Agyekum",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Nils De Wilde",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Erick Nunes",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Oluwaseun Adewumi",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Pieter Gerkens",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Heriberto Jurado",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Charles Herrmann",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Krys Kouassi",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Steve Ngoura",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "France"
+          },
+          {
+            "name": "Oumar Diakité",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Dante Vanzeir",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Abdoul Kader Ouattara",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Burkina Faso"
+          }
+        ]
+      },
+      {
+        "name": "Royal Charleroi SC",
+        "transfermarkt": "https://www.transfermarkt.com/rsc-charleroi/kader/verein/172/saison_id/2025",
+        "rep": 79,
+        "salary": 57,
+        "players": [
+          {
+            "name": "Mohamed Koné",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Martin Delavallée",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Théo Defourny",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Nicolas Closset",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Check Keita",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Mali"
+          },
+          {
+            "name": "Aiham Ousou",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Syria"
+          },
+          {
+            "name": "Mehdi Boukamir",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Massamba Sow",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Robin Denuit",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Mardochée Nzita",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Jules Gaudin",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Lewin Blum",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Kevin Van Den Kerkhof",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Étienne Camara",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "France"
+          },
+          {
+            "name": "Amine Boukamir",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Mory Kera",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Yassine Titraoui",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Yassine Khalifi",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Patrick Pflücke",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Germany"
+          },
+          {
+            "name": "Jakob Napoleon Romsaas",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Norway"
+          },
+          {
+            "name": "Parfait Guiagon",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Antoine Bernier",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Filip Szymczak",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Poland"
+          },
+          {
+            "name": "Isaac Mbenza",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Quentin Benaets",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Aurélien Scheidler",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Antoine Colassin",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Belgium"
+          }
+        ]
+      },
+      {
+        "name": "Oud-Heverlee Leuven",
+        "transfermarkt": "https://www.transfermarkt.com/oud-heverlee-leuven/kader/verein/2727/saison_id/2025",
+        "rep": 77,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Tobe Leysen",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Maxence Prévot",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Owen Jochmans",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Théo Radelet",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Roggerio Nyakossi",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ewoud Pletinckx",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Takuma Ominami",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Japan"
+          },
+          {
+            "name": "Noë Dussenne",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Viktor Damjanic",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Christ Souanga",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Takahiro Akimoto",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Japan"
+          },
+          {
+            "name": "Óscar Gil",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Spain"
+          },
+          {
+            "name": "Davis Opoku",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Thibault Vlietinck",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Lukasz Lakomy",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Poland"
+          },
+          {
+            "name": "Birger Verstraete",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Siebe Schrijvers",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Wouter George",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Bryang Kayo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "United States"
+          },
+          {
+            "name": "Youssef Maziz",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Mathieu Maertens",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "William Balikwisha",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Thibaud Verlinden",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Henok Teklab",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Chukwubuikem Ikwuemesi",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Abdoul Karim Traoré",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Sory Kaba",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Kyan Vaesen",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Belgium"
+          }
+        ]
+      },
+      {
+        "name": "Zulte Waregem",
+        "transfermarkt": "https://www.transfermarkt.com/sv-zulte-waregem/kader/verein/3508/saison_id/2025",
+        "rep": 77,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Brent Gabriël",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Louis Bostyn",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Arnaud Dobbels",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Jakob Kiilerich",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Laurent Lemoine",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Anton Tanghe",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Lukas Willen",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Benoit De Jaegere",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Kadir Seven",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mouhamadou Sall",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Emran Soglo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Yannick Cappelle",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Wilguens Paugain",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Haiti"
+          },
+          {
+            "name": "Benoît Nyssen",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Enrique Lofolomo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Ibrahim Diabaté",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Thomas Claes",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Dirk Asare",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Tristan Panduro",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Thibaud Sergeant",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Jeppe Erenbjerg",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Serxho Ujka",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Albania"
+          },
+          {
+            "name": "Joseph Opoku",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Marley Aké",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "France"
+          },
+          {
+            "name": "Stavros Gavriel",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Nikola Mituljikic",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Malick Mbaye",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Anosike Ementa",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Tobias Hedl",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jelle Vossen",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Siebe Van Keymolen",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Belgium"
+          }
+        ]
+      },
+      {
+        "name": "FCV Dender EH",
+        "transfermarkt": "https://www.transfermarkt.com/fcv-dender-eh/kader/verein/9010/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Gauthier Gallon",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "France"
+          },
+          {
+            "name": "Michael Verrips",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Guillaume Dietsch",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Louis Fortin",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Luc Marijnissen",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Luc De Fougerolles",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Canada"
+          },
+          {
+            "name": "Bo De Kerf",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Kobe Cools",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Benjamin Fredrick",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Bryan Goncalves",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Fabio Ferraro",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Nail Moutha-Sebtaoui",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Marsoni Sambu",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Angola"
+          },
+          {
+            "name": "Malcolm Viltard",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Nathan Rôdes",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Krzysztof Koton",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Poland"
+          },
+          {
+            "name": "Noah Mbamba",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Roman Kvet",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Desmond Acquah",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Amine Daali",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "David Hrncar",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Ragnar Oratmangoen",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Indonesia"
+          },
+          {
+            "name": "Alireza Jahanbakhsh",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Iran"
+          },
+          {
+            "name": "Mohamed Berte",
+            "pos": "MCO",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Bruny Nsimba",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "David Toshevski",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Jordan Kadiri",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Ryan Adewusi",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Belgium"
+          }
+        ]
+      },
+      {
+        "name": "RAAL La Louvière",
+        "transfermarkt": "https://www.transfermarkt.com/raal-la-louviere/kader/verein/3901/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Marcos Peano",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Célestin De Schrevel",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Lucas Monteiro",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Yllan Okou",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Djibril Lamego",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Maxence Maisonneuve",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "France"
+          },
+          {
+            "name": "Wagane Faye",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Matthis Riou",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Thierry Lutonda",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Nolan Gillot",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Darío Benavides",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Alexis Beka Beka",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Sami Lahssaini",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Samuel Gueulette",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Rwanda"
+          },
+          {
+            "name": "Majeed Ashimeru",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Jordi Liongola",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Burundi"
+          },
+          {
+            "name": "Joël Ito",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Owen Maës",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Bryan Soumaré",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Noah Makembo-Ntemo",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Pape Moussa Fall",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Jerry Afriyie",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Mouhamed Belkheir",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Nachon Nsingi",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Cristian Makaté",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Equatorial Guinea"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scottish-premiership",
+    "name": "Scottish Premiership",
+    "country": "Escocia",
+    "level": 2,
+    "teams": [
+      {
+        "name": "Celtic FC",
+        "transfermarkt": "https://www.transfermarkt.com/celtic-fc/kader/verein/371",
+        "rep": 86,
+        "salary": 62,
+        "players": [
+          {
+            "name": "Viljami Sinisalo",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Finland"
+          },
+          {
+            "name": "Ross Doohan",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Josh Clarke",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Kasper Schmeichel",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Cameron Carter-Vickers",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "United States"
+          },
+          {
+            "name": "Auston Trusty",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "United States"
+          },
+          {
+            "name": "Liam Scales",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Stephen Welsh",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Dane Murray",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Benjamin Arthur",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Kieran Tierney",
+            "pos": "LI",
+            "rating": 80,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Marcelo Saracchi",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Adam Montgomery",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Alistair Johnston",
+            "pos": "LD",
+            "rating": 80,
+            "nat": "Canada"
+          },
+          {
+            "name": "Julián Araujo",
+            "pos": "LD",
+            "rating": 80,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Colby Donovan",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Anthony Ralston",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Callum McGregor",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Arne Engels",
+            "pos": "MC",
+            "rating": 86,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Reo Hatate",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Japan"
+          },
+          {
+            "name": "Paulo Bernardo",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Luke McCowan",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Alex Oxlade-Chamberlain",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Joel Mvuka",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Benjamin Nygren",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Daizen Maeda",
+            "pos": "EI",
+            "rating": 83,
+            "nat": "Japan"
+          },
+          {
+            "name": "Jota",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Sebastian Tounekti",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Michel-Ange Balikwisha",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Hyun-jun Yang",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "James Forrest",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Junior Adamu",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Austria"
+          },
+          {
+            "name": "Kelechi Iheanacho",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Tomas Cvancara",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Callum Osmand",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          }
+        ]
+      },
+      {
+        "name": "Rangers FC",
+        "transfermarkt": "https://www.transfermarkt.com/glasgow-rangers/kader/verein/124/saison_id/2025",
+        "rep": 85,
+        "salary": 61,
+        "players": [
+          {
+            "name": "Jack Butland",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Liam Kelly",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Kieran Wright",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Emmanuel Fernandez",
+            "pos": "DFC",
+            "rating": 85,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "John Souttar",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Leon King",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tuur Rommens",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Max Aarons",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Dujon Sterling",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "James Tavernier",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Nicolas Raskin",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Tochi Chukwuani",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Connor Barron",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Bailey Rice",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Mohamed Diomandé",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Lyall Cameron",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Thelo Aasgaard",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Norway"
+          },
+          {
+            "name": "Nedim Bajrami",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Albania"
+          },
+          {
+            "name": "Mikey Moore",
+            "pos": "EI",
+            "rating": 85,
+            "nat": "England"
+          },
+          {
+            "name": "Djeidi Gassama",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Mauritania"
+          },
+          {
+            "name": "Findlay Curtis",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Andreas Skov Olsen",
+            "pos": "ED",
+            "rating": 78,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Oliver Antman",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Finland"
+          },
+          {
+            "name": "Youssef Chermiti",
+            "pos": "DC",
+            "rating": 84,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Ryan Naderi",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Germany"
+          },
+          {
+            "name": "Bojan Miovski",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "North Macedonia"
+          }
+        ]
+      },
+      {
+        "name": "Heart of Midlothian FC",
+        "transfermarkt": "https://www.transfermarkt.com/heart-of-midlothian-fc/kader/verein/43/saison_id/2025",
+        "rep": 78,
+        "salary": 56,
+        "players": [
+          {
+            "name": "Alexander Schwolow",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Zander Clark",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Harry Stone",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Craig Gordon",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ryan Fulton",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Michael Steinwender",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lewis Neilson",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Craig Halkett",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Frankie Kent",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Jamie McCart",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Harry Milne",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Stephen Kingsley",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jordi Altena",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Oisin McEntee",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Christian Borchgrevink",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Norway"
+          },
+          {
+            "name": "Adam Forrester",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Beni Baningime",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Calem Nieuwenhof",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Australia"
+          },
+          {
+            "name": "Cammy Devlin",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Australia"
+          },
+          {
+            "name": "Ageu",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Blair Spittal",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tómas Bent Magnússon",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Macaulay Tait",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Yan Dhanda",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Finlay Pollock",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Alexandros Kyziridis",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Greece"
+          },
+          {
+            "name": "Rogers Mato",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Uganda"
+          },
+          {
+            "name": "Alan Forrest",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Islam Chesnokov",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Sabah Kerjota",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Albania"
+          },
+          {
+            "name": "Cláudio Braga",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Lawrence Shankland",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Elton Kabangu",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Pierre Landry Kaboré",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Burkina Faso"
+          }
+        ]
+      },
+      {
+        "name": "Motherwell FC",
+        "transfermarkt": "https://www.transfermarkt.com/motherwell-fc/kader/verein/987/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Calum Ward",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Aston Oxborough",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Matty Connelly",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Kofi Balmer",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Liam Gordon",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jordan McGhee",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Emmanuel Longelo",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "England"
+          },
+          {
+            "name": "Ewan Wilson",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "John Koutroumbis",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Paul McGinn",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Stephen O'Donnell",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Elliot Watt",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Andy Halliday",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Callum Slattery",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "England"
+          },
+          {
+            "name": "Lukas Fadinger",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Oscar Priestman",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Australia"
+          },
+          {
+            "name": "Tom Sparrow",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Wales"
+          },
+          {
+            "name": "Olly Whyte",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Sam Nicholson",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Regan Charles-Cook",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Grenada"
+          },
+          {
+            "name": "Elijah Just",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Ibrahim Said",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Dylan Wells",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tawanda Maswanhise",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Zimbabwe"
+          },
+          {
+            "name": "Eythor Bjørgolfsson",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Norway"
+          },
+          {
+            "name": "Zach Robinson",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Callum Hendry",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Luca Ross",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Hibernian FC",
+        "transfermarkt": "https://www.transfermarkt.com/hibernian-fc/kader/verein/903/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Raphael Sallinger",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Murray Johnson",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jordan Smith",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Munashe Garananga",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Zimbabwe"
+          },
+          {
+            "name": "Rocky Bushiri",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Warren O'Hora",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Jack Iredale",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Australia"
+          },
+          {
+            "name": "Grant Hanley",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jordan Obita",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Uganda"
+          },
+          {
+            "name": "Felix Passlack",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Germany"
+          },
+          {
+            "name": "Chris Cadden",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Kanayo Megwa",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Miguel Chaiwa",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Zambia"
+          },
+          {
+            "name": "Josh Mulligan",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Alasana Manneh",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Joe Newell",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Jacob MacIntyre",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Nicky Cadden",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jamie McGrath",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Josh Campbell",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Rudi Molotnikov",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Élie Youan",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "Ante Suto",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Australia"
+          },
+          {
+            "name": "Owen Elding",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Martin Boyle",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Australia"
+          }
+        ]
+      },
+      {
+        "name": "Aberdeen FC",
+        "transfermarkt": "https://www.transfermarkt.com/aberdeen-fc/kader/verein/370/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Dimitar Mitov",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Per Kristian Bråtveit",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Norway"
+          },
+          {
+            "name": "Nick Suman",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Australia"
+          },
+          {
+            "name": "Jack Milne",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Kristers Tobers",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Latvia"
+          },
+          {
+            "name": "Mats Knoester",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Gavin Molloy",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Tom McIntyre",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Elvis Bwomono",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Uganda"
+          },
+          {
+            "name": "Mitchel Frame",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Emmanuel Gyamfi",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Germany"
+          },
+          {
+            "name": "Alexander Jensen",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Dylan Lobban",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Nicky Devlin",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ante Palaversa",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Afeez Aremu",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Kjartan Már Kjartansson",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Graeme Shinnie",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Dennis Geiger",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Findlay Marshall",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Stuart Armstrong",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ryan Duncan",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Topi Keskinen",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Finland"
+          },
+          {
+            "name": "Kenan Bilalovic",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Nicolas Milanovic",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Australia"
+          },
+          {
+            "name": "Kevin Nisbet",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Marko Lazetić",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Toyosi Olusanya",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Alfie Bavidge",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Dundee United FC",
+        "transfermarkt": "https://www.transfermarkt.com/dundee-united-fc/kader/verein/1519/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Ashley Maynard-Brewer",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Dave Richards",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Wales"
+          },
+          {
+            "name": "Ruairidh Adams",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ross Graham",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Iurie Iovu",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Moldova"
+          },
+          {
+            "name": "Bert Esselink",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Ryan Strain",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Dario Naamo",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Iraq"
+          },
+          {
+            "name": "Vicko Sevelj",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Craig Sibbald",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Julius Eskesen",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Panutche Camara",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "Emmanuel Agyei",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Lewis O'Donnell",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Will Ferry",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Neil Farrugia",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Ivan Dolcek",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Kristijan Trapanovski",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Miller Thomson",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Johnny Russell",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Zachary Sapsford",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Australia"
+          },
+          {
+            "name": "Max Watters",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Owen Stirton",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Kilmarnock FC",
+        "transfermarkt": "https://www.transfermarkt.com/kilmarnock-fc/kader/verein/2553/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Maksymilian Stryjek",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Poland"
+          },
+          {
+            "name": "Lewis Mayo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Robbie Deas",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "George Stanger",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Ethan Schilte-Brown",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Canada"
+          },
+          {
+            "name": "Dominic Thompson",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Michael Schjönning-Larsen",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Estonia"
+          },
+          {
+            "name": "Jamie Brandon",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "David Watson",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ben Brannan",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Brad Lyons",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Kyle Magennis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jack Thomson",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tom Lowery",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Aaron Tshibola",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Liam Polworth",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Greg Kiltie",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Scott Tiffoney",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Nicky Clescenco",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Moldova"
+          },
+          {
+            "name": "Matty Kennedy",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Rory McKenzie",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tyreece John-Jules",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Hugill",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Bruce Anderson",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Djenairo Daniels",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Marley Watkins",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Wales"
+          }
+        ]
+      },
+      {
+        "name": "Dundee FC",
+        "transfermarkt": "https://www.transfermarkt.com/dundee-fc/kader/verein/511/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Jon McCracken",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Kieran O'Hara",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Harry Sharp",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Trevor Carson",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Luke Graham",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ryan Astley",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Wales"
+          },
+          {
+            "name": "Billy Koumetio",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Aaron Donnelly",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Clark Robertson",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Lewis Montsma",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Imari Samuels",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Ethan Ingram",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Brad Halliday",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Paul Digby",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Finlay Robertson",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ethan Hamilton",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Callum Jones",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Wales"
+          },
+          {
+            "name": "Drey Wright",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Charlie Reilly",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tony Yogane",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Cameron Congreve",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Wales"
+          },
+          {
+            "name": "Emile Acquah",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Joe Westley",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Ashley Hay",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Simon Murray",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Joe Bevan",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "St. Mirren FC",
+        "transfermarkt": "https://www.transfermarkt.com/st-mirren-fc/kader/verein/465/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Shamal George",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Peter Urminsky",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Ryan Mullen",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Richard King",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Alex Gogic",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Miguel Freckleton",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Luke Kenny",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Scott Tanser",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Declan John",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Wales"
+          },
+          {
+            "name": "Jayden Richardson",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Marcus Fraser",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Callum Penman",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Keanu Baccus",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Australia"
+          },
+          {
+            "name": "Mark O'Hara",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Liam Donnelly",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Killian Phillips",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Allan Campbell",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Roland Idowu",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Billy Hutchinson",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Oisin Smyth",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Fraser Taylor",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Conor McMenamin",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Jalmaro Calvin",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Antigua and Barbuda"
+          },
+          {
+            "name": "Malik Dijksteel",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Jonah Ayunga",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Kenya"
+          },
+          {
+            "name": "Dan Nlundulu",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Jake Young",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Mikael Mandron",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "France"
+          },
+          {
+            "name": "James Scott",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Falkirk FC",
+        "transfermarkt": "https://www.transfermarkt.com/falkirk-fc/kader/verein/1191/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Nicky Hogarth",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jamie Sneddon",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Scott Bain",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Connor Allan",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Liam Henderson",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Coll Donaldson",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Tom Lang",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Leon McCann",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Sean Mackie",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Keelan Adams",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Brad Spencer",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Dylan Tait",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Calvin Miller",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ethan Ross",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Rhys Walker",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Finn Yeats",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Aidan Nesbitt",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Gary Oliver",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ben Broggio",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Alfie Agyeman",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Barney Stewart",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ross MacIver",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ben Parkinson",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Brian Graham",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Livingston FC",
+        "transfermarkt": "https://www.transfermarkt.com/livingston-fc/kader/verein/1241/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Jérôme Prior",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Jack Hamilton",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jamie Smith",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Danny Wilson",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Ryan McGowan",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Australia"
+          },
+          {
+            "name": "Brooklyn Kabongolo",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "France"
+          },
+          {
+            "name": "Mitchell Robertson",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Babacar Fati",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "Danny Finlayson",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Northern Ireland"
+          },
+          {
+            "name": "Cammy Kerr",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Mohamad Sylla",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "France"
+          },
+          {
+            "name": "Emmanuel Danso",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Aidan Denholm",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Scott Arfield",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Canada"
+          },
+          {
+            "name": "Lewis Latona",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Lewis Smith",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Cristian Montano",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Graham Carey",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Samson Lawal",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Scott Pittman",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Andrew Shinnie",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jannik Wanner",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Germany"
+          },
+          {
+            "name": "Barrie McKay",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Sam Culbert",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Joshua Zimmerman",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Liam Sole",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "England"
+          },
+          {
+            "name": "Connor McLennan",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Alex Tamm",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Estonia"
+          },
+          {
+            "name": "Joel Nouble",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Robbie Muirhead",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Andy Winter",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Stevie May",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Jeremy Bokila",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "DR Congo"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "super-lig",
+    "name": "Super Lig",
+    "country": "Turquia",
+    "level": 3,
+    "teams": [
+      {
+        "name": "Galatasaray",
+        "transfermarkt": "https://www.transfermarkt.com/galatasaray/kader/verein/141",
+        "rep": 94,
+        "salary": 102,
+        "players": [
+          {
+            "name": "Uğurcan Çakır",
+            "pos": "POR",
+            "rating": 85,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Batuhan Şen",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Günay Güvenç",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Enes Emre Büyük",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Wilfried Singo",
+            "pos": "DFC",
+            "rating": 88,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Davinson Sánchez",
+            "pos": "DFC",
+            "rating": 86,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Abdülkerim Bardakcı",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Arda Ünyay",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Metehan Baltacı",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ismail Jakobs",
+            "pos": "LI",
+            "rating": 82,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Eren Elmalı",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Roland Sallai",
+            "pos": "LD",
+            "rating": 85,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Sacha Boey",
+            "pos": "LD",
+            "rating": 83,
+            "nat": "France"
+          },
+          {
+            "name": "Lucas Torreira",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mario Lemina",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Gabon"
+          },
+          {
+            "name": "Kaan Ayhan",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Gabriel Sara",
+            "pos": "MC",
+            "rating": 89,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Renato Nhaga",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "İlkay Gündoğan",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Germany"
+          },
+          {
+            "name": "Gökdeniz Gürpüz",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Barış Alper Yılmaz",
+            "pos": "EI",
+            "rating": 90,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Noa Lang",
+            "pos": "EI",
+            "rating": 88,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Ahmed Kutucu",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Leroy Sané",
+            "pos": "ED",
+            "rating": 87,
+            "nat": "Germany"
+          },
+          {
+            "name": "Yunus Akgün",
+            "pos": "ED",
+            "rating": 86,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Yáser Asprilla",
+            "pos": "ED",
+            "rating": 85,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Armando Güner",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Victor Osimhen",
+            "pos": "DC",
+            "rating": 93,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Mauro Icardi",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "Fenerbahce",
+        "transfermarkt": "https://www.transfermarkt.com/fenerbahce-istanbul/kader/verein/36/saison_id/2025",
+        "rep": 92,
+        "salary": 99,
+        "players": [
+          {
+            "name": "Ederson",
+            "pos": "POR",
+            "rating": 83,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Tarık Çetin",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mert Günok",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Engin Can Biterge",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Jayden Oosterwolde",
+            "pos": "DFC",
+            "rating": 87,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Milan Škriniar",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Yiğit Efe Demir",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Çağlar Söyüncü",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kamil Efe Üregen",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Archie Brown",
+            "pos": "LI",
+            "rating": 84,
+            "nat": "England"
+          },
+          {
+            "name": "Levent Mercan",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mert Müldür",
+            "pos": "LD",
+            "rating": 81,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Nélson Semedo",
+            "pos": "LD",
+            "rating": 80,
+            "nat": "Portugal"
+          },
+          {
+            "name": "İsmail Yüksek",
+            "pos": "MC",
+            "rating": 85,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Edson Álvarez",
+            "pos": "MC",
+            "rating": 85,
+            "nat": "Mexico"
+          },
+          {
+            "name": "N'Golo Kanté",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "France"
+          },
+          {
+            "name": "Mattéo Guendouzi",
+            "pos": "MC",
+            "rating": 89,
+            "nat": "France"
+          },
+          {
+            "name": "Fred",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Abdou Aziz Fall",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Marco Asensio",
+            "pos": "MC",
+            "rating": 85,
+            "nat": "Spain"
+          },
+          {
+            "name": "Talisca",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Mert Hakan Yandaş",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kerem Aktürkoğlu",
+            "pos": "EI",
+            "rating": 87,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Anthony Musaba",
+            "pos": "EI",
+            "rating": 81,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Dorgeles Nene",
+            "pos": "ED",
+            "rating": 87,
+            "nat": "Mali"
+          },
+          {
+            "name": "Oğuz Aydın",
+            "pos": "ED",
+            "rating": 81,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Emre Mor",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Sidiki Chérif",
+            "pos": "DC",
+            "rating": 86,
+            "nat": "Guinea"
+          }
+        ]
+      },
+      {
+        "name": "Besiktas JK",
+        "transfermarkt": "https://www.transfermarkt.com/besiktas-istanbul/kader/verein/114/saison_id/2025",
+        "rep": 90,
+        "salary": 97,
+        "players": [
+          {
+            "name": "Ersin Destanoğlu",
+            "pos": "POR",
+            "rating": 78,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Devis Vásquez",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Emre Bilgin",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Emir Yaşar",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Emmanuel Agbadou",
+            "pos": "DFC",
+            "rating": 86,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Tiago Djaló",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Emirhan Topçu",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Yasin Özcan",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Felix Uduokhai",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Germany"
+          },
+          {
+            "name": "Rıdvan Yılmaz",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Amir Murillo",
+            "pos": "LD",
+            "rating": 81,
+            "nat": "Panama"
+          },
+          {
+            "name": "Taylan Bulut",
+            "pos": "LD",
+            "rating": 79,
+            "nat": "Germany"
+          },
+          {
+            "name": "Gökhan Sazdağı",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kristjan Asllani",
+            "pos": "MC",
+            "rating": 84,
+            "nat": "Albania"
+          },
+          {
+            "name": "Wilfred Ndidi",
+            "pos": "MC",
+            "rating": 82,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Kartal Yılmaz",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Necip Uysal",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Orkun Kökçü",
+            "pos": "MC",
+            "rating": 88,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Salih Uçan",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Junior Olaitan",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Benin"
+          },
+          {
+            "name": "El Bilal Touré",
+            "pos": "EI",
+            "rating": 84,
+            "nat": "Mali"
+          },
+          {
+            "name": "Jota Silva",
+            "pos": "EI",
+            "rating": 83,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Devrim Şahin",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Vaclav Cerny",
+            "pos": "ED",
+            "rating": 81,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Cengiz Ünder",
+            "pos": "ED",
+            "rating": 78,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Milot Rashica",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Hyeon-gyu Oh",
+            "pos": "DC",
+            "rating": 85,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Mustafa Hekimoğlu",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Trabzonspor",
+        "transfermarkt": "https://www.transfermarkt.com/trabzonspor/kader/verein/449/saison_id/2025",
+        "rep": 90,
+        "salary": 97,
+        "players": [
+          {
+            "name": "André Onana",
+            "pos": "POR",
+            "rating": 83,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Onuralp Çevikkan",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ahmet Yıldırım",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Erol Can Çolak",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Arseniy Batagov",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "Chibuike Nwaiwu",
+            "pos": "DFC",
+            "rating": 83,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Stefan Savic",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Arda Öztürk",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Taha Emre İnce",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mathias Løvik",
+            "pos": "LI",
+            "rating": 78,
+            "nat": "Norway"
+          },
+          {
+            "name": "Mustafa Eskihellaç",
+            "pos": "LI",
+            "rating": 78,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Wagner Pina",
+            "pos": "LD",
+            "rating": 83,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Salih Malkoçoğlu",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Okay Yokuşlu",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Christ Inao Oulaï",
+            "pos": "MC",
+            "rating": 88,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Tim Jabol-Folcarelli",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "France"
+          },
+          {
+            "name": "Benjamin Bouchouari",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Ozan Tufan",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Boran Başkan",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ernest Muci",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Albania"
+          },
+          {
+            "name": "Anthony Nwakaeme",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Oleksandr Zubkov",
+            "pos": "ED",
+            "rating": 80,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "Edin Visca",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Onuralp Çakıroğlu",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Felipe Augusto",
+            "pos": "DC",
+            "rating": 85,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Paul Onuachu",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Umut Nayir",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Basaksehir FK",
+        "transfermarkt": "https://www.transfermarkt.com/istanbul-basaksehir-fk/kader/verein/6890/saison_id/2025",
+        "rep": 85,
+        "salary": 92,
+        "players": [
+          {
+            "name": "Muhammed Şengezer",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Doğan Alemdar",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Volkan Babacan",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Luca Stancic",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Jerome Opoku",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Léo Duarte",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Hamza Güreler",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ousseynou Ba",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Christopher Operi",
+            "pos": "LI",
+            "rating": 78,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Kazımcan Karataş",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Festy Ebosele",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Onur Bulut",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ömer Ali Şahiner",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Berat Özdemir",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Jakub Kaluzinski",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Poland"
+          },
+          {
+            "name": "Onur Ergün",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Umut Güneş",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Olivier Kemen",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Miguel Crespo",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Amine Harit",
+            "pos": "EI",
+            "rating": 79,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Ivan Brnic",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Berkay Aslan",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Abbosbek Fayzullaev",
+            "pos": "ED",
+            "rating": 81,
+            "nat": "Uzbekistan"
+          },
+          {
+            "name": "Yusuf Sarı",
+            "pos": "ED",
+            "rating": 78,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Eldor Shomurodov",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Uzbekistan"
+          },
+          {
+            "name": "Bertuğ Yıldırım",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Davie Selke",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Germany"
+          },
+          {
+            "name": "Nuno Da Costa",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Cape Verde"
+          }
+        ]
+      },
+      {
+        "name": "Göztepe",
+        "transfermarkt": "https://www.transfermarkt.com/goztepe/kader/verein/1467/saison_id/2025",
+        "rep": 86,
+        "salary": 93,
+        "players": [
+          {
+            "name": "Mateusz Lis",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Poland"
+          },
+          {
+            "name": "Ekrem Kılıçarslan",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Şamil Öztürk",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Nevzat Üzel",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Malcom Bokele",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Taha Altıkardeş",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Héliton",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Furkan Bayır",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Allan Godói",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ege Yıldırım",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Uğur Kaan Yıldız",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Erkam Kömür",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Anthony Dennis",
+            "pos": "MC",
+            "rating": 82,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Novatus Miroshi",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Tanzania"
+          },
+          {
+            "name": "Musah Mohammed",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Furkan Malak",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Arda Okan Kurtulan",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ogün Bayrak",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Amin Cherni",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "İsmail Köybaşı",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Filip Krastev",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Alexis Antunes",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Efkan Bekiroğlu",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Juan",
+            "pos": "DC",
+            "rating": 84,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Janderson",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Guilherme Luiz",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Jeh",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Brazil"
+          }
+        ]
+      },
+      {
+        "name": "Samsunspor",
+        "transfermarkt": "https://www.transfermarkt.com/samsunspor/kader/verein/152/saison_id/2025",
+        "rep": 84,
+        "salary": 91,
+        "players": [
+          {
+            "name": "Okan Kocuk",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "İrfan Can Eğribayat",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Efe Yiğit Üstün",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Efe Berat Töruz",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Rick van Drongelen",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Toni Borevković",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Lubomir Satka",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Ali Badra Diabaté",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Yunus Emre Çift",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Bedirhan Çetin",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Logi Tómasson",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Soner Gönül",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Enes Albak",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Joe Mendes",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Zeki Yavru",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Antoine Makoumbou",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Congo"
+          },
+          {
+            "name": "Franck Atoen",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Eyüp Değirmenci",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Olivier Ntcham",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Yalçın Kayan",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Celil Yüksel",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Muhammet Özbaskıcı",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Alper Efe Pazar",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Carlo Holse",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Afonso Sousa",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Jaurès Assoumou",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Emre Kılınç",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Tahsin Bülbül",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Saikuba Jarju",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Elayis Tavsan",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Tanguy Coulibaly",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Marius Mouandilmadji",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Chad"
+          },
+          {
+            "name": "Cherif Ndiaye",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Ebrima Ceesay",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "The Gambia"
+          }
+        ]
+      },
+      {
+        "name": "Caykur Rizespor",
+        "transfermarkt": "https://www.transfermarkt.com/caykur-rizespor/kader/verein/126/saison_id/2025",
+        "rep": 82,
+        "salary": 89,
+        "players": [
+          {
+            "name": "Yahia Fofana",
+            "pos": "POR",
+            "rating": 79,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Erdem Canpolat",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Efe Doğan",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Attila Mocsi",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Modibo Sagnan",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Mali"
+          },
+          {
+            "name": "Khusniddin Alikulov",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Uzbekistan"
+          },
+          {
+            "name": "Samet Akaydin",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Emir Ortakaya",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Casper Højer",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Taha Şahin",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mithat Pala",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Furkan Orak",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Giannis Papanikolaou",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Greece"
+          },
+          {
+            "name": "Taylan Antalyalı",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Qazim Laci",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Albania"
+          },
+          {
+            "name": "Ibrahim Olawoyin",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Muhamed Buljubasic",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Valentin Mihăilă",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Romania"
+          },
+          {
+            "name": "Altin Zeqiri",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Emrecan Bulut",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Adedire Mebude",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Loide Augusto",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Angola"
+          },
+          {
+            "name": "Ali Sowe",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Frantzdy Pierrot",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Haiti"
+          },
+          {
+            "name": "Halil Dervişoğlu",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Konyaspor",
+        "transfermarkt": "https://www.transfermarkt.com/konyaspor/kader/verein/2293/saison_id/2025",
+        "rep": 82,
+        "salary": 89,
+        "players": [
+          {
+            "name": "Deniz Ertaş",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Bahadır Güngördü",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Egemen Aydın",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Adil Demirbağ",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Adamo Nagalo",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Uğurcan Yazğılı",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Riechedly Bazoer",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Rayyan Baniya",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Josip Calusic",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Arif Boşluk",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Guilherme",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Yasir Subaşı",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Yhoan Andzouana",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Congo"
+          },
+          {
+            "name": "Jin-ho Jo",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Marko Jevtovic",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Ufuk Akyol",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Berkan Kutlu",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Melih İbrahimoğlu",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Morten Bjørlo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Norway"
+          },
+          {
+            "name": "Esat Buğa",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Enis Bardhi",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Kazeem Olaigbe",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Diogo Gonçalves",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Sander Svendsen",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Tunahan Taşçı",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Deniz Türüç",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Marius Ștefănescu",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Romania"
+          },
+          {
+            "name": "Jackson Muleka",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Blaz Kramer",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Eren Yağmur",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Alanyaspor",
+        "transfermarkt": "https://www.transfermarkt.com/alanyaspor/kader/verein/11282/saison_id/2025",
+        "rep": 82,
+        "salary": 89,
+        "players": [
+          {
+            "name": "Ertuğrul Taşkıran",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Paulo Victor",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ümit Akdağ",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "Romania"
+          },
+          {
+            "name": "Nuno Lima",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Fatih Aksoy",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Fidan Aliti",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Bruno Viana",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Maestro",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Angola"
+          },
+          {
+            "name": "Gaius Makouta",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Congo"
+          },
+          {
+            "name": "Nicolas Janvier",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "İzzet Çelik",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Buluthan Bulut",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Florent Hadergjonaj",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Enes Keskin",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Batuhan Yavuz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ruan",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Baran Moğultay",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Yusuf Özdemir",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ianis Hagi",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Romania"
+          },
+          {
+            "name": "Meschack Elia",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "İbrahim Kaya",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ui-jo Hwang",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Efecan Karaca",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Yusuf Can Karademir",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Steve Mounié",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Benin"
+          },
+          {
+            "name": "Güven Yalçın",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Kasimpasa",
+        "transfermarkt": "https://www.transfermarkt.com/kasimpasa/kader/verein/10484/saison_id/2025",
+        "rep": 81,
+        "salary": 87,
+        "players": [
+          {
+            "name": "Andreas Gianniotis",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Ali Emre Yanar",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ege Albayrak",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Şant Kazancı",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Adem Arous",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Rodrigo Becão",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Nicholas Opoku",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Taylan Aydın",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Berkay Muratoğlu",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ahmet Taha Dağbaşı",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Godfried Frimpong",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Emre Taşdemir",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Cláudio Winck",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Kamil Ahmet Çörekçi",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Andri Fannar Baldursson",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Eyüp Aydın",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Burak Gültekin",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kerem Demirbay",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Germany"
+          },
+          {
+            "name": "Cafú",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Haris Hajradinovic",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Mortadha Ben Ouanes",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Ali Yavuz Kol",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Erdem Çetinkaya",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "İrfan Can Kahveci",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Jim Allevinah",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Gabon"
+          },
+          {
+            "name": "Fousseni Diabaté",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Mali"
+          },
+          {
+            "name": "Adrian Benedyczak",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Poland"
+          },
+          {
+            "name": "Pape Habib Guèye",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Yusuf Barası",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kubilay Kanatsızkuş",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Cenk Tosun",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Gaziantep FK",
+        "transfermarkt": "https://www.transfermarkt.com/gaziantep-fk/kader/verein/2832/saison_id/2025",
+        "rep": 81,
+        "salary": 87,
+        "players": [
+          {
+            "name": "Zafer Görgen",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Burak Bozan",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Cemilhan Aslan",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Tayyip Talha Sanuç",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Nihad Mujakic",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Arda Kızıldağ",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Myenty Abena",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Nazım Sangaré",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kévin Rodrigues",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Deian Sorescu",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Romania"
+          },
+          {
+            "name": "Luis Pérez",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Spain"
+          },
+          {
+            "name": "Salem M'Bakata",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "France"
+          },
+          {
+            "name": "Melih Kabasakal",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ogün Özçiçek",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Drissa Camara",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Karamba Gassama",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Kacper Kozlowski",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Poland"
+          },
+          {
+            "name": "Victor Ntino-Emo Gidado",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Alexandru Maxim",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Romania"
+          },
+          {
+            "name": "Yusuf Kabadayi",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Germany"
+          },
+          {
+            "name": "Christopher Lungoyi",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ali Osman Kalın",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ali Mevran Ablak",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mohamed Bayo",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Denis Drăguș",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Romania"
+          },
+          {
+            "name": "Muhammet Akmelek",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Genclerbirligi Ankara",
+        "transfermarkt": "https://www.transfermarkt.com/genclerbirligi-ankara/kader/verein/820/saison_id/2025",
+        "rep": 80,
+        "salary": 86,
+        "players": [
+          {
+            "name": "Ricardo Velho",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Erhan Erentürk",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ebrar Aydın",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Berk Deniz Çukurcu",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Dimitrios Goutas",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Thalisson",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Zan Zuzek",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Abdullah Şahindere",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Umut İslamoğlu",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Arda Çelik",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Abdurrahim Dursun",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Matej Hanousek",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Hamza Aydar",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Pedro Pereira",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Fıratcan Üzüm",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Emirhan Ünal",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Tom Dele-Bashiru",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Ousmane Diabate",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Moussa Kyabou",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Mali"
+          },
+          {
+            "name": "Peter Etebo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Franco Tongya",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Italy"
+          },
+          {
+            "name": "Oğulcan Ülgün",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Samed Onur",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ensar Kemaloğlu",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Göktan Gürpüz",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Dal Varesanovic",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Henry Onyekuru",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Metehan Mimaroğlu",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Cihan Çanak",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Adama Traoré",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Mali"
+          },
+          {
+            "name": "Sékou Koïta",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Mali"
+          },
+          {
+            "name": "M'Baye Niang",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Ayaz Özcan",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Kayserispor",
+        "transfermarkt": "https://www.transfermarkt.com/kayserispor/kader/verein/3205/saison_id/2025",
+        "rep": 80,
+        "salary": 86,
+        "players": [
+          {
+            "name": "Bilal Bayazıt",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Deniz Dönmezer",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Onurcan Piri",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Semih Güler",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Stefano Denswil",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Majid Hosseini",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Iran"
+          },
+          {
+            "name": "Jadel Katongo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Kayra Cihan",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Abdulsamet Burak",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Lionel Carole",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Joshua Brenet",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Ramazan Civelek",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Burak Kapacak",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Youssef Aït Bennasser",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Dorukhan Toköz",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "László Bénes",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Görkem Sağlam",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Furkan Soyalp",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Yiğit Emre Çeltik",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "João Mendes",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Eray Özbek",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Miguel Cardoso",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Sam Mather",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Nurettin Korkmaz",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Denis Makarov",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Russia"
+          },
+          {
+            "name": "Carlos Mané",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "Fedor Chalov",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Russia"
+          },
+          {
+            "name": "German Onugkha",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Russia"
+          },
+          {
+            "name": "Indrit Tuci",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Albania"
+          },
+          {
+            "name": "Talha Sarıarslan",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Kocaelispor",
+        "transfermarkt": "https://www.transfermarkt.com/kocaelispor/kader/verein/120/saison_id/2025",
+        "rep": 80,
+        "salary": 86,
+        "players": [
+          {
+            "name": "Serhat Öztaşdelen",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Aleksandar Jovanovic",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Gökhan Değirmenci",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Botond Balogh",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Hrvoje Smolcic",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Anfernee Dijksteel",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Deniz Ceylan",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Massadio Haïdara",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Mali"
+          },
+          {
+            "name": "Muharrem Cinan",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ahmet Oğuz",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Show",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Angola"
+          },
+          {
+            "name": "Mahamadou Susoho",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Spain"
+          },
+          {
+            "name": "Habib Keïta",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Mali"
+          },
+          {
+            "name": "Joseph Nonge",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Karol Linetty",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Poland"
+          },
+          {
+            "name": "Tayfur Bingöl",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Samet Yalçın",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Darko Churlinov",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Rigoberto Rivas",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Honduras"
+          },
+          {
+            "name": "Furkan Gedik",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Dan Agyei",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Can Keleş",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Austria"
+          },
+          {
+            "name": "Bruno Petkovic",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Serdar Dursun",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Arda Özyar",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Antalyaspor",
+        "transfermarkt": "https://www.transfermarkt.com/antalyaspor/kader/verein/589/saison_id/2025",
+        "rep": 79,
+        "salary": 85,
+        "players": [
+          {
+            "name": "Abdullah Yiğiter",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Julián Cuesta",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Kağan Arıcan",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Lautaro Giannetti",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Georgiy Dzhikiya",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Russia"
+          },
+          {
+            "name": "Hüseyin Türkmen",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Bahadır Öztürk",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Veysel Sarı",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ensar Buğra Tivsiz",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ege İzmirli",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kenneth Paal",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Samet Karakoç",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Bünyamin Balcı",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Erdoğan Yeşilyurt",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Jesper Ceesay",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Ramzi Safuri",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Israel"
+          },
+          {
+            "name": "Soner Dikmen",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Dario Saric",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Yakub İlçin",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Abdülkadir Ömür",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Nikola Storm",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Doğukan Sinik",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Berkay Topdemir",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Samuel Ballet",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Yohan Boli",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Sander van de Streek",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Bachir Gueye",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Kerem Kayaarası",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Türkiye"
+          }
+        ]
+      },
+      {
+        "name": "Eyüpspor",
+        "transfermarkt": "https://www.transfermarkt.com/eyupspor/kader/verein/7160/saison_id/2025",
+        "rep": 79,
+        "salary": 85,
+        "players": [
+          {
+            "name": "Marcos Felipe",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Jankat Yılmaz",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Umut Keseci",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Anıl Yaşar",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Jérôme Onguéné",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Bedirhan Özyurt",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Luccas Claro",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Gilbert Mendy",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Diabel Ndoye",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Berhan Kutlay Şatlı",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Umut Meraş",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Arda Yavuz",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Calegari",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Talha Ülvan",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Baran Gezek",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Taşkın İlter",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mateusz Legowski",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Poland"
+          },
+          {
+            "name": "Charles-André Raux-Yao",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "Emre Akbaba",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ismaila Manga",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Lenny Pintor",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Denis Radu",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Romania"
+          },
+          {
+            "name": "Dorin Rotariu",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Romania"
+          },
+          {
+            "name": "Christ Sadia",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Metehan Altunbaş",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Umut Bozok",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Abdou Khadre Sy",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Senegal"
+          }
+        ]
+      },
+      {
+        "name": "Fatih Karagümrük",
+        "transfermarkt": "https://www.transfermarkt.com/fatih-karagumruk/kader/verein/6646/saison_id/2025",
+        "rep": 79,
+        "salary": 85,
+        "players": [
+          {
+            "name": "Ivo Grbic",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Furkan Bekleviç",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Kerem Yandal",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Berke Can Evli",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Igor Lichnovsky",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Anıl Yiğit Çınar",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Davide Biraschi",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Italy"
+          },
+          {
+            "name": "Fatih Kurucuk",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Muhammed Kadıoğlu",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Burhan Ersoy",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Çağtay Kurukalıp",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Filip Mladenovic",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Ricardo Esgaio",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Bartuğ Elmaz",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Matías Kranevitter",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Yaya Onogo",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Berkay Özcan",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Daniel Johnson",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Jamaica"
+          },
+          {
+            "name": "Tuğbey Akgün",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Sam Larsson",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Barış Kalaycı",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Serginho",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ahmet Sivri",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Shavy Babicka",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Gabon"
+          },
+          {
+            "name": "Daniele Verde",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Italy"
+          },
+          {
+            "name": "Tarık Buğra Kalpaklı",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Ahmed Traore",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "João Camacho",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Tiago Çukur",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Moussa Kone",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Cote d'Ivoire"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "austrian-bundesliga",
+    "name": "Austrian Bundesliga",
+    "country": "Austria",
+    "level": 2,
+    "teams": [
+      {
+        "name": "LASK",
+        "transfermarkt": "https://www.transfermarkt.com/lask/kader/verein/413",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Lukas Jungwirth",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tobias Schützenauer",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Fabian Schillinger",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Modou Kéba Cissé",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Andrés Andrade",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Panama"
+          },
+          {
+            "name": "João Tornich",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Xavier Mbuyamba",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Cheikne Kébé",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Mali"
+          },
+          {
+            "name": "George Bello",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "United States"
+          },
+          {
+            "name": "Emmanuel Michael",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Kasper Jørgensen",
+            "pos": "LD",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Melayro Bogarde",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Art Smakaj",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Adetunji Rasaq Adeshina",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Sascha Horvath",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Ismaila Coulibaly",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Mali"
+          },
+          {
+            "name": "Mohamed Sanogo",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Mali"
+          },
+          {
+            "name": "Florian Flecker",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Krystof Danek",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Christoph Lang",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Kacavenda",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Armin Haider",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Moses Usor",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Sasa Kalajdzic",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Austria"
+          },
+          {
+            "name": "Samuel Adeniran",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "United States"
+          },
+          {
+            "name": "Maximilian Entrup",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          }
+        ]
+      },
+      {
+        "name": "Rapid Vienna",
+        "transfermarkt": "https://www.transfermarkt.com/rapid-vienna/kader/verein/170",
+        "rep": 79,
+        "salary": 57,
+        "players": [
+          {
+            "name": "Niklas Hedl",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Austria"
+          },
+          {
+            "name": "Paul Gartler",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Laurenz Orgler",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Benjamin Göschl",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Serge-Philippe Raux-Yao",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "France"
+          },
+          {
+            "name": "Ange Ahoussou",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Jakob Schöller",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nenad Cvetkovic",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Jean Marcelin",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Madagascar"
+          },
+          {
+            "name": "Amin-Elias Gröller",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Jannes Horn",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Germany"
+          },
+          {
+            "name": "Jonas Auer",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Bendegúz Bolla",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Furkan Demir",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Martin Ndzie",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Lukas Grgic",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tobias Børkeeiet",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Norway"
+          },
+          {
+            "name": "Romeo Amane",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Matthias Seidl",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Austria"
+          },
+          {
+            "name": "Louis Schaub",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tobias Gulliksen",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Norway"
+          },
+          {
+            "name": "Petter Nosa Dahl",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Norway"
+          },
+          {
+            "name": "Dominik Weixelbraun",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nikolaus Wurmbrand",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Austria"
+          },
+          {
+            "name": "Yusuf Demir",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Marco Tilio",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Daniel Nunoo",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Claudy Mbuyi",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "Janis Antiste",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Martinique"
+          },
+          {
+            "name": "Ercan Kara",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Andreas Weimann",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          }
+        ]
+      },
+      {
+        "name": "Red Bull Salzburg",
+        "transfermarkt": "https://www.transfermarkt.com/red-bull-salzburg/kader/verein/409/saison_id/2025",
+        "rep": 87,
+        "salary": 63,
+        "players": [
+          {
+            "name": "Alexander Schlager",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Christian Zawieschitzky",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Salko Hamzic",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Joane Gadou",
+            "pos": "DFC",
+            "rating": 86,
+            "nat": "France"
+          },
+          {
+            "name": "Jannik Schuster",
+            "pos": "DFC",
+            "rating": 85,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tim Drexler",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Germany"
+          },
+          {
+            "name": "John Mellberg",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Anrie Chase",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Japan"
+          },
+          {
+            "name": "Frans Krätzig",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Germany"
+          },
+          {
+            "name": "Aleksa Terzic",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Tim Trummer",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Austria"
+          },
+          {
+            "name": "Stefan Lainer",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Soumaïla Diabaté",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Mali"
+          },
+          {
+            "name": "Mamady Diambou",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Mali"
+          },
+          {
+            "name": "Takumu Kawamura",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Japan"
+          },
+          {
+            "name": "Mads Bidstrup",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Maurits Kjærgaard",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Oliver Lukic",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Valentin Sulzbacher",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Justin Omoregie",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Sota Kitano",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Japan"
+          },
+          {
+            "name": "Kerim Alajbegovic",
+            "pos": "EI",
+            "rating": 86,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Clement Bischoff",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Moussa Yeo",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Mali"
+          },
+          {
+            "name": "Damir Redzic",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Karim Konaté",
+            "pos": "DC",
+            "rating": 83,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Edmund Baidoo",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Yorbe Vertessen",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Enrique Aguilar",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Karim Onisiwo",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          }
+        ]
+      },
+      {
+        "name": "SK Sturm Graz",
+        "transfermarkt": "https://www.transfermarkt.com/sk-sturm-graz/kader/verein/122/saison_id/2025",
+        "rep": 79,
+        "salary": 57,
+        "players": [
+          {
+            "name": "Daniil Khudyakov",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Russia"
+          },
+          {
+            "name": "Matteo Bignetti",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Elias Lorenz",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jeyland Mitchell",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Costa Rica"
+          },
+          {
+            "name": "Dimitri Lavalée",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Paul Koller",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Austria"
+          },
+          {
+            "name": "Albert Vallci",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Emanuel Aiwu",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Niklas Geyrhofer",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Emir Karic",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Jusuf Gazibegovic",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Arjan Malic",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Jon Gorenc Stankovic",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Ryan Fosso",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Luca Weinhandl",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jacob Peter Hödl",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Austria"
+          },
+          {
+            "name": "Stefan Hierländer",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Otar Kiteishvili",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Filip Rózga",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Poland"
+          },
+          {
+            "name": "Gizo Mamageishvili",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Leon Grgic",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Axel Kayombo",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Seedy Jatta",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Belmin Beganovic",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Maurice Malone",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Rory Wilson",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Scotland"
+          }
+        ]
+      },
+      {
+        "name": "Austria Vienna",
+        "transfermarkt": "https://www.transfermarkt.com/fk-austria-wien/kader/verein/14/saison_id/2025",
+        "rep": 78,
+        "salary": 56,
+        "players": [
+          {
+            "name": "Samuel Sahin-Radlinger",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Mirko Kos",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Wedl",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Ifeanyi Ndukwe",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tin Plavotic",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Aleksandar Dragovic",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Dejan Radonjic",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Philipp Wiesinger",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Johannes Handl",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tae-seok Lee",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Matteo Schablas",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Hakim Guenouche",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Ziad El Sheiwi",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Reinhold Ranftl",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Philipp Maybach",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Austria"
+          },
+          {
+            "name": "Kang-hee Lee",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Florian Wustinger",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Abubakr Barry",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Vasilije Markovic",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Austria"
+          },
+          {
+            "name": "Dominik Nisandzic",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Marijan Österreicher",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Sanel Saljic",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Manfred Fischer",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Johannes Eggestein",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Germany"
+          },
+          {
+            "name": "Konstantin Aleksa",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Noah Botic",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Australia"
+          },
+          {
+            "name": "Manprit Sarkaria",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Kelvin Boateng",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Romeo Vucic",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Marko Raguz",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Abdoulaye Kanté",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Cote d'Ivoire"
+          }
+        ]
+      },
+      {
+        "name": "Wolfsberger AC",
+        "transfermarkt": "https://www.transfermarkt.com/wolfsberger-ac/kader/verein/4441/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Nikolas Polster",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Gütlbauer",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "David Skubl",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Cheick Mamadou Diabaté",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Nicolas Wimmer",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Dominik Baumgartner",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tobias Gruber",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Emmanuel Chukwu",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Adama Dramé",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Rene Renner",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "David Djuric",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Austin Harrison",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Boris Matic",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Fabian Wohlmuth",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Marco Sulzner",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Simon Piesinger",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Florent Hajdini",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Alessandro Schöpf",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Emmanuel Agyemang",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Emin Kujovic",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Tochukwu Raymond",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Dejan Zukic",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Donis Avdijaj",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "David Atanga",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Erik Kojzek",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jessic Ngankam",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Germany"
+          },
+          {
+            "name": "Angelo Gattermayer",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Markus Pink",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Ryan Ogam",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Kenya"
+          }
+        ]
+      },
+      {
+        "name": "TSV Hartberg",
+        "transfermarkt": "https://www.transfermarkt.com/tsv-hartberg/kader/verein/4467/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Tom Ritzy Hülsmann",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Germany"
+          },
+          {
+            "name": "Ammar Helac",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Luka Maric",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Harald Postl",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Dominic Vincze",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Fabian Wilfinger",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Paul Komposch",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Konstantin Schopp",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Habib Coulibaly",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Lukas Spendlhofer",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Emmanuel Ojukwu",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Maximilian Hennig",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Luca Pazourek",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Damjan Kovacevic",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Julian Gölles",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Benjamin Markus",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Julian Halwachs",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Youba Diarra",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Mali"
+          },
+          {
+            "name": "Jürgen Heil",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Maximilian Fillafer",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Paul Bratschko",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tobias Kainz",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jonas Karner",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jed Drew",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Elias Havel",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Marco Hoffmann",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Fridrikas",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Musibau Aziz",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Ghana"
+          },
+          {
+            "name": "David Korherr",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Austria"
+          }
+        ]
+      },
+      {
+        "name": "SV Ried",
+        "transfermarkt": "https://www.transfermarkt.com/sv-ried/kader/verein/266/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Andreas Leitner",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Felix Wimmer",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Matej Cechal",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Dominik Stöger",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Marcel Köstenbauer",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nikki Havenaar",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Japan"
+          },
+          {
+            "name": "Oliver Steurer",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Dominik Kirnbauer",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Michael Sollbauer",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jonathan Scherzer",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Philip Weissenbacher",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Leonit Zeqiri",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Jonas Mayer",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nicolas Bajlicz",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Yusuf Maart",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "South Africa"
+          },
+          {
+            "name": "Jussef Nasrawe",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Iraq"
+          },
+          {
+            "name": "Martin Rasner",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Christopher Wernitznig",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Conrad Scholl",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Nermin Mesic",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Ante Bajic",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nevio Zotz",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Loiange Ondoa",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Fabian Rossdorfer",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Philipp Pomer",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Evan Eghosa Aisowieren",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Joris Boguo",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Kingstone Mutandwa",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Zambia"
+          },
+          {
+            "name": "Antonio Van Wyk",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "South Africa"
+          },
+          {
+            "name": "Peter Kiedl",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Saliou Sané",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Germany"
+          }
+        ]
+      },
+      {
+        "name": "WSG Tirol",
+        "transfermarkt": "https://www.transfermarkt.com/wsg-tirol/kader/verein/2446/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Adam Stejskal",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Alexander Eckmayr",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Paul Schermer",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Marco Boras",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Jamie Lawrence",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Germany"
+          },
+          {
+            "name": "David Kubatta",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "David Gugganig",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Schweighofer",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Benjamin Böckle",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Thomas Geris",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Michael Neuner",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Johannes Naschberger",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Sulzbacher",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "David Jaunegg",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Valentino Müller",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Raphael Gschösser",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Matthäus Taferner",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "David Falkner",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Quincy Butler",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "United States"
+          },
+          {
+            "name": "Christian Huetz",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Mazou Bambara",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Thomas Sabitzer",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Moritz Wels",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Yannick Vötter",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nikolai Baden Frederiksen",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ademola Ola-Adebomi",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Tobias Anselm",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Hinterseer",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Austria"
+          }
+        ]
+      },
+      {
+        "name": "FC Blau-Weiss Linz",
+        "transfermarkt": "https://www.transfermarkt.com/fc-blau-weiss-linz/kader/verein/2157/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Nico Mantl",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Thomas Turner",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Valentin Oelz",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Kevin Radulovic",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Manuel Maranda",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Alem Pasic",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Martin Moormann",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Elias Bakatukanda",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "David Riegler",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Fabio Varesi-Strauss",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Matthias Wetschka",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Simon Pirkl",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "David Bumberger",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Anderson",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Alexander Briedl",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Cheick Condé",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Simon Seidl",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Mamadou Fofana",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Mauritania"
+          },
+          {
+            "name": "Christopher Cvetko",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Felix Gerstmayer",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Isak Dahlqvist",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Dominik Reiter",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Paul Mensah",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Oliver Wähling",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Germany"
+          },
+          {
+            "name": "Thomas Goiginger",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nico Maier",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "João Luiz",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Shon Weissman",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Israel"
+          },
+          {
+            "name": "Ronivaldo",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jakob Knollmüller",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Austria"
+          }
+        ]
+      },
+      {
+        "name": "Grazer AK 1902",
+        "transfermarkt": "https://www.transfermarkt.com/grazer-ak-1902/kader/verein/316/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Franz Stolz",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Jakob Meierhofer",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Christoph Nicht",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Fabian Ehmann",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Darius Achitei",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Romania"
+          },
+          {
+            "name": "Beres Owusu",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Donovan Pines",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "United States"
+          },
+          {
+            "name": "Ludwig Vraa",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Martin Kreuzriegler",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Yannick Oberleitner",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Germany"
+          },
+          {
+            "name": "Lukas Graf",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Leon Klassen",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Russia"
+          },
+          {
+            "name": "Mukhran Bagrationi",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Jacob Italiano",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Australia"
+          },
+          {
+            "name": "Mathias Olesen",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Luxembourg"
+          },
+          {
+            "name": "Tobias Koch",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Thorsten Schriebl",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Murat Satin",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Tim Paumgartner",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Dominik Frieser",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Thomas Schiestl",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Mark Grosse",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Zeteny Jano",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Christian Lichtenberger",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Ramiz Harakaté",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Alexander Hofleitner",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Daniel Maderner",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Arbnor Prenqi",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Kosovo"
+          }
+        ]
+      },
+      {
+        "name": "SCR Altach",
+        "transfermarkt": "https://www.transfermarkt.com/scr-altach/kader/verein/3551/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Dejan Stojanovic",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Daniel Antosch",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Elias Scherf",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Paul Piffer",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Filip Milojevic",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Rassa Rahmani",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Lukas Jäger",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Gugganig",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Benedikt Zech",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Mohamed Ouédraogo",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Sandro Ingolitsch",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Vesel Demaku",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Mike-Steven Bähre",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Moritz Oswald",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Diego Madritsch",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Blendi Idrizi",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Alexander Gorgon",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Salif Tietietta",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Patrick Greil",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Austria"
+          },
+          {
+            "name": "Luca Kronberger",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Yann Massombo",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Ousmane Diawara",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Srdjan Hrstic",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Marlon Mustapha",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Precious Benjamin",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Erkin Yalcin",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Austria"
+          },
+          {
+            "name": "Anteo Fetahu",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Albania"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "swiss-super-league",
+    "name": "Swiss Super League",
+    "country": "Suiza",
+    "level": 2,
+    "teams": [
+      {
+        "name": "FC Thun",
+        "transfermarkt": "https://www.transfermarkt.com/fc-thun/kader/verein/938",
+        "rep": 78,
+        "salary": 56,
+        "players": [
+          {
+            "name": "Niklas Steffen",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Tim Spycher",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nino Ziswiler",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jan Eicher",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jan Bamert",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Genís Montolio",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Spain"
+          },
+          {
+            "name": "Marco Bürki",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Michael Heule",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Dominik Franke",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Germany"
+          },
+          {
+            "name": "Ashvin Balaruban",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Fabio Fehr",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Lucien Dähler",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Justin Roth",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Leonardo Bertone",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Franz-Ethan Meichtry",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Kastriot Imeri",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mattias Käit",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Estonia"
+          },
+          {
+            "name": "Valmir Matoshi",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Noah Rupp",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Vasilije Janjicic",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Adam Ilic",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nils Reichmuth",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Marc Gutbub",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Elmin Rastoder",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Christopher Ibayi",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Congo"
+          },
+          {
+            "name": "Furkan Dursun",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Brighton Labeau",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Martinique"
+          }
+        ]
+      },
+      {
+        "name": "Grasshopper Club Zurich",
+        "transfermarkt": "https://www.transfermarkt.com/grasshopper-club-zurich/kader/verein/504",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Justin Hammel",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nicolas Glaus",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Laurent Seji",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Mouhamed El Bachir Ngom",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Luka Mikulic",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Abdoulaye Diaby",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Mali"
+          },
+          {
+            "name": "Dorian Paloschi",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Italy"
+          },
+          {
+            "name": "Dirk Abels",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Ismajl Beka",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Saulo Decarli",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Yannick Bettkober",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Germany"
+          },
+          {
+            "name": "Maximilian Ullmann",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Nico Rissi",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Pantaleo Creti",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Italy"
+          },
+          {
+            "name": "Allan Arigoni",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Tim Meyer",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Imourane Hassane",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Benin"
+          },
+          {
+            "name": "Sven Köhler",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Matteo Mantini",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Italy"
+          },
+          {
+            "name": "Amir Abrashi",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Albania"
+          },
+          {
+            "name": "Dominik Papic",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Leart Kabashi",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Samuel Marques",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Simone Stroscio",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Samuel Krasniqi",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jonathan Asp Jensen",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Lovro Zvonarek",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Óscar Clemente",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Salifou Diarrassouba",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Luke Plange",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "England"
+          },
+          {
+            "name": "Emmanuel Tsimba",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Young-jun Lee",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Michael Frey",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Samuele Bengondo",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Switzerland"
+          }
+        ]
+      },
+      {
+        "name": "BSC Young Boys",
+        "transfermarkt": "https://www.transfermarkt.com/bsc-young-boys/kader/verein/452/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Marvin Keller",
+            "pos": "POR",
+            "rating": 78,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Heinz Lindner",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Austria"
+          },
+          {
+            "name": "Dario Marzino",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ardian Bajrami",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ruben Salchli",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Gregory Wüthrich",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Tanguy Zoukrou",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "Loris Benito",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mats Seiler",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jaouen Hadjam",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Stefan Bukinac",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Olivier Mambwa",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ryan Andrews",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "England"
+          },
+          {
+            "name": "Yan Valery",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Saidy Janko",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Edimilson Fernandes",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Sandro Lauper",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Armin Gigovic",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Rayan Raveloson",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Madagascar"
+          },
+          {
+            "name": "Darian Males",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Joël Monteiro",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Alan Virginius",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "France"
+          },
+          {
+            "name": "Alvyn Sanches",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Dominik Pech",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Christian Fassnacht",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ebrima Colley",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Edin Etoski",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Chris Bedia",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Samuel Essende",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Facinet Conte",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Guinea"
+          }
+        ]
+      },
+      {
+        "name": "FC Basel 1893",
+        "transfermarkt": "https://www.transfermarkt.com/fc-basel-1893/kader/verein/26/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Marwin Hitz",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mirko Salvi",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Tim Pfeiffer",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Germany"
+          },
+          {
+            "name": "Flavius Daniliuc",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Austria"
+          },
+          {
+            "name": "Becir Omeragic",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nicolas Vouilloz",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Finn van Breemen",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Marvin Akahomen",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Dominik Schmid",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Moussa Cissé",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Keigo Tsunemoto",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Japan"
+          },
+          {
+            "name": "Kevin Rüegg",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Andrej Bacanin",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Metinho",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Koba Koindredi",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "France"
+          },
+          {
+            "name": "Léo Leroy",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "France"
+          },
+          {
+            "name": "Dion Kacuri",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Xherdan Shaqiri",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Adriano Onyegbule",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Germany"
+          },
+          {
+            "name": "Bénie Traoré",
+            "pos": "EI",
+            "rating": 80,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Julien Duranville",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ibrahim Salah",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Marin Soticek",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Giacomo Koloto",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Albian Ajeti",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Moritz Broschinski",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Germany"
+          },
+          {
+            "name": "Kaio Eduardo",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Brazil"
+          }
+        ]
+      },
+      {
+        "name": "FC Lugano",
+        "transfermarkt": "https://www.transfermarkt.com/fc-lugano/kader/verein/2790/saison_id/2025",
+        "rep": 79,
+        "salary": 57,
+        "players": [
+          {
+            "name": "Amir Saipi",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "David von Ballmoos",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Diego Mina",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Serif Berbic",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Antonios Papadopoulos",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Germany"
+          },
+          {
+            "name": "Lukas Mai",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Germany"
+          },
+          {
+            "name": "Hannes Delcroix",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Haiti"
+          },
+          {
+            "name": "Damian Kelvin",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Carbone",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Martim Marques",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Ezgjan Alioski",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Yassin Sbai",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mattia Zanotti",
+            "pos": "LD",
+            "rating": 80,
+            "nat": "Italy"
+          },
+          {
+            "name": "Zachary Brault-Guillard",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Canada"
+          },
+          {
+            "name": "Mohamed Belhadj Mahmoud",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Ilija Maslarov",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Uran Bislimi",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Anto Grgic",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ahmed Kendouci",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Yanis Cimignani",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Daniel Dos Santos",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Claudio Cassano",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Italy"
+          },
+          {
+            "name": "Mattia Bottani",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Elias Pihlström",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Hicham Mahou",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Renato Steffen",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Georgios Koutsias",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Greece"
+          },
+          {
+            "name": "Kevin Behrens",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Germany"
+          }
+        ]
+      },
+      {
+        "name": "FC St. Gallen 1879",
+        "transfermarkt": "https://www.transfermarkt.com/fc-st-gallen-1879/kader/verein/257/saison_id/2025",
+        "rep": 79,
+        "salary": 57,
+        "players": [
+          {
+            "name": "Lawrence Ati Zigi",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Lukas Watkowiak",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Bela Dumrath",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Germany"
+          },
+          {
+            "name": "Yannick Bujard",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Cyrill May",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jozo Stanic",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Tom Gaal",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Germany"
+          },
+          {
+            "name": "Colin Kleine-Bekel",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Joel Ruiz",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Pascal Büttiker",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Chima Okoroji",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Hugo Vandermersch",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "France"
+          },
+          {
+            "name": "Behar Neziri",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Germany"
+          },
+          {
+            "name": "Betim Fazliji",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Jordi Quintillà",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Spain"
+          },
+          {
+            "name": "Mihailo Stevanovic",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Lukas Görtler",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Christian Witzig",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Carlo Boukhalfa",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Germany"
+          },
+          {
+            "name": "Corsin Konietzke",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Lukas Daschner",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Nino Weibel",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Aliou Baldé",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Tiemoko Ouattara",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Kevin Csoboth",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Malamine Efekele",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Enoch Owusu",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Italy"
+          },
+          {
+            "name": "Alessandro Vogt",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Diego Besio",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nevio Scherrer",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Antonio Verinac",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Croatia"
+          }
+        ]
+      },
+      {
+        "name": "FC Lausanne-Sport",
+        "transfermarkt": "https://www.transfermarkt.com/fc-lausanne-sport/kader/verein/527/saison_id/2025",
+        "rep": 78,
+        "salary": 56,
+        "players": [
+          {
+            "name": "Karlo Letica",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Thomas Castella",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Karim Sow",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Kévin Mouanga",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Dircssi Ngonzo",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Rodolfo Lippo",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Finland"
+          },
+          {
+            "name": "Morgan Poaty",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Congo"
+          },
+          {
+            "name": "Sékou Fofana",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Theo Bergvall",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Hamza Abdallah",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Comoros"
+          },
+          {
+            "name": "Jamie Roche",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Olivier Custodio",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Sékou Koné",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Mali"
+          },
+          {
+            "name": "Gabriel Sigua",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Nicky Beloko",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Souleymane N'Diaye",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Brandon Soppy",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Beyatt Lekoueiry",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Mauritania"
+          },
+          {
+            "name": "Ethan Bruchez",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Florent Mollet",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Alban Ajdini",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Omar Janneh",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Spain"
+          },
+          {
+            "name": "Gaoussou Diakité",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Mali"
+          },
+          {
+            "name": "Theo Bair",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Canada"
+          },
+          {
+            "name": "Nathan Butler-Oyedeji",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "England"
+          },
+          {
+            "name": "Seydou Traoré",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Enzo Kana-Biyik",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "France"
+          }
+        ]
+      },
+      {
+        "name": "FC Luzern",
+        "transfermarkt": "https://www.transfermarkt.com/fc-luzern/kader/verein/434/saison_id/2025",
+        "rep": 78,
+        "salary": 56,
+        "players": [
+          {
+            "name": "Pascal Loretz",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Julian Bock",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Germany"
+          },
+          {
+            "name": "Vaso Vasic",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Lionel Huwiler",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Adrian Bajrami",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Bung Meng Freimann",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Stefan Knezevic",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jesper Löfgren",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Mauricio Willimann",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Erblin Sadikaj",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Rúben Dantas Fernandes",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Andrejs Ciganiks",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Latvia"
+          },
+          {
+            "name": "Severin Ottiger",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Taisei Abe",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Japan"
+          },
+          {
+            "name": "Demir Xhemalija",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Tyron Owusu",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Levin Winkler",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mio Zimmermann",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Pius Dorn",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Germany"
+          },
+          {
+            "name": "Matteo Di Giusto",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Lucas Silva",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Kevin Spadanuda",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Oscar Kabwit",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Julian Von Moos",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Andrej Vasovic",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Lars Villiger",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Adrian Grbic",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Austria"
+          },
+          {
+            "name": "Sandro Wyss",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Sinan Karweina",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Sascha Meyer",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Switzerland"
+          }
+        ]
+      },
+      {
+        "name": "FC Sion",
+        "transfermarkt": "https://www.transfermarkt.com/fc-sion/kader/verein/321/saison_id/2025",
+        "rep": 77,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Anthony Racioppi",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Francesco Ruberto",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Simon Caillet",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jan Kronig",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Kreshnik Hajrizi",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Noé Sow",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Ryan Kessler",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Maxime Dubosson",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nevio Biner",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nias Hefti",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Marquinhos Cipriano",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Numa Lavanchy",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ali Kabacalman",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Lamine Diack",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Baltazar",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Liam Chipperfield",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Donat Rrudhani",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Benjamin Kololli",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Ilyas Chouaref",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Malta"
+          },
+          {
+            "name": "Franck Surdez",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Josias Lukembila",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Théo Berdayes",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Altin Shala",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Winsley Boteli",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Rilind Nivokazi",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Adrien Llukes",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Dejan Djokic",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Switzerland"
+          }
+        ]
+      },
+      {
+        "name": "FC Zürich",
+        "transfermarkt": "https://www.transfermarkt.com/fc-zurich/kader/verein/260/saison_id/2025",
+        "rep": 77,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Silas Huber",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Yanick Brecher",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Yevgen Morozov",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "David Vujevic",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Lindrit Kamberi",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Ilan Sauter",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Alexander Hack",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Jorge Segura",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Daniel Ihendu",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Germany"
+          },
+          {
+            "name": "Neil Volken",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Livano Comenencia",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Chris Kablan",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Selmin Hodza",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mohamed Bangoura",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Cosimo Fiorini",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Italy"
+          },
+          {
+            "name": "Cheveyo Tsawa",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nelson Palacio",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Bledian Krasniqi",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Miguel Reichmuth",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Valon Berisha",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Jill Stiel",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Sebastian Walker",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Nevio Di Giusto",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Matthias Phaëton",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Guadeloupe"
+          },
+          {
+            "name": "Umeh Emmanuel",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Ivan Cavaleiro",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Angola"
+          },
+          {
+            "name": "Philippe Keny",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Damienus Reverson",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Juan José Perea",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Servette FC",
+        "transfermarkt": "https://www.transfermarkt.com/servette-fc/kader/verein/61/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Joël Mall",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Jérémy Frick",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Louis Rieder",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Marco Burch",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Yoan Severin",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "France"
+          },
+          {
+            "name": "Dylan Bronn",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Téo Allix",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Steve Rouiller",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Lilian Njoh",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Bradley Mazikou",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Congo"
+          },
+          {
+            "name": "Loun Srdanovic",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Houboulang Mendes",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "Lamine Fomba",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Gaël Ondoua",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "David Douline",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Timothé Cognat",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "France"
+          },
+          {
+            "name": "Thomas Lopes",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Ablie Jallow",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Miroslav Stevanovic",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Malek Ishuayed",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Giotto Morandi",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Junior Kadile",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Mardochée Miguel",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Florian Ayé",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Samuel Mráz",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Jamie Atangana",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Jérémy Guillemenot",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Switzerland"
+          }
+        ]
+      },
+      {
+        "name": "FC Winterthur",
+        "transfermarkt": "https://www.transfermarkt.com/fc-winterthur/kader/verein/242/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Stefanos Kapino",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Antonio Spagnoli",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Noah Brogli",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Loïc Lüthi",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Remo Arnold",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Tibault Citherlet",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mirlind Kryeziu",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Lukas Mühl",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Germany"
+          },
+          {
+            "name": "Ledjan Sahitaj",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Basil Stillhart",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Rhodri Smith",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Souleymane Diaby",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Silvan Sidler",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Dario Ulrich",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Adrian Durrer",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Alexandre Jankewitz",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Stéphane Cueni",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Emmanuel Essiam",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Pajtim Kasami",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Luca Zuffi",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Fabian Rohner",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Elias Maluvunu",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Carmine Chiappetta",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Théo Golliard",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Randy Schneider",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Philippines"
+          },
+          {
+            "name": "Nishan Burkart",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Bafodé Dansoko",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Andrin Hunziker",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Francis Momoh",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Roman Buess",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Switzerland"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "danish-superliga",
+    "name": "Danish Superliga",
+    "country": "Dinamarca",
+    "level": 2,
+    "teams": [
+      {
+        "name": "Aarhus GF",
+        "transfermarkt": "https://www.transfermarkt.com/aarhus-gf/kader/verein/678",
+        "rep": 79,
+        "salary": 57,
+        "players": [
+          {
+            "name": "Mads Hedenstad",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Jesper Hansen",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Felix Beijmo",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Eric Kahl",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Jonas Jensen-Abbew",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Tobias Mölgaard",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Frederik Tingager",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Henrik Dalsgaard",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Magnus Knudsen",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Norway"
+          },
+          {
+            "name": "Markus Solbakken",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Norway"
+          },
+          {
+            "name": "Kevin Yakob",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Iraq"
+          },
+          {
+            "name": "Nicolai Poulsen",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Rasmus Carstensen",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jacob Andersen",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Gift Links",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "South Africa"
+          },
+          {
+            "name": "Kristian Arnstad",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Norway"
+          },
+          {
+            "name": "Frederik Emmery",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Tómas Óli Kristjánsson",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Tobias Bech",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sebastian Jørgensen",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Janni Serra",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Patrick Mortensen",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Stefen Tchamche",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "James Bogere",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Uganda"
+          }
+        ]
+      },
+      {
+        "name": "FC Copenhagen",
+        "transfermarkt": "https://www.transfermarkt.com/fc-copenhagen/kader/verein/190",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Dominik Kotarski",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Rúnar Alex Rúnarsson",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Oscar Buur",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Gabriel Pereira",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Junnosuke Suzuki",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Japan"
+          },
+          {
+            "name": "Pantelis Hatzidiakos",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Greece"
+          },
+          {
+            "name": "Zanka",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Marcos López",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Peru"
+          },
+          {
+            "name": "Birger Meling",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Rodrigo Huescas",
+            "pos": "LD",
+            "rating": 78,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Aurélio Buta",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Kenay Myrie",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Costa Rica"
+          },
+          {
+            "name": "William Clem",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Magnus Mattsson",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Amir Richardson",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Mads Emil Madsen",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Thomas Delaney",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Oliver Højer",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jonathan Moalem",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Elias Achouri",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Tunisia"
+          },
+          {
+            "name": "Robert",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Jordan Larsson",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Liam West",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Mohamed Elyounoussi",
+            "pos": "MCO",
+            "rating": 76,
+            "nat": "Norway"
+          },
+          {
+            "name": "Youssoufa Moukoko",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Germany"
+          },
+          {
+            "name": "Viktor Dadason",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Viktor Claesson",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Geovanni Vianney Ndjee",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Andreas Cornelius",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Denmark"
+          }
+        ]
+      },
+      {
+        "name": "FC Midtjylland",
+        "transfermarkt": "https://www.transfermarkt.com/fc-midtjylland/kader/verein/865/saison_id/2025",
+        "rep": 84,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Elías Ólafsson",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Ovie Ejeheri",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "England"
+          },
+          {
+            "name": "Jonas Lössl",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mark Ugboh",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Liam Selin",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Ousmane Diao",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Mads Bech Sørensen",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Martin Erlić",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Han-beom Lee",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Bilal Konteh",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Victor Bak",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Paulinho",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Kevin Mbabu",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Adam Gabriel",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Denil Castillo",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Philip Billing",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Pedro Bravo",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Valdemar Byskov",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Alamara Djabi",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "Aral Şimşir",
+            "pos": "EI",
+            "rating": 81,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Mikel Gogorza",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Junior Zé",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Darío Osorio",
+            "pos": "ED",
+            "rating": 84,
+            "nat": "Chile"
+          },
+          {
+            "name": "Edward Chilufya",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Zambia"
+          },
+          {
+            "name": "Franculino",
+            "pos": "DC",
+            "rating": 86,
+            "nat": "Guinea-Bissau"
+          },
+          {
+            "name": "Gue-sung Cho",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Mikael Uhre",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Júnior Brumado",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Brazil"
+          }
+        ]
+      },
+      {
+        "name": "Bröndby IF",
+        "transfermarkt": "https://www.transfermarkt.com/brondby-if/kader/verein/206/saison_id/2025",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Patrick Pentz",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Austria"
+          },
+          {
+            "name": "Gavin Beavers",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "United States"
+          },
+          {
+            "name": "Thomas Mikkelsen",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "William Sonne-Schmidt",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ben Godfrey",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "England"
+          },
+          {
+            "name": "Luis Binks",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "England"
+          },
+          {
+            "name": "Frederik Alves",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jordi Vanlerberghe",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Rasmus Lauritsen",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mats Köhlert",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Germany"
+          },
+          {
+            "name": "Marko Divković",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Oliver Villadsen",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sean Klaiber",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Bartosz Slisz",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Poland"
+          },
+          {
+            "name": "Benjamin Tahirović",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Mathias Jensen",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Daniel Wass",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Frøkjær",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Viggo Poulsen",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Nicolai Vallys",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mayckel Lahdo",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Ousmane Sow",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Sho Fukuda",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Japan"
+          },
+          {
+            "name": "Jacob Ambæk",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Filip Bundgaard",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Emmanuel Dennis",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Nigeria"
+          }
+        ]
+      },
+      {
+        "name": "FC Nordsjaelland",
+        "transfermarkt": "https://www.transfermarkt.com/fc-nordsjaelland/kader/verein/2778/saison_id/2025",
+        "rep": 80,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Andreas Hansen",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jakob Busk",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Andreas Gülstorff",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Noah Markmann",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Tobias Salquist",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Stephen Acquah",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Markus Walker",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Villads Rutkjær",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Juho Lähteenmäki",
+            "pos": "LI",
+            "rating": 77,
+            "nat": "Finland"
+          },
+          {
+            "name": "Runar Norheim",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Norway"
+          },
+          {
+            "name": "Peter Ankersen",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Victor Gustafsen",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mark Brink",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Justin Janssen",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Malte Heyde",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Caleb Yirenkyi",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Nicklas Røjkjær",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Lamine Sadio",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Diallo Sanoussi",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Prince Amoako Junior",
+            "pos": "EI",
+            "rating": 79,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Ibrahim Adel",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Egypt"
+          },
+          {
+            "name": "Daniel Jóhannesson",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Ola Solbakken",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Araphat Mohammed",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Hjalte Boe Rasmussen",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Alexander Lind",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Levy Nene",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Villum Berthelsen",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Souleymane Alio",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Burkina Faso"
+          }
+        ]
+      },
+      {
+        "name": "Viborg FF",
+        "transfermarkt": "https://www.transfermarkt.com/viborg-ff/kader/verein/1063/saison_id/2025",
+        "rep": 77,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Lucas Lund",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Filip Djukic",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Daniel Anyembe",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Kenya"
+          },
+          {
+            "name": "Stipe Radic",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Zan Zaletel",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Lukas Kirkegaard",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Srdjan Kuzmic",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Oliver Bundgaard",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jean Manuel Mbom",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Germany"
+          },
+          {
+            "name": "Hjalte Bidstrup",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mikkel Løndal",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mees Hoedemakers",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Jeppe Grønning",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Thomas Jørgensen",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Søndergaard",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Asker Beck",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Frederik Damkjer",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sami Jalal",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Charly Nouck",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ísak Andri Sigurgeirsson",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Yonis Njoh",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "France"
+          },
+          {
+            "name": "Osman Addo",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Bilal Brahimi",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Tim Freriks",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Dorian Hanza",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Equatorial Guinea"
+          }
+        ]
+      },
+      {
+        "name": "Silkeborg IF",
+        "transfermarkt": "https://www.transfermarkt.com/silkeborg-if/kader/verein/1177/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Aske Andrésen",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Nicolai Larsen",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Bastian Holm",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Robin Østrøm",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Norway"
+          },
+          {
+            "name": "Pedro Ganchas",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Alexander Busch",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Pontus Rödin",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Melker Jonsson",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Alexander Priesborg",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Andreas Poulsen",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jens Martin Gammelby",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Simon Stüker",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mikkel Øxenberg",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Larsen",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Freundlich",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Adam Wikman",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Villads Westh",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Julius Lorents",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sofus Berger",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Callum McCowatt",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Younes Bakiz",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Rami Al Hajj",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "William Kirk",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jeppe Andersen",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Oliver Ross",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Tonni Adamsen",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Alexander Simmelhack",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Denmark"
+          }
+        ]
+      },
+      {
+        "name": "Odense Boldklub",
+        "transfermarkt": "https://www.transfermarkt.com/odense-boldklub/kader/verein/173/saison_id/2025",
+        "rep": 76,
+        "salary": 55,
+        "players": [
+          {
+            "name": "Theo Sander",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Viljar Myhra",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Martin Hansen",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Marcus Eskildsen",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Julius Berthel Askou",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "James Gomez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Nicolas Bürgy",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Yaya Bojang",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Bjørn Paulsen",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Adam Sørensen",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Marcus McCoy",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Leeroy Owusu",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Magnus Andersen",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ismahila Ouédraogo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Burkina Faso"
+          },
+          {
+            "name": "Tom Trybull",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Germany"
+          },
+          {
+            "name": "Vitus Friis",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Max Ejdum",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Anssi Suhonen",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Finland"
+          },
+          {
+            "name": "Gustav Grubbe",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Rasmus Falk",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jakob Bonde",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Fiete Arp",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Germany"
+          },
+          {
+            "name": "William Martin",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Abrahamsen",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Noah Ganaus",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Germany"
+          },
+          {
+            "name": "Jay-Roy Grot",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Jona Niemiec",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Germany"
+          },
+          {
+            "name": "Lasse Legolas",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Denmark"
+          }
+        ]
+      },
+      {
+        "name": "Randers FC",
+        "transfermarkt": "https://www.transfermarkt.com/randers-fc/kader/verein/5724/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Paul Izzo",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Australia"
+          },
+          {
+            "name": "Jannich Storch",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mert Demirci",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Wessel Dammers",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Lucas Lissens",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Oliver Jones",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Australia"
+          },
+          {
+            "name": "Daniel Høegh",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Nikolas Dyhr",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Martin Sjølstad",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Norway"
+          },
+          {
+            "name": "Sabil Hansen",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Benjamin Örn",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "André Rømer",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "John Björkengren",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Laurits Pedersen",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Frederik Lauenborg",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ousseynou Fall Seck",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Max Albæk",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mike Themsen",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mathias Greve",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Cyril Edudzi",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Ernest Agyiri",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Elies Mahmoud",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "France"
+          },
+          {
+            "name": "Thibault Klidjé",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Togo"
+          },
+          {
+            "name": "Warren Caddy",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Madagascar"
+          },
+          {
+            "name": "Amin Al-Hamawi",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Iraq"
+          },
+          {
+            "name": "Musa Touré",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Australia"
+          }
+        ]
+      },
+      {
+        "name": "Sönderjyske Fodbold",
+        "transfermarkt": "https://www.transfermarkt.com/sonderjyske/kader/verein/5817/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Marcus Bundgaard",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Nicolai Flø",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Benicio Peña",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Maxime Soulas",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Magnus Jensen",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Daníel Leó Grétarsson",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Pachanga Kristensen",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Rúnar Thór Sigurgeirsson",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Ebube Duru",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Dalton Wilkins",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "New Zealand"
+          },
+          {
+            "name": "Tobias Klysner",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Andreas Oggesen",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Simon Wæver",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Tobias Sommer",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Rasmus Vinderslev",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sefer Emini",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Mohamed Cherif Haidara",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Anders Hoeg",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Anders Bergholt",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Olti Hyseni",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Alexander Lyng",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Albert Rrahmani",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Lirim Qamili",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Matthew Hoppe",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "United States"
+          }
+        ]
+      },
+      {
+        "name": "Vejle Boldklub",
+        "transfermarkt": "https://www.transfermarkt.com/vejle-boldklub/kader/verein/443/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Igor Vekic",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Tobias Haahr",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Gustav Knudsen",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Valdemar Lund",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Stefan Velkov",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Damian van Bruggen",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Luka Latsabidze",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Lasse Nielsen",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Giorgi Tabatadze",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Christian Sørensen",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Thomas Gundelund",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Lasse Flø",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Lundrim Hetemi",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Albania"
+          },
+          {
+            "name": "Mike Vestergård",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Enggård",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Tobias Lauritsen",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Andrew Hjulsager",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sander Ravn",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Clemens Astrup",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Alexi Pitu",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Tobias Bach",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mikkel Duelund",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jonathan Amon",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "United States"
+          },
+          {
+            "name": "Abdoulaye Camara",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Christian Gammelgaard",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Bismark Edjeodji",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Wahid Faghir",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jelle Duin",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Anders Jacobsen",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ransford Amoo",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Ghana"
+          }
+        ]
+      },
+      {
+        "name": "FC Fredericia",
+        "transfermarkt": "https://www.transfermarkt.com/fc-fredericia/kader/verein/5776/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Valdemar Birksø",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Etienne Green",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "England"
+          },
+          {
+            "name": "Christoffer Petersen",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Mads Eriksen",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Frederik Rieper",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Adam Nygaard",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jeppe Kudsk",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Malthe Ladefoged",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jakob Jessen",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Daníel Freyr Kristjánsson",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Kristian Pedersen",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Anders Dahl",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Svenn Crone",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Andreas Pyndt",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Felix Winther",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Sofus Johannesen",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jonatan Lindekilde",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Moses Opondo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uganda"
+          },
+          {
+            "name": "Daniel Haarbo",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "William Madsen",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Emilio Simonsen",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Gustav Marcussen",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Agon Mucolli",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Albania"
+          },
+          {
+            "name": "Oscar Buch",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Friday Etim",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Patrick Egelund",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Eskild Dall",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Elias Hansborg",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Denmark"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "greek-super-league",
+    "name": "Greek Super League",
+    "country": "Grecia",
+    "level": 2,
+    "teams": [
+      {
+        "name": "AEK Athens",
+        "transfermarkt": "https://www.transfermarkt.com/aek-athens/kader/verein/2441",
+        "rep": 82,
+        "salary": 59,
+        "players": [
+          {
+            "name": "Thomas Strakosha",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Albania"
+          },
+          {
+            "name": "Alberto Brignoli",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Italy"
+          },
+          {
+            "name": "Angelos Angelopoulos",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Marios Balamotis",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Harold Moukoudi",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Filipe Relvas",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Martin Georgiev",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Domagoj Vida",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Alexander Callens",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Peru"
+          },
+          {
+            "name": "James Penrice",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Stavro Pilo",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Albania"
+          },
+          {
+            "name": "Lazaros Rota",
+            "pos": "LD",
+            "rating": 77,
+            "nat": "Greece"
+          },
+          {
+            "name": "Christos Kosidis",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Marko Grujić",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Hakim Sahabo",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Rwanda"
+          },
+          {
+            "name": "Jens Jönsson",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Orbelín Pineda",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Răzvan Marin",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Romania"
+          },
+          {
+            "name": "Robert Ljubicic",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Roberto Pereyra",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Niclas Eliasson",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Dimitrios Kaloskamis",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Greece"
+          },
+          {
+            "name": "Mijat Gacinovic",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Serbia"
+          },
+          {
+            "name": "João Mário",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Petros Mantalos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Aboubakary Koita",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Mauritania"
+          },
+          {
+            "name": "Dereck Kutesa",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Luka Jović",
+            "pos": "DC",
+            "rating": 81,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Barnabás Varga",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Zini",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Angola"
+          }
+        ]
+      },
+      {
+        "name": "Olympiacos Piraeus",
+        "transfermarkt": "https://www.transfermarkt.com/olympiacos-piraeus/kader/verein/683",
+        "rep": 86,
+        "salary": 62,
+        "players": [
+          {
+            "name": "Konstantinos Tzolakis",
+            "pos": "POR",
+            "rating": 85,
+            "nat": "Greece"
+          },
+          {
+            "name": "Nikolaos Botis",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alexandros Paschalakis",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Kouraklis",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Lorenzo Pirola",
+            "pos": "DFC",
+            "rating": 82,
+            "nat": "Italy"
+          },
+          {
+            "name": "Panagiotis Retsos",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giulian Biancone",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "France"
+          },
+          {
+            "name": "Alexios Kalogeropoulos",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Greece"
+          },
+          {
+            "name": "Rúben Vezo",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Francisco Ortega",
+            "pos": "LI",
+            "rating": 79,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Bruno Onyemaechi",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Costinha",
+            "pos": "LD",
+            "rating": 79,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Rodinei",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Santiago Hezze",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Lorenzo Scipioni",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Theofanis Bakoulas",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Dani García",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Spain"
+          },
+          {
+            "name": "Argyrios Liatsikouras",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Christos Mouzakitis",
+            "pos": "MC",
+            "rating": 87,
+            "nat": "Greece"
+          },
+          {
+            "name": "Diogo Nascimento",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Chiquinho",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Yusuf Yazıcı",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Türkiye"
+          },
+          {
+            "name": "Daniel Podence",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Portugal"
+          },
+          {
+            "name": "André Luiz",
+            "pos": "ED",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Gelson Martins",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Clayton",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ayoub El Kaabi",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Mehdi Taremi",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Iran"
+          },
+          {
+            "name": "Konstantinos Angelakis",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Greece"
+          }
+        ]
+      },
+      {
+        "name": "PAOK Thessaloniki",
+        "transfermarkt": "https://www.transfermarkt.com/paok-thessaloniki/kader/verein/1091/saison_id/2025",
+        "rep": 83,
+        "salary": 60,
+        "players": [
+          {
+            "name": "Antonis Tsiftsis",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Jiri Pavlenka",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Dimitrios Monastirlis",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giannis Michailidis",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alessandro Vogliacco",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Italy"
+          },
+          {
+            "name": "Tomasz Kedziora",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Poland"
+          },
+          {
+            "name": "Dejan Lovren",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Dimitrios Bataoulas",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Greg Taylor",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Abdul Rahman Baba",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Jonjoe Kenny",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "England"
+          },
+          {
+            "name": "Jorge Sánchez",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Joan Sastre",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Spain"
+          },
+          {
+            "name": "Soualiho Meïté",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Magomed Ozdoev",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Russia"
+          },
+          {
+            "name": "Konstantinos Thymianis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Christos Zafeiris",
+            "pos": "MC",
+            "rating": 82,
+            "nat": "Greece"
+          },
+          {
+            "name": "Mady Camara",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Alessandro Bianco",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Italy"
+          },
+          {
+            "name": "Dimitrios Tsopouroglou",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giannis Konstantelias",
+            "pos": "MC",
+            "rating": 86,
+            "nat": "Greece"
+          },
+          {
+            "name": "Luka Ivanušec",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Dimitrios Pelkas",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Dimitrios Berdos",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Taison",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Andrija Zivkovic",
+            "pos": "ED",
+            "rating": 80,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Kiril Despodov",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Dimitrios Chatsidis",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Giakoumakis",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Greece"
+          },
+          {
+            "name": "Anestis Mythou",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alexander Jeremejeff",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Sweden"
+          }
+        ]
+      },
+      {
+        "name": "Panathinaikos",
+        "transfermarkt": "https://www.transfermarkt.com/panathinaikos-athen/kader/verein/265/saison_id/2025",
+        "rep": 81,
+        "salary": 58,
+        "players": [
+          {
+            "name": "Alban Lafont",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Lucas Chaves",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Konstantinos Kotsaris",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Ahmed Touba",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Tin Jedvaj",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Sverrir Ingi Ingason",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Erik Palmer-Brown",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "United States"
+          },
+          {
+            "name": "Georgios Katris",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Javi Hernández",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Spain"
+          },
+          {
+            "name": "Georgios Kyriakopoulos",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Greece"
+          },
+          {
+            "name": "Davide Calabria",
+            "pos": "LD",
+            "rating": 77,
+            "nat": "Italy"
+          },
+          {
+            "name": "Giannis Kotsiras",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Pedro Chirivella",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Spain"
+          },
+          {
+            "name": "Manolis Siopis",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Adam Gnezda Cerin",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Renato Sanches",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Sotiris Kontouris",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Greece"
+          },
+          {
+            "name": "Tonny Vilhena",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Moussa Sissoko",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Santino Andino",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Adriano Jagusic",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Vicente Taborda",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Anastasios Bakasetas",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Greece"
+          },
+          {
+            "name": "Filip Djuricic",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Anass Zaroury",
+            "pos": "EI",
+            "rating": 79,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Facundo Pellistri",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Pavlos Pantelidis",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Kyriopoulos",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giannis Bokos",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Karol Świderski",
+            "pos": "DC",
+            "rating": 77,
+            "nat": "Poland"
+          },
+          {
+            "name": "Andreas Tetteh",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Greece"
+          },
+          {
+            "name": "Cyriel Dessers",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Milos Pantovic",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Serbia"
+          }
+        ]
+      },
+      {
+        "name": "Aris Thessaloniki",
+        "transfermarkt": "https://www.transfermarkt.com/aris-thessaloniki/kader/verein/605/saison_id/2025",
+        "rep": 78,
+        "salary": 56,
+        "players": [
+          {
+            "name": "Lovro Majkic",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Georgios Athanasiadis",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Sokratis Dioudis",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Emiliano Karaj",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Albania"
+          },
+          {
+            "name": "Noah Sonko Sundberg",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Fabiano",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Lindsay Rose",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Mauritius"
+          },
+          {
+            "name": "Hamza Mendyl",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Martin Frydek",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Marko Kerkez",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Noah Fadiga",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Álvaro Tejero",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Spain"
+          },
+          {
+            "name": "Uros Racic",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Martin Hongla",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Konstantinos Galanopoulos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Michalis Voriazidis",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Sarafianos Papasarafianos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Fredrik Jensen",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Finland"
+          },
+          {
+            "name": "Gabriel Misehouy",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Mamadou Gning",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Konstantinos Charoupas",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Othmane Boussaid",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Anastasios Donis",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Michalis Panagidis",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Benjamín Garré",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Carles Pérez",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Spain"
+          },
+          {
+            "name": "Dudu",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Giannis Gianniotas",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Loren Morón",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Spain"
+          },
+          {
+            "name": "Christian Kouamé",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Tino Kadewere",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Zimbabwe"
+          },
+          {
+            "name": "Migouel Alfarela",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "France"
+          }
+        ]
+      },
+      {
+        "name": "OFI Crete",
+        "transfermarkt": "https://www.transfermarkt.com/ofi-kreta/kader/verein/653/saison_id/2025",
+        "rep": 75,
+        "salary": 54,
+        "players": [
+          {
+            "name": "Nikolaos Christogeorgos",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Klidman Lilo",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Albania"
+          },
+          {
+            "name": "Panagiotis Katsikas",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Manuel Kalafatis",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Kresimir Krizmanic",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Konstantinos Kostoulas",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Achilleas Poungouras",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giannis Christopoulos",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Vasilios Lampropoulos",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Konstantinos Lagoudakis",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Nikolaos Athanasiou",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Ilias Chatzitheodoridis",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Pavlos Kenourgiakis",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Borja González",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Nikolaos Marinakis",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Zisis Karachalios",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giannis Apostolakis",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Athanasios Androutsos",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Kanellopoulos",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Ilija Vukotić",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Filip Bainovic",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Emmanouil Chnaris",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Juan Neira",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Athanasios Sitmalidis",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Taxiarchis Fountas",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Greece"
+          },
+          {
+            "name": "Thiago Nuss",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Levan Shengelia",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Giannis Theodosoulakis",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Thiago Romano",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Eddie Salcedo",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Italy"
+          },
+          {
+            "name": "Aaron Leya Iseka",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Belgium"
+          }
+        ]
+      },
+      {
+        "name": "Levadiakos",
+        "transfermarkt": "https://www.transfermarkt.com/apo-levadiakos/kader/verein/2672/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Lucas Anacker",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Yuriy Lodygin",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Russia"
+          },
+          {
+            "name": "Giannis Sourdis",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Stelios Vallindras",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Panagiotis Liagas",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Hördur Magnússon",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Taxiarchis Filon",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Joel Abu Hanna",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Germany"
+          },
+          {
+            "name": "Giannis Tsivelekidis",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Kornezos",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Nikolaos Tsaras",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Marios Vichos",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Triantafyllos Tsapras",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Manthatis",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Enis Cokaj",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Albania"
+          },
+          {
+            "name": "Giannis Kosti",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Georgios Nikas",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Lamarana Jallow",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Guillermo Balzi",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Christos Papadopoulos",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Konstantinos Goumas",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Hisham Layous",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Israel"
+          },
+          {
+            "name": "Benjamin Verbic",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Fabricio Pedrozo",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Panagiotis Symelidis",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Sebastián Palacios",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Alen Ozbolt",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Ognjen Ozegovic",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Serbia"
+          }
+        ]
+      },
+      {
+        "name": "Panetolikos",
+        "transfermarkt": "https://www.transfermarkt.com/panetolikos-gfs/kader/verein/6418/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Yevgeniy Kucherenko",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "Michalis Pardalos",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Zivko Zivkovic",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Efthymios Papazois",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Christos Sielis",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Gustav Granath",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Unai García",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Nikola Stajic",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Sebastian Mladen",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Romania"
+          },
+          {
+            "name": "David Galiatsos",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Chrysovalantis Manos",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Christian Manrique",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Apostolos Apostolopoulos",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Charalampos Mavrias",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Agapakis",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giannis Satsias",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Lazar Kojic",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Christos Belevonis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Andreas Bouchalakis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alexandru Mățan",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Romania"
+          },
+          {
+            "name": "Adriano Bregou",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Miguel Luís",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Vangelis Nikolaou",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Lenny Lobato",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Konrad Michalak",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Poland"
+          },
+          {
+            "name": "Diego Esteban",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Farley Rosa",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Lampros Smyrlis",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Christos Esketzis",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Youssouph Badji",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Jorge Aguirre",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Cuba"
+          },
+          {
+            "name": "Kosta Aleksic",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Juan Manuel García",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Deivid Hoxha",
+            "pos": "DC",
+            "rating": 66,
+            "nat": "Albania"
+          }
+        ]
+      },
+      {
+        "name": "Atromitos Athens",
+        "transfermarkt": "https://www.transfermarkt.com/atromitos-athen/kader/verein/3060/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Luka Gugeshashvili",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Lefteris Choutesiotis",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alexei Koselev",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Moldova"
+          },
+          {
+            "name": "Vasilios Athanasiou",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Dimitrios Stavropoulos",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Gerasimos Mitoglou",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Dimitrios Tsakmakis",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Mansur",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Jere Uronen",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Finland"
+          },
+          {
+            "name": "Georgios Papadopoulos",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Quini",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Spain"
+          },
+          {
+            "name": "Mattheos Mountes",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "Samuel Moutoussamy",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Theocharis Tsingaras",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Peter Michorl",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Austria"
+          },
+          {
+            "name": "Athanasios Karamanis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Leonardos Kopanidis",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Stavros Pnevmonidis",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Spyros Ampartzidis",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Elton Hoxha",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Albania"
+          },
+          {
+            "name": "Makana Baku",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Germany"
+          },
+          {
+            "name": "Steven Zuber",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Georgios Tzovaras",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Konstantinos Batos",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Ehije Ukaki",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Sotiris Tsiloulis",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Denzel Jubitana",
+            "pos": "MCO",
+            "rating": 69,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Panagiotis Tsantilas",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Tom van Weert",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Vangelis Paliouras",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Greece"
+          }
+        ]
+      },
+      {
+        "name": "AE Kifisia",
+        "transfermarkt": "https://www.transfermarkt.com/ae-kifisias/kader/verein/30120/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Moisés Ramírez",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Vasilios Xenopoulos",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Apostolos Tsilingiris",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Filippos Roberts",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Theodoros Faitakis",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alex Petkov",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Jakub Pokorny",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Hugo Sousa",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Vasilios Spinos",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alberto Botía",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Spain"
+          },
+          {
+            "name": "Yasser Larouci",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Diamantis Chouchoumis",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Luciano Maidana",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Cheick Oumar Konaté",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Mali"
+          },
+          {
+            "name": "David Simón",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Spain"
+          },
+          {
+            "name": "Konstantinos Lampsias",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Timipere Johnson Eboh",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Konstantinos Roukounakis",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Rubén Pérez",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Spain"
+          },
+          {
+            "name": "Alexandros Pothas",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Lazare Amani",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Georgios Konstantakopoulos",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Benny",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Jorge Pombo",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Spain"
+          },
+          {
+            "name": "Lucas Villafañez",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Christos Ligdas",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Jeremy Antonisse",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Curacao"
+          },
+          {
+            "name": "Miguel Tavares",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Gerson Sousa",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Ché Nunnely",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Suriname"
+          },
+          {
+            "name": "Michalis Patiras",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Patrik Mijic",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Apostolos Christopoulos",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Dimitrios Theodoridis",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Sebastian Musiolik",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Poland"
+          }
+        ]
+      },
+      {
+        "name": "Asteras Aktor",
+        "transfermarkt": "https://www.transfermarkt.com/asteras-tripolis/kader/verein/6676/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Vasilios Chatziemmanouil",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Panagiotis Tsintotas",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Spyros Angelidis",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Nikolaos Papadopoulos",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Theofilos Kakadiaris",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Robert Ivanov",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Finland"
+          },
+          {
+            "name": "Nikola Sipcic",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Dimitrios Laskaris",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Konstantinos Triantafyllopoulos",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Issiaga Sylla",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Alexandros Tereziou",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Konstantinos Pomonis",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Panagiotis Deligiannidis",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Nikolai Alho",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Finland"
+          },
+          {
+            "name": "Eder González",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Spain"
+          },
+          {
+            "name": "Oluwatobiloba Alagbe",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Evgeniy Yablonskiy",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belarus"
+          },
+          {
+            "name": "Julián Chicco",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Theofanis Tzandaris",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Christos Almyras",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Mumo Muñoz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Julián Bartolo",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Stefan Mitrović",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Dimitris Emmanouilidis",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Júnior Mendieta",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Kalvin Ketu",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "Nikolaos Kaltsas",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Chidera Okoh",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Georgios Charalampoglou",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alberto Simoni",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Albania"
+          },
+          {
+            "name": "Federico Macheda",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Italy"
+          }
+        ]
+      },
+      {
+        "name": "AE Larisa",
+        "transfermarkt": "https://www.transfermarkt.com/ae-larisa/kader/verein/4603/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Alexandros Anagnostopoulos",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Nikolaos Melissas",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Theodoros Venetikidis",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Dylan Batubinsika",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Erick Ferigra",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Epaminondas Pantelakis",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Theocharis Iliadis",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Lazar Rosic",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Ahmed Ouattara Kossonou",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Davíd Kristján Ólafsson",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Konstantinos Grozos",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Yvann Maçon",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Guadeloupe"
+          },
+          {
+            "name": "Konstantinos Apostolakis",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Athanasios Papageorgiou",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Jani Atanasov",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "North Macedonia"
+          },
+          {
+            "name": "Goni Naor",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Israel"
+          },
+          {
+            "name": "Paschalis Staikos",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Facundo Pérez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Vasilios Sourlis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Luca Andrada",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Zisis Chatzistravos",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Gaël Kakuta",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "DR Congo"
+          },
+          {
+            "name": "Pione Sisto",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ángelo Sagal",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Giannis Pasas",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Dimitrios Diminikos",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Savvas Mourgos",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Thierry Moutinho",
+            "pos": "ED",
+            "rating": 66,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Lubomir Tupta",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Julien Ngoy",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Leandro Garate",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "Volos NFC",
+        "transfermarkt": "https://www.transfermarkt.com/volos-nps/kader/verein/60949/saison_id/2025",
+        "rep": 73,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Marios Siampanis",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Greece"
+          },
+          {
+            "name": "André Moreira",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Nikolaos Grammatikakis",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Athanasios Papathanasiou-Gerofokas",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Vangelis Koutoukas",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Derek Agyakwa",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Hjörtur Hermannsson",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Giannis Kargas",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Athanasios Triantafyllou",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Núrio Fortuna",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Angola"
+          },
+          {
+            "name": "Leroy Abanda",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "France"
+          },
+          {
+            "name": "Konstantinos Lykourinos",
+            "pos": "LI",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Carles Soria",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Spain"
+          },
+          {
+            "name": "Georgios Mygas",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Lefteris Tasiouras",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "David Martínez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Anastasios Tsokanis",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Vasilios Grosdis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Klearchos Vainopoulos",
+            "pos": "MC",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Giannis Bouzoukis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Juanpi",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Matías González",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Iason Kyrkos",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Lazaros Lamprou",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Diamanti Legisi",
+            "pos": "EI",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Joca",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Maximiliano Comba",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jan Hurtado",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Nabil Makni",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Tunisia"
+          }
+        ]
+      },
+      {
+        "name": "Panserraikos",
+        "transfermarkt": "https://www.transfermarkt.com/panserraikos/kader/verein/3385/saison_id/2025",
+        "rep": 74,
+        "salary": 53,
+        "players": [
+          {
+            "name": "Francisco Tinaglini",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alexandros Tsompanidis",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Viktoras Sakalidis",
+            "pos": "POR",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Michalis Pourliotopoulos",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Iva Gelashvili",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Georgia"
+          },
+          {
+            "name": "Volnei",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Vernon de Marco",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Aristotelis Karasalidis",
+            "pos": "DFC",
+            "rating": 66,
+            "nat": "Greece"
+          },
+          {
+            "name": "Riquelme",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Marios Tsaousis",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Igor Kalinin",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Russia"
+          },
+          {
+            "name": "Yoël Armougom",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Lefteris Lyratzis",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Moussa Wagué",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Charalampos Georgiadis",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Tony Stojkovski",
+            "pos": "LD",
+            "rating": 66,
+            "nat": "Australia"
+          },
+          {
+            "name": "Angelos Liasos",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Ethan Brooks",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "South Africa"
+          },
+          {
+            "name": "Giannis Doiranlis",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Stephane Omeonga",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Viktor Rumyantsev",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Greece"
+          },
+          {
+            "name": "Samir Ben Sallam",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Zacharias Papadimitriou",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Adrián Riera",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Spain"
+          },
+          {
+            "name": "Alex Teixeira",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Manolis Pavlis",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Australia"
+          },
+          {
+            "name": "Alexandros Maskanakis",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Darnell Eric Bile",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "France"
+          },
+          {
+            "name": "Marios Sofianos",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Georgios Marinos",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Alexandros Salvanos",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Greece"
+          },
+          {
+            "name": "Andrei Ivan",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Romania"
+          },
+          {
+            "name": "Nikolaos Karelis",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Greece"
+          },
+          {
+            "name": "Youshaa Knaj",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Syria"
+          }
+        ]
+      }
+    ]
+  }
+];
+
+const careerCompetitionDatabase = [
+  {
+    "id": "champions-league",
+    "name": "UEFA Champions League",
+    "region": "Europa",
+    "level": 5,
+    "teams": [
+      {
+        "name": "PSG",
+        "transfermarkt": "https://www.transfermarkt.com/fc-paris-saint-germain/kader/verein/583",
+        "domesticLeagueId": "ligue-1",
+        "domesticLeague": "Ligue 1"
+      },
+      {
+        "name": "Manchester City",
+        "transfermarkt": "https://www.transfermarkt.com/manchester-city/kader/verein/281",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "Arsenal FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-arsenal/kader/verein/11",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "Real Madrid",
+        "transfermarkt": "https://www.transfermarkt.com/real-madrid/kader/verein/418",
+        "domesticLeagueId": "laliga",
+        "domesticLeague": "LaLiga"
+      },
+      {
+        "name": "Barcelona",
+        "transfermarkt": "https://www.transfermarkt.com/fc-barcelona/kader/verein/131",
+        "domesticLeagueId": "laliga",
+        "domesticLeague": "LaLiga"
+      },
+      {
+        "name": "Chelsea FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-chelsea/kader/verein/631",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "Bayern Munich",
+        "transfermarkt": "https://www.transfermarkt.com/fc-bayern-munchen/kader/verein/27",
+        "domesticLeagueId": "bundesliga",
+        "domesticLeague": "Bundesliga"
+      },
+      {
+        "name": "Liverpool FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-liverpool/kader/verein/31",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "Tottenham Hotspur",
+        "transfermarkt": "https://www.transfermarkt.com/tottenham-hotspur/kader/verein/148",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "Newcastle United",
+        "transfermarkt": "https://www.transfermarkt.com/newcastle-united/kader/verein/762",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "Inter",
+        "transfermarkt": "https://www.transfermarkt.com/inter-mailand/kader/verein/46",
+        "domesticLeagueId": "serie-a",
+        "domesticLeague": "Serie A"
+      },
+      {
+        "name": "Atletico de Madrid",
+        "transfermarkt": "https://www.transfermarkt.com/atletico-madrid/kader/verein/13",
+        "domesticLeagueId": "laliga",
+        "domesticLeague": "LaLiga"
+      },
+      {
+        "name": "Juventus FC",
+        "transfermarkt": "https://www.transfermarkt.com/juventus-turin/kader/verein/506",
+        "domesticLeagueId": "serie-a",
+        "domesticLeague": "Serie A"
+      },
+      {
+        "name": "Dortmund",
+        "transfermarkt": "https://www.transfermarkt.com/borussia-dortmund/kader/verein/16",
+        "domesticLeagueId": "bundesliga",
+        "domesticLeague": "Bundesliga"
+      },
+      {
+        "name": "Sporting CP",
+        "transfermarkt": "https://www.transfermarkt.com/sporting-lissabon/kader/verein/336",
+        "domesticLeagueId": "primeira-liga",
+        "domesticLeague": "Liga Portugal"
+      },
+      {
+        "name": "Bayer Leverkusen",
+        "transfermarkt": "https://www.transfermarkt.com/bayer-04-leverkusen/kader/verein/15",
+        "domesticLeagueId": "bundesliga",
+        "domesticLeague": "Bundesliga"
+      },
+      {
+        "name": "Atalanta BC",
+        "transfermarkt": "https://www.transfermarkt.com/atalanta-bergamo/kader/verein/800",
+        "domesticLeagueId": "serie-a",
+        "domesticLeague": "Serie A"
+      },
+      {
+        "name": "SSC Napoli",
+        "transfermarkt": "https://www.transfermarkt.com/ssc-neapel/kader/verein/6195",
+        "domesticLeagueId": "serie-a",
+        "domesticLeague": "Serie A"
+      },
+      {
+        "name": "Monaco",
+        "transfermarkt": "https://www.transfermarkt.com/as-monaco/kader/verein/162",
+        "domesticLeagueId": "ligue-1",
+        "domesticLeague": "Ligue 1"
+      },
+      {
+        "name": "Eintracht Frankfurt",
+        "transfermarkt": "https://www.transfermarkt.com/eintracht-frankfurt/kader/verein/24",
+        "domesticLeagueId": "bundesliga",
+        "domesticLeague": "Bundesliga"
+      },
+      {
+        "name": "Marseille",
+        "transfermarkt": "https://www.transfermarkt.com/olympique-marseille/kader/verein/244",
+        "domesticLeagueId": "ligue-1",
+        "domesticLeague": "Ligue 1"
+      },
+      {
+        "name": "SL Benfica",
+        "transfermarkt": "https://www.transfermarkt.com/benfica-lissabon/kader/verein/294",
+        "domesticLeagueId": "primeira-liga",
+        "domesticLeague": "Liga Portugal"
+      },
+      {
+        "name": "Galatasaray",
+        "transfermarkt": "https://www.transfermarkt.com/galatasaray-istanbul/kader/verein/141",
+        "domesticLeagueId": "super-lig",
+        "domesticLeague": "Super Lig"
+      },
+      {
+        "name": "PSV",
+        "transfermarkt": "https://www.transfermarkt.com/psv-eindhoven/kader/verein/383",
+        "domesticLeagueId": "eredivisie",
+        "domesticLeague": "Eredivisie"
+      },
+      {
+        "name": "Villarreal CF",
+        "transfermarkt": "https://www.transfermarkt.com/fc-villarreal/kader/verein/1050",
+        "domesticLeagueId": "laliga",
+        "domesticLeague": "LaLiga"
+      },
+      {
+        "name": "Club Brugge KV",
+        "transfermarkt": "https://www.transfermarkt.com/fc-brugge/kader/verein/2282",
+        "domesticLeagueId": "belgian-pro-league",
+        "domesticLeague": "Belgian Pro League"
+      },
+      {
+        "name": "Athletic Bilbao",
+        "transfermarkt": "https://www.transfermarkt.com/athletic-bilbao/kader/verein/621",
+        "domesticLeagueId": "laliga",
+        "domesticLeague": "LaLiga"
+      },
+      {
+        "name": "Ajax Amsterdam",
+        "transfermarkt": "https://www.transfermarkt.com/ajax-amsterdam/kader/verein/610",
+        "domesticLeagueId": "eredivisie",
+        "domesticLeague": "Eredivisie"
+      },
+      {
+        "name": "Olympiacos Piraeus",
+        "transfermarkt": "https://www.transfermarkt.com/olympiakos-piraus/kader/verein/683",
+        "domesticLeagueId": "greek-super-league",
+        "domesticLeague": "Greek Super League"
+      },
+      {
+        "name": "Union Saint-Gilloise",
+        "transfermarkt": "https://www.transfermarkt.com/royale-union-saint-gilloise/kader/verein/3948",
+        "domesticLeagueId": "belgian-pro-league",
+        "domesticLeague": "Belgian Pro League"
+      },
+      {
+        "name": "SK Slavia Prague",
+        "transfermarkt": "https://www.transfermarkt.com/sk-slavia-prag/kader/verein/62",
+        "rep": 94,
+        "salary": 169,
+        "players": [
+          {
+            "name": "Jakub Markovic",
+            "pos": "POR",
+            "rating": 80,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Jindrich Stanek",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Ondrej Kolar",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Stepan Chaloupek",
+            "pos": "DFC",
+            "rating": 86,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "David Zima",
+            "pos": "DFC",
+            "rating": 84,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Igoh Ogbu",
+            "pos": "DFC",
+            "rating": 84,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Tomas Vlcek",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Tomas Holes",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Jan Boril",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "David Jurásek",
+            "pos": "LI",
+            "rating": 82,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Youssoupha Mbodji",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Dominik Javorcek",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Samuel Isife",
+            "pos": "LD",
+            "rating": 80,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "David Moses",
+            "pos": "MC",
+            "rating": 86,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Michal Sadílek",
+            "pos": "MC",
+            "rating": 84,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Oscar",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Liberia"
+          },
+          {
+            "name": "Mubarak Suleiman",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Alexandr Buzek",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Petr Sevcik",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "David Doudera",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Muhammed Cham",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Austria"
+          },
+          {
+            "name": "Lukas Provod",
+            "pos": "EI",
+            "rating": 84,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Vasil Kusej",
+            "pos": "EI",
+            "rating": 79,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Youssoupha Sanyang",
+            "pos": "EI",
+            "rating": 79,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Ivan Schranz",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Mojmír Chytil",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Tomas Chory",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Erik Prekop",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Slovakia"
+          }
+        ]
+      },
+      {
+        "name": "FK Bodø/Glimt",
+        "transfermarkt": "https://www.transfermarkt.com/fk-bodo-glimt/kader/verein/501",
+        "rep": 93,
+        "salary": 167,
+        "players": [
+          {
+            "name": "Nikita Haikin",
+            "pos": "POR",
+            "rating": 79,
+            "nat": "Russia"
+          },
+          {
+            "name": "Julian Faye Lund",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Isak Sjong",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Odin Bjørtuft",
+            "pos": "DFC",
+            "rating": 81,
+            "nat": "Norway"
+          },
+          {
+            "name": "Villads Nielsen",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Jostein Gundersen",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Norway"
+          },
+          {
+            "name": "Haitam Aleesami",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Norway"
+          },
+          {
+            "name": "Fredrik Bjørkan",
+            "pos": "LI",
+            "rating": 80,
+            "nat": "Norway"
+          },
+          {
+            "name": "Isak Dybvik Määttä",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Norway"
+          },
+          {
+            "name": "Fredrik Sjøvold",
+            "pos": "LD",
+            "rating": 86,
+            "nat": "Norway"
+          },
+          {
+            "name": "Patrick Berg",
+            "pos": "MC",
+            "rating": 84,
+            "nat": "Norway"
+          },
+          {
+            "name": "Håkon Evjen",
+            "pos": "MC",
+            "rating": 82,
+            "nat": "Norway"
+          },
+          {
+            "name": "Sondre Auklend",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Norway"
+          },
+          {
+            "name": "Magnus Riisnæs",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Norway"
+          },
+          {
+            "name": "Sondre Brunstad Fet",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Norway"
+          },
+          {
+            "name": "Anders Klynge",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ulrik Saltnes",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Norway"
+          },
+          {
+            "name": "Jens Petter Hauge",
+            "pos": "EI",
+            "rating": 87,
+            "nat": "Norway"
+          },
+          {
+            "name": "Daniel Bassi",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Norway"
+          },
+          {
+            "name": "Ole Didrik Blomberg",
+            "pos": "ED",
+            "rating": 80,
+            "nat": "Norway"
+          },
+          {
+            "name": "August Mikkelsen",
+            "pos": "MCO",
+            "rating": 73,
+            "nat": "Norway"
+          },
+          {
+            "name": "Kasper Høgh",
+            "pos": "DC",
+            "rating": 87,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Ola Brynhildsen",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Norway"
+          },
+          {
+            "name": "Andreas Helmersen",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Norway"
+          },
+          {
+            "name": "Mikkel Bro Hansen",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Denmark"
+          }
+        ]
+      },
+      {
+        "name": "FC Copenhagen",
+        "transfermarkt": "https://www.transfermarkt.com/fc-kopenhagen/kader/verein/190",
+        "domesticLeagueId": "danish-superliga",
+        "domesticLeague": "Danish Superliga"
+      },
+      {
+        "name": "Qarabağ FK",
+        "transfermarkt": "https://www.transfermarkt.com/qarabag-fk/kader/verein/10625",
+        "rep": 87,
+        "salary": 157,
+        "players": [
+          {
+            "name": "Mateusz Kochalski",
+            "pos": "POR",
+            "rating": 77,
+            "nat": "Poland"
+          },
+          {
+            "name": "Shahrudin Mahammadaliyev",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Fabijan Buntic",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Amin Ramazanov",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Bahlul Mustafazada",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Samy Mmaee",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Morocco"
+          },
+          {
+            "name": "Kevin Medina",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Badavi Hüseynov",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Toral Bayramov",
+            "pos": "LI",
+            "rating": 77,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Elvin Cafarquliyev",
+            "pos": "LI",
+            "rating": 76,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Jérémie Gnali",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Matheus Silva",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Dani Bolt",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Abbas Hüseynov",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Pedro Bicalho",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Marko Jankovic",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Kady Borges",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Joni Montiel",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Spain"
+          },
+          {
+            "name": "Hikmat Cabrayilzada",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Emmanuel Addai",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Abdellah Zoubir",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "Leandro Andrade",
+            "pos": "ED",
+            "rating": 79,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Oleksiy Kashchuk",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Ukraine"
+          },
+          {
+            "name": "Camilo Durán",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Musa Qurbanly",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Azerbaijan"
+          },
+          {
+            "name": "Ramil Sheydayev",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Azerbaijan"
+          }
+        ]
+      },
+      {
+        "name": "Pafos FC",
+        "transfermarkt": "https://www.transfermarkt.com/pafos-fc/kader/verein/45457",
+        "rep": 87,
+        "salary": 157,
+        "players": [
+          {
+            "name": "Jay Gorter",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Neofytos Michail",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Athanasios Papadoudis",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Greece"
+          },
+          {
+            "name": "Derrick Luckassen",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Ghana"
+          },
+          {
+            "name": "David Goldar",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Spain"
+          },
+          {
+            "name": "Axel Guessand",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "France"
+          },
+          {
+            "name": "David Luiz",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Pedrão",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ken Sema",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Nikolas Ioannou",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Kostas Pileas",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Ognjen Mimović",
+            "pos": "LD",
+            "rating": 79,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Bruno",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ivan Šunjić",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Alexandre Brito",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Pêpê",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Dani Silva",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Domingos Quina",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Vlad Dragomir",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Romania"
+          },
+          {
+            "name": "Wilmer Odefalk",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Andreas Mavroudis",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Cyprus"
+          },
+          {
+            "name": "Mislav Orsic",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Jajá",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "João Correia",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Pedro Caldieraro",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Anderson Silva",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Lelê",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Mons Bassouamina",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Congo"
+          }
+        ]
+      },
+      {
+        "name": "Kairat Almaty",
+        "transfermarkt": "https://www.transfermarkt.com/kairat-almaty/kader/verein/10482",
+        "rep": 84,
+        "salary": 151,
+        "players": [
+          {
+            "name": "Temirlan Anarbekov",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Sherkhan Kalmurza",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Danila Buch",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Lucas Áfrico",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Aleksandr Martynovich",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Belarus"
+          },
+          {
+            "name": "Aleksandr Shirobokov",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Luís Mata",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Lev Kurgin",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Daniyar Tashpulatov",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Aleksandr Mrynskiy",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Erkin Tapalov",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Dan Glazer",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Israel"
+          },
+          {
+            "name": "Damir Kasabulat",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Adilet Sadybekov",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Olzhas Baybek",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Jaakko Oksanen",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Finland"
+          },
+          {
+            "name": "Azamat Tuyakbaev",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Mukhamedali Abish",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Oiva Jukkola",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Finland"
+          },
+          {
+            "name": "Sebastián Zeballos",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Ismail Bekbolat",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Dastan Satpaev",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Kazakhstan"
+          },
+          {
+            "name": "Jorginho",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Ricardinho",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Edmilson",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ramazan Bagdat",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Kazakhstan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "europa-league",
+    "name": "UEFA Europa League",
+    "region": "Europa",
+    "level": 4,
+    "teams": [
+      {
+        "name": "Nottingham Forest",
+        "transfermarkt": "https://www.transfermarkt.com/nottingham-forest/kader/verein/703",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "Aston Villa",
+        "transfermarkt": "https://www.transfermarkt.com/aston-villa/kader/verein/405",
+        "domesticLeagueId": "premier-league",
+        "domesticLeague": "Premier League"
+      },
+      {
+        "name": "AS Roma",
+        "transfermarkt": "https://www.transfermarkt.com/as-rom/kader/verein/12",
+        "domesticLeagueId": "serie-a",
+        "domesticLeague": "Serie A"
+      },
+      {
+        "name": "FC Porto",
+        "transfermarkt": "https://www.transfermarkt.com/fc-porto/kader/verein/720",
+        "domesticLeagueId": "primeira-liga",
+        "domesticLeague": "Liga Portugal"
+      },
+      {
+        "name": "VfB Stuttgart",
+        "transfermarkt": "https://www.transfermarkt.com/vfb-stuttgart/kader/verein/79",
+        "domesticLeagueId": "bundesliga",
+        "domesticLeague": "Bundesliga"
+      },
+      {
+        "name": "Lyon",
+        "transfermarkt": "https://www.transfermarkt.com/olympique-lyon/kader/verein/1041",
+        "domesticLeagueId": "ligue-1",
+        "domesticLeague": "Ligue 1"
+      },
+      {
+        "name": "LOSC Lille",
+        "transfermarkt": "https://www.transfermarkt.com/losc-lille/kader/verein/1082",
+        "domesticLeagueId": "ligue-1",
+        "domesticLeague": "Ligue 1"
+      },
+      {
+        "name": "Bologna FC 1909",
+        "transfermarkt": "https://www.transfermarkt.com/fc-bologna/kader/verein/1025",
+        "domesticLeagueId": "serie-a",
+        "domesticLeague": "Serie A"
+      },
+      {
+        "name": "Betis",
+        "transfermarkt": "https://www.transfermarkt.com/real-betis-sevilla/kader/verein/150",
+        "domesticLeagueId": "laliga",
+        "domesticLeague": "LaLiga"
+      },
+      {
+        "name": "Fenerbahce",
+        "transfermarkt": "https://www.transfermarkt.com/fenerbahce-istanbul/kader/verein/36",
+        "domesticLeagueId": "super-lig",
+        "domesticLeague": "Super Lig"
+      },
+      {
+        "name": "SC Freiburg",
+        "transfermarkt": "https://www.transfermarkt.com/sc-freiburg/kader/verein/60",
+        "domesticLeagueId": "bundesliga",
+        "domesticLeague": "Bundesliga"
+      },
+      {
+        "name": "Feyenoord Rotterdam",
+        "transfermarkt": "https://www.transfermarkt.com/feyenoord-rotterdam/kader/verein/234",
+        "domesticLeagueId": "eredivisie",
+        "domesticLeague": "Eredivisie"
+      },
+      {
+        "name": "Celta de Vigo",
+        "transfermarkt": "https://www.transfermarkt.com/celta-vigo/kader/verein/940",
+        "domesticLeagueId": "laliga",
+        "domesticLeague": "LaLiga"
+      },
+      {
+        "name": "SC Braga",
+        "transfermarkt": "https://www.transfermarkt.com/sc-braga/kader/verein/1075",
+        "domesticLeagueId": "primeira-liga",
+        "domesticLeague": "Liga Portugal"
+      },
+      {
+        "name": "OGC Nice",
+        "transfermarkt": "https://www.transfermarkt.com/ogc-nizza/kader/verein/417",
+        "domesticLeagueId": "ligue-1",
+        "domesticLeague": "Ligue 1"
+      },
+      {
+        "name": "Red Bull Salzburg",
+        "transfermarkt": "https://www.transfermarkt.com/red-bull-salzburg/kader/verein/409",
+        "domesticLeagueId": "austrian-bundesliga",
+        "domesticLeague": "Austrian Bundesliga"
+      },
+      {
+        "name": "Celtic FC",
+        "transfermarkt": "https://www.transfermarkt.com/celtic-glasgow/kader/verein/371",
+        "domesticLeagueId": "scottish-premiership",
+        "domesticLeague": "Scottish Premiership"
+      },
+      {
+        "name": "KRC Genk",
+        "transfermarkt": "https://www.transfermarkt.com/krc-genk/kader/verein/1184",
+        "domesticLeagueId": "belgian-pro-league",
+        "domesticLeague": "Belgian Pro League"
+      },
+      {
+        "name": "Rangers FC",
+        "transfermarkt": "https://www.transfermarkt.com/glasgow-rangers/kader/verein/124",
+        "domesticLeagueId": "scottish-premiership",
+        "domesticLeague": "Scottish Premiership"
+      },
+      {
+        "name": "Red Star Belgrade",
+        "transfermarkt": "https://www.transfermarkt.com/roter-stern-belgrad/kader/verein/159",
+        "rep": 91,
+        "salary": 131,
+        "players": [
+          {
+            "name": "Matheus",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Omri Glazer",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Israel"
+          },
+          {
+            "name": "Ivan Gutesa",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Savo Radanovic",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Vuk Draskic",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Strahinja Erakovic",
+            "pos": "DFC",
+            "rating": 82,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Franklin Tebo Uchenna",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Rodrigão",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Milos Veljkovic",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Stefan Gudelj",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Adem Avdic",
+            "pos": "LI",
+            "rating": 84,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Nair Tiknizyan",
+            "pos": "LI",
+            "rating": 82,
+            "nat": "Armenia"
+          },
+          {
+            "name": "Young-woo Seol",
+            "pos": "LD",
+            "rating": 82,
+            "nat": "Korea, South"
+          },
+          {
+            "name": "Nikola Stankovic",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Tomás Händel",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Rade Krunic",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Mahmudu Bajo",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "The Gambia"
+          },
+          {
+            "name": "Timi Max Elsnik",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Vasilije Kostov",
+            "pos": "MC",
+            "rating": 90,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Mirko Ivanic",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Aleksandar Katai",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Vladimir Lucic",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Nemanja Radonjic",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Douglas Owusu",
+            "pos": "ED",
+            "rating": 80,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Luka Zaric",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Dimitrije Saric",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Vasilije Subotic",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Aleksa Damjanovic",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Jay Enem",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Bruno Duarte",
+            "pos": "DC",
+            "rating": 79,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Marko Arnautovic",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Austria"
+          }
+        ]
+      },
+      {
+        "name": "FC Midtjylland",
+        "transfermarkt": "https://www.transfermarkt.com/fc-midtjylland/kader/verein/865",
+        "domesticLeagueId": "danish-superliga",
+        "domesticLeague": "Danish Superliga"
+      },
+      {
+        "name": "PAOK Thessaloniki",
+        "transfermarkt": "https://www.transfermarkt.com/paok-thessaloniki/kader/verein/1091",
+        "domesticLeagueId": "greek-super-league",
+        "domesticLeague": "Greek Super League"
+      },
+      {
+        "name": "FC Utrecht",
+        "transfermarkt": "https://www.transfermarkt.com/fc-utrecht/kader/verein/200",
+        "domesticLeagueId": "eredivisie",
+        "domesticLeague": "Eredivisie"
+      },
+      {
+        "name": "Panathinaikos",
+        "transfermarkt": "https://www.transfermarkt.com/panathinaikos-athen/kader/verein/265",
+        "domesticLeagueId": "greek-super-league",
+        "domesticLeague": "Greek Super League"
+      },
+      {
+        "name": "GNK Dinamo Zagreb",
+        "transfermarkt": "https://www.transfermarkt.com/gnk-dinamo-zagreb/kader/verein/419",
+        "rep": 89,
+        "salary": 128,
+        "players": [
+          {
+            "name": "Dominik Livakovic",
+            "pos": "POR",
+            "rating": 79,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Ivan Nevistic",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Ivan Filipovic",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Antonio Rajic",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Danijel Zagorac",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Sergi Domínguez",
+            "pos": "DFC",
+            "rating": 84,
+            "nat": "Spain"
+          },
+          {
+            "name": "Scott McKenna",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Scotland"
+          },
+          {
+            "name": "Niko Galesic",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Raúl Torrente",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Spain"
+          },
+          {
+            "name": "Marko Zebic",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Kévin Théophile-Catherine",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Martinique"
+          },
+          {
+            "name": "Dino Peric",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Matija Ruskovacki",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Matteo Pérez Vinlöf",
+            "pos": "LI",
+            "rating": 77,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Bruno Goda",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Moris Valincic",
+            "pos": "LD",
+            "rating": 77,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Ronaël Pierre-Gabriel",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "France"
+          },
+          {
+            "name": "Noa Mikic",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Paul Tabinas",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Philippines"
+          },
+          {
+            "name": "Ismaël Bennacer",
+            "pos": "MC",
+            "rating": 83,
+            "nat": "Algeria"
+          },
+          {
+            "name": "Marko Soldo",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Josip Misic",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Miha Zajc",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Luka Stojkovic",
+            "pos": "MC",
+            "rating": 82,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Sven Sunta",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Slovenia"
+          },
+          {
+            "name": "Gabriel Vidovic",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Arbër Hoxha",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Albania"
+          },
+          {
+            "name": "Cardoso Varela",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Mateo Lisica",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Fran Topic",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Juan Córdoba",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Dion Beljo",
+            "pos": "DC",
+            "rating": 85,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Mounsef Bakrar",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Algeria"
+          }
+        ]
+      },
+      {
+        "name": "BSC Young Boys",
+        "transfermarkt": "https://www.transfermarkt.com/bsc-young-boys/kader/verein/452",
+        "domesticLeagueId": "swiss-super-league",
+        "domesticLeague": "Swiss Super League"
+      },
+      {
+        "name": "FC Basel 1893",
+        "transfermarkt": "https://www.transfermarkt.com/fc-basel-1893/kader/verein/26",
+        "domesticLeagueId": "swiss-super-league",
+        "domesticLeague": "Swiss Super League"
+      },
+      {
+        "name": "FC Viktoria Plzen",
+        "transfermarkt": "https://www.transfermarkt.com/fc-viktoria-pilsen/kader/verein/941",
+        "rep": 87,
+        "salary": 125,
+        "players": [
+          {
+            "name": "Florian Wiegele",
+            "pos": "POR",
+            "rating": 76,
+            "nat": "Austria"
+          },
+          {
+            "name": "Viktor Baier",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Dominik Tapaj",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Marian Tvrdon",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Matyas Silhavy",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Sampson Dweh",
+            "pos": "DFC",
+            "rating": 80,
+            "nat": "Liberia"
+          },
+          {
+            "name": "Karel Spacil",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Jan Paluska",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "David Krcik",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Vaclav Jemelka",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Vaclav Mika",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Merchas Doski",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Iraq"
+          },
+          {
+            "name": "Adam Kadlec",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Lukas Cerv",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Alexandr Sojka",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Jiri Panos",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Matej Valenta",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Patrik Hrosovsky",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Slovakia"
+          },
+          {
+            "name": "Amar Memić",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Cheick Souaré",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "France"
+          },
+          {
+            "name": "Denis Visinsky",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Tom Sloncik",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Tomas Ladra",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Prince Adu",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Mohamed Touré",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Salim Fago Lawal",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Daniel Vasulin",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Matej Vydra",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Czech Republic"
+          }
+        ]
+      },
+      {
+        "name": "SK Sturm Graz",
+        "transfermarkt": "https://www.transfermarkt.com/sk-sturm-graz/kader/verein/122",
+        "domesticLeagueId": "austrian-bundesliga",
+        "domesticLeague": "Austrian Bundesliga"
+      },
+      {
+        "name": "Ferencvárosi TC",
+        "transfermarkt": "https://www.transfermarkt.com/ferencvaros-budapest/kader/verein/279",
+        "rep": 85,
+        "salary": 122,
+        "players": [
+          {
+            "name": "Dénes Dibusz",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Ádám Varga",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Dániel Radnóti",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Dávid Gróf",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Gergő Szécsi",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Ibrahim Cissé",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "France"
+          },
+          {
+            "name": "Toon Raemaekers",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Stefan Gartenmann",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Mariano Gómez",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gábor Szalai",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Ismaïl Aaneba",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "France"
+          },
+          {
+            "name": "Csongor Lakatos",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Barnabás Nagy",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Cebrail Makreckis",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Latvia"
+          },
+          {
+            "name": "Attila Osváth",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Endre Botka",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Habib Maïga",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Bence Ötvös",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Júlio Romão",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Mohammed Abu Fani",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Israel"
+          },
+          {
+            "name": "Naby Keïta",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Philippe Rommens",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Ádám Madarász",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Isaac Pappoe",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Cadu",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Callum O'Dowda",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Ireland"
+          },
+          {
+            "name": "Gabi Kanichowsky",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Israel"
+          },
+          {
+            "name": "Kristoffer Zachariassen",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Norway"
+          },
+          {
+            "name": "Krisztián Lisztes",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Marius Corbu",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Romania"
+          },
+          {
+            "name": "Elton Acolatse",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Bamidele Yusuf",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Jonathan Levi",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Franko Kovacevic",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Lenny Joseph",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Haiti"
+          },
+          {
+            "name": "Zsombor Gruber",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Hungary"
+          },
+          {
+            "name": "Aleksandar Pesic",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Fortune Bassey",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Benjámin Gólik",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Hungary"
+          }
+        ]
+      },
+      {
+        "name": "Ludogorets Razgrad",
+        "transfermarkt": "https://www.transfermarkt.com/pfk-ludogorets-razgrad/kader/verein/31614",
+        "rep": 85,
+        "salary": 122,
+        "players": [
+          {
+            "name": "Hendrik Bonmann",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Germany"
+          },
+          {
+            "name": "Sergio Padt",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Edvin Kurtulus",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Olivier Verdon",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Benin"
+          },
+          {
+            "name": "Dinis Almeida",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Idan Nachmias",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Israel"
+          },
+          {
+            "name": "Vinícius Nogueira",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Anton Nedyalkov",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Son",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Spain"
+          },
+          {
+            "name": "Joel Andersson",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Pedro Naressi",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Ivan Yordanov",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Deroy Duarte",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Ivaylo Chochev",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Filip Kaloc",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Petar Stanic",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Aguibou Camara",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Caio Vidal",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Erick Marcus",
+            "pos": "ED",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Bernard Tekpetey",
+            "pos": "ED",
+            "rating": 77,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Stanislav Ivanov",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Rwan Cruz",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Kwadwo Duah",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Yves Erick Bile",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Cote d'Ivoire"
+          },
+          {
+            "name": "Alberto Salido",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Spain"
+          },
+          {
+            "name": "Matheus Machado",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Brazil"
+          }
+        ]
+      },
+      {
+        "name": "Go Ahead Eagles",
+        "transfermarkt": "https://www.transfermarkt.com/go-ahead-eagles-deventer/kader/verein/1435",
+        "domesticLeagueId": "eredivisie",
+        "domesticLeague": "Eredivisie"
+      },
+      {
+        "name": "FCSB",
+        "transfermarkt": "https://www.transfermarkt.com/fcsb/kader/verein/301",
+        "rep": 85,
+        "salary": 122,
+        "players": [
+          {
+            "name": "Ștefan Târnovanu",
+            "pos": "POR",
+            "rating": 78,
+            "nat": "Romania"
+          },
+          {
+            "name": "Lukas Zima",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Czech Republic"
+          },
+          {
+            "name": "Matei Popa",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Romania"
+          },
+          {
+            "name": "Mihai Udrea",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Romania"
+          },
+          {
+            "name": "Siyabonga Ngezana",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "South Africa"
+          },
+          {
+            "name": "Joyskim Dawa",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Cameroon"
+          },
+          {
+            "name": "André Duarte",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Mihai Popescu",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Romania"
+          },
+          {
+            "name": "Daniel Graovac",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Bosnia-Herzegovina"
+          },
+          {
+            "name": "Andrei Dăncuș",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Romania"
+          },
+          {
+            "name": "Risto Radunovic",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "David Kiki",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Benin"
+          },
+          {
+            "name": "Alexandru Pantea",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Romania"
+          },
+          {
+            "name": "Ionuț Cercel",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Romania"
+          },
+          {
+            "name": "Valentin Crețu",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Romania"
+          },
+          {
+            "name": "Ofri Arad",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Israel"
+          },
+          {
+            "name": "João Paulo",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Baba Alhassan",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Uganda"
+          },
+          {
+            "name": "Vlad Chiricheș",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Romania"
+          },
+          {
+            "name": "Mihai Lixandru",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Romania"
+          },
+          {
+            "name": "Juri Cisotti",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Italy"
+          },
+          {
+            "name": "Mihai Toma",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Romania"
+          },
+          {
+            "name": "Darius Olaru",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Romania"
+          },
+          {
+            "name": "Florin Tănase",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Romania"
+          },
+          {
+            "name": "Octavian Popescu",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Romania"
+          },
+          {
+            "name": "David Miculescu",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Romania"
+          },
+          {
+            "name": "David Popa",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Romania"
+          },
+          {
+            "name": "Daniel Bîrligea",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Romania"
+          },
+          {
+            "name": "Mamadou Thiam",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Alexandru Stoian",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Romania"
+          }
+        ]
+      },
+      {
+        "name": "Maccabi Tel Aviv",
+        "transfermarkt": "https://www.transfermarkt.com/maccabi-tel-aviv/kader/verein/119",
+        "rep": 84,
+        "salary": 121,
+        "players": [
+          {
+            "name": "Ofek Melika",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Israel"
+          },
+          {
+            "name": "Roi Mishpati",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Israel"
+          },
+          {
+            "name": "Shalev Saadya",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Israel"
+          },
+          {
+            "name": "Tyrese Asante",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Netherlands"
+          },
+          {
+            "name": "Mohamed Camara",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Guinea"
+          },
+          {
+            "name": "Raz Shlomo",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Israel"
+          },
+          {
+            "name": "Heitor",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Itay Ben Hemo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Israel"
+          },
+          {
+            "name": "Roy Revivo",
+            "pos": "LI",
+            "rating": 77,
+            "nat": "Israel"
+          },
+          {
+            "name": "Denny Gropper",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Israel"
+          },
+          {
+            "name": "Idan Weinberg",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Israel"
+          },
+          {
+            "name": "Noam Ben Harush",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Israel"
+          },
+          {
+            "name": "Kristijan Belic",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Issouf Sissokho",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Mali"
+          },
+          {
+            "name": "Itamar Noy",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Israel"
+          },
+          {
+            "name": "Ben Lederman",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Poland"
+          },
+          {
+            "name": "Roei Magor",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Israel"
+          },
+          {
+            "name": "Dor Peretz",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Israel"
+          },
+          {
+            "name": "Ido Shahar",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Israel"
+          },
+          {
+            "name": "Lotem Assras",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Israel"
+          },
+          {
+            "name": "Kervin Andrade",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ilay Ben Simon",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Israel"
+          },
+          {
+            "name": "Hélio Varela",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Osher Davida",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Israel"
+          },
+          {
+            "name": "Emir Sahiti",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Kosovo"
+          },
+          {
+            "name": "Sagiv Jehezkel",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Israel"
+          },
+          {
+            "name": "Sayed Abu Farkhi",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Israel"
+          },
+          {
+            "name": "Ion Nicolaescu",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Moldova"
+          },
+          {
+            "name": "Elad Madmon",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Israel"
+          },
+          {
+            "name": "Yonas Malede",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Israel"
+          },
+          {
+            "name": "Itay Zafrani",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Israel"
+          }
+        ]
+      },
+      {
+        "name": "Malmö FF",
+        "transfermarkt": "https://www.transfermarkt.com/malmo-ff/kader/verein/496",
+        "rep": 85,
+        "salary": 122,
+        "players": [
+          {
+            "name": "Robin Olsen",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Ricardo Friedrich",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Johan Dahlin",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Sweden"
+          },
+          {
+            "name": "William Nieroth Lundgren",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Colin Rösler",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Norway"
+          },
+          {
+            "name": "Bleon Kurtulus",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Pontus Jansson",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Andrej Djuric",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Malte Frejd Pålsson",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Busanello",
+            "pos": "LI",
+            "rating": 78,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Noah Åstrand John",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Johan Karlsson",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Jens Stryger",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Yanis Karabelyov",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bulgaria"
+          },
+          {
+            "name": "Otto Rosengren",
+            "pos": "MC",
+            "rating": 77,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Jovan Milosavljevic",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Adrian Skogmar",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Kenan Busuladzic",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Anders Christiansen",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Theodor Lundbergh",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Viggo Jeppsson",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Gentian Lajqi",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Anton Höög",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Antonio Palac",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Croatia"
+          },
+          {
+            "name": "Sead Haksabanovic",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Montenegro"
+          },
+          {
+            "name": "Arnór Sigurdsson",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Taha Ali",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Stefano Vecchia",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Oscar Sjöstrand",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Emmanuel Ekong",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Sweden"
+          },
+          {
+            "name": "Erik Botheim",
+            "pos": "DC",
+            "rating": 78,
+            "nat": "Norway"
+          },
+          {
+            "name": "Daníel Gudjohnsen",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Omar Krajina",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Montenegro"
+          }
+        ]
+      },
+      {
+        "name": "SK Brann",
+        "transfermarkt": "https://www.transfermarkt.com/sk-brann/kader/verein/1100",
+        "rep": 83,
+        "salary": 120,
+        "players": [
+          {
+            "name": "Mathias Dyngeland",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Simen Vidtun Nilsen",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Håkon Hellesøy",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Norway"
+          },
+          {
+            "name": "Nana Kwame Boakye",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Cheikh Mbacké Diop",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Fredrik Pallesen Knudsen",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Rasmus Holten",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Norway"
+          },
+          {
+            "name": "Thore Pedersen",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Norway"
+          },
+          {
+            "name": "Joachim Soltvedt",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Vetle Dragsnes",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Norway"
+          },
+          {
+            "name": "Jonas Torsvik",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Norway"
+          },
+          {
+            "name": "Denzel De Roeve",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Belgium"
+          },
+          {
+            "name": "Martin Hellan",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Jacob Lungi Sørensen",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Denmark"
+          },
+          {
+            "name": "Felix Horn Myhre",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Norway"
+          },
+          {
+            "name": "Niklas Jensen Wassberg",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Norway"
+          },
+          {
+            "name": "Sakarias Opsahl",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Kristall Máni Ingason",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Eggert Aron Gudmundsson",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Kristian Eriksen",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Jesper Eikrem",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Norway"
+          },
+          {
+            "name": "Rabbi Matondo",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Wales"
+          },
+          {
+            "name": "Markus Haaland",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Norway"
+          },
+          {
+            "name": "Jón Dagur Thorsteinsson",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Niklas Castro",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Sævar Atli Magnússon",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Iceland"
+          },
+          {
+            "name": "Ulrik Mathisen",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Norway"
+          },
+          {
+            "name": "Chinedu Cyprain Ononogbo",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Noah Holm",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Norway"
+          },
+          {
+            "name": "Bård Finne",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Norway"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "copa-libertadores",
+    "name": "Copa Libertadores",
+    "region": "CONMEBOL",
+    "level": 4,
+    "teams": [
+      {
+        "name": "Sociedade Esportiva Palmeiras",
+        "transfermarkt": "https://www.transfermarkt.com/se-palmeiras-sao-paulo/kader/verein/1023",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "CR Flamengo",
+        "transfermarkt": "https://www.transfermarkt.com/flamengo-rio-de-janeiro/kader/verein/614",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Cruzeiro Esporte Clube",
+        "transfermarkt": "https://www.transfermarkt.com/ec-cruzeiro-belo-horizonte/kader/verein/609",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Sport Club Corinthians Paulista",
+        "transfermarkt": "https://www.transfermarkt.com/corinthians-sao-paulo/kader/verein/199",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Fluminense Football Club",
+        "transfermarkt": "https://www.transfermarkt.com/fluminense-rio-de-janeiro/kader/verein/2462",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "CA Rosario Central",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-rosario-central/kader/verein/1418",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Club Estudiantes de La Plata",
+        "transfermarkt": "https://www.transfermarkt.com/club-estudiantes-de-la-plata/kader/verein/288",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "CS Independiente Rivadavia",
+        "transfermarkt": "https://www.transfermarkt.com/independiente-rivadavia/kader/verein/12179",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Independiente del Valle",
+        "transfermarkt": "https://www.transfermarkt.com/independiente-del-valle/kader/verein/19309",
+        "rep": 84,
+        "salary": 121,
+        "players": [
+          {
+            "name": "Guido Villar",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Aldair Quintana",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Eduardo Bores",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Mateo Carabajal",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Viacava",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Andy Velasco",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Joaquín Pombo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Luis Zárate",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Richard Schunke",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Aníbal Gómez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Layan Loor",
+            "pos": "LI",
+            "rating": 75,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gustavo Cortez",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Daykol Romero",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jhon Espinoza",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jordy Alcívar",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jhegson Méndez",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Youri Ochoa",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Darwin Guagua",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Patrik Mercado",
+            "pos": "MC",
+            "rating": 81,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Justin Lerma",
+            "pos": "MC",
+            "rating": 78,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Júnior Sornoza",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jean Arroyo",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Juan Cazares",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Aron Rodríguez",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Ronald Briones",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Steven Góngora",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Matías Perelló",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Emerson Pata",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Carlos González",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Djorkaeff Reasco",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Juan Angulo",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Yandri Vásquez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Ecuador"
+          }
+        ]
+      },
+      {
+        "name": "Mirassol Futebol Clube (SP)",
+        "transfermarkt": "https://www.transfermarkt.com/mirassol-futebol-clube-sp-/kader/verein/3876",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Club Atlético Platense",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-platense/kader/verein/928",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Club Cerro Porteño",
+        "transfermarkt": "https://www.transfermarkt.com/club-cerro-porteno/kader/verein/1214",
+        "rep": 83,
+        "salary": 120,
+        "players": [
+          {
+            "name": "Alexis Martín Arias",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Roberto Fernández",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Lucas Quintana",
+            "pos": "DFC",
+            "rating": 79,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Matías Pérez",
+            "pos": "DFC",
+            "rating": 77,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gustavo Velázquez",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Abel Luciatti",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Rodrigo Melgarejo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Blas Riveros",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Marcelo Chaparro",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Guillermo Benítez",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Fabricio Domínguez",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rodrigo Gómez",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Josué Servín",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jorge Morel",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Piris da Motta",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Gastón Giménez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Cristhian Paredes",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fabrizio Peralta",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Wílder Viera",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Cesar Bobadilla",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Amín Cristaldo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Mateo Klimowicz",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Germany"
+          },
+          {
+            "name": "Carlos Franco",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alan Soñora",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "United States"
+          },
+          {
+            "name": "Ignacio Aliseda",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Santiago Mosquera",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Gabriel Aguayo",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Cecilio Domínguez",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Juan Iturbe",
+            "pos": "MCO",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jonatan Torres",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Luis Amarilla",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Pablo Vegetti",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Sergio Araujo",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "LDU Quito",
+        "transfermarkt": "https://www.transfermarkt.com/ldu-quito/kader/verein/9855",
+        "rep": 82,
+        "salary": 118,
+        "players": [
+          {
+            "name": "Gonzalo Valle",
+            "pos": "POR",
+            "rating": 75,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Alexis Villa",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Alexander Domínguez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Luis Segovia",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Richard Mina",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gian Franco Allala",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ricardo Adé",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Haiti"
+          },
+          {
+            "name": "Maikel Caicedo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Patrick Ortíz",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Leonel Quiñónez",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Daniel de la Cruz",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Josué Cuero",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "José Quintero",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Kevin Minda",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jesús Pretell",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ederson Castillo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gabriel Villamíl",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Cristian Tobar",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Fernando Cornejo",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Chile"
+          },
+          {
+            "name": "Alexander Alvarado",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Yerlin Quiñónez",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Josué Caicedo",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Rodney Redes",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Janner Corozo",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Paúl Durán",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Michael Estrada",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jeison Medina",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Deyverson",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Brazil"
+          }
+        ]
+      },
+      {
+        "name": "CD Universidad Católica",
+        "transfermarkt": "https://www.transfermarkt.com/cd-universidad-catolica/kader/verein/3277",
+        "rep": 82,
+        "salary": 118,
+        "players": [
+          {
+            "name": "Vicente Bernedo",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Darío Melo",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Daniel González",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Chile"
+          },
+          {
+            "name": "Juan Ignacio Díaz",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Branco Ampuero",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Tomás Asta-Buruaga",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ignacio Pérez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Nicolás L'Huillier",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Eugenio Mena",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Sebastián Arancibia",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Chile"
+          },
+          {
+            "name": "Bernardo Cerezo",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Jhojan Valencia",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Alfred Canales",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Agustín Farías",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gary Medel",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Jimmy Martínez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Fernando Zuqui",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Bryan González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Matías Palavecino",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Francisco Rossel",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martin Gómez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Vicente Cárcamo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Justo Giani",
+            "pos": "EI",
+            "rating": 78,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Clemente Montes",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristian Cuevas",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Diego Corral",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Diego Valencia",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Fernando Zampedri",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Chile"
+          }
+        ]
+      },
+      {
+        "name": "Deportes Tolima",
+        "transfermarkt": "https://www.transfermarkt.com/deportes-tolima/kader/verein/10503",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Luis Marquinez",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Neto Volpi",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Jan Ángulo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Anderson Angulo",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan José Mera",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yordan Osorio",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Daniel Pedrozo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Junior Hernández",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Shean Barbosa",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Cristian Arrieta",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jherson Mosquera",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Brayan Rovira",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Sebastián Guzmán",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Cristian Trujillo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Élan Ricardo",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Pablo Nieto",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Torres",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Kelvin Flórez",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Ever Valencia",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Edwar López",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jersson González",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Sandoval",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Adrián Parra",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jader Valencia",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jeinner Fuentes",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Coquimbo Unido",
+        "transfermarkt": "https://www.transfermarkt.com/coquimbo-unido/kader/verein/11004",
+        "rep": 82,
+        "salary": 118,
+        "players": [
+          {
+            "name": "Gonzalo Flores",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Diego Sánchez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristóbal Dorador",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Gazzolo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Elvis Hernández",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Manuel Fernández",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Joshua Arancibia",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Chile"
+          },
+          {
+            "name": "Sebastián Cabrera",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Juan Cornejo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Francisco Salinas",
+            "pos": "LD",
+            "rating": 75,
+            "nat": "Chile"
+          },
+          {
+            "name": "Dylan Escobar",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Lukas Soza",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Sebastián Galani",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Chile"
+          },
+          {
+            "name": "Dylan Glaby",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Salvador Cordero",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Alejandro Camargo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Matías Zepeda",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Guido Vadalá",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Pablo Rodríguez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Chandía",
+            "pos": "EI",
+            "rating": 75,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Mundaca",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Matías Alvarado",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristián Zavala",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Chile"
+          },
+          {
+            "name": "Alejandro Azócar",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Luis Riveros",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Nicolás Johansen",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Lucas Pratto",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Dixon Pereira",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Rodrigo Holgado",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Malaysia"
+          }
+        ]
+      },
+      {
+        "name": "Botafogo de Futebol e Regatas",
+        "transfermarkt": "https://www.transfermarkt.com/botafogo-rio-de-janeiro/kader/verein/537",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Esporte Clube Bahia",
+        "transfermarkt": "https://www.transfermarkt.com/esporte-clube-bahia/kader/verein/10010",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "CA Boca Juniors",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-boca-juniors/kader/verein/189",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "AA Argentinos Juniors",
+        "transfermarkt": "https://www.transfermarkt.com/argentinos-juniors/kader/verein/1030",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "CA Lanús",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-lanus/kader/verein/333",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "CA Peñarol",
+        "transfermarkt": "https://www.transfermarkt.com/ca-penarol/kader/verein/861",
+        "rep": 85,
+        "salary": 122,
+        "players": [
+          {
+            "name": "Washington Aguerre",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Sebastián Britos",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nahuel Herrera",
+            "pos": "DFC",
+            "rating": 78,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Emanuel Gularte",
+            "pos": "DFC",
+            "rating": 76,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Ferreira",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mauricio Lemos",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Matías González",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Andrés Madruga",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Brian Barboza",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Álvez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Diego Laxalt",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Maximiliano Olivera",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Hernández",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Franco Escobar",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Kevin Rodríguez",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Eric Remedi",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jesús Trindade",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Fernández",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Eduardo Darias",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Stiven Muhlethaler",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Leonardo Fernández",
+            "pos": "MC",
+            "rating": 80,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Leandro Umpiérrez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Franco González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gastón Togni",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Luis Angulo",
+            "pos": "EI",
+            "rating": 76,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Brandon Álvarez",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Javier Cabrera",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Matías Arezo",
+            "pos": "DC",
+            "rating": 80,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Batista",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Abel Hernández",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Club Libertad Asunción",
+        "transfermarkt": "https://www.transfermarkt.com/club-libertad-asuncion/kader/verein/9875",
+        "rep": 82,
+        "salary": 118,
+        "players": [
+          {
+            "name": "Rodrigo Morínigo",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ángel González",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Victor Rojas",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Robert Rojas",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Thiago Fernández",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Diego Viera",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Santiago Delvalle",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Néstor Giménez",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Matías Espinoza",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Estiven Villalba",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Iván Ramírez",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alan Benítez",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Álvaro Campuzano",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hernesto Caballero",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Lucas Sanabria",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Amín Molinas",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hugo Martínez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Christian Martínez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Matías Rojas",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Joaquín Bogarín",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jorge Recalde",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alexis Fretes",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hugo Fernández",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Pedro Villalba",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Federico Carrizo",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Rodrigo Villalba",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Iván Franco",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Marcelo Fernández",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Gustavo Aguilar",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rodrigo Acuña",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Lorenzo Melgarejo",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          }
+        ]
+      },
+      {
+        "name": "Barcelona SC Guayaquil",
+        "transfermarkt": "https://www.transfermarkt.com/barcelona-sc-guayaquil/kader/verein/3523",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "José Contreras",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "José Gabriel Cevallos",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Kleber Pinargote",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Álex Rangel",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gustavo Vallecilla",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Luca Sosa",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Javier Báez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jhonnier Chalá",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jonnathan Mina",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jonathan Perlaza",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Bryan Carabalí",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Byron Castillo",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Willian Vargas",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jefferson Intriago",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Matías Lugo",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jhonny Quiñónez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Carlos Montaño",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jordan Medina",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Milton Céliz",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jandry Gómez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Tomás Martínez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Johan García",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Luis Cano",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Joao Rojas",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Ronald Perlaza",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Héctor Villalba",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Marcos Mejía",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Miguel Parrales",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Sergio Núñez",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Jefferson Wila",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Darío Benedetto",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Richard Borja",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Klever Caicedo",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Ecuador"
+          }
+        ]
+      },
+      {
+        "name": "Club Guaraní",
+        "transfermarkt": "https://www.transfermarkt.com/club-guarani/kader/verein/11855",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Aldo Pérez",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Gaspar Servio",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Marino Arzamendia",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Thiago Servín",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alcides Barbotte",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sebastián Zaracho",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Imanol Segovia",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "César Ramírez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Patricio Coronel",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Mariano Ramos",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Daniel Pérez",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Luis Martínez",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Patricio Tanda",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Marcos Gómez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Agustín Manzur",
+            "pos": "MC",
+            "rating": 76,
+            "nat": "Palestine"
+          },
+          {
+            "name": "Matías López",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Giovanni Gómez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jesús Llano",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Bruno Díaz",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ricardo Quiñónez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Diego Fernández",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Derlis Rodríguez",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "César Miño",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jhon Sánchez",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Fernando Fernández",
+            "pos": "MCO",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Iván Ramírez",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Richard Torales",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Nelson Romero",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          }
+        ]
+      },
+      {
+        "name": "Club Nacional",
+        "transfermarkt": "https://www.transfermarkt.com/club-nacional/kader/verein/866",
+        "rep": 82,
+        "salary": 118,
+        "players": [
+          {
+            "name": "Ignacio Suárez",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Luis Mejía",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Panama"
+          },
+          {
+            "name": "Agustín Rogel",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Paolo Calione",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Tomás Viera",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Sebastián Coates",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Camilo Cándido",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Federico Bais",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Pintado",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Emiliano Ancheta",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Rodríguez",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mauricio Vera",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Ignacio García",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Luciano Boggio",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Baltasar Barcia",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Dos Santos",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Rodríguez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Lodeiro",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Cruz de los Santos",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rodrigo Martínez",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Bruno Arady",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Exequiel Mereles",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Tomás Verón Lupi",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Maxi Gómez",
+            "pos": "DC",
+            "rating": 76,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Maximiliano Silvera",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás López",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gonzalo Carneiro",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Pavel Núñez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Junior FC",
+        "transfermarkt": "https://www.transfermarkt.com/junior-fc/kader/verein/11854",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Mauro Silveira",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Jefersson Martínez",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jean Carlos Pestaña",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jermein Peña",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Lucas Monzón",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Daniel Rivera",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yeison Suárez",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhon Navia",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhomier Guerrero",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Edwin Herrera",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jesús Rivas",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Guillermo Celis",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan David Ríos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Fabián Ángel",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Harold Rivera",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jannenson Sarmiento",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Deiber Caicedo",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Bryan Castrillón",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Joel Canchimbo",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Cristian Barrios",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Kevin Pérez",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yimmi Chará",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Guillermo Paiva",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Luis Muriel",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Teófilo Gutiérrez",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Carlos Bacca",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Universitario de Deportes",
+        "transfermarkt": "https://www.transfermarkt.com/universitario-de-deportes/kader/verein/6593",
+        "rep": 82,
+        "salary": 118,
+        "players": [
+          {
+            "name": "Diego Romero",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Peru"
+          },
+          {
+            "name": "Miguel Vargas",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Jhefferson Rodríguez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Anderson Santamaría",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Williams Riveros",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Caín Fara",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Matías Di Benedetto",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Aldo Corzo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "César Inga",
+            "pos": "LI",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "José Carabalí",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Paolo Reyna",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Hugo Ancajima",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jesús Castillo",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jorge Murrugarra",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jairo Concha",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Peru"
+          },
+          {
+            "name": "Horacio Calcaterra",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Martín Pérez Guedes",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Diogo Vásquez",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Sebastian Flores",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Miguel Silveira",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Fabián Cabanillas",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Bryan Reyna",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Héctor Fértoli",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Christopher Loayza",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Andy Polo",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Lisandro Alzugaray",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Álex Valera",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Peru"
+          },
+          {
+            "name": "José Rivera",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Edison Flores",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Sekou Gassama",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Senegal"
+          },
+          {
+            "name": "Rodrigo Dioses",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jhon Guzmán",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "CD O'Higgins",
+        "transfermarkt": "https://www.transfermarkt.com/cd-ohiggins/kader/verein/11470",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Omar Carabalí",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jorge Peña",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Diego Carreño",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Alan Robledo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Miguel Brizuela",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nicolás Garrido",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "José Tomás Movillo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Leandro Díaz",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Luis Pavez Muñoz",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Felipe Faúndez",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Rojas",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristián Morales",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Felipe Ogaz",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Schamine",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gabriel Pinto",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristóbal Castillo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Juan Leiva",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Bryan Rabello",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Maturana",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Sarrafiore",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Bastián Yáñez",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Rodrigo Godoy",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Francisco González",
+            "pos": "ED",
+            "rating": 76,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Joaquín Tapia",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Thiago Vecino",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Arnaldo Castillo",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Esteban Calderón",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Esteban Moreira",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Chile"
+          }
+        ]
+      },
+      {
+        "name": "Independiente Medellín",
+        "transfermarkt": "https://www.transfermarkt.com/independiente-medellin/kader/verein/10093",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Salvador Ichazo",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Eder Chaux",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "José Luis Chunga",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Kevin Mantilla",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "José Ortiz",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Málcom Palacios",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Escorcia",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Daniel Londoño",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Frank Fabra",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Leyser Chaverra",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Esneyder Mena",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Hayen Palacios",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Viveros",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Halam Loboa",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Diego Moreno",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Didier Moreno",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Léider Berrío",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Alexis Serna",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Baldomero Perlaza",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Daniel Cataño",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Francisco Chaverra",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "John Montaño",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yony González",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Gerónimo Mancilla",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Enzo Larrosa",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Francisco Fydriszewski",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "Club Alianza Lima",
+        "transfermarkt": "https://www.transfermarkt.com/club-alianza-lima/kader/verein/184",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Guillermo Viscarra",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Alejandro Duarte",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ángel de la Cruz",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Fabrisio Mesías",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Renzo Garcés",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Mateo Antoni",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gianfranco Chávez",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jhoao Velásquez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jonathan García",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Cristian Carbajal",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Marco Huamán",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "D'Alessandro Montenegro",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Josué Estrada",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Luis Advíncula",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jesús Castillo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Pedro Aquino",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jean Pierre Archimbaud",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Esteban Pavez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Piero Cari",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alessandro Burlamaqui",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Fernando Gaibor",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jairo Vélez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alan Cantero",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Eryc Castillo",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Kevin Quevedo",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gaspar Gentile",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Federico Girotti",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Luis Ramos",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Paolo Guerrero",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Geray Motta",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "Club Sporting Cristal",
+        "transfermarkt": "https://www.transfermarkt.com/club-sporting-cristal/kader/verein/1450",
+        "rep": 82,
+        "salary": 118,
+        "players": [
+          {
+            "name": "Diego Enríquez",
+            "pos": "POR",
+            "rating": 73,
+            "nat": "Peru"
+          },
+          {
+            "name": "Renato Solís",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "César Bautista",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Tomás Dulanto",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Luis Abram",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Peru"
+          },
+          {
+            "name": "Rafael Lutiger",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Peru"
+          },
+          {
+            "name": "Miguel Araujo",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alejandro Pósito",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Leonardo Díaz",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Carlos Salgado",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Cristiano",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Fabrizio Lora",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Leandro Sosa",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan González",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Joao Cuenca",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Duham Ballumbrosio",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gustavo Cazonatti",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Gerson Castillo",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Martín Távara",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Catriel Cabellos",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ian Wisdom",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Yoshimar Yotún",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Lionel Herrera",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Christofer Gonzales",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gabriel",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Cristian Benavente",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Yamir del Valle",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Maxloren Castro",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Josemaría Mellán",
+            "pos": "EI",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Santiago González",
+            "pos": "ED",
+            "rating": 75,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jair Moretti",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Luis Iberico",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Felipe Vizeu",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Diego Otoya",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Írven Ávila",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Mateo Rodríguez",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "Liverpool FC Montevideo",
+        "transfermarkt": "https://www.transfermarkt.com/liverpool-fc-montevideo/kader/verein/10663",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Mathías Bernatene",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Martín Campaña",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Enzo Castillo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Santiago Strasorier",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Santiago Laquidaín",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Diego Romero",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Kevin Lewis",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Cayetano",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Kevin Amaro",
+            "pos": "LD",
+            "rating": 77,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Perdomo",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Jean Rosso",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Santiago Milano",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Garayalde",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Martín Rabuñal",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ezequiel Olivera",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Matías Mir",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Acosta",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gonzalo de Mello",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Federico Martínez",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ramiro Degregorio",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Diego Zabala",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alfonso de Luca",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Renzo Machado",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Barceló",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rubén Bentancourt",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Felipe Barrenechea",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Lithuania"
+          }
+        ]
+      },
+      {
+        "name": "Independiente Santa Fe",
+        "transfermarkt": "https://www.transfermarkt.com/independiente-santa-fe/kader/verein/11648",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Andrés Mosquera",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Weimar Asprilla",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Víctor Moreno",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Iván Scarpeta",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Quintero",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Emmanuel Olivera",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Christian Mafla",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jeison Angulo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Palacios",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Helibelton Palacios",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yeicar Perlaza",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Mateo Puerta",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yilmar Velásquez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Ewil Murillo",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Kilian Toscano",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Dani Torres",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhojan Torres",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Alexis Zapata",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Omar Fernández",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Maximiliano Lovera",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Edwin Mosquera",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jáder Obrian",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhon Meléndez",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Franco Fagúndez",
+            "pos": "MCO",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nahuel Bustos",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Hugo Rodallega",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "CA Juventud",
+        "transfermarkt": "https://www.transfermarkt.com/juventud-de-las-piedras/kader/verein/17428",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Nicolás Rossi",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Ruotola",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Sebastián Sosa",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "David Morosini",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Patricio Pernicone",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Franco Risso",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Axel Prado",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Martín Cáceres",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Renzo Rabino",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Emmanuel Más",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Agustín Pérez",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Federico Barrandeguy",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ignacio Mujica",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mauricio Rodríguez",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rodrigo Chagas",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Leonel Roldán",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Emanuel Cecchini",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Ramiro Peralta",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Facundo Pérez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mateo Izaguirre",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Iván Rodríguez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gonzalo Gómez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gastón Pereiro",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alejo Cruz",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Martín Boselli",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Alaniz",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Pablo Lago",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Renzo Sánchez",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Fernando Mimbacas",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Bruno Larregui",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Marcelo Pérez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sebastián Guerrero",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Bolívar La Paz",
+        "transfermarkt": "https://www.transfermarkt.com/bolivar-la-paz/kader/verein/6878",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Juan Jose Lopez",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Lampe",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Diego Méndez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Xavier Arreaga",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "José Sagredo",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ignacio Gariglio",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Fernando Mena",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Santiago Echeverría",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Cristian López",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Heiden Butrón",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Paz",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Escleizon Freita",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jesús Sagredo",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ervin Vaca",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Sejas",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Matías Galindo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Sabja",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Anderson Ayhuana",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Robson Matheus",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Leonel Justiniano",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jesús Velásquez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Erwin Saavedra",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jhon Velásquez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "John García",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Melgar",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Lucas Chávez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Brian Oyola",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Pato Rodríguez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Damián Batallini",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Dorny Romero",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Dominican Republic"
+          },
+          {
+            "name": "Martín Cauteruccio",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Deportivo Táchira",
+        "transfermarkt": "https://www.transfermarkt.com/deportivo-tachira/kader/verein/13297",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Jesús Camargo",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alejandro Araque",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Edwin Vargas",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan David Sánchez",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Guillermo Fratta",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Adrián Montañez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Wilder Wilches",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Lautaro Lusnig",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Edicson Tamiche",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Wuilmer Rico",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Delvin Alfonzo",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Franco Provenzano",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Pablo Camacho",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Carlos Méndez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Óscar Hernández",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Leandro Fioravanti",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Manuel Roa",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Carlos Calzadilla",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Agustín Pérez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Brayan Palmezano",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Carlos Sosa",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jairo Villalpando",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gustavo Lozano",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Luis González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Adalberto Peñaranda",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Heiderber Ramírez",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Luis Zuñiga",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jesús Duarte",
+            "pos": "MCO",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Aguilar",
+            "pos": "MCO",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Rodrigo Pollero",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "José Balza",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexander Rondón Oliveros",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexander Rondón",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Deportivo La Guaira",
+        "transfermarkt": "https://www.transfermarkt.com/deportivo-la-guaira/kader/verein/26468",
+        "rep": 79,
+        "salary": 114,
+        "players": [
+          {
+            "name": "Cristopher Varela",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jorge Sánchez",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Martín Gianoli",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Diego Osio",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Carlos Rivero",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Guillermo Ortiz",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jorge Gutiérrez",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Panama"
+          },
+          {
+            "name": "Genderson Ascanio",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Luis Casimiro Peña",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Nelson Hernández",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Rommell Ibarra",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "José Correa",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Cesar Da Silva",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Carlos Faya",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Perdomo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Franco Cáceres",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Castellanos",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Miguel González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jesús Vargas",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Manuel Sulbarán",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yackson Rivas",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Rafael Arace",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Flabián Londoño",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Junior Paredes",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexis Rodríguez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "José Alí Meza",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Anthony Uribe",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Carabobo FC",
+        "transfermarkt": "https://www.transfermarkt.com/carabobo-fc/kader/verein/14682",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Lucas Bruera",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Keiber Roa",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ezequiel Neira",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jonathan Bilbao",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jean Fuentes",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Leonardo Aponte",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Abraham Bahachille",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "José Durán",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Franyer Oliveros",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexander González",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Marcel Guaramato",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Matías Núñez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Camilo Pérez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Sebastián Mendoza",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Maurice Cova",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Edson Castillo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Franner López",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Angelo Lucena",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Dimas Meza",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yohandry Orozco",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan David Obando",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Ezequiel Crespo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Edson Tortolero",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Joshuan Berríos",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Felix Diaz",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Sebastián Calabrese",
+            "pos": "MCO",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Eric Ramírez",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "José Riasco",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Loureins Martínez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Cusco FC",
+        "transfermarkt": "https://www.transfermarkt.com/cusco-fc/kader/verein/28999",
+        "rep": 79,
+        "salary": 114,
+        "players": [
+          {
+            "name": "Pedro Díaz",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Andy Vidal",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alessandro Cavagna",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Rodolfo Anderson",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Carlos Gamarra",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gu-rum Choi",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Aldair Fuentes",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alex Custodio",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Álvaro Ampuero",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Julinho Astudillo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "José Bolívar",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Marlon Ruidías",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "José Zevallos",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Oswaldo Valenzuela",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Miguel Aucca",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Carlo Diez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Diego Soto",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Iván Colman",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gabriel Carabajal",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Sergio Quillahuaman",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Peru"
+          },
+          {
+            "name": "Lucas Colitto",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "José Manzaneda",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "José Alí",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Joel Herrera",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Nicolás Silva",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Facundo Callejo",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Manuel Tévez",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "Universidad Central de Venezuela",
+        "transfermarkt": "https://www.transfermarkt.com/universidad-central-de-venezuela/kader/verein/43146",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Lautaro Morales",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Giancarlo Schiavone",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Carlos González",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Diego Ochoa",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alfonso Simarra",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Rubén Ramírez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Williams Velásquez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Adrián Martínez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Diego Rinaldi",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Daniel Carrillo",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yanniel Hernández",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yohan Cumana",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Kendrys Silva",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Maicol Ruiz",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Román Davis",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Francisco Solé",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Alexander González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Panama"
+          },
+          {
+            "name": "Carlos Cermeño",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Vicente Rodríguez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Kendry Mendoza",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Wiliander Muñoz",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jose Lopez",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Manuel Cuesta",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Samuel Sosa",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Daniel De Sousa",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yeiber Murillo",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexander Granko",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jovanny Bolívar",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Camilo Zapata",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Roberto Sarli",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Charlis Ortiz",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Gianmarco Martínez",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Huachipato FC",
+        "transfermarkt": "https://www.transfermarkt.com/huachipato-fc/kader/verein/6368",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Sebastián Mella",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Christian Bravo",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Rodrigo Odriozola",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ignacio Cruzat",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Chile"
+          },
+          {
+            "name": "Renzo Malanca",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Cristián Toro",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Nicolás Vargas",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Rafael Caroca",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Mellado",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Lucas Velásquez",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "José Ignacio Castro",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Maicol León",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Guillermo Guaiquil",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Carlos Herrera",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Claudio Sepúlveda",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Santiago Silva",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ezequiel Cañete",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Javier Cárcamo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Kevin Altez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mario Briceño",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cris Martínez",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Harold Antiñirre",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Juan Ignacio Figueroa",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Claudio Torres",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Maximiliano Rodríguez",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Lionel Altamirano",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Luciano Arriagada",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Chile"
+          }
+        ]
+      },
+      {
+        "name": "Club Always Ready",
+        "transfermarkt": "https://www.transfermarkt.com/club-always-ready/kader/verein/42208",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Fabián Pereira",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Alain Baroja",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Santiago Paz",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Enzo Rodriguez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Marcelo Suárez",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Caicedo",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Richet Gómez",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Alex Rambal",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Nicolás Villarroel",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Santiago Cuestas",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Dieguito Rodriguez",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlitos Rodriguez",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Yhormar Hurtado",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Damian Medina",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Héctor Cuellar",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Juan Pablo Gomez",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Fernando Saucedo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Rai Lima",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Dario Torrico",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jesús Maraude",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Joel Amoroso",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Fernando Nava",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Javier Uzeda",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Máximo Mamani",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Felipe Pasadore",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Godoy",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Enrique Triverio",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "The Strongest La Paz",
+        "transfermarkt": "https://www.transfermarkt.com/the-strongest-la-paz/kader/verein/5570",
+        "rep": 81,
+        "salary": 117,
+        "players": [
+          {
+            "name": "Rodrigo Banegas",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Diego Valdivia",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Sebastián Arismendi",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Kiotto Mendoza",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "José Moya",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Pablo Pedraza",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Adrián Jusino",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Yamil Portuncho",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Martín Chiatti",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Carlos Roca",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Kevin Romay",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Widen Saucedo",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Santiago Arce",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jovani Welch",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Panama"
+          },
+          {
+            "name": "Víctor Cuellar",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Dilan Saavedra",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Pedro Espíritu",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Raúl Castro",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jhósep Michel",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Juan Santacruz",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jaime Arrascaita",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Kevin Salvatierra",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jonathan Bustos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Roy Ribertt",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Fabricio Quaglio",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Juan Cuellar",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Ventura",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Dominican Republic"
+          },
+          {
+            "name": "Gabriel Sotomayor",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Adrián Estacio",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Santiago Melgar",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Darwin Lom",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Guatemala"
+          },
+          {
+            "name": "Víctor Ábrego",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carmelo Algarañaz",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Bolivia"
+          }
+        ]
+      },
+      {
+        "name": "CA Nacional Potosí",
+        "transfermarkt": "https://www.transfermarkt.com/ca-nacional-potosi/kader/verein/23171",
+        "rep": 80,
+        "salary": 115,
+        "players": [
+          {
+            "name": "Pedro Galindo",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Elder Arauz",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jorge Mejía",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ronaldiño Saigua",
+            "pos": "POR",
+            "rating": 74,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Demiquel",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Edisson Restrepo",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Rodrigo Ávila",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Nelson Amarilla",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Juan Orellana",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Óscar Baldomar",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Kevin Quiroz",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Javier Guerra",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Kevin Bailaba",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Pedro Azogue",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jhojan Arce",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Diego Hoyos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Pavia",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Yesit Martinez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Asaf Patzi",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Erick Cano",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Zeballos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jorge Rojas",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Abastoflor",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Andres Torrico",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Maicon Solís",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Schneider Peña",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Alfredo García",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Maximiliano Núñez",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Willan Álvarez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Denis Pinto",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Damián Villalba",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Tommy Tobar",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Club Sportivo 2 de Mayo",
+        "transfermarkt": "https://www.transfermarkt.com/club-sportivo-2-de-mayo/kader/verein/17484",
+        "rep": 79,
+        "salary": 114,
+        "players": [
+          {
+            "name": "Ángel Martínez",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Carlos Servín",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Miguel Urquiza",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Miguel Barreto",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Pedro Sosa",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Camilo Saiz",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "César Castro",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Wilson Ibarrola",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "René Rodríguez",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alberto Espínola",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Víctor Dávalos",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hosue Díaz",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Marcelo Acosta",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sergio Sanabria",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Óscar Romero",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ulises Coronel",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alejandro Delgadillo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alvaro Montiel",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alexis Fariña",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Henry Riquelme",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Félix Triñanes",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Orlando Colmán",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Pedro Delvalle",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Brahian Ayala",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alan Fernández",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Elías Alfonso",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alan Gómez",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sergio Fretes",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Diego Acosta",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rodrigo Ruiz Díaz",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fernando Cáceres",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Paraguay"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "copa-sudamericana",
+    "name": "Copa Sudamericana",
+    "region": "CONMEBOL",
+    "level": 3,
+    "teams": [
+      {
+        "name": "Grêmio Foot-Ball Porto Alegrense",
+        "transfermarkt": "https://www.transfermarkt.com/gremio-porto-alegre/kader/verein/210",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Clube de Regatas Vasco da Gama",
+        "transfermarkt": "https://www.transfermarkt.com/vasco-da-gama-rio-de-janeiro/kader/verein/978",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Santos FC",
+        "transfermarkt": "https://www.transfermarkt.com/fc-santos/kader/verein/221",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "CA Boca Juniors",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-boca-juniors/kader/verein/189",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Red Bull Bragantino",
+        "transfermarkt": "https://www.transfermarkt.com/red-bull-bragantino/kader/verein/8793",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "CA Lanús",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-lanus/kader/verein/333",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Club Atlético Tigre",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-tigre/kader/verein/11831",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Club Nacional",
+        "transfermarkt": "https://www.transfermarkt.com/club-nacional/kader/verein/866",
+        "rep": 78,
+        "salary": 84,
+        "players": [
+          {
+            "name": "Ignacio Suárez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Luis Mejía",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Panama"
+          },
+          {
+            "name": "Agustín Rogel",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Paolo Calione",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Tomás Viera",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Sebastián Coates",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Camilo Cándido",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Federico Bais",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Pintado",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Emiliano Ancheta",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Rodríguez",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mauricio Vera",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Ignacio García",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Luciano Boggio",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Baltasar Barcia",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Dos Santos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Rodríguez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Lodeiro",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Cruz de los Santos",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rodrigo Martínez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Bruno Arady",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Exequiel Mereles",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Tomás Verón Lupi",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Maxi Gómez",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Maximiliano Silvera",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás López",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gonzalo Carneiro",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Pavel Núñez",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "CD O'Higgins",
+        "transfermarkt": "https://www.transfermarkt.com/cd-ohiggins/kader/verein/11470",
+        "rep": 78,
+        "salary": 84,
+        "players": [
+          {
+            "name": "Omar Carabalí",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jorge Peña",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Diego Carreño",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Alan Robledo",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Miguel Brizuela",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nicolás Garrido",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "José Tomás Movillo",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Chile"
+          },
+          {
+            "name": "Leandro Díaz",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Luis Pavez Muñoz",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Felipe Faúndez",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Rojas",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristián Morales",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Felipe Ogaz",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Schamine",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gabriel Pinto",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristóbal Castillo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Juan Leiva",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Bryan Rabello",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Maturana",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Sarrafiore",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Bastián Yáñez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Rodrigo Godoy",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Francisco González",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Joaquín Tapia",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Thiago Vecino",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Arnaldo Castillo",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Esteban Calderón",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Esteban Moreira",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Chile"
+          }
+        ]
+      },
+      {
+        "name": "Independiente Medellín",
+        "transfermarkt": "https://www.transfermarkt.com/independiente-medellin/kader/verein/10093",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Salvador Ichazo",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Eder Chaux",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "José Luis Chunga",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Kevin Mantilla",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "José Ortiz",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Málcom Palacios",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Escorcia",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Daniel Londoño",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Frank Fabra",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Leyser Chaverra",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Esneyder Mena",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Hayen Palacios",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Viveros",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Halam Loboa",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Diego Moreno",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Didier Moreno",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Léider Berrío",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Alexis Serna",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Baldomero Perlaza",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Daniel Cataño",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Francisco Chaverra",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "John Montaño",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yony González",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Gerónimo Mancilla",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Enzo Larrosa",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Francisco Fydriszewski",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "Club Sporting Cristal",
+        "transfermarkt": "https://www.transfermarkt.com/club-sporting-cristal/kader/verein/1450",
+        "rep": 78,
+        "salary": 84,
+        "players": [
+          {
+            "name": "Diego Enríquez",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Renato Solís",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "César Bautista",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Tomás Dulanto",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Luis Abram",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Rafael Lutiger",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Miguel Araujo",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alejandro Pósito",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Leonardo Díaz",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Carlos Salgado",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Cristiano",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Fabrizio Lora",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Leandro Sosa",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan González",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Joao Cuenca",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Duham Ballumbrosio",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gustavo Cazonatti",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Gerson Castillo",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Martín Távara",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Catriel Cabellos",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ian Wisdom",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Yoshimar Yotún",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Lionel Herrera",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Peru"
+          },
+          {
+            "name": "Christofer Gonzales",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gabriel",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Cristian Benavente",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Yamir del Valle",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Maxloren Castro",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Josemaría Mellán",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Santiago González",
+            "pos": "ED",
+            "rating": 73,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jair Moretti",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Luis Iberico",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Felipe Vizeu",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Diego Otoya",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Írven Ávila",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Mateo Rodríguez",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "Independiente Santa Fe",
+        "transfermarkt": "https://www.transfermarkt.com/independiente-santa-fe/kader/verein/11648",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Andrés Mosquera",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Weimar Asprilla",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Víctor Moreno",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Iván Scarpeta",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Quintero",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Emmanuel Olivera",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Christian Mafla",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jeison Angulo",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Palacios",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Helibelton Palacios",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yeicar Perlaza",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Mateo Puerta",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yilmar Velásquez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Ewil Murillo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Kilian Toscano",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Dani Torres",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhojan Torres",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Alexis Zapata",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Omar Fernández",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Maximiliano Lovera",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Edwin Mosquera",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jáder Obrian",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhon Meléndez",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Franco Fagúndez",
+            "pos": "MCO",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nahuel Bustos",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Hugo Rodallega",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Bolívar La Paz",
+        "transfermarkt": "https://www.transfermarkt.com/bolivar-la-paz/kader/verein/6878",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Juan Jose Lopez",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Lampe",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Diego Méndez",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Xavier Arreaga",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "José Sagredo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ignacio Gariglio",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Fernando Mena",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Santiago Echeverría",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Cristian López",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Heiden Butrón",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Paz",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Escleizon Freita",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jesús Sagredo",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ervin Vaca",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Sejas",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Matías Galindo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Sabja",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Anderson Ayhuana",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Robson Matheus",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Leonel Justiniano",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jesús Velásquez",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Erwin Saavedra",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jhon Velásquez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "John García",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Melgar",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Lucas Chávez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Brian Oyola",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Pato Rodríguez",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Damián Batallini",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Dorny Romero",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Dominican Republic"
+          },
+          {
+            "name": "Martín Cauteruccio",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Universidad Central de Venezuela",
+        "transfermarkt": "https://www.transfermarkt.com/universidad-central-de-venezuela/kader/verein/43146",
+        "rep": 78,
+        "salary": 84,
+        "players": [
+          {
+            "name": "Lautaro Morales",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Giancarlo Schiavone",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Carlos González",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Diego Ochoa",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alfonso Simarra",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Rubén Ramírez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Williams Velásquez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Adrián Martínez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Diego Rinaldi",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Daniel Carrillo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yanniel Hernández",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yohan Cumana",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Kendrys Silva",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Maicol Ruiz",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Román Davis",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Francisco Solé",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Alexander González",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Panama"
+          },
+          {
+            "name": "Carlos Cermeño",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Vicente Rodríguez",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Kendry Mendoza",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Wiliander Muñoz",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jose Lopez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Manuel Cuesta",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Samuel Sosa",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Daniel De Sousa",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yeiber Murillo",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexander Granko",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jovanny Bolívar",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Camilo Zapata",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Roberto Sarli",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Charlis Ortiz",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Gianmarco Martínez",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Club Cienciano",
+        "transfermarkt": "https://www.transfermarkt.com/club-cienciano/kader/verein/2729",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Ítalo Espinoza",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gonzalo Falcón",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Jean Franco Roncal",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Kevin Becerra",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Claudio Nuñez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rotceh Aguilar",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Maximiliano Amondarain",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alonso Yovera",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Sebastián Cavero",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Marcos Martinich",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Renzo Salazar",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Santiago Arias",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Henry Caparó",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Álvaro Rojas",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gerson Barreto",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gonzalo Aguirre",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ademar Robles",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alejandro Hohberg",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ray Sandoval",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Yván Rojas",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Juan Romagnoli",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Didier La Torre",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Cristian Souza",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Matías Succar",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Carlos Garcés",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Neri Bandiera",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nadhir Colunga",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "Caracas FC",
+        "transfermarkt": "https://www.transfermarkt.com/caracas-fc/kader/verein/531",
+        "rep": 75,
+        "salary": 81,
+        "players": [
+          {
+            "name": "Frankarlos Benítez",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Vegas",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jesús Quintero",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Francisco La Mantia",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Luis Mago",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jesús Yendis",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Eduardo Fereira",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Aytor Herrera",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Christian Larotonda",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Irving Gudiño",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Panama"
+          },
+          {
+            "name": "Miguel Vegas",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Luis Maestre",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ángel Figueroa",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Wilfred Correa",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Michael Covea",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Mauricio Márquez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan Uribe",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Charly Vegas",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Robert Hernández",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Chris Martinez",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Rodhier Lezama",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Lucciano Reinoso",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Adrián Fernández",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sebastian Gonzalez",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "José Rondón",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Botafogo de Futebol e Regatas",
+        "transfermarkt": "https://www.transfermarkt.com/botafogo-rio-de-janeiro/kader/verein/537",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "River Plate",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-river-plate/kader/verein/209",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Clube Atlético Mineiro",
+        "transfermarkt": "https://www.transfermarkt.com/clube-atletico-mineiro/kader/verein/330",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "São Paulo Futebol Clube",
+        "transfermarkt": "https://www.transfermarkt.com/fc-sao-paulo/kader/verein/585",
+        "domesticLeagueId": "brasileirao",
+        "domesticLeague": "Brasileirao Serie A"
+      },
+      {
+        "name": "Racing Club",
+        "transfermarkt": "https://www.transfermarkt.com/racing-club/kader/verein/1444",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "CA San Lorenzo de Almagro",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-san-lorenzo-de-almagro/kader/verein/1775",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "Olimpia Asunción",
+        "transfermarkt": "https://www.transfermarkt.com/olimpia-asuncion/kader/verein/629",
+        "rep": 80,
+        "salary": 86,
+        "players": [
+          {
+            "name": "Facundo Insfrán",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Gastón Olveira",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sebastián Lentinelly",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Verza",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Mateo Gamarra",
+            "pos": "DFC",
+            "rating": 74,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Gustavo Vargas",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Juan Vera",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Bryan Bentaberry",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alan Rodríguez",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Aníbal Chalá",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Lucas Morales",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "César Olmedo",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Raúl Cáceres",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Richard Ortiz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hugo Quintana",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Richard Sánchez",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Juan Fernando Alfaro",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Alex Franco",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rodrigo Pérez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alejandro Silva",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Eduardo Delmas",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Luis Abreu",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rubén Lezcano",
+            "pos": "EI",
+            "rating": 77,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Iván Leguizamón",
+            "pos": "EI",
+            "rating": 73,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Romeo Benítez",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fernando Cardozo",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Franco Alfonso",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Derlis González",
+            "pos": "MCO",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Adrián Alcaraz",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sebastián Ferreira",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Faustino Barone",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Tiago Caballero",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hugo Sandoval",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Paraguay"
+          }
+        ]
+      },
+      {
+        "name": "Atlético Nacional",
+        "transfermarkt": "https://www.transfermarkt.com/atletico-nacional/kader/verein/8172",
+        "rep": 80,
+        "salary": 86,
+        "players": [
+          {
+            "name": "Kevin Cataño",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Harlen Castillo",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "David Ospina",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Simón García",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "César Haydar",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Néider Parra",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "William Tesillo",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Samuel Velásquez",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Milton Casco",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Andrés Felipe Román",
+            "pos": "LD",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jorman Campuzano",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Matheus Uribe",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Elkin Rivero",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Zapata",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Rengifo",
+            "pos": "MC",
+            "rating": 79,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Edwin Cardona",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Bauzá",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Andrés Sarmiento",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Marlos Moreno",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Nicolás Rodríguez",
+            "pos": "ED",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Eduard Bello",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Dairon Asprilla",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Cristian Arango",
+            "pos": "DC",
+            "rating": 75,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Alfredo Morelos",
+            "pos": "DC",
+            "rating": 74,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Club Universidad de Chile",
+        "transfermarkt": "https://www.transfermarkt.com/club-universidad-de-chile/kader/verein/1037",
+        "rep": 79,
+        "salary": 85,
+        "players": [
+          {
+            "name": "Gabriel Castellón",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ignacio Sáez",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Cristopher Toselli",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Franco Calderón",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nicolás Ramírez",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Bianneider Tamayo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Matías Zaldivia",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Marcelo Morales",
+            "pos": "LI",
+            "rating": 73,
+            "nat": "Chile"
+          },
+          {
+            "name": "Felipe Salomoni",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Diego Vargas",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Fabián Hormazábal",
+            "pos": "LD",
+            "rating": 74,
+            "nat": "Chile"
+          },
+          {
+            "name": "Nicolás Fernández",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Lucas Romero",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Marcelo Díaz",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Chile"
+          },
+          {
+            "name": "Israel Poblete",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Lucas Barrera",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Charles Aránguiz",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Lucas Assadi",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Chile"
+          },
+          {
+            "name": "Javier Altamirano",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Chile"
+          },
+          {
+            "name": "Agustín Arce",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ignacio Vásquez",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Maximiliano Guerrero",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Juan Martín Lucero",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Octavio Rivero",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Eduardo Vargas",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Chile"
+          }
+        ]
+      },
+      {
+        "name": "CA Barracas Central",
+        "transfermarkt": "https://www.transfermarkt.com/club-atletico-barracas-central/kader/verein/25184",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "CD América de Cali",
+        "transfermarkt": "https://www.transfermarkt.com/cd-america-de-cali/kader/verein/2352",
+        "rep": 78,
+        "salary": 84,
+        "players": [
+          {
+            "name": "Jean",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Jorge Soto",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Marlon Torres",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Nicolás Hernández",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Dany Rosero",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Cristian Tovar",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Andrés Mosquera",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Daniel Bocanegra",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Omar Bertel",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Marcos Mina",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Mateo Castillo",
+            "pos": "LD",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Miguel Mina",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Brayan Correa",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Josen Escobar",
+            "pos": "MC",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "José Cavadia",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Joel Sebastián Romero",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Rafael Carrascal",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Carlos Sierra",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Yeison Guzmán",
+            "pos": "MC",
+            "rating": 75,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhon Palacios",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Dylan Borrero",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Darwin Machís",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jan Lucumi",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhon Murillo",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Tomás Ángel",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Daniel Valencia",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Yojan Garcés",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Adrián Ramos",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Millonarios FC",
+        "transfermarkt": "https://www.transfermarkt.com/millonarios-fc/kader/verein/2350",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Guillermo de Amores",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Diego Novoa",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Andrés Llinás",
+            "pos": "DFC",
+            "rating": 73,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jorge Arias",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Edgar Elizalde",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Sergio Mosquera",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Alex Moreno",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Sebastián Valencia",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Danovis Banguero",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Nicolás Giraldo",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Carlos Sarabia",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Samuel Martín",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Rodrigo Ureña",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Stiven Vega",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Mateo García",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Sebastián Viveros",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Dewar Victoria",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Carlos Pereira",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Darwin Quintero",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "David Silva",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Beckham Castro",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Álex Castro",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Julián Angulo",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Rodrigo Contreras",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Leonardo Castro",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jorge Hurtado",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Santiago Giordana",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Radamel Falcao",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "Defensor Sporting Club",
+        "transfermarkt": "https://www.transfermarkt.com/defensor-sc/kader/verein/2619",
+        "rep": 78,
+        "salary": 84,
+        "players": [
+          {
+            "name": "Lucas Machado",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Kevin Dawson",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Bruno Simone",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mateo Caballero",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Francisco Sorondo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Marco Saravia",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Geanfranco Rodríguez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Guillermo de los Santos",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Daniel Martínez",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Axel Frugone",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Valentín Rodríguez",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Paul de los Santos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mauricio Amaro",
+            "pos": "MC",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Germán Barrios",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Wunsch",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Manuel Jorge",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Erico Cuello",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Xavier Biscayzacú",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Brian Lozano",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Agazzi",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alan Torterolo",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Castro",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Medina",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Santino Bruschi",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alexander Machado",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Brian Montenegro",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Lautaro Navarro",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Pablo Goicochea",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "Orense SC",
+        "transfermarkt": "https://www.transfermarkt.com/orense-sc/kader/verein/36020",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Rolando Silva",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jordy Ortiz",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Óscar Quiñónez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Stefano Callegari",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Sixto Mina",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Alan Lorenzo",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Bryan Quiñónez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gabriel Achilier",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Bryan Viñán",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Beder Caicedo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Pedro Velasco",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Steeven Quiñónez",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Sergio Vásquez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Renny Jaramillo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Erick Plúas",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Nixon Molina",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Cristhian Ortiz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gonzalo Rostagno",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Erick Zambrano",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Valentín Burgoa",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Diego Armas",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Ángel Mena",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Agustín Herrera",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Michael Bermúdez",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Paul Charpentier",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Eber Caicedo",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Luis Miguel Garcés",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Ecuador"
+          }
+        ]
+      },
+      {
+        "name": "Monagas SC",
+        "transfermarkt": "https://www.transfermarkt.com/monagas-sc/kader/verein/14596",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Thomas Riveros",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Eduardo Lima",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Marcos Maitán",
+            "pos": "DFC",
+            "rating": 75,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Joyce Ríos",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Richard Peralta",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Panama"
+          },
+          {
+            "name": "Yulwuis Pérez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ricardo Rincones",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Dioner Fuentes",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Elvis Perlaza",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Felipe Jaramillo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jeferson Caraballo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Santiago Natera",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jean Colorado",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jesús Paz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Henrry Díaz",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Saul Herrera",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Saúl Asibe",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Édgar Carrión",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Dhylan Castillo",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yerwin Sulbarán",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Cristian Ramírez",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Leandro Rodríguez",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Antonio Romero",
+            "pos": "MCO",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ronald José Rodríguez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Fernando Basante",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Franklin González",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Maelo Rentería",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Edder Farías",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "FBC Melgar",
+        "transfermarkt": "https://www.transfermarkt.com/fbc-melgar/kader/verein/2734",
+        "rep": 78,
+        "salary": 84,
+        "players": [
+          {
+            "name": "Jorge Cabezudo",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Carlos Cáceda",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ricardo Farro",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Peru"
+          },
+          {
+            "name": "Facundo de la Cruz",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Matías Lazo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Juan Escobar",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jesús Alcántar",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Alec Deneumostier",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Nelson Cabanillas",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ángel Obando",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Alejandro Ramos",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Walter Tandazo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Javier Salas",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Mexico"
+          },
+          {
+            "name": "Yimy Gamero",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Horacio Orzán",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Keith Yáñez",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Gian García",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ian Arróspide",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Nicolás Quagliata",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Jefferson Cáceres",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Matias Zegarra",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jhamir D'Arrigo",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Abraham Aguinaga",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Lautaro Guzmán",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Franco Zanelatto",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Cristian Bordacahar",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Patricio Núñez",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Pablo Erustes",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jeriel de Santis",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jhonny Vidales",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Nicolás Figueroa",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Bernardo Cuesta",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Ryu Yabiku",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "Audax Italiano",
+        "transfermarkt": "https://www.transfermarkt.com/audax-italiano/kader/verein/6363",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Tomás Ahumada",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Ballesteros",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Pedro Garrido",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Enzo Ferrario",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Daniel Piña",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Marcelo Ortiz",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Cristóbal Muñoz",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Diego Monreal",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Esteban Matus",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Oliver Rojas",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Raimundo Rebolledo",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Jiménez",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Vicente Zenteno",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Bryan Soto",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Mario Sandoval",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Marco Collao",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Nicolás Orellana",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Federico Mateos",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nicolás Aedo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Favian Loyola",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Michael Vadulli",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Rodrigo Cabral",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Giovani Chiaverano",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Paolo Guajardo",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ignacio Fuenzalida",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Diego Coelho",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Franco Troyansky",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "CA Juventud",
+        "transfermarkt": "https://www.transfermarkt.com/juventud-de-las-piedras/kader/verein/17428",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Nicolás Rossi",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nicolás Ruotola",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Sebastián Sosa",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "David Morosini",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Patricio Pernicone",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Franco Risso",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Axel Prado",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Martín Cáceres",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Renzo Rabino",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Emmanuel Más",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Agustín Pérez",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Federico Barrandeguy",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ignacio Mujica",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mauricio Rodríguez",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rodrigo Chagas",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Leonel Roldán",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Emanuel Cecchini",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Ramiro Peralta",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Facundo Pérez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mateo Izaguirre",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Iván Rodríguez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gonzalo Gómez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gastón Pereiro",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Alejo Cruz",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Martín Boselli",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Alaniz",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Pablo Lago",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Renzo Sánchez",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Fernando Mimbacas",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Bruno Larregui",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Marcelo Pérez",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sebastián Guerrero",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Club Deportivo Riestra",
+        "transfermarkt": "https://www.transfermarkt.com/cd-riestra/kader/verein/19775",
+        "domesticLeagueId": "argentina",
+        "domesticLeague": "Liga Profesional Argentina"
+      },
+      {
+        "name": "CD Palestino",
+        "transfermarkt": "https://www.transfermarkt.com/cd-palestino/kader/verein/6536",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Sebastián Pérez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Sebastián Salas",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Antonio Ceza",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Enzo Roco",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "José Bizama",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Fernando Meza",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Dilan Zúñiga",
+            "pos": "LI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Jason León",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ian Garguez",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Vicente Espinoza",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Simón Pinto",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Julián Fernández",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Francisco Montes",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ariel Martínez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Nicolás Meza",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Sebastián Gallegos",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Joe Abrigo",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Chile"
+          },
+          {
+            "name": "César Munder",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Chile"
+          },
+          {
+            "name": "Martín Araya",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Jonathan Benítez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Dilan Salgado",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ian Alegría",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Bryan Carrasco",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Nelson Da Silva",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gonzalo Tapia",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Ronnie Fernández",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Chile"
+          }
+        ]
+      },
+      {
+        "name": "Racing Club de Montevideo",
+        "transfermarkt": "https://www.transfermarkt.com/racing-club-de-montevideo/kader/verein/14758",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Federico Varese",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Machado",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ramiro Brazionis",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Felipe Álvarez",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Facundo Parada",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Diego Cheuquepal",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Martín Ferreira",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Guillermo Cotugno",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo González",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Álvarez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Pablo Bosca",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Felipe Cairus",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Erik De Los Santos",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Pérez",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Rodrigo Teliz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Axel Atum",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "José Varela",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Yuri Oyarzo",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Álex Vázquez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Franco Suárez",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rodrigo Dudok",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Esteban Da Silva",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Kahl",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Sebastián da Silva",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Tomás Habib",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Bautista Euclides Tomatis",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Iván Manzur",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nicolás Sosa",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Hugo Silveira",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Montevideo City Torque",
+        "transfermarkt": "https://www.transfermarkt.com/montevideo-city-torque/kader/verein/37535",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Gastón Rodríguez",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Franco Torgnascioli",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Eduardo Agüero",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Franco Romero",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "José Tarán",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Kevin Silva",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Fabricio Silveira",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gary Kagelmacher",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Silvera",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nahuel Leivas",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Franco Pizzichillo",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ezequiel Busquets",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Quintana",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Valentino Würth",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Pablo Siles",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Sebastián Cáceres",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Bautista Kociubinski",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gonzalo Montes",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Duré",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Esteban Obregón",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Luka Andrade",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Facundo Martínez",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Diogo Guzmán",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Ramiro Lecchini",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Salomón Rodríguez",
+            "pos": "DC",
+            "rating": 73,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Nahuel Da Silva",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Andrés Muñoz",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Club Nacional Asunción",
+        "transfermarkt": "https://www.transfermarkt.com/club-nacional-asuncion/kader/verein/7098",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Santiago Rojas",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Gerardo Ortiz",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alexis Cañete",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Thomás Gutiérrez",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Gastón Benítez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fernando Díaz",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Líder Cáceres",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sebastián Vargas",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rodolfo Argüello",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Juan Feliú",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Carlos Espinola",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Roberto Ramírez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fabrizio Jara",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Leandro Meza",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Silvio Torales",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Tobías Sanabria",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Carlos Arrúa",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Danilo Santacruz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Franco Pelozo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Josué Colmán",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Richard Prieto",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alejandro Samudio",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Orlando Gaona Lugo",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Iván Valdez",
+            "pos": "MCO",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hugo Adrián Benítez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Lucas González",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Matías Almeida",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ignacio Bailone",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Roque Santa Cruz",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Paraguay"
+          }
+        ]
+      },
+      {
+        "name": "Blooming Santa Cruz",
+        "transfermarkt": "https://www.transfermarkt.com/blooming-santa-cruz/kader/verein/8056",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Braulio Uraezaña",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Gustavo Almada",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Jiménez",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Julio Vila",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Diago Giménez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "José María Carrasco",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Eduardo Álvarez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Marc Enoumba",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Saúl Severiche",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Eduardo Justiniano",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Gabriel Valverde",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Denilson Duran",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Esdras Mendoza",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Mauricio Cabral",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Juan Gonzales",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Juan Mercado",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Danny Bejarano",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Roberto Melgar",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Matheo Ocampo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Moisés Villarroel",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Richard Spenhay",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Héctor Suárez",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Roberto Hinojoza",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jeyson Chura",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Auli Oliveros",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Matías Abisab",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Cesar Menacho",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Guilmar Centella",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Miguel Villarroel",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Percy Loza",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Antony Vásquez",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Bayron Garcés",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Chávez",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Giovanni Cadore",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Bolivia"
+          }
+        ]
+      },
+      {
+        "name": "Academia Puerto Cabello",
+        "transfermarkt": "https://www.transfermarkt.com/academia-puerto-cabello/kader/verein/45193",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Joel Graterol",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Luis Romero",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Eduardo Herrera",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Stefan Obradovic",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Serbia"
+          },
+          {
+            "name": "Jiovany Ramos",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Panama"
+          },
+          {
+            "name": "Gerónimo Bortagaray",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Geremías Meléndez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Sema Velázquez",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Heiber Linares",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jefre Vargas",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Luis Casiani",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Roberto Rosales",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Giovani Bamba",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Switzerland"
+          },
+          {
+            "name": "Júnior Moreno",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Pablo Lima",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Harrison Contreras",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Gustavo González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Musa Isah",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Nigeria"
+          },
+          {
+            "name": "Jesús Cantillo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Santiago Santeliz",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "José Hernández",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Daniel Saggiomo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jhon Marchán",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Pierangelo Pagnano",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Gerardo Padrón",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jean Franco Castillo",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jayson Martínez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "João Barros",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Portugal"
+          },
+          {
+            "name": "Robinson Flores",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Edwuin Pernía",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Andrés Ponce",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Diego Osorio",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Carabobo FC",
+        "transfermarkt": "https://www.transfermarkt.com/carabobo-fc/kader/verein/14682",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Lucas Bruera",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Keiber Roa",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ezequiel Neira",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jonathan Bilbao",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jean Fuentes",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Leonardo Aponte",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Abraham Bahachille",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "José Durán",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Franyer Oliveros",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexander González",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Marcel Guaramato",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Matías Núñez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Juan Camilo Pérez",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Sebastián Mendoza",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Maurice Cova",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Edson Castillo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Franner López",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Angelo Lucena",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Dimas Meza",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yohandry Orozco",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Juan David Obando",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Ezequiel Crespo",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Edson Tortolero",
+            "pos": "EI",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Joshuan Berríos",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Felix Diaz",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Sebastián Calabrese",
+            "pos": "MCO",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Eric Ramírez",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "José Riasco",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Loureins Martínez",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "Atlético Bucaramanga",
+        "transfermarkt": "https://www.transfermarkt.com/atletico-bucaramanga/kader/verein/6495",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Luis Vásquez",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Matheus",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Colombia"
+          },
+          {
+            "name": "José García",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Martín Rea",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Carlos Romaña",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Juan Camilo Mosquera",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Carlos de las Salas",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Aldair Gutiérrez",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Israel Alba",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Aldair Zárate",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Leonardo Flores",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Fabry Castro",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Gustavo Charrupí",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Felix Charrupí",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Kevin Londoño",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Fabián Sambueza",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Fredy Hinestroza",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Emerson Batalla",
+            "pos": "ED",
+            "rating": 74,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Jhon Fredy Salazar",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Faber Gil",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Brandon Caicedo",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luciano Pons",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Gleyfer Medina",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Colombia"
+          }
+        ]
+      },
+      {
+        "name": "CD Macará",
+        "transfermarkt": "https://www.transfermarkt.com/cd-macara/kader/verein/17426",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Rodrigo Rodríguez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Darwin Cuero",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Julio Cárdenas",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "José Luis Marrufo",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Santiago Etchebarne",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Jairo Jiménez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Luis Ayala",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Marlon Medranda",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Denilson Bolaños",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Toño Espinoza",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Juan Espinoza",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Martín Tello",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jean Estacio",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "José Cazares",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Carlos Caicedo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Dayer Shimpiukat",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gastón Blanc",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Matías Miranda",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jordán Mohor",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Tommy Chamba",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "José Klinger",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jordano Zambrano",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Mateo Viera",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jeison Chalá",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Federico Paz",
+            "pos": "DC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Franco Posse",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Patricio Ramos",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Luca Ferro",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Matías Cabeza",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Ecuador"
+          }
+        ]
+      },
+      {
+        "name": "CA Boston River",
+        "transfermarkt": "https://www.transfermarkt.com/ca-boston-river/kader/verein/18074",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Bruno Antúnez",
+            "pos": "POR",
+            "rating": 71,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan González",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mateo Rivero",
+            "pos": "DFC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Ignacio Fernandez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Marco Mancebo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Aguirre",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Martín González",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Kevin Sotto",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Fredy Martínez",
+            "pos": "LI",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Jairo O'Neil",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lautaro Vázquez",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Rafael Haller",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Acosta",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Federico Dafonte",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Agustín Amado",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Francisco Barrios",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Andrés Romero",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Gastón Ramírez",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Muñoa",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Yair González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Franco Pérez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Leandro Suhr",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Gonzalo Reyna",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Francisco Bonfiglio",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Alexander González",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Facundo Rodríguez",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Brayan Alcocer",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Francisco Martinicorena",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Deportivo Cuenca",
+        "transfermarkt": "https://www.transfermarkt.com/deportivo-cuenca/kader/verein/8781",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Facundo Ferrero",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Ethan Minda",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Josué Méndez",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Santiago Postel",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Patricio Boolsen",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Eddie Guevara",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Félix Angüisaca",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Mateo Piedra",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Yeltzin Erique",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Ignacio Mosquera",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Andrés López",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Mateo Maccari",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Edison Vega",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "David Noboa",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jeremy Chacón",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Bryan García",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Stalin Morocho",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Paulo Uruchima",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "David González",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Melvin Díaz",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Romario Ibarra",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Carlos Arboleda",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Mathías Solís",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jorge Ordóñez",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jeremy Mejía",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Lucas Mancinelli",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Matías Klimowicz",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Nicolás Leguizamón",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Germán Rivero",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "Deportivo Garcilaso",
+        "transfermarkt": "https://www.transfermarkt.com/deportivo-garcilaso/kader/verein/76945",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Patrick Zubczuk",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Juniors Barbieri",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Mallki Marmanillo",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Peru"
+          },
+          {
+            "name": "Agustín Gómez",
+            "pos": "DFC",
+            "rating": 71,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Horacio Benincasa",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jefferson Portales",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Xavi Moreno",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Aldair Salazar",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Orlando Núñez",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Erick Canales",
+            "pos": "LD",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Samir Villacorta",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Claudio Torrejón",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Inti Garrafa",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Carlos Ramos",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Adrián Ascues",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Agustín González",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Joao Mendoza",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Peru"
+          },
+          {
+            "name": "Kevin Sandoval",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Beto da Silva",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "James Morales",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Francisco Arancibia",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Sharif Ramírez",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Agustín Graneros",
+            "pos": "DC",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Christopher Olivares",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "José Sinisterra",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Paulo Rodríguez",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Bryan Yupanqui",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Peru"
+          }
+        ]
+      },
+      {
+        "name": "Libertad FC",
+        "transfermarkt": "https://www.transfermarkt.com/libertad-fc/kader/verein/87068",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "David Cabezas",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jostyn Mina",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Ariel García",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Bryan Caicedo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Carlos Gruezo",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Manuel Lucas",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jackson Rodríguez",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Rody Zambrano",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Stick Castro",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Iván Zambrano",
+            "pos": "MC",
+            "rating": 71,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jostin Bravo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Bryan Corozo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Cristhian Valencia",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Enrique Caicedo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Gabriel Cortez",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jawer Guisamano",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Vilington Branda",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Hancel Batalla",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Elvis Patta",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Sander Bueno",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Antony Chére",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Dany Coronel",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Jhon Cifuente",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Arturo Batioja",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Ecuador"
+          }
+        ]
+      },
+      {
+        "name": "Alianza Atlético Sullana",
+        "transfermarkt": "https://www.transfermarkt.com/alianza-atletico-sullana/kader/verein/17479",
+        "rep": 75,
+        "salary": 81,
+        "players": [
+          {
+            "name": "Daniel Prieto",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Éder Hermoza",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jesus Rossi",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Peru"
+          },
+          {
+            "name": "Román Suárez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "José Villegas",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "José Luján",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Williams Guzmán",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Juan Quiñones",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Luiggi Alburqueque",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jesús Mendieta",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Anthony Gordillo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Erick Perleche",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Hernan Lupu",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Peru"
+          },
+          {
+            "name": "Stefano Fernández",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Juan Delgado",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Jimmy Pérez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Ariel Muñoz",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Germán Díaz",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Alejo Antilef",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Sergio Quiroga",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Jorge del Castillo",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Cristian Penilla",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Guillermo Larios",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Franchesco Flores",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Cristhian Valladolid",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Peru"
+          },
+          {
+            "name": "Valentín Robaldo",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Mariano Barreda",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Peru"
+          },
+          {
+            "name": "Franco Coronel",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          }
+        ]
+      },
+      {
+        "name": "Metropolitanos FC",
+        "transfermarkt": "https://www.transfermarkt.com/metropolitanos-fc/kader/verein/42918",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Yhonathann Yustiz",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jesús Lara",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alan Vázquez",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Yolfran Caricote",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Andrés Ferro",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Francisco Manenti",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Leonardo Pérez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Christian Camarillo",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Isaac Ramírez",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ely Valderrey",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Angel Jaimes",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alejandro Hernandez",
+            "pos": "LD",
+            "rating": 72,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "George Ayine",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Ghana"
+          },
+          {
+            "name": "Rafael Sangiovani",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "David Zalzman",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Nicol Martinez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Robert Garcés",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Rafael Acosta",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jailerth Navarro",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jaiver Gímenez",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Richard Figueroa",
+            "pos": "EI",
+            "rating": 70,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Jeizon Ramírez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Saimon Ramírez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Kavier Ortiz",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "Marlon Díaz",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexis Rodríguez",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Alexander Nieves",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Agustín Bianciotti",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Miku",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Ángelo Rivas",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Venezuela"
+          }
+        ]
+      },
+      {
+        "name": "San Antonio Bulo Bulo",
+        "transfermarkt": "https://www.transfermarkt.com/san-antonio-bulo/kader/verein/92979",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Luca Giossa",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Lucas Galarza",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Leonardo Guzmán",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Zambrano",
+            "pos": "POR",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Líder Yanarico",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Huberth Sánchez",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "César Romero",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Pablo Vaca",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Yonathan Cabral",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Alejandro Polo",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jaime Villamíl",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ronald Bustos",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ramiro Ballivián",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Cristhian Machado",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Emanuel Aguilar",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Julio Herrera",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Kevin Merida",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Diego Mercado",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Juan Magallanes",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Saulo Guerra",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Gustavo Mendoza",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Adalid Terrazas",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Andrés Córdoba",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Hugo Cardoso",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Cape Verde"
+          },
+          {
+            "name": "Alexi Medina",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Rafael Menacho",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Marcelo De Lima",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "José Briceño",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Agustín Univaso",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Uruguay"
+          }
+        ]
+      },
+      {
+        "name": "Club Deportivo Guabirá",
+        "transfermarkt": "https://www.transfermarkt.com/club-deportivo-guabira/kader/verein/17422",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Gastón Gómez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Manuel Ferrel",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jorge Araúz",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Roger Coronado",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Andrés Moreno",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Joaquín Barro",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Rafael Corrales",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Milciades Portillo",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "David Robles",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jorge Flores",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Sergio Gil",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ramiro Cristóbal",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Pablo Melgar",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Asiel Paredes",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Andrés Ruiz",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Óscar Ríos",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Nicolas Masskooni",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Héctor Sánchez",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Thiago Chávez",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Juan Parada",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Thiago Ribeiro",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Milton Maciel",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rafinha",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Dener Da Silva",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Gustavo Peredo",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Carlos Añez",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Roler Ferrufino",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Denilso Fernandez",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Marco Pinto",
+            "pos": "ED",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Samuel Garzón",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Pedro",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Brazil"
+          }
+        ]
+      },
+      {
+        "name": "Club Sportivo Trinidense",
+        "transfermarkt": "https://www.transfermarkt.com/club-sportivo-trinidense/kader/verein/17427",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Matías Dufour",
+            "pos": "POR",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Mauro Rodas",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Víctor Samudio",
+            "pos": "POR",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fernando Román",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Maximiliano Centurión",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Agustín Da Silveira",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Bruno Valdez",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "David Villalba",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "César Benítez",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Tobías Morinigo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Diego Melgarejo",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Sergio Mendoza",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Axel Cañete",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Armando Ruiz Díaz",
+            "pos": "LD",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ariel Gauto",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Gustavo Viera",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Randy Báez",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fabrizio Baruja",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jorge Marcelino",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Luis de la Cruz",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ronald Cornet",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Lucas González",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Pedro Zarza",
+            "pos": "EI",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ronaldo Báez",
+            "pos": "EI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alan Cano",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Tomás Rayer",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nicolás Maná",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Joel Román",
+            "pos": "ED",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fernando Romero",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Néstor Camacho",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Oscar Giménez",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Clementino González",
+            "pos": "DC",
+            "rating": 67,
+            "nat": "Paraguay"
+          }
+        ]
+      },
+      {
+        "name": "Recoleta FC",
+        "transfermarkt": "https://www.transfermarkt.com/club-deportivo-recoleta/kader/verein/14545",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Nelson Ferreira",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Óscar Toledo",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Andrés Marsengo",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Lucas Monzón",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Nicolás Marotta",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Marcos Pereira",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Luis Cardozo",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Juan Núñez",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Julio Domínguez",
+            "pos": "DFC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Pedro Rios",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Dairon Mosquera",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Luis Mendoza",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Facundo Echeguren",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Claudio Figueredo",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Marcelo Medina",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Iván Piris",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "José Espínola",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Carlos Vera",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Alexander Franco",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Fernando Galeano",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Claudio Garay",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Ronal Domínguez",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Marcelo Cañete",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Francisco Pacher",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Jorge Núñez",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Junior Noguera",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Manuel Schupp",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Hector López",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Wilfrido Báez",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Brahian Ferreira",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Aldo González",
+            "pos": "MCO",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Pablo Zeballos",
+            "pos": "MCO",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Allan Wlk",
+            "pos": "DC",
+            "rating": 72,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Kevin Parzajuk",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Richard Ortiz",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Thiago Vidal",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Paraguay"
+          }
+        ]
+      },
+      {
+        "name": "CD Cobresal",
+        "transfermarkt": "https://www.transfermarkt.com/cd-cobresal/kader/verein/17482",
+        "rep": 76,
+        "salary": 82,
+        "players": [
+          {
+            "name": "Alejandro Santander",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Jorge Pinos",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Ecuador"
+          },
+          {
+            "name": "José Tiznado",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Christian Moreno",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Franco Bechtholdt",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Benjamín Villarroel",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Antonio Castillo",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Rodrigo Sandoval",
+            "pos": "LI",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Aaron Astudillo",
+            "pos": "LD",
+            "rating": 69,
+            "nat": "Venezuela"
+          },
+          {
+            "name": "Guillermo Pacheco",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Agustín Nadruz",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Uruguay"
+          },
+          {
+            "name": "Juan Fuentes",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Oliver Ramis",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Chile"
+          },
+          {
+            "name": "Esteban Valencia",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Valenzuela",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Bryan Carvallo",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Matías Contreras",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Moreno",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Benjamín Ramírez",
+            "pos": "EI",
+            "rating": 67,
+            "nat": "Chile"
+          },
+          {
+            "name": "Julián Brea",
+            "pos": "ED",
+            "rating": 70,
+            "nat": "Argentina"
+          },
+          {
+            "name": "César Yanis",
+            "pos": "ED",
+            "rating": 69,
+            "nat": "Panama"
+          },
+          {
+            "name": "Renato Huerta",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Chile"
+          },
+          {
+            "name": "Steffan Pino",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Chile"
+          },
+          {
+            "name": "Franco Frías",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Sergio Carrasco",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Chile"
+          }
+        ]
+      },
+      {
+        "name": "Club Independiente Petrolero",
+        "transfermarkt": "https://www.transfermarkt.com/club-independiente-petrolero/kader/verein/30854",
+        "rep": 77,
+        "salary": 83,
+        "players": [
+          {
+            "name": "Jhohan Gutiérrez",
+            "pos": "POR",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Jhunior Vera",
+            "pos": "POR",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Dalmiro Chuipa",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Leonardo Montenegro",
+            "pos": "DFC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Luis Palma",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Rodrigo Zamora",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Ronny Montero",
+            "pos": "DFC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Moisés Román",
+            "pos": "DFC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Francisco Rodríguez",
+            "pos": "LI",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Heber Leaños",
+            "pos": "LI",
+            "rating": 67,
+            "nat": "Argentina"
+          },
+          {
+            "name": "Stiven Vargas",
+            "pos": "LI",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Eduardo",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Saúl Torres",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "David Morales",
+            "pos": "LD",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Daniel Rojas",
+            "pos": "MC",
+            "rating": 70,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Adelan",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Diego Vargas",
+            "pos": "MC",
+            "rating": 69,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Marcelo Somoya",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Alan Mercado",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Rudy Cardozo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Diego Navarro",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Pablo Grass",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "John Hurtado",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Cristian Urdininea",
+            "pos": "MC",
+            "rating": 72,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Gustavo Cristaldo",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Paraguay"
+          },
+          {
+            "name": "Willie",
+            "pos": "MC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Thomaz",
+            "pos": "MC",
+            "rating": 67,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Wagner Pinote",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Deyvid Sejas",
+            "pos": "EI",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Roberto Villavicencio",
+            "pos": "ED",
+            "rating": 68,
+            "nat": "Bolivia"
+          },
+          {
+            "name": "Rodrigo Rivas",
+            "pos": "DC",
+            "rating": 69,
+            "nat": "Colombia"
+          },
+          {
+            "name": "Rafael Lutkowski",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Brazil"
+          },
+          {
+            "name": "Jonatan Cristaldo",
+            "pos": "DC",
+            "rating": 68,
+            "nat": "Argentina"
+          }
+        ]
+      }
+    ]
   }
 ];
