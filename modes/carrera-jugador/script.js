@@ -381,15 +381,52 @@ const lifestyleItems = [
   { id: "styleBrand", title: "Marca personal", cost: 350, effect: "Aumenta seguidores al jugar bien.", minPop: 65 }
 ];
 
+const skillBranches = {
+  core: { title: "Base profesional", desc: "Fisico, mentalidad y techo de carrera." },
+  striker: { title: "9 de area", desc: "Desmarque, definicion y olfato goleador." },
+  winger: { title: "Extremo desequilibrante", desc: "Arranque, regate y centros agresivos." },
+  playmaker: { title: "Creador ofensivo", desc: "Vision, ultimo pase y pausa entre lineas." },
+  midfielder: { title: "Motor del medio", desc: "Ritmo, pase seguro y cobertura total." },
+  defender: { title: "Central dominante", desc: "Anticipacion, fuerza y liderazgo defensivo." },
+  goalkeeper: { title: "Arquero moderno", desc: "Reflejos, salida y mando del area." }
+};
+
 const skillNodes = [
-  { id: "burst", title: "Arranque explosivo", desc: "+3 velocidad y rasgo Velocista", cost: 1, attrs: { velocidad: 3 }, trait: "Velocista" },
-  { id: "killer", title: "Definidor elite", desc: "+3 definicion y mejor acierto goleador", cost: 1, attrs: { definicion: 3 }, trait: "Matador" },
-  { id: "visionary", title: "Vision 360", desc: "+2 pase, +3 vision", cost: 1, attrs: { pase: 2, vision: 3 }, trait: "Arquitecto" },
-  { id: "engine2", title: "Motor profesional", desc: "+4 resistencia y menos fatiga semanal", cost: 2, attrs: { resistencia: 4 }, trait: "Inagotable", req: "burst" },
-  { id: "lockdown", title: "Anticipacion defensiva", desc: "+4 defensa", cost: 2, attrs: { defensa: 4 }, trait: "Anticipador" },
-  { id: "captain", title: "Capitan natural", desc: "+5 relacion con entrenador y prensa", cost: 2, coach: 5, reputation: 4, trait: "Capitan", req: "visionary" },
-  { id: "versatile", title: "Polifuncional", desc: "Desbloquea una posicion secundaria", cost: 2, secondary: true, trait: "Versatil" },
-  { id: "worldclass", title: "Techo mundial", desc: "+3 potencial maximo", cost: 3, potential: 3, trait: "Proyecto mundial", req: "engine2" }
+  { id: "core_burst", branch: "core", tier: 1, title: "Primeros metros", desc: "Arranque corto para ganar duelos cercanos.", cost: 1, attrs: { velocidad: 2, resistencia: 1 }, trait: "Velocista" },
+  { id: "core_engine", branch: "core", tier: 2, title: "Motor semanal", desc: "Aguantas mejor entrenamientos y partidos seguidos.", cost: 2, attrs: { resistencia: 4 }, trait: "Inagotable", req: "core_burst" },
+  { id: "core_leader", branch: "core", tier: 2, title: "Voz de vestuario", desc: "Mejora la confianza del entrenador y tu reputacion.", cost: 2, coach: 5, reputation: 4, trait: "Capitan", req: "core_burst" },
+  { id: "core_versatile", branch: "core", tier: 3, title: "Rol alternativo", desc: "Desbloquea una posicion secundaria util para rotaciones.", cost: 2, secondary: true, trait: "Versatil", req: ["core_engine", "core_leader"] },
+  { id: "core_worldclass", branch: "core", tier: 4, title: "Techo mundial", desc: "Sube tu potencial maximo de carrera.", cost: 3, potential: 3, trait: "Proyecto mundial", req: "core_versatile" },
+
+  { id: "st_finishing", branch: "striker", tier: 1, positions: ["DC"], title: "Remate limpio", desc: "Define con menos preparacion dentro del area.", cost: 1, attrs: { definicion: 3, fuerza: 1 } },
+  { id: "st_positioning", branch: "striker", tier: 2, positions: ["DC"], title: "Ataque al espacio", desc: "Mejor lectura para aparecer entre centrales.", cost: 2, attrs: { velocidad: 2, vision: 1 }, req: "st_finishing" },
+  { id: "st_killer", branch: "striker", tier: 3, positions: ["DC"], title: "Instinto matador", desc: "Rasgo de goleador y pico fuerte de definicion.", cost: 2, attrs: { definicion: 4 }, trait: "Matador", req: "st_positioning" },
+  { id: "st_complete", branch: "striker", tier: 4, positions: ["DC"], title: "Delantero total", desc: "Combina descarga, cuerpo y amenaza de gol.", cost: 3, attrs: { pase: 2, fuerza: 2, definicion: 2 }, trait: "9 Total", req: "st_killer" },
+
+  { id: "wg_accel", branch: "winger", tier: 1, positions: ["EI"], title: "Cambio de ritmo", desc: "Primer control orientado y salida explosiva.", cost: 1, attrs: { velocidad: 3, regate: 1 } },
+  { id: "wg_dribble", branch: "winger", tier: 2, positions: ["EI"], title: "Uno contra uno", desc: "Regate mas fino para romper laterales.", cost: 2, attrs: { regate: 4 }, req: "wg_accel" },
+  { id: "wg_finalball", branch: "winger", tier: 3, positions: ["EI"], title: "Centro tenso", desc: "Ultimo pase desde banda y diagonal hacia dentro.", cost: 2, attrs: { pase: 2, vision: 2, definicion: 1 }, trait: "Extremo Fino", req: "wg_dribble" },
+  { id: "wg_star", branch: "winger", tier: 4, positions: ["EI"], title: "Desequilibrio elite", desc: "Amenaza constante en carrera y conduccion.", cost: 3, attrs: { velocidad: 2, regate: 3 }, trait: "Imparable", req: "wg_finalball" },
+
+  { id: "pm_touch", branch: "playmaker", tier: 1, positions: ["MCO"], title: "Primer toque", desc: "Control y pase corto en zonas cargadas.", cost: 1, attrs: { pase: 2, regate: 2 } },
+  { id: "pm_scan", branch: "playmaker", tier: 2, positions: ["MCO"], title: "Vision 360", desc: "Detecta desmarques antes que la defensa.", cost: 2, attrs: { vision: 4, pase: 1 }, req: "pm_touch" },
+  { id: "pm_thread", branch: "playmaker", tier: 3, positions: ["MCO"], title: "Pase filtrado", desc: "Rasgo creativo para asistencias de alto valor.", cost: 2, attrs: { pase: 3, vision: 2 }, trait: "Arquitecto", req: "pm_scan" },
+  { id: "pm_genius", branch: "playmaker", tier: 4, positions: ["MCO"], title: "Cerebro ofensivo", desc: "Mejora total en conduccion, pase y lectura.", cost: 3, attrs: { vision: 3, pase: 2, regate: 2 }, trait: "Enganche Elite", req: "pm_thread" },
+
+  { id: "mc_tempo", branch: "midfielder", tier: 1, positions: ["MC"], title: "Tempo seguro", desc: "Circulacion simple y resistencia de base.", cost: 1, attrs: { pase: 2, resistencia: 2 } },
+  { id: "mc_box", branch: "midfielder", tier: 2, positions: ["MC"], title: "Area a area", desc: "Llegada, vuelta y presion sostenida.", cost: 2, attrs: { resistencia: 3, velocidad: 1, defensa: 1 }, req: "mc_tempo" },
+  { id: "mc_anchor", branch: "midfielder", tier: 3, positions: ["MC"], title: "Ancla tactica", desc: "Corta transiciones y ordena el bloque.", cost: 2, attrs: { defensa: 3, vision: 2 }, trait: "Equilibrador", req: "mc_box" },
+  { id: "mc_metronome", branch: "midfielder", tier: 4, positions: ["MC"], title: "Mediocentro total", desc: "Dominio de pase, resistencia y lectura.", cost: 3, attrs: { pase: 3, vision: 2, resistencia: 2 }, trait: "Metronomo", req: "mc_anchor" },
+
+  { id: "df_marking", branch: "defender", tier: 1, positions: ["DFC"], title: "Marca agresiva", desc: "Mejor duelo fisico y posicion corporal.", cost: 1, attrs: { defensa: 3, fuerza: 1 } },
+  { id: "df_anticipate", branch: "defender", tier: 2, positions: ["DFC"], title: "Lectura de corte", desc: "Anticipa pases interiores y coberturas.", cost: 2, attrs: { defensa: 3, vision: 2 }, trait: "Anticipador", req: "df_marking" },
+  { id: "df_aerial", branch: "defender", tier: 3, positions: ["DFC"], title: "Jefe aereo", desc: "Domina centros, despejes y duelos largos.", cost: 2, attrs: { fuerza: 4, defensa: 1 }, trait: "Muralla Aerea", req: "df_anticipate" },
+  { id: "df_leader", branch: "defender", tier: 4, positions: ["DFC"], title: "Lider de linea", desc: "Central completo con salida limpia.", cost: 3, attrs: { defensa: 3, pase: 2, fuerza: 2 }, trait: "Comandante", req: "df_aerial" },
+
+  { id: "gk_reflex", branch: "goalkeeper", tier: 1, positions: ["POR"], title: "Reflejos bajos", desc: "Respuesta rapida en remates cercanos.", cost: 1, attrs: { defensa: 3, fuerza: 1 } },
+  { id: "gk_area", branch: "goalkeeper", tier: 2, positions: ["POR"], title: "Mando del area", desc: "Mejor salida en centros y corners.", cost: 2, attrs: { defensa: 3, vision: 2 }, trait: "Dueño del Area", req: "gk_reflex" },
+  { id: "gk_sweeper", branch: "goalkeeper", tier: 3, positions: ["POR"], title: "Arquero libero", desc: "Lectura para cortar pelotas largas y salir jugando.", cost: 2, attrs: { velocidad: 2, pase: 2, vision: 1 }, trait: "Arquero Libero", req: "gk_area" },
+  { id: "gk_wall", branch: "goalkeeper", tier: 4, positions: ["POR"], title: "Ultima muralla", desc: "Pico alto de reflejos, mando y regularidad.", cost: 3, attrs: { defensa: 4, fuerza: 2 }, trait: "Portero Elite", req: "gk_sweeper" }
 ];
 
 const achievementDefs = [
@@ -439,6 +476,50 @@ function secondaryPositionFor(position) {
     POR: "DFC"
   };
   return map[position] || "MC";
+}
+
+function archetypeLabel(position = state?.profile?.position) {
+  const labels = {
+    DC: "9 de area",
+    EI: "Extremo desequilibrante",
+    MCO: "Creador ofensivo",
+    MC: "Motor del medio",
+    DFC: "Central dominante",
+    POR: "Arquero moderno"
+  };
+  return labels[position] || "Arquetipo profesional";
+}
+
+function visibleSkillNodes() {
+  const position = state?.profile?.position;
+  return skillNodes.filter((node) => !node.positions || node.positions.includes(position));
+}
+
+function skillRequirements(node) {
+  if (!node.req) return [];
+  return Array.isArray(node.req) ? node.req : [node.req];
+}
+
+function skillReqsMet(node) {
+  return skillRequirements(node).every((req) => state.unlockedSkills.includes(req));
+}
+
+function skillBoostText(node) {
+  const parts = Object.entries(node.attrs || {}).map(([attr, value]) => `${labelAttr(attr)} +${value}`);
+  if (node.coach) parts.push(`Entrenador +${node.coach}`);
+  if (node.reputation) parts.push(`Reputacion +${node.reputation}`);
+  if (node.potential) parts.push(`Potencial +${node.potential}`);
+  if (node.secondary) parts.push(`Posicion secundaria: ${secondaryPositionFor(state.profile.position)}`);
+  if (node.trait) parts.push(`Rasgo: ${node.trait}`);
+  return parts.join(" - ");
+}
+
+function skillReqText(node) {
+  const requirements = skillRequirements(node);
+  if (!requirements.length) return "";
+  return requirements
+    .map((req) => skillNodes.find((item) => item.id === req)?.title || req)
+    .join(" + ");
 }
 
 function createDailyObjectives() {
@@ -1108,23 +1189,51 @@ function renderProgress() {
   $("#progressSummary").innerHTML = `
     Nivel ${state.level} - ${state.xp}/${nextXp} XP - ${state.skillPoints} puntos disponibles
     <div class="meter xp-meter"><span style="width:${xpPercent}%"></span></div>
-    <span class="subtle-line">Potencial ${state.potential} - Rasgos: ${state.traits.join(", ") || "Sin rasgos"}</span>
+    <span class="subtle-line">Arquetipo activo: ${archetypeLabel()} - Potencial ${state.potential} - Rasgos: ${state.traits.join(", ") || "Sin rasgos"}</span>
   `;
 
-  $("#skillTree").innerHTML = skillNodes.map((node) => {
-    const unlocked = state.unlockedSkills.includes(node.id);
-    const lockedByReq = node.req && !state.unlockedSkills.includes(node.req);
-    const disabled = unlocked || lockedByReq || state.skillPoints < node.cost || state.retired;
-    const reqText = lockedByReq ? "Requiere otra mejora" : `${node.cost} punto${node.cost > 1 ? "s" : ""}`;
-    return `<div class="skill-node ${unlocked ? "unlocked" : ""}">
-      <header>
-        <h3>${node.title}</h3>
-        <strong>${unlocked ? "Activo" : reqText}</strong>
-      </header>
-      <p>${node.desc}</p>
-      <button data-skill="${node.id}" ${disabled ? "disabled" : ""}>${unlocked ? "Desbloqueado" : "Desbloquear"}</button>
-    </div>`;
-  }).join("");
+  const branchOrder = ["core", "striker", "winger", "playmaker", "midfielder", "defender", "goalkeeper"];
+  const nodesByBranch = visibleSkillNodes().reduce((groups, node) => {
+    groups[node.branch] = groups[node.branch] || [];
+    groups[node.branch].push(node);
+    return groups;
+  }, {});
+  $("#skillTree").innerHTML = branchOrder
+    .filter((branchId) => nodesByBranch[branchId]?.length)
+    .map((branchId) => {
+      const branch = skillBranches[branchId];
+      const nodes = nodesByBranch[branchId].sort((a, b) => a.tier - b.tier);
+      return `<section class="skill-branch skill-branch-${branchId}">
+        <header class="skill-branch-head">
+          <div>
+            <span>${branchId === "core" ? "Base" : "Arquetipo"}</span>
+            <h3>${branch.title}</h3>
+          </div>
+          <strong>${nodes.filter((node) => state.unlockedSkills.includes(node.id)).length}/${nodes.length}</strong>
+        </header>
+        <p>${branch.desc}</p>
+        <div class="skill-lane">
+          ${nodes.map((node) => {
+            const unlocked = state.unlockedSkills.includes(node.id);
+            const lockedByReq = !skillReqsMet(node);
+            const affordable = state.skillPoints >= node.cost;
+            const disabled = unlocked || lockedByReq || !affordable || state.retired;
+            const reqText = lockedByReq ? `Requiere ${skillReqText(node)}` : `${node.cost} punto${node.cost > 1 ? "s" : ""}`;
+            const status = unlocked ? "Activo" : lockedByReq ? "Bloqueado" : affordable ? "Disponible" : "Sin puntos";
+            return `<article class="skill-node ${unlocked ? "unlocked" : ""} ${lockedByReq ? "locked" : ""} ${affordable && !unlocked && !lockedByReq ? "available" : ""}">
+              <header>
+                <span>Nivel ${node.tier}</span>
+                <strong>${status}</strong>
+              </header>
+              <h3>${node.title}</h3>
+              <p>${node.desc}</p>
+              <small>${skillBoostText(node)}</small>
+              <button data-skill="${node.id}" ${disabled ? "disabled" : ""}>${unlocked ? "Desbloqueado" : reqText}</button>
+            </article>`;
+          }).join("")}
+        </div>
+      </section>`;
+    }).join("");
 
   const missionCard = (objective, scope) => {
     const percent = clamp((objective.value / objective.target) * 100, 0, 100);
@@ -1770,9 +1879,9 @@ function applySocial(postIndex, optionIndex) {
 }
 
 function unlockSkill(id) {
-  const node = skillNodes.find((item) => item.id === id);
+  const node = visibleSkillNodes().find((item) => item.id === id);
   if (!node || state.unlockedSkills.includes(id)) return;
-  if (node.req && !state.unlockedSkills.includes(node.req)) return;
+  if (!skillReqsMet(node)) return;
   if (state.skillPoints < node.cost) return;
   state.skillPoints -= node.cost;
   state.unlockedSkills.push(id);
@@ -1787,8 +1896,9 @@ function unlockSkill(id) {
     const secondary = secondaryPositionFor(state.profile.position);
     if (!state.secondaryPositions.includes(secondary)) state.secondaryPositions.push(secondary);
   }
-  addNews(`Habilidad desbloqueada: ${node.title}.`);
+  addNews(`Mejora de arquetipo desbloqueada: ${node.title}.`);
   render();
+  pulseElement("#skillTree", "panel-flash");
 }
 
 function claimDailyReward() {

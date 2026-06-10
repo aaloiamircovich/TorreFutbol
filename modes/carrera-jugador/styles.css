@@ -792,7 +792,7 @@ h2 {
 }
 
 .skill-tree {
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
 }
 
 .skill-node,
@@ -801,6 +801,63 @@ h2 {
   border-radius: 8px;
   padding: 12px;
   background: rgba(255,255,255,0.045);
+}
+
+.skill-branch {
+  position: relative;
+  display: grid;
+  gap: 10px;
+}
+
+.skill-branch > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.skill-branch-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+}
+
+.skill-branch-head span {
+  display: block;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.skill-branch-head h3 {
+  margin: 2px 0 0;
+  font-size: 1.05rem;
+}
+
+.skill-branch-head strong {
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 950;
+}
+
+.skill-lane {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.skill-lane::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(25,230,129,0.2), rgba(255,200,87,0.32));
 }
 
 .skill-node header,
@@ -814,10 +871,57 @@ h2 {
   align-items: baseline;
 }
 
+.skill-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: start;
+  min-height: 210px;
+  background:
+    radial-gradient(circle at 16px 18px, rgba(255,200,87,0.16), transparent 24px),
+    rgba(255,255,255,0.045);
+}
+
+.skill-node::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  border: 2px solid rgba(255,255,255,0.42);
+  background: #0d1712;
+  box-shadow: 0 0 0 5px rgba(13,23,18,0.94);
+}
+
+.skill-node.available::before {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 5px rgba(13,23,18,0.94), 0 0 16px rgba(255,200,87,0.42);
+}
+
+.skill-node.unlocked::before {
+  border-color: var(--green);
+  background: var(--green);
+  box-shadow: 0 0 0 5px rgba(13,23,18,0.94), 0 0 18px rgba(25,230,129,0.52);
+}
+
 .skill-node h3,
 .skill-node p,
 .achievement p {
   margin-bottom: 0;
+}
+
+.skill-node h3 {
+  margin-top: 8px;
+}
+
+.skill-node header span {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .skill-node strong,
@@ -827,6 +931,15 @@ h2 {
   font-weight: 900;
 }
 
+.skill-node small {
+  display: block;
+  margin-top: 9px;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
 .skill-node.unlocked,
 .achievement.unlocked,
 .objective.claimed {
@@ -834,9 +947,22 @@ h2 {
   background: rgba(25,230,129,0.08);
 }
 
+.skill-node.locked {
+  opacity: 0.62;
+}
+
+.skill-node.available {
+  border-color: rgba(255,200,87,0.42);
+  background:
+    linear-gradient(180deg, rgba(255,200,87,0.08), rgba(255,255,255,0.035)),
+    rgba(255,255,255,0.045);
+}
+
 .skill-node button {
   width: 100%;
   margin-top: 10px;
+  white-space: normal;
+  line-height: 1.15;
 }
 
 .subtle-line {
@@ -1150,6 +1276,14 @@ h2 {
   .create-hero {
     min-height: 360px;
   }
+
+  .skill-lane {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+
+  .skill-lane::before {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1188,6 +1322,19 @@ h2 {
 
   .mini-pitch {
     min-height: 280px;
+  }
+
+  .skill-lane {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-branch-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .skill-node {
+    min-height: 0;
   }
 }
 
