@@ -347,7 +347,8 @@ const trainingSessions = [
 
 const socialTemplates = [
   {
-    author: "Periodista",
+    author: "Gaston Edul",
+    tag: "Seleccion",
     text: "Tu ultimo partido genero debate. Que mensaje publicas?",
     options: [
       { text: "El equipo esta por encima de todo.", popularity: 2, reputation: 5, morale: 2 },
@@ -357,6 +358,7 @@ const socialTemplates = [
   },
   {
     author: "Hinchas",
+    tag: "Tendencia",
     text: "La tribuna pide mas compromiso despues de una semana dura.",
     options: [
       { text: "Organizar una firma de camisetas.", popularity: 8, reputation: 1, morale: 2, money: -6 },
@@ -366,13 +368,51 @@ const socialTemplates = [
   },
   {
     author: "Club",
+    tag: "Prensa",
     text: "El area de prensa ofrece una entrevista larga.",
     options: [
       { text: "Dar una entrevista humilde.", popularity: 4, reputation: 4, coach: 2 },
       { text: "Hablar como lider del proyecto.", popularity: 2, reputation: 7, coach: 4 },
       { text: "Rechazar para descansar.", popularity: -2, reputation: -1, fatigue: -8 }
     ]
+  },
+  {
+    author: "Fabrizio Romano",
+    tag: "Mercado",
+    text: "Hay clubes siguiendo tu evolucion y tu agente pide calma. Como respondes?",
+    options: [
+      { text: "Estoy enfocado en mi club actual.", reputation: 5, coach: 4, popularity: 1 },
+      { text: "Siempre escucho proyectos ambiciosos.", popularity: 6, reputation: -1, coach: -2 },
+      { text: "No hablo de rumores.", reputation: 3, morale: 1 }
+    ]
+  },
+  {
+    author: "Cesar Luis Merlo",
+    tag: "Ultima hora",
+    text: "Tu nombre empezo a sonar en la agenda de varios clubes. Que postura toma tu entorno?",
+    options: [
+      { text: "Responder con bajo perfil.", reputation: 4, morale: 2 },
+      { text: "Dejar que mi agente maneje todo.", popularity: 3, reputation: 2 },
+      { text: "Meter presion por una mejora contractual.", popularity: 5, reputation: -2, coach: -3 }
+    ]
+  },
+  {
+    author: "Gaston Edul",
+    tag: "Vestuario",
+    text: "Se habla de tu rol en el grupo y de como manejas la exposicion publica.",
+    options: [
+      { text: "Resaltar la union del plantel.", reputation: 5, coach: 3, morale: 2 },
+      { text: "Agradecer a los hinchas.", popularity: 5, morale: 2 },
+      { text: "Mantener silencio y entrenar.", reputation: 2, fatigue: -4 }
+    ]
   }
+];
+
+const transferJournalists = [
+  { name: "Fabrizio Romano", tag: "Mercado internacional" },
+  { name: "Gaston Edul", tag: "Seleccion y mercado argentino" },
+  { name: "Cesar Luis Merlo", tag: "Mercado sudamericano" },
+  { name: "German Garcia Grova", tag: "Informacion de clubes" }
 ];
 
 const lifestyleItems = [
@@ -573,6 +613,10 @@ function ensureStateDefaults() {
   if (!Array.isArray(state.traits)) state.traits = [];
   if (!Array.isArray(state.lifestyle)) state.lifestyle = [];
   if (!Array.isArray(state.trophies)) state.trophies = [];
+  if (!Array.isArray(state.transferRumors)) state.transferRumors = [];
+  if (!Array.isArray(state.socialQueue)) state.socialQueue = [];
+  state.socialRespondedDate = state.socialRespondedDate || "";
+  state.lastOfferWindow = state.lastOfferWindow || "";
   state.yellowCards = Number(state.yellowCards) || 0;
   state.suspensionWeeks = Number(state.suspensionWeeks) || 0;
   state.matchMode = state.matchMode || "simulate";
@@ -865,8 +909,11 @@ function newState(profile) {
     sponsors: [],
     lifestyle: [],
     offers: [],
+    transferRumors: [],
+    lastOfferWindow: "",
     news: ["Tu carrera profesional acaba de empezar."],
     socialQueue: [randomSocial()],
+    socialRespondedDate: "",
     objectives: createObjectives(profile.position),
     seasonStats: blankStats(),
     careerStats: blankStats(),
@@ -919,7 +966,134 @@ function blankStats() {
 }
 
 function randomSocial() {
+  if (state && Math.random() < (isTransferWindow() ? 0.58 : 0.28)) {
+    return randomTransferSocial();
+  }
   return JSON.parse(JSON.stringify(socialTemplates[random(0, socialTemplates.length - 1)]));
+}
+
+function transferWindowStatus(week = state?.week || 1) {
+  if (week >= 1 && week <= 6) {
+    return {
+      open: true,
+      id: "summer",
+      label: "Mercado de verano",
+      description: `Abierto hasta la semana 6. Semana ${week}/6`
+    };
+  }
+  if (week >= 20 && week <= 24) {
+    return {
+      open: true,
+      id: "winter",
+      label: "Mercado de invierno",
+      description: `Abierto hasta la semana 24. Semana ${week}/24`
+    };
+  }
+  const next = week < 20 ? "invierno, semana 20" : "verano, semana 1 de la proxima temporada";
+  return {
+    open: false,
+    id: "closed",
+    label: "Mercado cerrado",
+    description: `Proxima ventana: ${next}.`
+  };
+}
+
+function isTransferWindow() {
+  return transferWindowStatus().open;
+}
+
+function transferWindowKey() {
+  const window = transferWindowStatus();
+  return window.open ? `${state.season}-${window.id}` : "";
+}
+
+function randomJournalist(preferLocal = false) {
+  const pool = preferLocal ? transferJournalists.filter((item) => item.name !== "Fabrizio Romano") : transferJournalists;
+  return pool[random(0, pool.length - 1)];
+}
+
+function randomTransferPair() {
+  const source = clubs.filter((club) => club.name !== state?.club && topPlayersForClub(club.name).length);
+  const fromPool = source.length ? source : clubs.filter((club) => club.name !== state?.club);
+  const fromClub = fromPool[random(0, Math.max(0, fromPool.length - 1))] || clubs[0];
+  const destinations = clubs.filter((club) => club.name !== fromClub.name && club.name !== state?.club && Math.abs((club.tier || 1) - (fromClub.tier || 1)) <= 2);
+  const toPool = destinations.length ? destinations : clubs.filter((club) => club.name !== fromClub.name);
+  const toClub = toPool[random(0, Math.max(0, toPool.length - 1))] || clubs[0];
+  const stars = topPlayersForClub(fromClub.name);
+  const player = stars.length ? stars[random(0, stars.length - 1)] : { name: `figura de ${fromClub.name}`, rating: fromClub.rep || 75, pos: "Jugador" };
+  return { fromClub, toClub, player };
+}
+
+function makeTransferRumor(status = "rumor") {
+  const { fromClub, toClub, player } = randomTransferPair();
+  const journalist = randomJournalist(fromClub.league?.includes("Argentina") || toClub.league?.includes("Argentina"));
+  const fee = Math.round((player.rating || 75) * (toClub.tier || 1) * random(9, 18));
+  const confirmed = status === "confirmed";
+  return {
+    week: state.week,
+    season: state.season,
+    journalist: journalist.name,
+    tag: journalist.tag,
+    status,
+    player: player.name,
+    from: fromClub.name,
+    to: toClub.name,
+    fee,
+    text: confirmed
+      ? `${journalist.name}: acuerdo cerrado entre ${fromClub.name} y ${toClub.name} por ${player.name}. Operacion estimada en ${valueText(fee)}.`
+      : `${journalist.name}: ${toClub.name} sigue de cerca a ${player.name} de ${fromClub.name}. Operacion posible por ${valueText(fee)}.`
+  };
+}
+
+function makePlayerRumor(offer, status = "interest") {
+  const journalist = randomJournalist(state.league?.includes("Argentina") || offer.league?.includes("Argentina"));
+  const confirmed = status === "confirmed";
+  const fee = offer.fee || Math.round(state.marketValue * random(85, 130) / 100);
+  return {
+    week: state.week,
+    season: state.season,
+    journalist: journalist.name,
+    tag: journalist.tag,
+    status,
+    player: state.profile.name,
+    from: state.club,
+    to: offer.club,
+    fee,
+    text: confirmed
+      ? `${journalist.name}: ${state.profile.name} sera nuevo jugador de ${offer.club}. Acuerdo total con ${state.club}.`
+      : `${journalist.name}: ${offer.club} consulto condiciones por ${state.profile.name}. Todavia no hay acuerdo con ${state.club}.`
+  };
+}
+
+function pushTransferRumor(rumor, publishNews = false) {
+  if (!rumor) return;
+  state.transferRumors = [rumor, ...(state.transferRumors || [])].slice(0, 12);
+  if (publishNews) addNews(rumor.text);
+}
+
+function generateTransferRumors(count = 2, publishNews = false) {
+  if (!state.transferRumors) state.transferRumors = [];
+  for (let i = 0; i < count; i += 1) {
+    pushTransferRumor(makeTransferRumor(Math.random() < 0.18 ? "confirmed" : "rumor"), publishNews && i === 0);
+  }
+}
+
+function randomTransferSocial() {
+  const rumor = state.transferRumors?.length ? state.transferRumors[0] : makeTransferRumor();
+  if (!state.transferRumors?.length) pushTransferRumor(rumor);
+  const isPlayerRumor = rumor.player === state.profile?.name;
+  return {
+    author: rumor.journalist,
+    tag: rumor.tag || "Mercado",
+    text: isPlayerRumor
+      ? `${rumor.text} El entorno del jugador no quiere apurarse.`
+      : `${rumor.text} El mercado se mueve y los clubes empiezan a ajustar sus planteles.`,
+    options: [
+      { text: "Mantener perfil bajo.", reputation: 4, coach: 2, morale: 1 },
+      { text: "Darle like y alimentar el rumor.", popularity: 7, reputation: -2, coach: -2 },
+      { text: "Responder que solo importa el proximo partido.", reputation: 3, popularity: 2, morale: 2 }
+    ]
+  };
 }
 
 function randomLeagueOpponent(currentClubOverride = "") {
@@ -1354,12 +1528,20 @@ function renderNews() {
 
 function renderSocial() {
   if (!state.socialQueue.length) state.socialQueue.push(randomSocial());
-  $("#socialFeed").innerHTML = state.socialQueue.map((post, postIndex) => `
-    <div class="social-post">
-      <strong>${post.author}</strong>
+  const respondedToday = state.socialRespondedDate === todayKey();
+  const limitCard = `<div class="social-limit ${respondedToday ? "used" : ""}">
+    <strong>${respondedToday ? "Respuesta diaria usada" : "Respuesta diaria disponible"}</strong>
+    <p>${respondedToday ? "Ya respondiste hoy. Puedes leer rumores, pero no intervenir hasta manana." : "Elige una sola respuesta para cuidar tu imagen publica."}</p>
+  </div>`;
+  $("#socialFeed").innerHTML = limitCard + state.socialQueue.map((post, postIndex) => `
+    <div class="social-post ${respondedToday ? "answered" : ""}">
+      <header>
+        <strong>${post.author}</strong>
+        ${post.tag ? `<span>${post.tag}</span>` : ""}
+      </header>
       <p>${post.text}</p>
       <div class="social-actions">
-        ${post.options.map((option, optionIndex) => `<button data-social="${postIndex}:${optionIndex}">${option.text}</button>`).join("")}
+        ${post.options.map((option, optionIndex) => `<button data-social="${postIndex}:${optionIndex}" ${respondedToday ? "disabled" : ""}>${option.text}</button>`).join("")}
       </div>
     </div>
   `).join("");
@@ -1367,6 +1549,7 @@ function renderSocial() {
 
 function renderMarket() {
   const contractType = state.loan ? `Prestado desde ${state.loan.parentClub}` : state.contract.type;
+  const window = transferWindowStatus();
   $("#contractStatus").innerHTML = `
     <div>
       <span>Contrato actual</span>
@@ -1383,9 +1566,34 @@ function renderMarket() {
       <strong>${valueText(state.contract.releaseClause)}</strong>
       <p>Valor de mercado ${valueText(state.marketValue)}</p>
     </div>
+    <div>
+      <span>Ventana</span>
+      <strong>${window.label}</strong>
+      <p>${window.description}</p>
+    </div>
   `;
 
-  $("#offersList").innerHTML = state.offers.length
+  const agentBtn = $("#agentBtn");
+  if (agentBtn) {
+    agentBtn.disabled = state.retired || !window.open;
+    agentBtn.textContent = window.open ? "Hablar con agente" : "Mercado cerrado";
+    agentBtn.title = window.open ? "" : window.description;
+  }
+
+  const rumorHtml = state.transferRumors?.length
+    ? `<div class="transfer-rumor-list">
+        <h4>Rumores y movimientos de otros equipos</h4>
+        ${state.transferRumors.slice(0, 5).map((rumor) => `
+          <div class="transfer-rumor ${rumor.status === "confirmed" ? "confirmed" : ""}">
+            <strong>${rumor.journalist}</strong>
+            <p>${rumor.text}</p>
+            <span>${rumor.status === "confirmed" ? "Confirmado" : "Rumor"} - T${rumor.season} S${rumor.week}</span>
+          </div>
+        `).join("")}
+      </div>`
+    : `<div class="transfer-rumor-list"><h4>Rumores y movimientos de otros equipos</h4><p>No hay rumores fuertes por ahora.</p></div>`;
+
+  const offersHtml = state.offers.length
     ? state.offers.map((offer, index) => {
       const logo = clubLogoFor(offer.club);
       const typeLabel = offer.type === "loan" ? "Prestamo" : offer.type === "renewal" ? "Renovacion" : "Traspaso";
@@ -1396,6 +1604,7 @@ function renderMarket() {
           <strong>${moneyText(offer.salary)}/sem</strong>
         </header>
         <p>${typeLabel} - ${offer.league} - contrato ${offer.years} anios - prima ${moneyText(offer.bonus)} - ${clauseText}</p>
+        <p class="offer-details">${offer.window || window.label} - vence semana ${offer.deadlineWeek || (window.id === "winter" ? 24 : 6)}${offer.fee ? ` - valor de operacion ${valueText(offer.fee)}` : ""}${offer.fit ? ` - encaje ${offer.fit}/100` : ""}</p>
         ${offer.message ? `<p class="offer-note">${offer.message}</p>` : ""}
         <div class="offer-actions">
           <button data-offer="${index}" class="primary">Aceptar</button>
@@ -1404,7 +1613,9 @@ function renderMarket() {
         </div>
       </div>`;
     }).join("")
-    : `<div class="offer-card"><p>No hay ofertas activas. Tu agente puede sondear clubes si tu reputacion sube.</p></div>`;
+    : `<div class="offer-card"><p>${window.open ? "No hay ofertas activas. Tu agente puede sondear clubes si tu reputacion sube." : "No hay ofertas activas porque el mercado esta cerrado. Los clubes solo pueden seguirte o filtrar rumores."}</p></div>`;
+
+  $("#offersList").innerHTML = rumorHtml + offersHtml;
 
   $("#sponsorsList").innerHTML = availableSponsors().map((sponsor) => `<div class="offer-card">
     <header><h3>${sponsor.name}</h3><strong>${moneyText(sponsor.pay)}</strong></header>
@@ -1680,8 +1891,17 @@ function advanceWeek() {
   if (state.suspensionWeeks > 0) state.suspensionWeeks -= 1;
   state.currentMatchObjectives = createMatchObjectives();
   state.fatigue = clamp(state.fatigue - 8 - (state.traits.includes("Inagotable") ? 5 : 0), 0, 100);
-  if (Math.random() < 0.45) state.socialQueue = [randomSocial()];
-  if ([10, 20, 30].includes(state.week) || Math.random() < 0.08) generateOffers();
+  if (Math.random() < 0.68) state.socialQueue = [randomSocial()];
+  const window = transferWindowStatus();
+  if (window.open) {
+    generateTransferRumors(random(2, 4));
+    if (state.lastOfferWindow !== transferWindowKey() || Math.random() < 0.28) generateOffers();
+  } else {
+    const activeExternalOffers = state.offers.filter((offer) => offer.type !== "renewal").length;
+    if (activeExternalOffers) addNews("Cerro la ventana de mercado: las ofertas de traspaso y prestamo expiraron.");
+    state.offers = state.offers.filter((offer) => offer.type === "renewal");
+    if (Math.random() < 0.38) generateTransferRumors(1);
+  }
   if (state.week > 38) endSeason();
   render();
   animateCalendarAdvance(fromSeason, fromWeek, state.season, state.week);
@@ -1731,6 +1951,14 @@ function endSeason() {
 }
 
 function generateOffers(force = false) {
+  if (!isTransferWindow()) {
+    generateTransferRumors(force ? 2 : 1, force);
+    if (force) {
+      addNews(`Tu agente aviso que no puede presentar ofertas: ${transferWindowStatus().description}`);
+      showToast("Mercado cerrado: solo hay rumores y seguimientos.");
+    }
+    return;
+  }
   const ov = overall();
   const current = clubs.find((club) => club.name === state.club) || clubs[0];
   const minRep = force ? 0 : state.reputation;
@@ -1743,24 +1971,36 @@ function generateOffers(force = false) {
     .slice(0, state.profile.age <= 23 || ov < 72 ? 2 : 0)
     .map((club) => makeClubOffer(club, "loan"));
   state.offers = [...transferOffers, ...loanPool];
-  if (state.offers.length) addNews("Tu agente recibio nuevas ofertas de clubes.");
+  state.lastOfferWindow = transferWindowKey();
+  state.offers.forEach((offer) => pushTransferRumor(makePlayerRumor(offer), false));
+  if (state.offers.length) addNews(`Tu agente recibio ofertas durante el ${transferWindowStatus().label}.`);
 }
 
 function makeClubOffer(club, type = "transfer") {
   const ov = overall();
   const years = type === "loan" ? 1 : random(2, 5);
   const salary = Math.round((club.salary + ov * club.tier * 0.45 + state.reputation / 4) * (type === "loan" ? 0.72 : 1));
+  const fit = clamp(Math.round((club.rep + ov + state.reputation + state.popularity) / 4), 45, 98);
+  const fee = type === "loan" ? 0 : Math.round(state.marketValue * random(85, 145) / 100);
+  const journalist = randomJournalist(state.league?.includes("Argentina") || club.league?.includes("Argentina"));
   return {
     club: club.name,
     league: club.league,
     type,
     salary,
     years,
+    fee,
+    fit,
+    journalist: journalist.name,
+    window: transferWindowStatus().label,
+    deadlineWeek: transferWindowStatus().id === "winter" ? 24 : 6,
     bonus: type === "loan" ? 0 : Math.round(club.salary * random(6, 16)),
     releaseClause: contractClauseFor({ salary, years, marketValue: state.marketValue, tier: club.tier }),
     negotiations: 0,
     locked: false,
-    message: type === "loan" ? "El club busca darte minutos y continuidad." : ""
+    message: type === "loan"
+      ? `El club busca darte minutos y continuidad. Encaje deportivo ${fit}/100.`
+      : `Seguimiento confirmado por ${journalist.name}. Encaje deportivo ${fit}/100 y operacion cercana a ${valueText(fee)}.`
   };
 }
 
@@ -1777,6 +2017,7 @@ function acceptOffer(index) {
     state.coach = clamp(state.coach + 4, 0, 100);
     addNews(`Renovaste con ${offer.club}. Salario: ${moneyText(offer.salary)} por semana.`);
   } else if (offer.type === "loan") {
+    const confirmation = makePlayerRumor(offer, "confirmed");
     state.loan = {
       parentClub: state.club,
       parentLeague: state.league,
@@ -1785,10 +2026,13 @@ function acceptOffer(index) {
       untilSeason: state.season + 1
     };
     moveToClub(club, offer, "loan");
+    pushTransferRumor(confirmation, true);
     addNews(`Te vas cedido a ${offer.club} por una temporada.`);
   } else {
+    const confirmation = makePlayerRumor(offer, "confirmed");
     moveToClub(club, offer, "transfer");
     state.money += offer.bonus;
+    pushTransferRumor(confirmation, true);
     addNews(`Fichaste por ${offer.club}. Nuevo salario: ${moneyText(offer.salary)} por semana.`);
   }
   state.offers = [];
@@ -1799,6 +2043,20 @@ function rejectOffer(index) {
   state.offers.splice(index, 1);
   state.reputation = clamp(state.reputation + 1, 0, 100);
   render();
+}
+
+function talkToAgent() {
+  if (!isTransferWindow()) {
+    generateTransferRumors(2, true);
+    addNews(`Tu agente solo puede sondear clubes: ${transferWindowStatus().description}`);
+    showToast("Mercado cerrado: no pueden llegar ofertas.");
+    render();
+    return;
+  }
+  generateOffers(true);
+  generateTransferRumors(2);
+  render();
+  pulseElement("#tab-market", "panel-flash");
 }
 
 function requestRenewal() {
@@ -1859,6 +2117,11 @@ function negotiateOffer(index) {
 }
 
 function applySocial(postIndex, optionIndex) {
+  if (state.socialRespondedDate === todayKey()) {
+    showToast("Ya respondiste una publicacion hoy.");
+    pulseElement("#tab-social", "panel-flash");
+    return;
+  }
   const post = state.socialQueue[postIndex];
   const option = post?.options[optionIndex];
   if (!option) return;
@@ -1873,9 +2136,11 @@ function applySocial(postIndex, optionIndex) {
   updateMissionProgress("social", 1);
   updateMissionProgress("followers", followerGain);
   addXp(12);
+  state.socialRespondedDate = todayKey();
   state.socialQueue.splice(postIndex, 1);
   addNews(`Redes: ${option.text}`);
   render();
+  pulseElement("#tab-social", "panel-flash");
 }
 
 function unlockSkill(id) {
@@ -1995,10 +2260,7 @@ function setupEvents() {
   $("#restBtn").addEventListener("click", rest);
   $("#advanceWeekBtn").addEventListener("click", advanceWeek);
   $("#dailyRewardBtn").addEventListener("click", claimDailyReward);
-  $("#agentBtn").addEventListener("click", () => {
-    generateOffers(true);
-    render();
-  });
+  $("#agentBtn").addEventListener("click", talkToAgent);
   $("#renewalBtn").addEventListener("click", requestRenewal);
   $("#saveBtn").addEventListener("click", () => {
     save();
