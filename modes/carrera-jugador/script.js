@@ -421,6 +421,7 @@ function buildCareerClubs() {
 
 let clubs = buildCareerClubs();
 let opponents = clubs.length ? clubs.map((club) => club.name) : fallbackOpponents;
+let startingClubChoices = [];
 
 const positionProfiles = {
   DC: { number: 9, focus: ["definicion", "fuerza", "velocidad"], goals: 18, assists: 6, cleanSheets: 0, y: 22 },
@@ -1087,12 +1088,16 @@ function returnFromLoan() {
   addNews(`Volviste a ${parent.name} tras terminar el prestamo.`);
 }
 
-function topPlayersForClub(clubName) {
+function playersForClub(clubName, limit = Infinity) {
   const normalized = normalizeClubName(clubName);
   return careerPlayers
     .filter((player) => player.club === normalized)
     .sort((a, b) => b.rating - a.rating)
-    .slice(0, 3);
+    .slice(0, limit);
+}
+
+function topPlayersForClub(clubName) {
+  return playersForClub(clubName, 3);
 }
 
 function isSecondDivisionClub(club) {
@@ -1105,17 +1110,59 @@ function startingCareerClubs() {
   return clubs.filter((club) => (club.tier || 1) <= 2);
 }
 
+function shuffled(list) {
+  return list.slice().sort(() => Math.random() - 0.5);
+}
+
+function pickStartingClubChoices() {
+  const startClubs = startingCareerClubs();
+  const withSquads = startClubs.filter((club) => playersForClub(club.name, 8).length >= 8);
+  const pool = withSquads.length >= 2 ? withSquads : startClubs;
+  const randomized = shuffled(pool);
+  const first = randomized[0] || clubs[0];
+  const second = randomized.find((club) => club.name !== first?.name && club.league !== first?.league)
+    || randomized.find((club) => club.name !== first?.name)
+    || randomized[1]
+    || first;
+  return [first, second].filter(Boolean).filter((club, index, list) => list.findIndex((item) => item.name === club.name) === index);
+}
+
+function selectStartingClub(name) {
+  const selected = startingClubChoices.find((club) => club.name === name) || startingClubChoices[0];
+  const select = $("#playerClub");
+  if (select && selected) select.value = selected.name;
+  document.querySelectorAll("[data-start-club]").forEach((button) => {
+    button.classList.toggle("active", decodeURIComponent(button.dataset.startClub || "") === selected?.name);
+  });
+}
+
 function renderClubSelect() {
   const select = $("#playerClub");
   if (!select) return;
-  const startClubs = startingCareerClubs();
-  const firstValue = startClubs[0]?.name || clubs[0]?.name || "";
-  select.innerHTML = startClubs.map((club) => {
+  startingClubChoices = pickStartingClubChoices();
+  const firstValue = startingClubChoices[0]?.name || clubs[0]?.name || "";
+  select.innerHTML = startingClubChoices.map((club) => {
     const stars = topPlayersForClub(club.name).slice(0, 2).map((player) => player.name).join(", ");
     const label = stars ? `${club.name} - ${club.league} (${stars})` : `${club.name} - ${club.league}`;
     return `<option value="${club.name}">${label}</option>`;
   }).join("");
   select.value = firstValue;
+  const choices = $("#clubChoices");
+  if (choices) {
+    choices.innerHTML = startingClubChoices.map((club, index) => {
+      const players = playersForClub(club.name, 3);
+      const stars = players.map((player) => player.name).join(", ");
+      const logo = clubLogoFor(club.name);
+      return `<button type="button" class="club-choice ${index === 0 ? "active" : ""}" data-start-club="${encodeURIComponent(club.name)}">
+        <div class="club-choice-top">
+          ${logo ? `<img src="${logo}" alt="" />` : ""}
+          <strong>${club.name}</strong>
+        </div>
+        <span>${club.league}${club.country ? ` - ${club.country}` : ""}</span>
+        <small>${stars ? `Figuras: ${stars}` : "Plantel de segunda division"}</small>
+      </button>`;
+    }).join("");
+  }
 }
 
 function baseAttributes(position, style) {
@@ -1150,7 +1197,7 @@ function createObjectives(position) {
 }
 
 function newState(profile) {
-  const allowedStartClubs = startingCareerClubs();
+  const allowedStartClubs = startingClubChoices.length ? startingClubChoices : pickStartingClubChoices();
   const club = allowedStartClubs.find((item) => item.name === profile.club) || allowedStartClubs[0] || clubs[0];
   const attrs = baseAttributes(profile.position, profile.style);
   const fixture = nextFixture(club.name);
@@ -2054,7 +2101,7 @@ function cardOutcome(mode, isDef) {
 }
 
 function matchSquad(clubName, includeUser = false) {
-  const base = topPlayersForClub(clubName).map((player) => ({
+  const base = playersForClub(clubName, includeUser ? 10 : 11).map((player) => ({
     name: player.name,
     pos: player.pos || "Jugador",
     base: player.rating || 72
@@ -2064,16 +2111,22 @@ function matchSquad(clubName, includeUser = false) {
     pos,
     base: 66 + random(0, 10)
   }));
-  const squad = [...base, ...fillers].slice(0, 8);
+  const squad = [...base, ...fillers].slice(0, includeUser ? 10 : 11);
   if (includeUser) {
     squad.unshift({ name: state.profile.name, pos: state.profile.position, base: overall(), user: true });
   }
-  return squad.slice(0, 9);
+  return squad.slice(0, 11);
 }
 
 function pickPerformer(squad, avoidUser = false) {
   const pool = avoidUser ? squad.filter((player) => !player.user) : squad;
   return pool[random(0, Math.max(0, pool.length - 1))] || squad[0];
+}
+
+function pickDifferentPerformer(squad, excluded = [], avoidUser = false) {
+  const blocked = new Set(excluded.filter(Boolean).map((player) => player.name));
+  const pool = squad.filter((player) => (!avoidUser || !player.user) && !blocked.has(player.name));
+  return pool[random(0, Math.max(0, pool.length - 1))] || pickPerformer(squad, avoidUser);
 }
 
 function playerRating(base, teamMod = 0, userBoost = 0) {
@@ -2102,21 +2155,39 @@ function buildMatchTimeline({ teamGoals, rivalGoals, goals, assists, yellowCard,
     return minute;
   };
   events.push({ minute: 1, type: "kickoff", text: `Arranca ${matchCompetition}. ${state.club} intenta imponer ritmo desde el primer pase.` });
-  for (let i = 0; i < teamGoals; i += 1) {
-    const scorer = i < goals ? teamSquad.find((player) => player.user) : pickPerformer(teamSquad, true);
-    const assister = i < assists ? teamSquad.find((player) => player.user) : (Math.random() < 0.55 ? pickPerformer(teamSquad, scorer?.user) : null);
+  const userPlayer = teamSquad.find((player) => player.user);
+  const teamGoalEvents = [];
+  const userGoals = Math.min(goals, teamGoals);
+  const userAssists = Math.min(assists, Math.max(0, teamGoals - userGoals));
+  for (let i = 0; i < userGoals; i += 1) {
+    teamGoalEvents.push({
+      scorer: userPlayer,
+      assister: Math.random() < 0.55 ? pickDifferentPerformer(teamSquad, [userPlayer], true) : null
+    });
+  }
+  for (let i = 0; i < userAssists; i += 1) {
+    const scorer = pickDifferentPerformer(teamSquad, [userPlayer], true);
+    teamGoalEvents.push({ scorer, assister: userPlayer });
+  }
+  while (teamGoalEvents.length < teamGoals) {
+    const scorer = pickPerformer(teamSquad, true);
+    const assister = Math.random() < 0.55 ? pickDifferentPerformer(teamSquad, [scorer], true) : null;
+    teamGoalEvents.push({ scorer, assister });
+  }
+  teamGoalEvents.forEach(({ scorer, assister }) => {
     events.push({
       minute: nextMinute(8, 86),
       type: "goal",
       text: `Gol de ${state.club}: ${scorer?.name || state.profile.name} define ${assister ? `tras pase de ${assister.name}` : "despues de una jugada colectiva"}.`
     });
-  }
+  });
   for (let i = 0; i < rivalGoals; i += 1) {
     const scorer = pickPerformer(rivalSquad);
+    const assister = Math.random() < 0.48 ? pickDifferentPerformer(rivalSquad, [scorer]) : null;
     events.push({
       minute: nextMinute(10, 88),
       type: "goal-against",
-      text: `Gol de ${state.nextOpponent}: ${scorer.name} castiga una desconcentracion defensiva.`
+      text: `Gol de ${state.nextOpponent}: ${scorer.name}${assister ? ` recibe de ${assister.name} y` : ""} castiga una desconcentracion defensiva.`
     });
   }
   if (saves) {
@@ -2173,10 +2244,12 @@ function playMatch() {
   const finisherBoost = state.traits.includes("Matador") ? 0.05 : 0;
   const creatorBoost = state.traits.includes("Arquitecto") ? 0.05 : 0;
   const defenderBoost = state.traits.includes("Anticipador") ? 0.06 : 0;
-  const goals = isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420);
-  const assists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
+  const rawGoals = isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420);
+  const rawAssists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
   const cleanSheet = isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0;
-  const teamGoals = clamp(goals + assists + random(0, 2), 0, 5);
+  const teamGoals = clamp(rawGoals + rawAssists + random(0, 2), 0, 5);
+  const goals = Math.min(rawGoals, teamGoals);
+  const assists = Math.min(rawAssists, Math.max(0, teamGoals - goals));
   const rivalGoals = cleanSheet ? 0 : random(0, 4);
   const won = teamGoals > rivalGoals;
   const drew = teamGoals === rivalGoals;
@@ -2706,6 +2779,11 @@ function setupEvents() {
   document.addEventListener("click", (event) => {
     const target = event.target;
     if (!(target instanceof HTMLElement)) return;
+    const startClubButton = target.closest("[data-start-club]");
+    if (startClubButton) {
+      selectStartingClub(decodeURIComponent(startClubButton.dataset.startClub || ""));
+      return;
+    }
     const skillTabButton = target.closest("[data-skill-tab]");
     if (skillTabButton) {
       state.skillTreeTab = skillTabButton.dataset.skillTab;

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
@@ -34,7 +35,7 @@ const competitions = [
   { id: "ligue-2", name: "Ligue 2", country: "Francia", level: 2, division: 2, code: "FR2", slug: "ligue-2" },
   { id: "liga-portugal-2", name: "Liga Portugal 2", country: "Portugal", level: 1, division: 2, code: "PO2", slug: "liga-portugal-2" },
   { id: "saudi-first-division", name: "Saudi First Division", country: "Arabia Saudita", level: 1, division: 2, code: "SA2", slug: "saudi-first-division-league" },
-  { id: "primera-nacional", name: "Primera Nacional", country: "Argentina", level: 1, division: 2, code: "AR2N", slug: "primera-nacional" },
+  { id: "primera-nacional", name: "Primera Nacional", country: "Argentina", level: 1, division: 2, code: "ARG2", slug: "primera-nacional" },
   { id: "brasileirao-serie-b", name: "Brasileirao Serie B", country: "Brasil", level: 2, division: 2, code: "BRA2", slug: "campeonato-brasileiro-serie-b" },
   { id: "usl-championship", name: "USL Championship", country: "Estados Unidos", level: 1, division: 2, code: "USL", slug: "usl-championship" },
   { id: "eerste-divisie", name: "Eerste Divisie", country: "Paises Bajos", level: 1, division: 2, code: "NL2", slug: "eerste-divisie" },
@@ -58,7 +59,6 @@ const internationalCompetitions = [
 const teamAliases = {
   "FC Barcelona": "Barcelona",
   "Atlético de Madrid": "Atletico de Madrid",
-  "Athletic Club": "Athletic Bilbao",
   "Real Betis Balompié": "Betis",
   "AC Milan": "Milan",
   "Inter Milan": "Inter",
@@ -230,9 +230,9 @@ function teamSalary(players, leagueLevel) {
   return Math.max(12, Math.round(rep * leagueLevel * 0.36));
 }
 
-async function buildDatabase() {
+async function buildDatabase(selectedCompetitions = competitions, onLeague = null) {
   const leagues = [];
-  for (const competition of competitions) {
+  for (const competition of selectedCompetitions) {
     console.log(`Liga: ${competition.name}`);
     const teams = await fetchTeams(competition);
     const league = { id: competition.id, name: competition.name, country: competition.country, level: competition.level, division: competition.division || 1, teams: [] };
@@ -257,6 +257,7 @@ async function buildDatabase() {
       }
     }
     leagues.push(league);
+    if (onLeague) onLeague(league, leagues);
   }
   return leagues;
 }
@@ -317,7 +318,51 @@ function writeDatabase(leagues, tournaments) {
   fs.writeFileSync(OUT_FILE, header + body, "utf8");
 }
 
-buildDatabase()
+function readExistingDatabase() {
+  if (!fs.existsSync(OUT_FILE)) return { leagues: [], tournaments: [] };
+  const context = {};
+  vm.createContext(context);
+  vm.runInContext(`${fs.readFileSync(OUT_FILE, "utf8")}\nthis.__careerData = { leagues: careerLeagueDatabase || [], tournaments: careerCompetitionDatabase || [] };`, context);
+  return context.__careerData || { leagues: [], tournaments: [] };
+}
+
+function mergeById(base, incoming) {
+  const map = new Map((base || []).map((item) => [item.id, item]));
+  incoming.forEach((item) => {
+    const current = map.get(item.id);
+    const hasTeams = (item.teams || []).length > 0;
+    const currentHasTeams = (current?.teams || []).length > 0;
+    if (hasTeams || !currentHasTeams) map.set(item.id, item);
+  });
+  return Array.from(map.values());
+}
+
+const args = new Set(process.argv.slice(2));
+const onlySecondDivisions = args.has("--second-divisions");
+const competitionFilter = process.argv.slice(2).find((arg) => arg.startsWith("--competition="))?.split("=")[1] || "";
+const selectedCompetitionList = (onlySecondDivisions ? competitions.filter((competition) => competition.division === 2) : competitions)
+  .filter((competition) => !competitionFilter || competition.id === competitionFilter || competition.name.toLowerCase() === competitionFilter.toLowerCase());
+
+if (onlySecondDivisions || competitionFilter) {
+  const existing = readExistingDatabase();
+  const imported = [];
+  buildDatabase(selectedCompetitionList, (league) => {
+    imported.push(league);
+    writeDatabase(mergeById(existing.leagues, imported), existing.tournaments);
+    console.log(`Guardado parcial: ${league.name}`);
+  })
+    .then((leagues) => {
+      writeDatabase(mergeById(existing.leagues, leagues), existing.tournaments);
+      const teams = leagues.reduce((sum, league) => sum + league.teams.length, 0);
+      const players = leagues.reduce((sum, league) => sum + league.teams.reduce((teamSum, team) => teamSum + team.players.length, 0), 0);
+      console.log(`OK segundas: ${leagues.length} ligas, ${teams} equipos, ${players} jugadores`);
+    })
+    .catch((error) => {
+      console.error(error);
+      process.exitCode = 1;
+    });
+} else {
+  buildDatabase()
   .then(async (leagues) => {
     const tournaments = await buildInternationalDatabase(leagues);
     writeDatabase(leagues, tournaments);
@@ -331,3 +376,4 @@ buildDatabase()
     console.error(error);
     process.exitCode = 1;
   });
+}

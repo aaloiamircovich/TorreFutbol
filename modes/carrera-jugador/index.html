@@ -66,12 +66,16 @@
             </select>
           </label>
 
-          <label>
-            Primer club (segunda division)
-            <select id="playerClub">
+          <section class="club-pick">
+            <div class="club-pick-head">
+              <span>Primer club</span>
+              <small>Elegis entre 2 equipos sorteados de segunda division.</small>
+            </div>
+            <div id="clubChoices" class="club-choice-grid"></div>
+            <select id="playerClub" class="hidden" aria-label="Primer club">
               <option value="Boca Juniors">Boca Juniors</option>
             </select>
-          </label>
+          </section>
 
           <button class="primary" type="submit">Iniciar carrera</button>
         </form>

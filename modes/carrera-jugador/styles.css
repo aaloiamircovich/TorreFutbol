@@ -195,6 +195,83 @@ label {
   font-weight: 800;
 }
 
+.club-pick {
+  display: grid;
+  gap: 10px;
+}
+
+.club-pick-head {
+  display: grid;
+  gap: 4px;
+}
+
+.club-pick-head span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.club-pick-head small {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.club-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.club-choice {
+  display: grid;
+  min-height: 128px;
+  padding: 12px;
+  text-align: left;
+  align-content: start;
+  border-color: rgba(255,255,255,0.14);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03)),
+    rgba(0,0,0,0.22);
+}
+
+.club-choice.active {
+  border-color: rgba(25,230,129,0.75);
+  background:
+    linear-gradient(180deg, rgba(25,230,129,0.16), rgba(255,255,255,0.035)),
+    rgba(0,0,0,0.22);
+  box-shadow: 0 0 0 1px rgba(25,230,129,0.18), 0 14px 26px rgba(0,0,0,0.22);
+}
+
+.club-choice-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.club-choice-top img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.club-choice strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.12;
+}
+
+.club-choice span,
+.club-choice small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
 .form-grid,
 .hero-grid,
 .content-grid,
@@ -1794,6 +1871,7 @@ h2 {
 
   .header-actions,
   .form-grid,
+  .club-choice-grid,
   .quick-stats,
   .attributes-grid {
     grid-template-columns: 1fr;
