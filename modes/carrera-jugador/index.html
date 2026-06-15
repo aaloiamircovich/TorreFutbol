@@ -185,9 +185,24 @@
           <article id="tab-match" class="tab-panel hidden">
             <div class="match-panel">
               <div class="pitch-card">
-                <div class="mini-pitch">
-                  <span></span><span></span><span></span>
-                  <div id="pitchDot" class="pitch-dot">10</div>
+                <div class="sim-scoreboard">
+                  <strong id="simClock">00'</strong>
+                  <span id="simHomeName">Local</span>
+                  <b id="simScore">0 - 0</b>
+                  <span id="simAwayName">Visitante</span>
+                </div>
+                <div id="tacticalPitch" class="mini-pitch tactical-pitch">
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <div id="simPlayers"></div>
+                  <div id="simBall" class="sim-ball"></div>
+                  <div id="highlightBanner" class="highlight-banner hidden"></div>
+                </div>
+                <div class="sim-speed" aria-label="Velocidad de simulacion">
+                  <button data-speed="1">1x</button>
+                  <button data-speed="2">2x</button>
+                  <button data-speed="4">4x</button>
+                  <button data-speed="8">8x</button>
+                  <button id="skipEventBtn" class="outline" type="button">Proximo evento</button>
                 </div>
               </div>
               <div>
@@ -203,9 +218,38 @@
                     <option value="full">Jugar partido completo</option>
                   </select>
                 </label>
+                <div class="tactic-controls">
+                  <label>
+                    Mentalidad
+                    <select id="tacticalMentality">
+                      <option value="ultraDefensive">Ultra defensiva</option>
+                      <option value="defensive">Defensiva</option>
+                      <option value="balanced">Equilibrada</option>
+                      <option value="attacking">Ofensiva</option>
+                      <option value="ultraAttacking">Ultra ofensiva</option>
+                    </select>
+                  </label>
+                  <label>
+                    Formacion
+                    <select id="tacticalFormation">
+                      <option value="433">4-3-3</option>
+                      <option value="442">4-4-2</option>
+                      <option value="352">3-5-2</option>
+                    </select>
+                  </label>
+                  <label>
+                    Presion
+                    <input id="pressureLevel" type="range" min="1" max="5" value="3" />
+                  </label>
+                </div>
                 <div id="matchObjectives" class="match-objectives"></div>
                 <button id="playMatchBtn" class="primary">Jugar partido</button>
                 <button id="restBtn" class="outline">Descansar</button>
+                <div id="keyMomentPanel" class="key-moment-panel hidden"></div>
+                <div class="live-commentary">
+                  <h3>Relato en vivo</h3>
+                  <div id="liveCommentary"></div>
+                </div>
               </div>
             </div>
             <div id="matchStatsPanel" class="match-stats-panel"></div>

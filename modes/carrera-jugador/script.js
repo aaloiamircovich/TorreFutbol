@@ -401,7 +401,32 @@ const achievementDefs = [
   { id: "national_team", title: "Seleccionado", desc: "Debuta con tu seleccion.", test: () => state.careerStats.nationalCaps >= 1, rewardXp: 80 }
 ];
 
+const tacticalFormations = {
+  433: [
+    ["POR", 8, 50], ["LI", 22, 20], ["DFC", 24, 40], ["DFC", 24, 60], ["LD", 22, 80],
+    ["MC", 43, 31], ["MC", 39, 50], ["MC", 43, 69], ["EI", 68, 22], ["DC", 74, 50], ["ED", 68, 78]
+  ],
+  442: [
+    ["POR", 8, 50], ["LI", 23, 20], ["DFC", 24, 40], ["DFC", 24, 60], ["LD", 23, 80],
+    ["MI", 47, 22], ["MC", 43, 42], ["MC", 43, 58], ["MD", 47, 78], ["DC", 72, 42], ["DC", 72, 58]
+  ],
+  352: [
+    ["POR", 8, 50], ["DFC", 24, 32], ["DFC", 22, 50], ["DFC", 24, 68],
+    ["MI", 43, 17], ["MC", 43, 38], ["MCO", 50, 50], ["MC", 43, 62], ["MD", 43, 83],
+    ["DC", 72, 42], ["DC", 72, 58]
+  ]
+};
+
+const mentalitySettings = {
+  ultraDefensive: { label: "Ultra defensiva", line: -10, risk: -0.14, attack: -0.16, pressure: 0.82 },
+  defensive: { label: "Defensiva", line: -5, risk: -0.08, attack: -0.08, pressure: 0.92 },
+  balanced: { label: "Equilibrada", line: 0, risk: 0, attack: 0, pressure: 1 },
+  attacking: { label: "Ofensiva", line: 6, risk: 0.08, attack: 0.1, pressure: 1.08 },
+  ultraAttacking: { label: "Ultra ofensiva", line: 11, risk: 0.15, attack: 0.18, pressure: 1.18 }
+};
+
 let state = null;
+let tacticalSim = null;
 
 const $ = (selector) => document.querySelector(selector);
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -495,6 +520,10 @@ function ensureStateDefaults() {
   state.yellowCards = Number(state.yellowCards) || 0;
   state.suspensionWeeks = Number(state.suspensionWeeks) || 0;
   state.matchMode = state.matchMode || "simulate";
+  state.tacticalMentality = state.tacticalMentality || "balanced";
+  state.tacticalFormation = state.tacticalFormation || "433";
+  state.pressureLevel = Number(state.pressureLevel) || 3;
+  state.simSpeed = Number(state.simSpeed) || 4;
   state.currentMatchObjectives = Array.isArray(state.currentMatchObjectives) ? state.currentMatchObjectives : createMatchObjectives();
   state.lastMatchDetails = state.lastMatchDetails || null;
   ensureStatsDefaults(state.seasonStats);
@@ -806,6 +835,10 @@ function newState(profile) {
     trainedThisWeek: false,
     playedThisWeek: false,
     matchMode: "simulate",
+    tacticalMentality: "balanced",
+    tacticalFormation: "433",
+    pressureLevel: 3,
+    simSpeed: 4,
     currentMatchObjectives: createMatchObjectives(profile.position),
     lastMatchDetails: null,
     nextOpponent: fixture.opponent,
@@ -965,8 +998,11 @@ function render() {
   $("#weekLabel").textContent = state.week;
   $("#shirtNumber").textContent = profile.number;
   $("#shirtPos").textContent = state.profile.position;
-  $("#pitchDot").textContent = profile.number;
-  $("#pitchDot").style.top = `${profile.y}%`;
+  const pitchDot = $("#pitchDot");
+  if (pitchDot) {
+    pitchDot.textContent = profile.number;
+    pitchDot.style.top = `${profile.y}%`;
+  }
   $("#overallLabel").textContent = ov;
   $("#roleLabel").textContent = roleLabel(ov);
   $("#contractLabel").textContent = state.loan
@@ -989,10 +1025,18 @@ function render() {
       : `${matchCompetition} - fecha ${state.week}`;
   $("#matchContext").textContent = statusText;
   $("#matchMode").value = state.matchMode;
+  $("#tacticalMentality").value = state.tacticalMentality;
+  $("#tacticalFormation").value = state.tacticalFormation;
+  $("#pressureLevel").value = state.pressureLevel;
+  renderSimulationHud();
   renderRivalStars();
   renderMatchObjectives();
   renderMatchStatsPanel();
-  $("#playMatchBtn").disabled = state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired;
+  const playDisabled = Boolean(state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired || tacticalSim?.running);
+  const restDisabled = Boolean(state.retired || tacticalSim?.running);
+  $("#playMatchBtn").disabled = playDisabled;
+  $("#restBtn").disabled = restDisabled;
+  if (!restDisabled) $("#restBtn").removeAttribute("disabled");
   $("#playMatchBtn").textContent = state.matchMode === "full"
     ? "Jugar partido completo"
     : state.matchMode === "key"
@@ -1175,7 +1219,7 @@ function renderMatchStatsPanel() {
     return;
   }
   const details = state.lastMatchDetails;
-  $("#matchStatsPanel").innerHTML = [
+  const baseStats = [
     ["Modo", matchModeLabel(details.mode)],
     ["Media", details.rating],
     ["Tiros", details.shots],
@@ -1183,7 +1227,420 @@ function renderMatchStatsPanel() {
     ["Entradas", details.tackles],
     ["Atajadas", details.saves],
     ["Tarjetas", `${details.yellowCard ? "A" : "0"}${details.redCard ? " / R" : ""}`]
+  ];
+  if (details.simStats) {
+    baseStats.push(["Posesion", `${details.simStats.possessionHome}%`]);
+    baseStats.push(["xG", `${details.simStats.xgHome.toFixed(2)}-${details.simStats.xgAway.toFixed(2)}`]);
+  }
+  $("#matchStatsPanel").innerHTML = baseStats.map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+}
+
+function playerInitials(name) {
+  return String(name || "J")
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
+function rosterForTeam(teamName, side) {
+  const formation = tacticalFormations[state.tacticalFormation] || tacticalFormations["433"];
+  const stars = topPlayersForClub(teamName).map((player) => ({
+    name: player.name,
+    pos: player.pos || "MC",
+    rating: Number(player.rating) || 70
+  }));
+  const pool = [...stars];
+  while (pool.length < 11) {
+    const slot = formation[pool.length];
+    pool.push({
+      name: `${teamName.split(" ")[0]} ${slot[0]}`,
+      pos: slot[0],
+      rating: 62 + (currentClubData(teamName).tier || 1) * 5 + random(-3, 5)
+    });
+  }
+
+  if (side === "home") {
+    const preferredIndex = formation.findIndex(([role]) => role === state.profile.position);
+    const userIndex = preferredIndex >= 0 ? preferredIndex : Math.min(9, formation.length - 1);
+    pool[userIndex] = {
+      name: state.profile.name,
+      pos: state.profile.position,
+      rating: overall(),
+      user: true
+    };
+  }
+
+  const mentality = mentalitySettings[state.tacticalMentality] || mentalitySettings.balanced;
+  const lineShift = side === "home" ? mentality.line : -3;
+  return formation.map(([role, x, y], index) => {
+    const player = pool[index];
+    const baseX = side === "home" ? x : 100 - x;
+    return {
+      id: `${side}-${index}`,
+      side,
+      role,
+      name: player.name,
+      rating: player.rating,
+      user: Boolean(player.user),
+      x: clamp(baseX + (side === "home" ? lineShift : -lineShift * 0.35), 5, 95),
+      y,
+      baseX: clamp(baseX + (side === "home" ? lineShift : -lineShift * 0.35), 5, 95),
+      baseY: y,
+      fatigue: 0
+    };
+  });
+}
+
+function renderSimulationHud() {
+  const sim = tacticalSim;
+  $("#simHomeName").textContent = state.club;
+  $("#simAwayName").textContent = state.nextOpponent;
+  const last = state.lastMatchDetails;
+  $("#simClock").textContent = `${String(sim?.minute || (last ? 90 : 0)).padStart(2, "0")}'`;
+  $("#simScore").textContent = `${sim?.homeGoals ?? last?.teamGoals ?? 0} - ${sim?.awayGoals ?? last?.rivalGoals ?? 0}`;
+  document.querySelectorAll("[data-speed]").forEach((button) => {
+    button.classList.toggle("active", Number(button.dataset.speed) === state.simSpeed);
+  });
+  if (!sim) {
+    const players = [...rosterForTeam(state.club, "home"), ...rosterForTeam(state.nextOpponent, "away")];
+    drawTacticalPlayers(players, { x: 50, y: 50 });
+  }
+}
+
+function drawTacticalPlayers(players, ball) {
+  const holder = $("#simPlayers");
+  holder.innerHTML = players.map((player) => `
+    <div class="sim-player ${player.side} ${player.user ? "user-player" : ""}" data-player-id="${player.id}"
+      title="${player.name}" style="left:${player.x}%;top:${player.y}%">${player.user ? state.profile.position : playerInitials(player.name)}</div>
+  `).join("");
+  moveBall(ball);
+}
+
+function updateTacticalPositions() {
+  if (!tacticalSim) return;
+  tacticalSim.players.forEach((player) => {
+    const node = document.querySelector(`[data-player-id="${player.id}"]`);
+    if (!node) return;
+    node.style.left = `${player.x}%`;
+    node.style.top = `${player.y}%`;
+    node.classList.toggle("active", tacticalSim.activePlayer?.id === player.id);
+  });
+  moveBall(tacticalSim.ball);
+  renderSimulationHud();
+}
+
+function moveBall(ball) {
+  const node = $("#simBall");
+  node.style.left = `${ball.x}%`;
+  node.style.top = `${ball.y}%`;
+}
+
+function addLiveComment(text, important = false) {
+  const feed = $("#liveCommentary");
+  const minute = tacticalSim ? `${String(tacticalSim.minute).padStart(2, "0")}'` : "--'";
+  const item = document.createElement("p");
+  item.className = important ? "important" : "";
+  item.textContent = `${minute} ${text}`;
+  feed.prepend(item);
+  while (feed.children.length > 12) feed.lastElementChild.remove();
+}
+
+function highlightEvent(text) {
+  const banner = $("#highlightBanner");
+  banner.textContent = text;
+  banner.classList.remove("hidden");
+  setTimeout(() => banner.classList.add("hidden"), 1400);
+}
+
+function teamAverage(players, side) {
+  const team = players.filter((player) => player.side === side);
+  return team.reduce((sum, player) => sum + player.rating, 0) / Math.max(1, team.length);
+}
+
+function startTacticalSimulation() {
+  if (tacticalSim?.running) return;
+  const players = [...rosterForTeam(state.club, "home"), ...rosterForTeam(state.nextOpponent, "away")];
+  tacticalSim = {
+    running: true,
+    minute: 0,
+    homeGoals: 0,
+    awayGoals: 0,
+    possessionSide: "home",
+    activePlayer: null,
+    players,
+    ball: { x: 50, y: 50 },
+    timer: null,
+    events: [],
+    stats: {
+      possessionHome: 50,
+      shotsHome: 0,
+      shotsAway: 0,
+      onTargetHome: 0,
+      onTargetAway: 0,
+      passesHome: 0,
+      passesAway: 0,
+      foulsHome: 0,
+      foulsAway: 0,
+      cornersHome: 0,
+      cornersAway: 0,
+      yellowHome: 0,
+      yellowAway: 0,
+      redHome: 0,
+      redAway: 0,
+      xgHome: 0,
+      xgAway: 0
+    },
+    player: {
+      rating: 6.2,
+      goals: 0,
+      assists: 0,
+      shots: 0,
+      keyPasses: 0,
+      tackles: 0,
+      saves: 0,
+      passAccuracy: 74,
+      yellowCard: false,
+      redCard: false
+    }
+  };
+  $("#liveCommentary").innerHTML = "";
+  $("#matchResult").innerHTML = "";
+  $("#keyMomentPanel").classList.add("hidden");
+  drawTacticalPlayers(players, tacticalSim.ball);
+  addLiveComment(`Arranca ${state.club} contra ${state.nextOpponent}.`, true);
+  $("#playMatchBtn").disabled = true;
+  $("#restBtn").disabled = true;
+  setTacticalTimer();
+}
+
+function setTacticalTimer() {
+  if (!tacticalSim?.running) return;
+  if (tacticalSim.timer) clearInterval(tacticalSim.timer);
+  tacticalSim.timer = setInterval(tacticalTick, Math.max(75, 700 / state.simSpeed));
+}
+
+function tacticalTick() {
+  if (!tacticalSim?.running) return;
+  tacticalSim.minute += 1;
+  moveTacticalShape();
+  const event = calculateTacticalEvent();
+  updateTacticalPositions();
+  renderTacticalStats();
+  if (event?.important) {
+    highlightEvent(event.text);
+    maybePauseForKeyMoment(event);
+  }
+  if (tacticalSim.minute >= 90) finishTacticalSimulation();
+}
+
+function moveTacticalShape() {
+  const sim = tacticalSim;
+  const mentality = mentalitySettings[state.tacticalMentality] || mentalitySettings.balanced;
+  const attackDirection = sim.possessionSide === "home" ? 1 : -1;
+  const pressure = Number(state.pressureLevel) || 3;
+  sim.players.forEach((player) => {
+    const ownsBall = player.side === sim.possessionSide;
+    const advance = ownsBall ? 9 * attackDirection : -5 * attackDirection;
+    const pressureShift = ownsBall ? pressure * 0.6 * attackDirection : pressure * 0.35 * attackDirection;
+    player.fatigue = clamp(player.fatigue + 0.03 + pressure * 0.004, 0, 100);
+    player.x = clamp(player.baseX + advance + pressureShift + random(-3, 3) + (player.side === "home" ? mentality.line * 0.18 : 0), 4, 96);
+    player.y = clamp(player.baseY + random(-5, 5), 8, 92);
+  });
+}
+
+function chooseActivePlayer(side) {
+  const candidates = tacticalSim.players.filter((player) => player.side === side);
+  const attacking = side === "home"
+    ? candidates.sort((a, b) => b.x - a.x)
+    : candidates.sort((a, b) => a.x - b.x);
+  return attacking[random(0, Math.min(5, attacking.length - 1))] || candidates[0];
+}
+
+function calculateTacticalEvent() {
+  const sim = tacticalSim;
+  const mentality = mentalitySettings[state.tacticalMentality] || mentalitySettings.balanced;
+  const homeQuality = teamAverage(sim.players, "home") + overall() * 0.08;
+  const awayQuality = teamAverage(sim.players, "away");
+  const pressure = Number(state.pressureLevel) || 3;
+  const possessionBias = clamp(50 + (homeQuality - awayQuality) * 1.2 + mentality.attack * 28 + (pressure - 3) * 2, 38, 63);
+  sim.stats.possessionHome = Math.round((sim.stats.possessionHome * (sim.minute - 1) + possessionBias) / Math.max(1, sim.minute));
+  if (Math.random() < 0.13 + pressure * 0.012 + mentality.risk * 0.2) {
+    sim.possessionSide = sim.possessionSide === "home" ? "away" : "home";
+    const winner = chooseActivePlayer(sim.possessionSide);
+    sim.activePlayer = winner;
+    sim.ball = { x: winner.x, y: winner.y };
+    addLiveComment(`${winner.name} recupera y ordena la salida.`);
+    return null;
+  }
+
+  const actor = chooseActivePlayer(sim.possessionSide);
+  sim.activePlayer = actor;
+  sim.ball = { x: actor.x, y: actor.y };
+  const sideKey = sim.possessionSide === "home" ? "Home" : "Away";
+  const playerInvolved = actor.user || (sim.possessionSide === "home" && Math.random() < 0.18);
+  const attackChance = clamp(0.12 + (sim.possessionSide === "home" ? homeQuality - awayQuality : awayQuality - homeQuality) / 180 + Math.abs(mentality.attack) * 0.25, 0.06, 0.32);
+
+  if (Math.random() < 0.06) {
+    sim.stats[`fouls${sideKey}`] += 1;
+    const card = Math.random() < 0.2 + pressure * 0.025;
+    if (card) {
+      sim.stats[`yellow${sideKey}`] += 1;
+      if (actor.user) sim.player.yellowCard = true;
+      addLiveComment(`Falta fuerte de ${actor.name}. Tarjeta amarilla.`, true);
+      return { important: true, text: "Tarjeta amarilla" };
+    }
+    addLiveComment(`Infraccion de ${actor.name}. Tiro libre para el rival.`);
+    return null;
+  }
+
+  if (Math.random() < attackChance) {
+    sim.stats[`shots${sideKey}`] += 1;
+    const xg = clamp(0.06 + actor.rating / 900 + (playerInvolved ? state.attrs.definicion / 950 : 0), 0.05, 0.42);
+    sim.stats[`xg${sideKey}`] = Number((sim.stats[`xg${sideKey}`] + xg).toFixed(2));
+    const onTarget = Math.random() < 0.44 + actor.rating / 260;
+    if (onTarget) sim.stats[`onTarget${sideKey}`] += 1;
+    if (playerInvolved) {
+      sim.player.shots += 1;
+      sim.player.rating += 0.18;
+    }
+    const goal = onTarget && Math.random() < xg + (sim.possessionSide === "home" ? mentality.attack * 0.08 : 0);
+    if (goal) {
+      if (sim.possessionSide === "home") sim.homeGoals += 1;
+      else sim.awayGoals += 1;
+      if (playerInvolved) {
+        sim.player.goals += 1;
+        sim.player.rating += 0.9;
+      } else if (sim.possessionSide === "home" && Math.random() < 0.35) {
+        sim.player.assists += 1;
+        sim.player.keyPasses += 1;
+        sim.player.rating += 0.45;
+      }
+      addLiveComment(`GOOOL de ${actor.name}. ${state.club} ${sim.homeGoals}-${sim.awayGoals} ${state.nextOpponent}.`, true);
+      return { important: true, text: "GOOOL" };
+    }
+    if (onTarget) {
+      addLiveComment(`${actor.name} remata y el arquero responde con una gran atajada.`, true);
+      return { important: true, text: "Atajada importante" };
+    }
+    addLiveComment(`${actor.name} encuentra espacio y remata desviado.`);
+    return null;
+  }
+
+  sim.stats[`passes${sideKey}`] += random(2, 7);
+  if (playerInvolved) {
+    sim.player.keyPasses += Math.random() < 0.18 ? 1 : 0;
+    sim.player.tackles += Math.random() < 0.12 ? 1 : 0;
+    sim.player.rating += 0.025;
+  }
+  const passTexts = [
+    `${actor.name} toca corto y el equipo avanza.`,
+    `${actor.name} cambia de frente para abrir la cancha.`,
+    `${actor.name} filtra una pelota entre lineas.`,
+    `${actor.name} pausa y espera el desmarque.`
+  ];
+  addLiveComment(passTexts[random(0, passTexts.length - 1)]);
+  return null;
+}
+
+function maybePauseForKeyMoment(event) {
+  if (!tacticalSim?.running || state.matchMode === "simulate") return;
+  if (Math.random() > (state.matchMode === "full" ? 0.34 : 0.24)) return;
+  clearInterval(tacticalSim.timer);
+  tacticalSim.timer = null;
+  const panel = $("#keyMomentPanel");
+  panel.innerHTML = `
+    <strong>Momento clave</strong>
+    <p>${event.text}. Podes influir en la decision.</p>
+    <div class="social-actions">
+      <button data-key-choice="safe">Pase seguro</button>
+      <button data-key-choice="risk">Jugada arriesgada</button>
+      <button data-key-choice="shoot">Finalizar</button>
+    </div>
+  `;
+  panel.classList.remove("hidden");
+  tacticalSim.autoKeyTimeout = setTimeout(() => resolveKeyMoment("safe"), 4500);
+}
+
+function resolveKeyMoment(choice) {
+  if (!tacticalSim?.running) return;
+  if (tacticalSim.autoKeyTimeout) clearTimeout(tacticalSim.autoKeyTimeout);
+  $("#keyMomentPanel").classList.add("hidden");
+  const bonus = choice === "risk" ? 0.16 : choice === "shoot" ? 0.11 : 0.06;
+  if (Math.random() < bonus + overall() / 420) {
+    tacticalSim.homeGoals += 1;
+    tacticalSim.player.goals += choice === "shoot" ? 1 : 0;
+    tacticalSim.player.assists += choice !== "shoot" ? 1 : 0;
+    tacticalSim.player.rating += 0.75;
+    addLiveComment(`Tu decision cambia la jugada: GOOOL de ${state.club}.`, true);
+    highlightEvent("Momento clave convertido");
+  } else {
+    tacticalSim.player.rating += choice === "safe" ? 0.08 : -0.05;
+    addLiveComment("La accion termina sin gol, pero el equipo mantiene intensidad.");
+  }
+  setTacticalTimer();
+}
+
+function renderTacticalStats() {
+  const sim = tacticalSim;
+  if (!sim) return;
+  $("#matchStatsPanel").innerHTML = [
+    ["Posesion", `${sim.stats.possessionHome}%`],
+    ["Tiros", `${sim.stats.shotsHome}-${sim.stats.shotsAway}`],
+    ["Al arco", `${sim.stats.onTargetHome}-${sim.stats.onTargetAway}`],
+    ["Pases", `${sim.stats.passesHome}-${sim.stats.passesAway}`],
+    ["Faltas", `${sim.stats.foulsHome}-${sim.stats.foulsAway}`],
+    ["Tarjetas", `${sim.stats.yellowHome + sim.stats.redHome}-${sim.stats.yellowAway + sim.stats.redAway}`],
+    ["Corners", `${sim.stats.cornersHome}-${sim.stats.cornersAway}`],
+    ["xG", `${sim.stats.xgHome.toFixed(2)}-${sim.stats.xgAway.toFixed(2)}`]
   ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+}
+
+function skipToNextEvent() {
+  if (!tacticalSim?.running) return;
+  state.simSpeed = 8;
+  addLiveComment("Simulacion rapida hasta el proximo evento importante.", true);
+  setTacticalTimer();
+  renderSimulationHud();
+}
+
+function finishTacticalSimulation() {
+  if (!tacticalSim) return;
+  if (tacticalSim.timer) clearInterval(tacticalSim.timer);
+  if (tacticalSim.autoKeyTimeout) clearTimeout(tacticalSim.autoKeyTimeout);
+  tacticalSim.running = false;
+  tacticalSim.minute = 90;
+  renderSimulationHud();
+  const result = tacticalResultFromSim(tacticalSim);
+  tacticalSim = null;
+  finalizeTacticalMatch(result);
+}
+
+function tacticalResultFromSim(sim) {
+  const player = sim.player;
+  const isDef = ["DFC", "POR"].includes(state.profile.position);
+  const cleanSheet = isDef && sim.awayGoals === 0 ? 1 : 0;
+  return {
+    mode: state.matchMode,
+    teamGoals: sim.homeGoals,
+    rivalGoals: sim.awayGoals,
+    won: sim.homeGoals > sim.awayGoals,
+    drew: sim.homeGoals === sim.awayGoals,
+    rating: clamp(Number((player.rating + player.goals * 0.35 + player.assists * 0.2 + (sim.homeGoals > sim.awayGoals ? 0.25 : 0)).toFixed(1)), 4, 10),
+    goals: player.goals,
+    assists: player.assists,
+    cleanSheet,
+    shots: player.shots,
+    keyPasses: player.keyPasses,
+    tackles: player.tackles,
+    saves: player.saves,
+    passAccuracy: player.passAccuracy,
+    yellowCard: player.yellowCard,
+    redCard: player.redCard,
+    simStats: sim.stats
+  };
 }
 
 function renderNews() {
@@ -1364,14 +1821,20 @@ function cardOutcome(mode, isDef) {
 }
 
 function playMatch() {
+  if (state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired || tacticalSim?.running) return;
+  state.currentMatchObjectives = createMatchObjectives();
+  startTacticalSimulation();
+}
+
+function finalizeTacticalMatch(simResult = null) {
   if (state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired) return;
   const ov = overall();
-  const mode = state.matchMode || "simulate";
+  const mode = simResult?.mode || state.matchMode || "simulate";
   const modeBoost = mode === "full" ? 0.35 : mode === "key" ? 0.18 : 0;
   const modeFatigue = mode === "full" ? 30 : mode === "key" ? 22 : 16;
   const modeXp = mode === "full" ? 1.35 : mode === "key" ? 1.18 : 1;
   const form = (state.morale - state.fatigue) / 22 + (state.coach - 50) / 35;
-  const rating = clamp(Number((5.4 + ov / 22 + form + modeBoost + Math.random() * 1.4).toFixed(1)), 4.0, 10.0);
+  const rating = simResult?.rating ?? clamp(Number((5.4 + ov / 22 + form + modeBoost + Math.random() * 1.4).toFixed(1)), 4.0, 10.0);
   const pos = state.profile.position;
   const isAttacker = ["DC", "EI", "MCO"].includes(pos);
   const isMid = ["MC", "MCO"].includes(pos);
@@ -1379,22 +1842,23 @@ function playMatch() {
   const finisherBoost = state.traits.includes("Matador") ? 0.05 : 0;
   const creatorBoost = state.traits.includes("Arquitecto") ? 0.05 : 0;
   const defenderBoost = state.traits.includes("Anticipador") ? 0.06 : 0;
-  const goals = isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420);
-  const assists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
-  const cleanSheet = isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0;
-  const teamGoals = clamp(goals + assists + random(0, 2), 0, 5);
-  const rivalGoals = cleanSheet ? 0 : random(0, 4);
-  const won = teamGoals > rivalGoals;
-  const drew = teamGoals === rivalGoals;
+  const goals = simResult?.goals ?? (isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420));
+  const assists = simResult?.assists ?? (isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520));
+  const cleanSheet = simResult?.cleanSheet ?? (isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0);
+  const teamGoals = simResult?.teamGoals ?? clamp(goals + assists + random(0, 2), 0, 5);
+  const rivalGoals = simResult?.rivalGoals ?? (cleanSheet ? 0 : random(0, 4));
+  const won = simResult?.won ?? teamGoals > rivalGoals;
+  const drew = simResult?.drew ?? teamGoals === rivalGoals;
   const rivalStar = topPlayersForClub(state.nextOpponent)[0];
   const duelText = rivalStar ? ` Duelo destacado contra ${rivalStar.name}.` : "";
-  const shots = isAttacker ? random(goals, goals + 4 + (mode === "full" ? 2 : 0)) : random(0, 2);
-  const keyPasses = isMid || isAttacker ? random(assists, assists + 3 + (mode !== "simulate" ? 1 : 0)) : random(0, 1);
-  const tackles = isDef || pos === "MC" ? random(2, 7 + (mode === "full" ? 2 : 0)) : random(0, 3);
-  const saves = pos === "POR" ? random(cleanSheet ? 2 : 0, cleanSheet ? 7 : 5) : 0;
-  const passAccuracy = clamp(Math.round(64 + rating * 3 + state.attrs.pase / 4 + random(-5, 6)), 52, 96);
-  const { yellowCard, redCard } = cardOutcome(mode, isDef || pos === "MC");
-  const details = { mode, rating, goals, assists, cleanSheet, shots, keyPasses, tackles, saves, passAccuracy, yellowCard, redCard };
+  const shots = simResult?.shots ?? (isAttacker ? random(goals, goals + 4 + (mode === "full" ? 2 : 0)) : random(0, 2));
+  const keyPasses = simResult?.keyPasses ?? (isMid || isAttacker ? random(assists, assists + 3 + (mode !== "simulate" ? 1 : 0)) : random(0, 1));
+  const tackles = simResult?.tackles ?? (isDef || pos === "MC" ? random(2, 7 + (mode === "full" ? 2 : 0)) : random(0, 3));
+  const saves = simResult?.saves ?? (pos === "POR" ? random(cleanSheet ? 2 : 0, cleanSheet ? 7 : 5) : 0);
+  const passAccuracy = simResult?.passAccuracy ?? clamp(Math.round(64 + rating * 3 + state.attrs.pase / 4 + random(-5, 6)), 52, 96);
+  const cardResult = simResult ? { yellowCard: simResult.yellowCard, redCard: simResult.redCard } : cardOutcome(mode, isDef || pos === "MC");
+  const { yellowCard, redCard } = cardResult;
+  const details = { mode, teamGoals, rivalGoals, rating, goals, assists, cleanSheet, shots, keyPasses, tackles, saves, passAccuracy, yellowCard, redCard, simStats: simResult?.simStats || null };
   updateStats(details);
   state.lastMatchDetails = details;
   completeMatchObjectives(details);
@@ -1421,7 +1885,7 @@ function playMatch() {
   updateMissionProgress("followers", followerGain);
   maybeInjury("match");
   const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
-  $("#matchResult").innerHTML = `<h3>${state.club} ${teamGoals} - ${rivalGoals} ${state.nextOpponent}</h3>
+  const resultMarkup = `<h3>${state.club} ${teamGoals} - ${rivalGoals} ${state.nextOpponent}</h3>
     <p>${matchCompetition} - ${matchModeLabel(mode)}</p>
     <p>Media ${rating}, ${goals} goles, ${assists} asistencias, ${shots} tiros, ${keyPasses} pases clave, ${tackles} entradas${saves ? `, ${saves} atajadas` : ""}${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>
     <p>${yellowCard ? "Tarjeta amarilla." : ""}${redCard ? " Tarjeta roja y suspension." : ""}</p>`;
@@ -1429,6 +1893,11 @@ function playMatch() {
   if (rating >= 8.6) maybeAward("Jugador de la semana");
   maybeNationalCall(rating);
   render();
+  if (!state.retired) {
+    $("#restBtn").disabled = false;
+    $("#restBtn").removeAttribute("disabled");
+  }
+  $("#matchResult").innerHTML = resultMarkup;
 }
 
 function chanceCount(probability) {
@@ -1803,6 +2272,13 @@ function setupEvents() {
     if (target.dataset.sponsor) signSponsor(target.dataset.sponsor);
     if (target.dataset.lifestyle) buyLifestyle(target.dataset.lifestyle);
     if (target.dataset.skill) unlockSkill(target.dataset.skill);
+    if (target.dataset.speed) {
+      state.simSpeed = Number(target.dataset.speed) || 1;
+      setTacticalTimer();
+      renderSimulationHud();
+      save();
+    }
+    if (target.dataset.keyChoice) resolveKeyMoment(target.dataset.keyChoice);
   });
 
   $("#playMatchBtn").addEventListener("click", playMatch);
@@ -1810,6 +2286,27 @@ function setupEvents() {
     state.matchMode = event.target.value;
     render();
   });
+  $("#tacticalMentality").addEventListener("change", (event) => {
+    state.tacticalMentality = event.target.value;
+    addLiveComment(`Cambio tactico: ${mentalitySettings[state.tacticalMentality].label}.`);
+    save();
+  });
+  $("#tacticalFormation").addEventListener("change", (event) => {
+    state.tacticalFormation = event.target.value;
+    if (tacticalSim?.running) {
+      tacticalSim.players = [...rosterForTeam(state.club, "home"), ...rosterForTeam(state.nextOpponent, "away")];
+      drawTacticalPlayers(tacticalSim.players, tacticalSim.ball);
+      addLiveComment(`Cambio de formacion: ${state.tacticalFormation}.`);
+    } else {
+      renderSimulationHud();
+    }
+    save();
+  });
+  $("#pressureLevel").addEventListener("input", (event) => {
+    state.pressureLevel = Number(event.target.value) || 3;
+    save();
+  });
+  $("#skipEventBtn").addEventListener("click", skipToNextEvent);
   $("#restBtn").addEventListener("click", rest);
   $("#advanceWeekBtn").addEventListener("click", advanceWeek);
   $("#dailyRewardBtn").addEventListener("click", claimDailyReward);
