@@ -6,6 +6,8 @@
     "node": ">=20"
   },
   "scripts": {
+    "import:career": "node scripts/import-career-transfermarkt.js",
+    "import:career:second": "node scripts/import-career-transfermarkt.js --second-divisions",
     "start": "node -r ./viewport-fit-server.js server.js"
   },
   "dependencies": {

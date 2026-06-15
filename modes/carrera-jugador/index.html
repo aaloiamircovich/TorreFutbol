@@ -41,12 +41,16 @@
             <label>
               Posicion
               <select id="playerPosition">
-                <option value="DC">Delantero</option>
-                <option value="EI">Extremo</option>
-                <option value="MCO">Mediapunta</option>
-                <option value="MC">Mediocentro</option>
-                <option value="DFC">Defensor central</option>
-                <option value="POR">Arquero</option>
+                <option value="POR">POR - Arquero</option>
+                <option value="LD">LD - Lateral derecho</option>
+                <option value="DFC">DFC - Defensor central</option>
+                <option value="LI">LI - Lateral izquierdo</option>
+                <option value="MCD">MCD - Mediocentro defensivo</option>
+                <option value="MC">MC - Mediocentro</option>
+                <option value="MCO">MCO - Mediapunta</option>
+                <option value="ED">ED - Extremo derecho</option>
+                <option value="EI">EI - Extremo izquierdo</option>
+                <option value="DC">DC - Delantero centro</option>
               </select>
             </label>
           </div>
@@ -62,12 +66,16 @@
             </select>
           </label>
 
-          <label>
-            Primer club
-            <select id="playerClub">
+          <section class="club-pick">
+            <div class="club-pick-head">
+              <span>Primer club</span>
+              <small>Elegis entre 2 equipos sorteados de segunda division.</small>
+            </div>
+            <div id="clubChoices" class="club-choice-grid"></div>
+            <select id="playerClub" class="hidden" aria-label="Primer club">
               <option value="Boca Juniors">Boca Juniors</option>
             </select>
-          </label>
+          </section>
 
           <button class="primary" type="submit">Iniciar carrera</button>
         </form>

@@ -134,6 +134,107 @@ const extraCareerClubs = [
   { name: "Tigres", tier: 3, league: "Liga MX", salary: 38, rep: 72 }
 ];
 
+const secondDivisionLeagueNames = new Set([
+  "LaLiga Hypermotion",
+  "Championship",
+  "Serie B",
+  "2. Bundesliga",
+  "Ligue 2",
+  "Liga Portugal 2",
+  "Saudi First Division",
+  "Primera Nacional",
+  "Brasileirao Serie B",
+  "USL Championship",
+  "Eerste Divisie",
+  "Liga de Expansion MX",
+  "Challenger Pro League",
+  "Scottish Championship",
+  "TFF 1. Lig",
+  "Austrian 2. Liga",
+  "Swiss Challenge League",
+  "Danish 1st Division",
+  "Greek Super League 2"
+]);
+
+const secondDivisionSeedClubs = [
+  { name: "Deportivo La Coruna", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 18, rep: 61 },
+  { name: "Real Zaragoza", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 18, rep: 62 },
+  { name: "Sporting Gijon", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 17, rep: 60 },
+  { name: "Granada", league: "LaLiga Hypermotion", country: "Espana", tier: 2, salary: 20, rep: 64 },
+  { name: "Leicester City", league: "Championship", country: "Inglaterra", tier: 3, salary: 34, rep: 74 },
+  { name: "Southampton", league: "Championship", country: "Inglaterra", tier: 3, salary: 30, rep: 70 },
+  { name: "Middlesbrough", league: "Championship", country: "Inglaterra", tier: 2, salary: 24, rep: 66 },
+  { name: "West Brom", league: "Championship", country: "Inglaterra", tier: 2, salary: 25, rep: 67 },
+  { name: "Palermo", league: "Serie B", country: "Italia", tier: 2, salary: 17, rep: 61 },
+  { name: "Sampdoria", league: "Serie B", country: "Italia", tier: 2, salary: 19, rep: 64 },
+  { name: "Bari", league: "Serie B", country: "Italia", tier: 2, salary: 16, rep: 59 },
+  { name: "Spezia", league: "Serie B", country: "Italia", tier: 2, salary: 16, rep: 58 },
+  { name: "Schalke 04", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 22, rep: 68 },
+  { name: "Hertha BSC", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 21, rep: 66 },
+  { name: "Hannover 96", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 19, rep: 63 },
+  { name: "Fortuna Dusseldorf", league: "2. Bundesliga", country: "Alemania", tier: 2, salary: 20, rep: 64 },
+  { name: "Bastia", league: "Ligue 2", country: "Francia", tier: 2, salary: 14, rep: 57 },
+  { name: "Guingamp", league: "Ligue 2", country: "Francia", tier: 2, salary: 14, rep: 56 },
+  { name: "Grenoble", league: "Ligue 2", country: "Francia", tier: 1, salary: 12, rep: 53 },
+  { name: "Caen", league: "Ligue 2", country: "Francia", tier: 2, salary: 15, rep: 58 },
+  { name: "Maritimo", league: "Liga Portugal 2", country: "Portugal", tier: 2, salary: 13, rep: 56 },
+  { name: "Pacos Ferreira", league: "Liga Portugal 2", country: "Portugal", tier: 1, salary: 12, rep: 53 },
+  { name: "Leixoes", league: "Liga Portugal 2", country: "Portugal", tier: 1, salary: 11, rep: 52 },
+  { name: "Academico Viseu", league: "Liga Portugal 2", country: "Portugal", tier: 1, salary: 11, rep: 52 },
+  { name: "Al Faisaly", league: "Saudi First Division", country: "Arabia Saudita", tier: 2, salary: 18, rep: 58 },
+  { name: "Al Adalah", league: "Saudi First Division", country: "Arabia Saudita", tier: 2, salary: 17, rep: 57 },
+  { name: "Al Jabalain", league: "Saudi First Division", country: "Arabia Saudita", tier: 1, salary: 14, rep: 53 },
+  { name: "Al Ula", league: "Saudi First Division", country: "Arabia Saudita", tier: 2, salary: 18, rep: 58 },
+  { name: "Chacarita Juniors", league: "Primera Nacional", country: "Argentina", tier: 2, salary: 12, rep: 57 },
+  { name: "Ferro", league: "Primera Nacional", country: "Argentina", tier: 2, salary: 12, rep: 56 },
+  { name: "Quilmes", league: "Primera Nacional", country: "Argentina", tier: 2, salary: 13, rep: 58 },
+  { name: "Nueva Chicago", league: "Primera Nacional", country: "Argentina", tier: 1, salary: 10, rep: 53 },
+  { name: "Coritiba", league: "Brasileirao Serie B", country: "Brasil", tier: 2, salary: 17, rep: 61 },
+  { name: "Goias", league: "Brasileirao Serie B", country: "Brasil", tier: 2, salary: 16, rep: 60 },
+  { name: "Atletico Goianiense", league: "Brasileirao Serie B", country: "Brasil", tier: 2, salary: 16, rep: 59 },
+  { name: "Avai", league: "Brasileirao Serie B", country: "Brasil", tier: 1, salary: 13, rep: 55 },
+  { name: "Louisville City", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 53 },
+  { name: "Phoenix Rising", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 53 },
+  { name: "Tampa Bay Rowdies", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 54 },
+  { name: "Sacramento Republic", league: "USL Championship", country: "Estados Unidos", tier: 1, salary: 11, rep: 54 },
+  { name: "ADO Den Haag", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 12, rep: 55 },
+  { name: "Roda JC", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 11, rep: 54 },
+  { name: "De Graafschap", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 11, rep: 54 },
+  { name: "Cambuur", league: "Eerste Divisie", country: "Paises Bajos", tier: 1, salary: 12, rep: 55 },
+  { name: "Atlante", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 13, rep: 56 },
+  { name: "Leones Negros", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 12, rep: 54 },
+  { name: "Cancun FC", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 12, rep: 54 },
+  { name: "Tapatio", league: "Liga de Expansion MX", country: "Mexico", tier: 1, salary: 11, rep: 53 },
+  { name: "Lommel", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 11, rep: 53 },
+  { name: "Beveren", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 11, rep: 53 },
+  { name: "Lierse", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 10, rep: 52 },
+  { name: "RWDM", league: "Challenger Pro League", country: "Belgica", tier: 1, salary: 12, rep: 55 },
+  { name: "Partick Thistle", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 52 },
+  { name: "Dunfermline", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 51 },
+  { name: "Raith Rovers", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 52 },
+  { name: "Ayr United", league: "Scottish Championship", country: "Escocia", tier: 1, salary: 10, rep: 52 },
+  { name: "Sakaryaspor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 12, rep: 55 },
+  { name: "Kocaelispor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 12, rep: 55 },
+  { name: "Bandirmaspor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 11, rep: 53 },
+  { name: "Erzurumspor", league: "TFF 1. Lig", country: "Turquia", tier: 1, salary: 11, rep: 53 },
+  { name: "Admira Wacker", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 10, rep: 52 },
+  { name: "First Vienna", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 10, rep: 52 },
+  { name: "Kapfenberger SV", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 9, rep: 50 },
+  { name: "St Polten", league: "Austrian 2. Liga", country: "Austria", tier: 1, salary: 10, rep: 52 },
+  { name: "Aarau", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 11, rep: 53 },
+  { name: "Xamax", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 10, rep: 52 },
+  { name: "Wil", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 10, rep: 52 },
+  { name: "Bellinzona", league: "Swiss Challenge League", country: "Suiza", tier: 1, salary: 10, rep: 52 },
+  { name: "Horsens", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 10, rep: 52 },
+  { name: "Hillerod", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 9, rep: 50 },
+  { name: "Kolding IF", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 9, rep: 50 },
+  { name: "Hobro", league: "Danish 1st Division", country: "Dinamarca", tier: 1, salary: 9, rep: 50 },
+  { name: "AEL Larissa", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 10, rep: 52 },
+  { name: "Iraklis", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 10, rep: 52 },
+  { name: "Kalamata", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 9, rep: 51 },
+  { name: "Panachaiki", league: "Greek Super League 2", country: "Grecia", tier: 1, salary: 9, rep: 50 }
+].map((club) => ({ ...club, division: 2, competitions: [], stars: [] }));
+
 function normalizeClubName(name) {
   if (!name) return "";
   const trimmed = String(name).trim();
@@ -187,6 +288,7 @@ function databaseTeams() {
     leagueId: league.id,
     country: league.country,
     level: league.level || 1,
+    division: league.division || (secondDivisionLeagueNames.has(league.name) ? 2 : 1),
     competitions: competitionsForClub(team.name)
   })));
 }
@@ -301,6 +403,7 @@ function buildCareerClubs() {
       tier: finalTier,
       league: databaseTeam?.league || leagueForClub(name),
       country: databaseTeam?.country || "",
+      division: databaseTeam?.division || 1,
       competitions: databaseTeam?.competitions || [],
       transfermarkt: databaseTeam?.transfermarkt || "",
       salary: databaseTeam?.salary || Math.round(10 + finalTier * 18 + maxRating * finalTier * 0.35),
@@ -311,21 +414,31 @@ function buildCareerClubs() {
 
   const extras = extraCareerClubs.filter((club) => !clubsFromPlayers.some((item) => item.name === club.name));
   const realClubList = [...clubsFromPlayers, ...extras].filter((club) => clubLogoFor(club.name) || club.stars?.length);
-  const source = realClubList.length >= 8 ? realClubList : fallbackClubs;
-  return source.sort((a, b) => a.tier - b.tier || a.name.localeCompare(b.name));
+  const seededSecondClubs = secondDivisionSeedClubs.filter((club) => !realClubList.some((item) => item.name === club.name));
+  const source = realClubList.length >= 8 ? [...realClubList, ...seededSecondClubs] : [...fallbackClubs, ...seededSecondClubs];
+  return source.sort((a, b) => (b.division || 1) - (a.division || 1) || a.tier - b.tier || a.name.localeCompare(b.name));
 }
 
 let clubs = buildCareerClubs();
 let opponents = clubs.length ? clubs.map((club) => club.name) : fallbackOpponents;
+let startingClubChoices = [];
 
 const positionProfiles = {
   DC: { number: 9, focus: ["definicion", "fuerza", "velocidad"], goals: 18, assists: 6, cleanSheets: 0, y: 22 },
   EI: { number: 11, focus: ["velocidad", "regate", "pase"], goals: 12, assists: 12, cleanSheets: 0, y: 28 },
+  ED: { number: 7, focus: ["velocidad", "regate", "definicion"], goals: 12, assists: 11, cleanSheets: 0, y: 28 },
   MCO: { number: 10, focus: ["vision", "pase", "regate"], goals: 10, assists: 16, cleanSheets: 0, y: 38 },
   MC: { number: 8, focus: ["pase", "resistencia", "vision"], goals: 6, assists: 12, cleanSheets: 0, y: 48 },
+  MCD: { number: 5, focus: ["defensa", "resistencia", "pase"], goals: 3, assists: 8, cleanSheets: 8, y: 56 },
+  LD: { number: 2, focus: ["velocidad", "defensa", "resistencia"], goals: 2, assists: 9, cleanSheets: 12, y: 64 },
+  LI: { number: 3, focus: ["velocidad", "defensa", "pase"], goals: 2, assists: 9, cleanSheets: 12, y: 64 },
   DFC: { number: 4, focus: ["defensa", "fuerza", "resistencia"], goals: 3, assists: 3, cleanSheets: 14, y: 68 },
   POR: { number: 1, focus: ["defensa", "vision", "fuerza"], goals: 0, assists: 0, cleanSheets: 16, y: 82 }
 };
+
+const attackingPositions = new Set(["DC", "EI", "ED", "MCO"]);
+const midfieldPositions = new Set(["MCD", "MC", "MCO", "EI", "ED", "LD", "LI"]);
+const defensivePositions = new Set(["POR", "DFC", "LD", "LI", "MCD"]);
 
 const styleBonuses = {
   finisher: { definicion: 7, fuerza: 2, trait: "Francotirador" },
@@ -347,7 +460,8 @@ const trainingSessions = [
 
 const socialTemplates = [
   {
-    author: "Periodista",
+    author: "Gaston Edul",
+    tag: "Seleccion",
     text: "Tu ultimo partido genero debate. Que mensaje publicas?",
     options: [
       { text: "El equipo esta por encima de todo.", popularity: 2, reputation: 5, morale: 2 },
@@ -357,6 +471,7 @@ const socialTemplates = [
   },
   {
     author: "Hinchas",
+    tag: "Tendencia",
     text: "La tribuna pide mas compromiso despues de una semana dura.",
     options: [
       { text: "Organizar una firma de camisetas.", popularity: 8, reputation: 1, morale: 2, money: -6 },
@@ -366,13 +481,51 @@ const socialTemplates = [
   },
   {
     author: "Club",
+    tag: "Prensa",
     text: "El area de prensa ofrece una entrevista larga.",
     options: [
       { text: "Dar una entrevista humilde.", popularity: 4, reputation: 4, coach: 2 },
       { text: "Hablar como lider del proyecto.", popularity: 2, reputation: 7, coach: 4 },
       { text: "Rechazar para descansar.", popularity: -2, reputation: -1, fatigue: -8 }
     ]
+  },
+  {
+    author: "Fabrizio Romano",
+    tag: "Mercado",
+    text: "Hay clubes siguiendo tu evolucion y tu agente pide calma. Como respondes?",
+    options: [
+      { text: "Estoy enfocado en mi club actual.", reputation: 5, coach: 4, popularity: 1 },
+      { text: "Siempre escucho proyectos ambiciosos.", popularity: 6, reputation: -1, coach: -2 },
+      { text: "No hablo de rumores.", reputation: 3, morale: 1 }
+    ]
+  },
+  {
+    author: "Cesar Luis Merlo",
+    tag: "Ultima hora",
+    text: "Tu nombre empezo a sonar en la agenda de varios clubes. Que postura toma tu entorno?",
+    options: [
+      { text: "Responder con bajo perfil.", reputation: 4, morale: 2 },
+      { text: "Dejar que mi agente maneje todo.", popularity: 3, reputation: 2 },
+      { text: "Meter presion por una mejora contractual.", popularity: 5, reputation: -2, coach: -3 }
+    ]
+  },
+  {
+    author: "Gaston Edul",
+    tag: "Vestuario",
+    text: "Se habla de tu rol en el grupo y de como manejas la exposicion publica.",
+    options: [
+      { text: "Resaltar la union del plantel.", reputation: 5, coach: 3, morale: 2 },
+      { text: "Agradecer a los hinchas.", popularity: 5, morale: 2 },
+      { text: "Mantener silencio y entrenar.", reputation: 2, fatigue: -4 }
+    ]
   }
+];
+
+const transferJournalists = [
+  { name: "Fabrizio Romano", tag: "Mercado internacional" },
+  { name: "Gaston Edul", tag: "Seleccion y mercado argentino" },
+  { name: "Cesar Luis Merlo", tag: "Mercado sudamericano" },
+  { name: "German Garcia Grova", tag: "Informacion de clubes" }
 ];
 
 const lifestyleItems = [
@@ -381,15 +534,123 @@ const lifestyleItems = [
   { id: "styleBrand", title: "Marca personal", cost: 350, effect: "Aumenta seguidores al jugar bien.", minPop: 65 }
 ];
 
+const sponsorDeals = [
+  { id: "nike", name: "Nike", tier: "Elite", pay: 360, minPop: 82, minRep: 72, goalBonus: 16, assistBonus: 8, ratingBonus: 32, effect: "Contrato global de botines y campana. Bonos altos por goles y partidos de figura." },
+  { id: "adidas", name: "adidas", tier: "Elite", pay: 340, minPop: 78, minRep: 76, goalBonus: 12, assistBonus: 12, ratingBonus: 34, effect: "Marca tecnica para jugadores decisivos. Bonos por asistencias y media alta." },
+  { id: "puma", name: "Puma", tier: "Pro", pay: 220, minPop: 66, minRep: 60, goalBonus: 10, assistBonus: 7, ratingBonus: 20, effect: "Acuerdo de imagen para jugador en crecimiento. Buen equilibrio de bonos." },
+  { id: "underarmour", name: "Under Armour", tier: "Fisico", pay: 180, minPop: 58, minRep: 56, cleanSheetBonus: 14, ratingBonus: 18, effect: "Sponsor de rendimiento fisico. Premia defensa, resistencia y regularidad." },
+  { id: "redbull", name: "Red Bull", tier: "Lifestyle", pay: 260, minPop: 72, minRep: 52, followerBonus: 420, ratingBonus: 16, effect: "Campanas virales y contenido. Sube seguidores si rendis bien." },
+  { id: "pepsi", name: "Pepsi", tier: "Imagen", pay: 240, minPop: 70, minRep: 50, followerBonus: 360, goalBonus: 8, effect: "Publicidad masiva. Premia popularidad, goles y crecimiento en redes." },
+  { id: "easports", name: "EA Sports FC", tier: "Gaming", pay: 300, minPop: 76, minRep: 64, ratingBonus: 28, followerBonus: 300, effect: "Embajador de videojuego. Bonos por media alta y exposicion global." },
+  { id: "boots", name: "Botines Veloz", tier: "Local", pay: 60, minPop: 45, minRep: 0, goalBonus: 8, assistBonus: 4, effect: "Contrato local heredado. Bono por goles y asistencias." },
+  { id: "drink", name: "Energia 90", tier: "Local", pay: 120, minPop: 60, minRep: 0, flatBonus: 10, effect: "Contrato local heredado. Ingreso extra por partido." },
+  { id: "global", name: "Global Sports", tier: "Local", pay: 260, minPop: 78, minRep: 0, flatBonus: 25, effect: "Contrato local heredado. Marca internacional para estrellas." }
+];
+
+const skillCategories = [
+  { id: "fisico", label: "Fisico", desc: "Cuerpo, resistencia y potencia para sostener la temporada." },
+  { id: "defensa", label: "Defensa", desc: "Marca, anticipacion y duelos defensivos." },
+  { id: "regates", label: "Regates", desc: "Control, conduccion y desequilibrio en espacios cortos." },
+  { id: "pases", label: "Pases", desc: "Precision, vision y ultimo pase." },
+  { id: "tiros", label: "Tiros", desc: "Definicion, potencia y sangre fria en el area." },
+  { id: "ritmo", label: "Ritmo", desc: "Aceleracion, velocidad punta y cambios de marcha." },
+  { id: "porteria", label: "Porteria", desc: "Reflejos, mando del area y salida con pelota.", positions: ["POR"] }
+];
+
+const legacySkillNodes = [
+  { id: "core_burst", branch: "core", tier: 1, title: "Primeros metros", desc: "Arranque corto para ganar duelos cercanos.", cost: 1, attrs: { velocidad: 2, resistencia: 1 }, trait: "Velocista" },
+  { id: "core_engine", branch: "core", tier: 2, title: "Motor semanal", desc: "Aguantas mejor entrenamientos y partidos seguidos.", cost: 2, attrs: { resistencia: 4 }, trait: "Inagotable", req: "core_burst" },
+  { id: "core_leader", branch: "core", tier: 2, title: "Voz de vestuario", desc: "Mejora la confianza del entrenador y tu reputacion.", cost: 2, coach: 5, reputation: 4, trait: "Capitan", req: "core_burst" },
+  { id: "core_versatile", branch: "core", tier: 3, title: "Rol alternativo", desc: "Desbloquea una posicion secundaria util para rotaciones.", cost: 2, secondary: true, trait: "Versatil", req: ["core_engine", "core_leader"] },
+  { id: "core_worldclass", branch: "core", tier: 4, title: "Techo mundial", desc: "Sube tu potencial maximo de carrera.", cost: 3, potential: 3, trait: "Proyecto mundial", req: "core_versatile" },
+
+  { id: "st_finishing", branch: "striker", tier: 1, positions: ["DC"], title: "Remate limpio", desc: "Define con menos preparacion dentro del area.", cost: 1, attrs: { definicion: 3, fuerza: 1 } },
+  { id: "st_positioning", branch: "striker", tier: 2, positions: ["DC"], title: "Ataque al espacio", desc: "Mejor lectura para aparecer entre centrales.", cost: 2, attrs: { velocidad: 2, vision: 1 }, req: "st_finishing" },
+  { id: "st_killer", branch: "striker", tier: 3, positions: ["DC"], title: "Instinto matador", desc: "Rasgo de goleador y pico fuerte de definicion.", cost: 2, attrs: { definicion: 4 }, trait: "Matador", req: "st_positioning" },
+  { id: "st_complete", branch: "striker", tier: 4, positions: ["DC"], title: "Delantero total", desc: "Combina descarga, cuerpo y amenaza de gol.", cost: 3, attrs: { pase: 2, fuerza: 2, definicion: 2 }, trait: "9 Total", req: "st_killer" },
+
+  { id: "wg_accel", branch: "winger", tier: 1, positions: ["EI"], title: "Cambio de ritmo", desc: "Primer control orientado y salida explosiva.", cost: 1, attrs: { velocidad: 3, regate: 1 } },
+  { id: "wg_dribble", branch: "winger", tier: 2, positions: ["EI"], title: "Uno contra uno", desc: "Regate mas fino para romper laterales.", cost: 2, attrs: { regate: 4 }, req: "wg_accel" },
+  { id: "wg_finalball", branch: "winger", tier: 3, positions: ["EI"], title: "Centro tenso", desc: "Ultimo pase desde banda y diagonal hacia dentro.", cost: 2, attrs: { pase: 2, vision: 2, definicion: 1 }, trait: "Extremo Fino", req: "wg_dribble" },
+  { id: "wg_star", branch: "winger", tier: 4, positions: ["EI"], title: "Desequilibrio elite", desc: "Amenaza constante en carrera y conduccion.", cost: 3, attrs: { velocidad: 2, regate: 3 }, trait: "Imparable", req: "wg_finalball" },
+
+  { id: "pm_touch", branch: "playmaker", tier: 1, positions: ["MCO"], title: "Primer toque", desc: "Control y pase corto en zonas cargadas.", cost: 1, attrs: { pase: 2, regate: 2 } },
+  { id: "pm_scan", branch: "playmaker", tier: 2, positions: ["MCO"], title: "Vision 360", desc: "Detecta desmarques antes que la defensa.", cost: 2, attrs: { vision: 4, pase: 1 }, req: "pm_touch" },
+  { id: "pm_thread", branch: "playmaker", tier: 3, positions: ["MCO"], title: "Pase filtrado", desc: "Rasgo creativo para asistencias de alto valor.", cost: 2, attrs: { pase: 3, vision: 2 }, trait: "Arquitecto", req: "pm_scan" },
+  { id: "pm_genius", branch: "playmaker", tier: 4, positions: ["MCO"], title: "Cerebro ofensivo", desc: "Mejora total en conduccion, pase y lectura.", cost: 3, attrs: { vision: 3, pase: 2, regate: 2 }, trait: "Enganche Elite", req: "pm_thread" },
+
+  { id: "mc_tempo", branch: "midfielder", tier: 1, positions: ["MC"], title: "Tempo seguro", desc: "Circulacion simple y resistencia de base.", cost: 1, attrs: { pase: 2, resistencia: 2 } },
+  { id: "mc_box", branch: "midfielder", tier: 2, positions: ["MC"], title: "Area a area", desc: "Llegada, vuelta y presion sostenida.", cost: 2, attrs: { resistencia: 3, velocidad: 1, defensa: 1 }, req: "mc_tempo" },
+  { id: "mc_anchor", branch: "midfielder", tier: 3, positions: ["MC"], title: "Ancla tactica", desc: "Corta transiciones y ordena el bloque.", cost: 2, attrs: { defensa: 3, vision: 2 }, trait: "Equilibrador", req: "mc_box" },
+  { id: "mc_metronome", branch: "midfielder", tier: 4, positions: ["MC"], title: "Mediocentro total", desc: "Dominio de pase, resistencia y lectura.", cost: 3, attrs: { pase: 3, vision: 2, resistencia: 2 }, trait: "Metronomo", req: "mc_anchor" },
+
+  { id: "df_marking", branch: "defender", tier: 1, positions: ["DFC"], title: "Marca agresiva", desc: "Mejor duelo fisico y posicion corporal.", cost: 1, attrs: { defensa: 3, fuerza: 1 } },
+  { id: "df_anticipate", branch: "defender", tier: 2, positions: ["DFC"], title: "Lectura de corte", desc: "Anticipa pases interiores y coberturas.", cost: 2, attrs: { defensa: 3, vision: 2 }, trait: "Anticipador", req: "df_marking" },
+  { id: "df_aerial", branch: "defender", tier: 3, positions: ["DFC"], title: "Jefe aereo", desc: "Domina centros, despejes y duelos largos.", cost: 2, attrs: { fuerza: 4, defensa: 1 }, trait: "Muralla Aerea", req: "df_anticipate" },
+  { id: "df_leader", branch: "defender", tier: 4, positions: ["DFC"], title: "Lider de linea", desc: "Central completo con salida limpia.", cost: 3, attrs: { defensa: 3, pase: 2, fuerza: 2 }, trait: "Comandante", req: "df_aerial" },
+
+  { id: "gk_reflex", branch: "goalkeeper", tier: 1, positions: ["POR"], title: "Reflejos bajos", desc: "Respuesta rapida en remates cercanos.", cost: 1, attrs: { defensa: 3, fuerza: 1 } },
+  { id: "gk_area", branch: "goalkeeper", tier: 2, positions: ["POR"], title: "Mando del area", desc: "Mejor salida en centros y corners.", cost: 2, attrs: { defensa: 3, vision: 2 }, trait: "Dueño del Area", req: "gk_reflex" },
+  { id: "gk_sweeper", branch: "goalkeeper", tier: 3, positions: ["POR"], title: "Arquero libero", desc: "Lectura para cortar pelotas largas y salir jugando.", cost: 2, attrs: { velocidad: 2, pase: 2, vision: 1 }, trait: "Arquero Libero", req: "gk_area" },
+  { id: "gk_wall", branch: "goalkeeper", tier: 4, positions: ["POR"], title: "Ultima muralla", desc: "Pico alto de reflejos, mando y regularidad.", cost: 3, attrs: { defensa: 4, fuerza: 2 }, trait: "Portero Elite", req: "gk_sweeper" }
+];
+
 const skillNodes = [
-  { id: "burst", title: "Arranque explosivo", desc: "+3 velocidad y rasgo Velocista", cost: 1, attrs: { velocidad: 3 }, trait: "Velocista" },
-  { id: "killer", title: "Definidor elite", desc: "+3 definicion y mejor acierto goleador", cost: 1, attrs: { definicion: 3 }, trait: "Matador" },
-  { id: "visionary", title: "Vision 360", desc: "+2 pase, +3 vision", cost: 1, attrs: { pase: 2, vision: 3 }, trait: "Arquitecto" },
-  { id: "engine2", title: "Motor profesional", desc: "+4 resistencia y menos fatiga semanal", cost: 2, attrs: { resistencia: 4 }, trait: "Inagotable", req: "burst" },
-  { id: "lockdown", title: "Anticipacion defensiva", desc: "+4 defensa", cost: 2, attrs: { defensa: 4 }, trait: "Anticipador" },
-  { id: "captain", title: "Capitan natural", desc: "+5 relacion con entrenador y prensa", cost: 2, coach: 5, reputation: 4, trait: "Capitan", req: "visionary" },
-  { id: "versatile", title: "Polifuncional", desc: "Desbloquea una posicion secundaria", cost: 2, secondary: true, trait: "Versatil" },
-  { id: "worldclass", title: "Techo mundial", desc: "+3 potencial maximo", cost: 3, potential: 3, trait: "Proyecto mundial", req: "engine2" }
+  { id: "fisico_base", category: "fisico", title: "Base atletica", desc: "Sube la resistencia inicial para aguantar mas minutos.", cost: 1, attrs: { resistencia: 2, fuerza: 1 }, x: 50, y: 8, icon: "FI" },
+  { id: "fisico_tren", category: "fisico", title: "Tren inferior", desc: "Mas fuerza en choques, giros y apoyos.", cost: 1, attrs: { fuerza: 2 }, req: "fisico_base", x: 33, y: 25, icon: "FR" },
+  { id: "fisico_pulmon", category: "fisico", title: "Pulmon de liga", desc: "Mejora los esfuerzos repetidos durante el partido.", cost: 2, attrs: { resistencia: 3 }, req: "fisico_base", x: 67, y: 25, icon: "RE" },
+  { id: "fisico_contacto", category: "fisico", title: "Contacto fuerte", desc: "Ganas mas disputas cuerpo a cuerpo.", cost: 2, attrs: { fuerza: 3, defensa: 1 }, req: "fisico_tren", x: 22, y: 45, icon: "CO" },
+  { id: "fisico_equilibrio", category: "fisico", title: "Equilibrio en carrera", desc: "Sostienes la pelota despues del primer contacto.", cost: 2, attrs: { regate: 2, fuerza: 1 }, req: ["fisico_tren", "fisico_pulmon"], x: 50, y: 45, icon: "EQ" },
+  { id: "fisico_recuperacion", category: "fisico", title: "Recuperacion rapida", desc: "Bajas fatiga y rindes mejor en semanas cargadas.", cost: 2, attrs: { resistencia: 2, velocidad: 1 }, trait: "Inagotable", req: "fisico_pulmon", x: 78, y: 45, icon: "RX" },
+  { id: "fisico_dominante", category: "fisico", title: "Dominio fisico", desc: "Paquete elite de potencia, aguante y presencia.", cost: 3, attrs: { fuerza: 3, resistencia: 3 }, trait: "Dominante", req: ["fisico_contacto", "fisico_equilibrio", "fisico_recuperacion"], x: 50, y: 72, icon: "DF" },
+
+  { id: "defensa_marca", category: "defensa", title: "Marca cercana", desc: "Mejor posicion corporal en duelos defensivos.", cost: 1, attrs: { defensa: 2, fuerza: 1 }, x: 50, y: 8, icon: "MA" },
+  { id: "defensa_corte", category: "defensa", title: "Corte limpio", desc: "Anticipas pases interiores y balones divididos.", cost: 1, attrs: { defensa: 2, vision: 1 }, req: "defensa_marca", x: 33, y: 25, icon: "CT" },
+  { id: "defensa_presion", category: "defensa", title: "Presion agresiva", desc: "Aumenta intensidad al recuperar alto.", cost: 2, attrs: { defensa: 2, resistencia: 2 }, req: "defensa_marca", x: 67, y: 25, icon: "PR" },
+  { id: "defensa_entrada", category: "defensa", title: "Entrada fuerte", desc: "Mas seguridad al ir al suelo y disputar frontal.", cost: 2, attrs: { defensa: 3 }, trait: "Anticipador", req: "defensa_corte", x: 22, y: 45, icon: "EN" },
+  { id: "defensa_aerea", category: "defensa", title: "Duelos aereos", desc: "Ganas mas centros defensivos y pelotas paradas.", cost: 2, attrs: { fuerza: 2, defensa: 2 }, req: ["defensa_corte", "defensa_presion"], x: 50, y: 45, icon: "AE" },
+  { id: "defensa_salida", category: "defensa", title: "Salida limpia", desc: "Defiendes y encuentras el primer pase tras recuperar.", cost: 2, attrs: { pase: 2, vision: 1, defensa: 1 }, req: "defensa_presion", x: 78, y: 45, icon: "SL" },
+  { id: "defensa_muralla", category: "defensa", title: "Muralla", desc: "Nivel superior de quite, lectura y liderazgo atras.", cost: 3, attrs: { defensa: 4, fuerza: 2 }, trait: "Comandante", req: ["defensa_entrada", "defensa_aerea", "defensa_salida"], x: 50, y: 72, icon: "MU" },
+
+  { id: "regate_control", category: "regates", title: "Control orientado", desc: "Primer toque mas fino para salir perfilado.", cost: 1, attrs: { regate: 2, pase: 1 }, x: 50, y: 8, icon: "CO" },
+  { id: "regate_cadera", category: "regates", title: "Cambio de cadera", desc: "Mejor giro para escapar de presion.", cost: 1, attrs: { regate: 2, velocidad: 1 }, req: "regate_control", x: 33, y: 25, icon: "GI" },
+  { id: "regate_conduccion", category: "regates", title: "Conduccion tensa", desc: "Llevas la pelota mas pegada en carrera.", cost: 2, attrs: { regate: 3 }, req: "regate_control", x: 67, y: 25, icon: "CD" },
+  { id: "regate_finta", category: "regates", title: "Finta corta", desc: "Mas eficacia para eliminar rivales en uno contra uno.", cost: 2, attrs: { regate: 3, vision: 1 }, req: "regate_cadera", x: 22, y: 45, icon: "FI" },
+  { id: "regate_proteccion", category: "regates", title: "Proteccion", desc: "Aguantas la pelota bajo contacto.", cost: 2, attrs: { regate: 2, fuerza: 2 }, req: ["regate_cadera", "regate_conduccion"], x: 50, y: 45, icon: "PT" },
+  { id: "regate_diagonal", category: "regates", title: "Diagonal venenosa", desc: "Mejora conduccion hacia dentro y decision final.", cost: 2, attrs: { regate: 2, definicion: 1, vision: 1 }, req: "regate_conduccion", x: 78, y: 45, icon: "DG" },
+  { id: "regate_imparable", category: "regates", title: "Desequilibrio elite", desc: "Rasgo de gambeta para partidos grandes.", cost: 3, attrs: { regate: 4, velocidad: 2 }, trait: "Imparable", req: ["regate_finta", "regate_proteccion", "regate_diagonal"], x: 50, y: 72, icon: "EL" },
+
+  { id: "pase_corto", category: "pases", title: "Pase corto", desc: "Mas precision en circulacion y apoyos.", cost: 1, attrs: { pase: 2, vision: 1 }, x: 50, y: 8, icon: "PC" },
+  { id: "pase_orientacion", category: "pases", title: "Orientacion previa", desc: "Escaneas antes de recibir y decides mas rapido.", cost: 1, attrs: { vision: 2, pase: 1 }, req: "pase_corto", x: 33, y: 25, icon: "OR" },
+  { id: "pase_largo", category: "pases", title: "Cambio de frente", desc: "Pase largo mas seguro para girar el juego.", cost: 2, attrs: { pase: 3 }, req: "pase_corto", x: 67, y: 25, icon: "LF" },
+  { id: "pase_filtrado", category: "pases", title: "Pase filtrado", desc: "Aumenta asistencias potenciales entre lineas.", cost: 2, attrs: { pase: 3, vision: 2 }, trait: "Arquitecto", req: "pase_orientacion", x: 22, y: 45, icon: "PF" },
+  { id: "pase_pausa", category: "pases", title: "Pausa", desc: "Mejor control del tempo cuando el equipo necesita calma.", cost: 2, attrs: { vision: 3, resistencia: 1 }, req: ["pase_orientacion", "pase_largo"], x: 50, y: 45, icon: "PA" },
+  { id: "pase_centro", category: "pases", title: "Centro tenso", desc: "Pases laterales y centros con mas peligro.", cost: 2, attrs: { pase: 2, definicion: 1, vision: 1 }, req: "pase_largo", x: 78, y: 45, icon: "CE" },
+  { id: "pase_director", category: "pases", title: "Director de juego", desc: "Paquete elite de vision, pase y liderazgo.", cost: 3, attrs: { pase: 4, vision: 3 }, trait: "Metronomo", req: ["pase_filtrado", "pase_pausa", "pase_centro"], x: 50, y: 72, icon: "DJ" },
+
+  { id: "tiro_colocacion", category: "tiros", title: "Colocacion", desc: "Remate colocado con menos margen de error.", cost: 1, attrs: { definicion: 2, vision: 1 }, x: 50, y: 8, icon: "CO" },
+  { id: "tiro_potencia", category: "tiros", title: "Potencia de remate", desc: "Golpeas mas fuerte desde media distancia.", cost: 1, attrs: { definicion: 2, fuerza: 1 }, req: "tiro_colocacion", x: 33, y: 25, icon: "PO" },
+  { id: "tiro_area", category: "tiros", title: "Remate de area", desc: "Mejora definicion con poco tiempo dentro del area.", cost: 2, attrs: { definicion: 3 }, req: "tiro_colocacion", x: 67, y: 25, icon: "RA" },
+  { id: "tiro_cabeza", category: "tiros", title: "Precision de cabezazos", desc: "Atacas mejor centros y corners.", cost: 2, attrs: { definicion: 2, fuerza: 2 }, req: "tiro_potencia", x: 22, y: 45, icon: "CA" },
+  { id: "tiro_libre", category: "tiros", title: "Tiro libre", desc: "Mas amenaza en pelota parada directa.", cost: 2, attrs: { definicion: 2, vision: 2 }, req: ["tiro_potencia", "tiro_area"], x: 50, y: 45, icon: "TL" },
+  { id: "tiro_penal", category: "tiros", title: "Penales frios", desc: "Mejor temple en definiciones desde el punto penal.", cost: 2, attrs: { definicion: 3, pase: 1 }, req: "tiro_area", x: 78, y: 45, icon: "PE" },
+  { id: "tiro_matador", category: "tiros", title: "Instinto matador", desc: "Rasgo de goleador para convertir mas chances claras.", cost: 3, attrs: { definicion: 5 }, trait: "Matador", req: ["tiro_cabeza", "tiro_libre", "tiro_penal"], x: 50, y: 72, icon: "MT" },
+
+  { id: "ritmo_arranque", category: "ritmo", title: "Arranque explosivo", desc: "Primeros metros mas rapidos.", cost: 1, attrs: { velocidad: 2, resistencia: 1 }, x: 50, y: 8, icon: "AR" },
+  { id: "ritmo_zancada", category: "ritmo", title: "Zancada larga", desc: "Mejora velocidad punta en campo abierto.", cost: 1, attrs: { velocidad: 3 }, req: "ritmo_arranque", x: 33, y: 25, icon: "ZA" },
+  { id: "ritmo_reaccion", category: "ritmo", title: "Reaccion", desc: "Sales antes tras rebotes, robos y pases profundos.", cost: 2, attrs: { velocidad: 2, vision: 1 }, req: "ritmo_arranque", x: 67, y: 25, icon: "RC" },
+  { id: "ritmo_sprint", category: "ritmo", title: "Sprint largo", desc: "Sostienes carreras largas sin perder tanta energia.", cost: 2, attrs: { velocidad: 2, resistencia: 2 }, req: "ritmo_zancada", x: 22, y: 45, icon: "SP" },
+  { id: "ritmo_cambio", category: "ritmo", title: "Cambio de ritmo", desc: "Aceleras y frenas con pelota dominada.", cost: 2, attrs: { velocidad: 2, regate: 2 }, req: ["ritmo_zancada", "ritmo_reaccion"], x: 50, y: 45, icon: "CR" },
+  { id: "ritmo_presion", category: "ritmo", title: "Presion veloz", desc: "Cierras lineas con mas agresividad.", cost: 2, attrs: { velocidad: 1, defensa: 2, resistencia: 1 }, req: "ritmo_reaccion", x: 78, y: 45, icon: "PV" },
+  { id: "ritmo_velocista", category: "ritmo", title: "Velocista elite", desc: "Rasgo de velocidad para romper partidos.", cost: 3, attrs: { velocidad: 5, resistencia: 1 }, trait: "Velocista", req: ["ritmo_sprint", "ritmo_cambio", "ritmo_presion"], x: 50, y: 72, icon: "VE" },
+
+  { id: "por_reflejos", category: "porteria", positions: ["POR"], title: "Reflejos bajos", desc: "Respuesta rapida en remates cercanos.", cost: 1, attrs: { defensa: 3, fuerza: 1 }, x: 50, y: 8, icon: "RF" },
+  { id: "por_colocacion", category: "porteria", positions: ["POR"], title: "Colocacion", desc: "Mejor posicion antes del remate.", cost: 1, attrs: { defensa: 2, vision: 1 }, req: "por_reflejos", x: 33, y: 25, icon: "CL" },
+  { id: "por_salida", category: "porteria", positions: ["POR"], title: "Salida a centros", desc: "Mando del area en corners y pelotas cruzadas.", cost: 2, attrs: { defensa: 3, fuerza: 1 }, req: "por_reflejos", x: 67, y: 25, icon: "SA" },
+  { id: "por_mano", category: "porteria", positions: ["POR"], title: "Mano a mano", desc: "Mejora achiques contra delanteros.", cost: 2, attrs: { defensa: 3, velocidad: 1 }, req: "por_colocacion", x: 22, y: 45, icon: "MM" },
+  { id: "por_juego_pies", category: "porteria", positions: ["POR"], title: "Juego de pies", desc: "Salida corta y cambio largo con mas precision.", cost: 2, attrs: { pase: 3, vision: 1 }, req: ["por_colocacion", "por_salida"], x: 50, y: 45, icon: "JP" },
+  { id: "por_libero", category: "porteria", positions: ["POR"], title: "Arquero libero", desc: "Cortas balones largos fuera del area.", cost: 2, attrs: { velocidad: 2, vision: 2 }, trait: "Arquero Libero", req: "por_salida", x: 78, y: 45, icon: "AL" },
+  { id: "por_muralla", category: "porteria", positions: ["POR"], title: "Ultima muralla", desc: "Pico elite de reflejos, mando y seguridad.", cost: 3, attrs: { defensa: 5, fuerza: 1 }, trait: "Portero Elite", req: ["por_mano", "por_juego_pies", "por_libero"], x: 50, y: 72, icon: "UM" }
 ];
 
 const achievementDefs = [
@@ -436,7 +697,7 @@ const valueText = (value) => `$${(Math.max(0.1, value) / 1000).toFixed(1)}M`;
 const todayKey = () => new Date().toISOString().slice(0, 10);
 
 function xpToNext(level) {
-  return 90 + level * 35;
+  return 130 + level * 48 + Math.round(Math.pow(level, 1.18) * 10);
 }
 
 function addXp(amount, reason = "") {
@@ -457,13 +718,145 @@ function addXp(amount, reason = "") {
 function secondaryPositionFor(position) {
   const map = {
     DC: "EI",
+    ED: "EI",
     EI: "MCO",
+    LD: "LI",
+    LI: "LD",
+    MCD: "MC",
     MCO: "MC",
-    MC: "MCO",
-    DFC: "MC",
+    MC: "MCD",
+    DFC: "MCD",
     POR: "DFC"
   };
   return map[position] || "MC";
+}
+
+function archetypeLabel(position = state?.profile?.position) {
+  const labels = {
+    DC: "9 de area",
+    EI: "Extremo izquierdo",
+    ED: "Extremo derecho",
+    MCO: "Creador ofensivo",
+    MC: "Motor del medio",
+    MCD: "Volante de corte",
+    LD: "Lateral derecho",
+    LI: "Lateral izquierdo",
+    DFC: "Central dominante",
+    POR: "Arquero moderno"
+  };
+  return labels[position] || "Arquetipo profesional";
+}
+
+function visibleSkillNodes() {
+  const position = state?.profile?.position;
+  return skillNodes.filter((node) => !node.positions || node.positions.includes(position));
+}
+
+function defaultSkillTab(position = state?.profile?.position) {
+  const byPosition = {
+    DC: "tiros",
+    EI: "regates",
+    ED: "regates",
+    MCO: "pases",
+    MC: "pases",
+    MCD: "defensa",
+    LD: "defensa",
+    LI: "defensa",
+    DFC: "defensa",
+    POR: "porteria"
+  };
+  return byPosition[position] || "fisico";
+}
+
+function activeSkillCategory() {
+  const position = state?.profile?.position;
+  const current = skillCategories.find((category) => category.id === state?.skillTreeTab);
+  if (current && (!current.positions || current.positions.includes(position))) return current;
+  return skillCategories.find((category) => category.id === defaultSkillTab()) || skillCategories[0];
+}
+
+function skillNodesForCategory(categoryId = activeSkillCategory().id) {
+  return visibleSkillNodes().filter((node) => node.category === categoryId);
+}
+
+function selectedSkillNode(nodes) {
+  const selected = nodes.find((node) => node.id === state.selectedSkillId);
+  if (selected) return selected;
+  return nodes.find((node) => !state.unlockedSkills.includes(node.id) && skillReqsMet(node)) || nodes[0] || null;
+}
+
+function skillNodeState(node) {
+  const unlocked = state.unlockedSkills.includes(node.id);
+  const lockedByReq = !skillReqsMet(node);
+  const affordable = state.skillPoints >= node.cost;
+  if (unlocked) return "unlocked";
+  if (lockedByReq) return "locked";
+  if (affordable) return "available";
+  return "waiting";
+}
+
+function skillConnectionSvg(nodes) {
+  const byId = Object.fromEntries(nodes.map((node) => [node.id, node]));
+  const lines = nodes.flatMap((node) => skillRequirements(node)
+    .map((req) => byId[req])
+    .filter(Boolean)
+    .map((parent) => {
+      const unlocked = state.unlockedSkills.includes(parent.id) && state.unlockedSkills.includes(node.id);
+      const available = !state.unlockedSkills.includes(node.id) && skillReqsMet(node);
+      return `<line class="${unlocked ? "unlocked" : available ? "available" : ""}" x1="${parent.x}" y1="${parent.y}" x2="${node.x}" y2="${node.y}"></line>`;
+    }));
+  return `<svg class="skill-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${lines.join("")}</svg>`;
+}
+
+function skillActionLabel(node) {
+  if (!node) return "Sin mejora";
+  if (state.unlockedSkills.includes(node.id)) return "Desbloqueado";
+  if (!skillReqsMet(node)) return `Requiere ${skillReqText(node)}`;
+  if (state.skillPoints < node.cost) return `Faltan ${node.cost - state.skillPoints} punto${node.cost - state.skillPoints > 1 ? "s" : ""}`;
+  return `Colocar mejora (${node.cost})`;
+}
+
+function skillDetailBars(node) {
+  const entries = Object.entries(node?.attrs || {});
+  if (!entries.length) return `<p class="subtle-line">Esta mejora desbloquea efectos especiales de carrera.</p>`;
+  return entries.map(([attr, boost]) => {
+    const current = Number(state.attrs[attr]) || 1;
+    const next = clamp(current + boost, 1, 99);
+    return `<div class="skill-attr-row">
+      <strong><span>${labelAttr(attr)}</span><span>${current} +${boost}</span></strong>
+      <div class="skill-attr-track">
+        <span class="current" style="width:${current}%"></span>
+        <span class="boost" style="left:${current}%; width:${Math.max(0, next - current)}%"></span>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function skillRequirements(node) {
+  if (!node.req) return [];
+  return Array.isArray(node.req) ? node.req : [node.req];
+}
+
+function skillReqsMet(node) {
+  return skillRequirements(node).every((req) => state.unlockedSkills.includes(req));
+}
+
+function skillBoostText(node) {
+  const parts = Object.entries(node.attrs || {}).map(([attr, value]) => `${labelAttr(attr)} +${value}`);
+  if (node.coach) parts.push(`Entrenador +${node.coach}`);
+  if (node.reputation) parts.push(`Reputacion +${node.reputation}`);
+  if (node.potential) parts.push(`Potencial +${node.potential}`);
+  if (node.secondary) parts.push(`Posicion secundaria: ${secondaryPositionFor(state.profile.position)}`);
+  if (node.trait) parts.push(`Rasgo: ${node.trait}`);
+  return parts.join(" - ");
+}
+
+function skillReqText(node) {
+  const requirements = skillRequirements(node);
+  if (!requirements.length) return "";
+  return requirements
+    .map((req) => skillNodes.find((item) => item.id === req)?.title || req)
+    .join(" + ");
 }
 
 function createDailyObjectives() {
@@ -483,9 +876,9 @@ function createWeeklyObjectives() {
 }
 
 function createMatchObjectives(position = state?.profile?.position || "DC") {
-  const isAttacker = ["DC", "EI", "MCO"].includes(position);
-  const isMid = ["MC", "MCO", "EI"].includes(position);
-  const isDef = ["DFC", "POR", "MC"].includes(position);
+  const isAttacker = attackingPositions.has(position);
+  const isMid = midfieldPositions.has(position);
+  const isDef = defensivePositions.has(position);
   const list = [{ id: "rating", label: "Conseguir media 7.0", target: 7, value: 0, type: "rating", rewardXp: 18 }];
   if (isAttacker) list.push({ id: "goalContribution", label: "Participar en un gol", target: 1, value: 0, rewardXp: 22 });
   if (isMid) list.push({ id: "keyPasses", label: "Dar 2 pases clave", target: 2, value: 0, rewardXp: 18 });
@@ -507,6 +900,8 @@ function ensureStateDefaults() {
   if (!state) return;
   state.level = Number(state.level) || 1;
   state.skillPoints = Number(state.skillPoints) || 0;
+  state.skillTreeTab = skillCategories.some((category) => category.id === state.skillTreeTab) ? state.skillTreeTab : defaultSkillTab();
+  state.selectedSkillId = typeof state.selectedSkillId === "string" ? state.selectedSkillId : "";
   state.potential = Number(state.potential) || clamp(78 + (clubs.find((club) => club.name === state.club)?.tier || 1) * 3, 78, 94);
   state.unlockedSkills = Array.isArray(state.unlockedSkills) ? state.unlockedSkills : [];
   state.secondaryPositions = Array.isArray(state.secondaryPositions) ? state.secondaryPositions : [];
@@ -517,6 +912,10 @@ function ensureStateDefaults() {
   if (!Array.isArray(state.traits)) state.traits = [];
   if (!Array.isArray(state.lifestyle)) state.lifestyle = [];
   if (!Array.isArray(state.trophies)) state.trophies = [];
+  if (!Array.isArray(state.transferRumors)) state.transferRumors = [];
+  if (!Array.isArray(state.socialQueue)) state.socialQueue = [];
+  state.socialRespondedDate = state.socialRespondedDate || "";
+  state.lastOfferWindow = state.lastOfferWindow || "";
   state.yellowCards = Number(state.yellowCards) || 0;
   state.suspensionWeeks = Number(state.suspensionWeeks) || 0;
   state.matchMode = state.matchMode || "simulate";
@@ -526,6 +925,9 @@ function ensureStateDefaults() {
   state.simSpeed = Number(state.simSpeed) || 4;
   state.currentMatchObjectives = Array.isArray(state.currentMatchObjectives) ? state.currentMatchObjectives : createMatchObjectives();
   state.lastMatchDetails = state.lastMatchDetails || null;
+  state.trainedThisWeek = Boolean(state.trainedThisWeek);
+  state.playedThisWeek = Boolean(state.playedThisWeek);
+  state.restedThisWeek = Boolean(state.restedThisWeek);
   ensureStatsDefaults(state.seasonStats);
   ensureStatsDefaults(state.careerStats);
   ensureClubHistory();
@@ -715,25 +1117,81 @@ function returnFromLoan() {
   addNews(`Volviste a ${parent.name} tras terminar el prestamo.`);
 }
 
-function topPlayersForClub(clubName) {
+function playersForClub(clubName, limit = Infinity) {
   const normalized = normalizeClubName(clubName);
   return careerPlayers
     .filter((player) => player.club === normalized)
     .sort((a, b) => b.rating - a.rating)
-    .slice(0, 3);
+    .slice(0, limit);
+}
+
+function topPlayersForClub(clubName) {
+  return playersForClub(clubName, 3);
+}
+
+function isSecondDivisionClub(club) {
+  return club?.division === 2 || secondDivisionLeagueNames.has(club?.league);
+}
+
+function startingCareerClubs() {
+  const secondClubs = clubs.filter(isSecondDivisionClub);
+  if (secondClubs.length) return secondClubs;
+  return clubs.filter((club) => (club.tier || 1) <= 2);
+}
+
+function shuffled(list) {
+  return list.slice().sort(() => Math.random() - 0.5);
+}
+
+function pickStartingClubChoices() {
+  const startClubs = startingCareerClubs();
+  const withSquads = startClubs.filter((club) => playersForClub(club.name, 8).length >= 8);
+  const pool = withSquads.length >= 2 ? withSquads : startClubs;
+  const randomized = shuffled(pool);
+  const first = randomized[0] || clubs[0];
+  const second = randomized.find((club) => club.name !== first?.name && club.league !== first?.league)
+    || randomized.find((club) => club.name !== first?.name)
+    || randomized[1]
+    || first;
+  return [first, second].filter(Boolean).filter((club, index, list) => list.findIndex((item) => item.name === club.name) === index);
+}
+
+function selectStartingClub(name) {
+  const selected = startingClubChoices.find((club) => club.name === name) || startingClubChoices[0];
+  const select = $("#playerClub");
+  if (select && selected) select.value = selected.name;
+  document.querySelectorAll("[data-start-club]").forEach((button) => {
+    button.classList.toggle("active", decodeURIComponent(button.dataset.startClub || "") === selected?.name);
+  });
 }
 
 function renderClubSelect() {
   const select = $("#playerClub");
   if (!select) return;
-  const preferred = ["Boca Juniors", "River Plate", "Real Madrid", "Barcelona", "Manchester City", "PSG"];
-  const firstValue = preferred.find((name) => clubs.some((club) => club.name === name)) || clubs[0]?.name || "";
-  select.innerHTML = clubs.map((club) => {
+  startingClubChoices = pickStartingClubChoices();
+  const firstValue = startingClubChoices[0]?.name || clubs[0]?.name || "";
+  select.innerHTML = startingClubChoices.map((club) => {
     const stars = topPlayersForClub(club.name).slice(0, 2).map((player) => player.name).join(", ");
     const label = stars ? `${club.name} - ${club.league} (${stars})` : `${club.name} - ${club.league}`;
     return `<option value="${club.name}">${label}</option>`;
   }).join("");
   select.value = firstValue;
+  const choices = $("#clubChoices");
+  if (choices) {
+    choices.innerHTML = startingClubChoices.map((club, index) => {
+      const players = playersForClub(club.name, 3);
+      const stars = players.map((player) => player.name).join(", ");
+      const logo = clubLogoFor(club.name);
+      return `<button type="button" class="club-choice ${index === 0 ? "active" : ""}" data-start-club="${encodeURIComponent(club.name)}">
+        <div class="club-choice-top">
+          ${logo ? `<img src="${logo}" alt="" />` : ""}
+          <strong>${club.name}</strong>
+        </div>
+        <span>${club.league}${club.country ? ` - ${club.country}` : ""}</span>
+        <small>${stars ? `Figuras: ${stars}` : "Plantel de segunda division"}</small>
+      </button>`;
+    }).join("");
+  }
 }
 
 function baseAttributes(position, style) {
@@ -768,7 +1226,8 @@ function createObjectives(position) {
 }
 
 function newState(profile) {
-  const club = clubs.find((item) => item.name === profile.club) || clubs[0];
+  const allowedStartClubs = startingClubChoices.length ? startingClubChoices : pickStartingClubChoices();
+  const club = allowedStartClubs.find((item) => item.name === profile.club) || allowedStartClubs[0] || clubs[0];
   const attrs = baseAttributes(profile.position, profile.style);
   const fixture = nextFixture(club.name);
   return {
@@ -806,12 +1265,17 @@ function newState(profile) {
     attrs,
     traits: [styleBonuses[profile.style].trait],
     unlockedSkills: [],
+    skillTreeTab: defaultSkillTab(profile.position),
+    selectedSkillId: "",
     secondaryPositions: [],
     sponsors: [],
     lifestyle: [],
     offers: [],
+    transferRumors: [],
+    lastOfferWindow: "",
     news: ["Tu carrera profesional acaba de empezar."],
     socialQueue: [randomSocial()],
+    socialRespondedDate: "",
     objectives: createObjectives(profile.position),
     seasonStats: blankStats(),
     careerStats: blankStats(),
@@ -834,6 +1298,7 @@ function newState(profile) {
     retired: false,
     trainedThisWeek: false,
     playedThisWeek: false,
+    restedThisWeek: false,
     matchMode: "simulate",
     tacticalMentality: "balanced",
     tacticalFormation: "433",
@@ -867,7 +1332,134 @@ function blankStats() {
 }
 
 function randomSocial() {
+  if (state && Math.random() < (isTransferWindow() ? 0.58 : 0.28)) {
+    return randomTransferSocial();
+  }
   return JSON.parse(JSON.stringify(socialTemplates[random(0, socialTemplates.length - 1)]));
+}
+
+function transferWindowStatus(week = state?.week || 1) {
+  if (week >= 1 && week <= 6) {
+    return {
+      open: true,
+      id: "summer",
+      label: "Mercado de verano",
+      description: `Abierto hasta la semana 6. Semana ${week}/6`
+    };
+  }
+  if (week >= 20 && week <= 24) {
+    return {
+      open: true,
+      id: "winter",
+      label: "Mercado de invierno",
+      description: `Abierto hasta la semana 24. Semana ${week}/24`
+    };
+  }
+  const next = week < 20 ? "invierno, semana 20" : "verano, semana 1 de la proxima temporada";
+  return {
+    open: false,
+    id: "closed",
+    label: "Mercado cerrado",
+    description: `Proxima ventana: ${next}.`
+  };
+}
+
+function isTransferWindow() {
+  return transferWindowStatus().open;
+}
+
+function transferWindowKey() {
+  const window = transferWindowStatus();
+  return window.open ? `${state.season}-${window.id}` : "";
+}
+
+function randomJournalist(preferLocal = false) {
+  const pool = preferLocal ? transferJournalists.filter((item) => item.name !== "Fabrizio Romano") : transferJournalists;
+  return pool[random(0, pool.length - 1)];
+}
+
+function randomTransferPair() {
+  const source = clubs.filter((club) => club.name !== state?.club && topPlayersForClub(club.name).length);
+  const fromPool = source.length ? source : clubs.filter((club) => club.name !== state?.club);
+  const fromClub = fromPool[random(0, Math.max(0, fromPool.length - 1))] || clubs[0];
+  const destinations = clubs.filter((club) => club.name !== fromClub.name && club.name !== state?.club && Math.abs((club.tier || 1) - (fromClub.tier || 1)) <= 2);
+  const toPool = destinations.length ? destinations : clubs.filter((club) => club.name !== fromClub.name);
+  const toClub = toPool[random(0, Math.max(0, toPool.length - 1))] || clubs[0];
+  const stars = topPlayersForClub(fromClub.name);
+  const player = stars.length ? stars[random(0, stars.length - 1)] : { name: `figura de ${fromClub.name}`, rating: fromClub.rep || 75, pos: "Jugador" };
+  return { fromClub, toClub, player };
+}
+
+function makeTransferRumor(status = "rumor") {
+  const { fromClub, toClub, player } = randomTransferPair();
+  const journalist = randomJournalist(fromClub.league?.includes("Argentina") || toClub.league?.includes("Argentina"));
+  const fee = Math.round((player.rating || 75) * (toClub.tier || 1) * random(9, 18));
+  const confirmed = status === "confirmed";
+  return {
+    week: state.week,
+    season: state.season,
+    journalist: journalist.name,
+    tag: journalist.tag,
+    status,
+    player: player.name,
+    from: fromClub.name,
+    to: toClub.name,
+    fee,
+    text: confirmed
+      ? `${journalist.name}: acuerdo cerrado entre ${fromClub.name} y ${toClub.name} por ${player.name}. Operacion estimada en ${valueText(fee)}.`
+      : `${journalist.name}: ${toClub.name} sigue de cerca a ${player.name} de ${fromClub.name}. Operacion posible por ${valueText(fee)}.`
+  };
+}
+
+function makePlayerRumor(offer, status = "interest") {
+  const journalist = randomJournalist(state.league?.includes("Argentina") || offer.league?.includes("Argentina"));
+  const confirmed = status === "confirmed";
+  const fee = offer.fee || Math.round(state.marketValue * random(85, 130) / 100);
+  return {
+    week: state.week,
+    season: state.season,
+    journalist: journalist.name,
+    tag: journalist.tag,
+    status,
+    player: state.profile.name,
+    from: state.club,
+    to: offer.club,
+    fee,
+    text: confirmed
+      ? `${journalist.name}: ${state.profile.name} sera nuevo jugador de ${offer.club}. Acuerdo total con ${state.club}.`
+      : `${journalist.name}: ${offer.club} consulto condiciones por ${state.profile.name}. Todavia no hay acuerdo con ${state.club}.`
+  };
+}
+
+function pushTransferRumor(rumor, publishNews = false) {
+  if (!rumor) return;
+  state.transferRumors = [rumor, ...(state.transferRumors || [])].slice(0, 12);
+  if (publishNews) addNews(rumor.text);
+}
+
+function generateTransferRumors(count = 2, publishNews = false) {
+  if (!state.transferRumors) state.transferRumors = [];
+  for (let i = 0; i < count; i += 1) {
+    pushTransferRumor(makeTransferRumor(Math.random() < 0.18 ? "confirmed" : "rumor"), publishNews && i === 0);
+  }
+}
+
+function randomTransferSocial() {
+  const rumor = state.transferRumors?.length ? state.transferRumors[0] : makeTransferRumor();
+  if (!state.transferRumors?.length) pushTransferRumor(rumor);
+  const isPlayerRumor = rumor.player === state.profile?.name;
+  return {
+    author: rumor.journalist,
+    tag: rumor.tag || "Mercado",
+    text: isPlayerRumor
+      ? `${rumor.text} El entorno del jugador no quiere apurarse.`
+      : `${rumor.text} El mercado se mueve y los clubes empiezan a ajustar sus planteles.`,
+    options: [
+      { text: "Mantener perfil bajo.", reputation: 4, coach: 2, morale: 1 },
+      { text: "Darle like y alimentar el rumor.", popularity: 7, reputation: -2, coach: -2 },
+      { text: "Responder que solo importa el proximo partido.", reputation: 3, popularity: 2, morale: 2 }
+    ]
+  };
 }
 
 function randomLeagueOpponent(currentClubOverride = "") {
@@ -950,6 +1542,49 @@ function showToast(text) {
   setTimeout(() => toast.remove(), 2600);
 }
 
+function hasMandatoryMatchPending() {
+  if (!state || state.retired || state.playedThisWeek) return false;
+  return state.injuryWeeks <= 0 && state.suspensionWeeks <= 0;
+}
+
+function pulseElement(selector, className = "career-pulse") {
+  const node = document.querySelector(selector);
+  if (!node) return;
+  node.classList.remove(className);
+  void node.offsetWidth;
+  node.classList.add(className);
+}
+
+function animateCalendarAdvance(fromSeason, fromWeek, toSeason, toWeek) {
+  const old = document.querySelector(".calendar-advance");
+  if (old) old.remove();
+  const overlay = document.createElement("div");
+  overlay.className = "calendar-advance";
+  const days = [
+    ["Lun", "Entreno"],
+    ["Mar", "Analisis"],
+    ["Mie", "Ritmo"],
+    ["Jue", "Plantel"],
+    ["Vie", "Viaje"],
+    ["Sab", "Partido"],
+    ["Dom", "Recuperacion"]
+  ];
+  overlay.innerHTML = `
+    <div class="calendar-card">
+      <p class="eyebrow">Calendario</p>
+      <h2>Temporada ${fromSeason} - Semana ${fromWeek}</h2>
+      <div class="calendar-track">
+        ${days.map(([day, label]) => `<span><strong>${day}</strong><small>${label}</small></span>`).join("")}
+      </div>
+      <div class="calendar-progress"><span></span></div>
+      <p class="calendar-next">Avanza a temporada ${toSeason}, semana ${toWeek}</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  setTimeout(() => overlay.classList.add("leaving"), 2050);
+  setTimeout(() => overlay.remove(), 2500);
+}
+
 function updateBars() {
   $("#moraleValue").textContent = state.morale;
   $("#fatigueValue").textContent = state.fatigue;
@@ -1018,11 +1653,12 @@ function render() {
   $("#reputationValue").textContent = state.reputation;
   $("#nextOpponent").textContent = state.nextOpponent;
   const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
+  const matchPending = hasMandatoryMatchPending();
   const statusText = state.injuryWeeks
     ? `Lesionado: ${state.injuryWeeks} semanas`
     : state.suspensionWeeks
       ? `Suspendido: ${state.suspensionWeeks} fecha${state.suspensionWeeks > 1 ? "s" : ""}`
-      : `${matchCompetition} - fecha ${state.week}`;
+      : `${matchCompetition} - fecha ${state.week} - ${state.playedThisWeek ? "partido jugado" : "partido pendiente"}`;
   $("#matchContext").textContent = statusText;
   $("#matchMode").value = state.matchMode;
   $("#tacticalMentality").value = state.tacticalMentality;
@@ -1042,6 +1678,11 @@ function render() {
     : state.matchMode === "key"
       ? "Jugar momentos clave"
       : "Simular partido";
+  $("#restBtn").disabled = state.restedThisWeek || state.retired;
+  $("#restBtn").textContent = state.restedThisWeek ? "Descanso usado" : "Descansar";
+  $("#advanceWeekBtn").disabled = state.retired || matchPending;
+  $("#advanceWeekBtn").textContent = matchPending ? "Juega el partido para avanzar" : "Avanzar semana";
+  $("#advanceWeekBtn").title = matchPending ? "Tienes que jugar el partido de esta semana antes de avanzar." : "";
   $("#trainingHint").textContent = state.trainedThisWeek ? "Ya entrenaste esta semana." : "Elegir una sesion consume energia.";
   updateBars();
   renderObjectives();
@@ -1099,23 +1740,63 @@ function renderProgress() {
   $("#progressSummary").innerHTML = `
     Nivel ${state.level} - ${state.xp}/${nextXp} XP - ${state.skillPoints} puntos disponibles
     <div class="meter xp-meter"><span style="width:${xpPercent}%"></span></div>
-    <span class="subtle-line">Potencial ${state.potential} - Rasgos: ${state.traits.join(", ") || "Sin rasgos"}</span>
+    <span class="subtle-line">Arquetipo activo: ${archetypeLabel()} - Potencial ${state.potential} - Rasgos: ${state.traits.join(", ") || "Sin rasgos"}</span>
   `;
 
-  $("#skillTree").innerHTML = skillNodes.map((node) => {
-    const unlocked = state.unlockedSkills.includes(node.id);
-    const lockedByReq = node.req && !state.unlockedSkills.includes(node.req);
-    const disabled = unlocked || lockedByReq || state.skillPoints < node.cost || state.retired;
-    const reqText = lockedByReq ? "Requiere otra mejora" : `${node.cost} punto${node.cost > 1 ? "s" : ""}`;
-    return `<div class="skill-node ${unlocked ? "unlocked" : ""}">
-      <header>
-        <h3>${node.title}</h3>
-        <strong>${unlocked ? "Activo" : reqText}</strong>
-      </header>
-      <p>${node.desc}</p>
-      <button data-skill="${node.id}" ${disabled ? "disabled" : ""}>${unlocked ? "Desbloqueado" : "Desbloquear"}</button>
-    </div>`;
-  }).join("");
+  const activeCategory = activeSkillCategory();
+  const categoryNodes = skillNodesForCategory(activeCategory.id);
+  const selectedNode = selectedSkillNode(categoryNodes);
+  if (selectedNode && state.selectedSkillId !== selectedNode.id) state.selectedSkillId = selectedNode.id;
+  const unlockedInCategory = categoryNodes.filter((node) => state.unlockedSkills.includes(node.id)).length;
+  const buttonDisabled = !selectedNode
+    || state.unlockedSkills.includes(selectedNode.id)
+    || !skillReqsMet(selectedNode)
+    || state.skillPoints < selectedNode.cost
+    || state.retired;
+
+  $("#skillTree").innerHTML = `<div class="attribute-skill-shell">
+    <header class="attribute-skill-head">
+      <div>
+        <span>Atributos</span>
+        <strong>${state.skillPoints} puntos de habilidad</strong>
+      </div>
+      <p>${activeCategory.desc}</p>
+    </header>
+    <div class="skill-tabs">
+      ${skillCategories.map((category) => {
+        const allowed = !category.positions || category.positions.includes(state.profile.position);
+        return `<button class="${category.id === activeCategory.id ? "active" : ""}" data-skill-tab="${category.id}" ${!allowed ? "disabled" : ""}>${category.label}</button>`;
+      }).join("")}
+    </div>
+    <div class="skill-tree-stage">
+      <div class="skill-map">
+        ${categoryNodes.length ? skillConnectionSvg(categoryNodes) : ""}
+        ${categoryNodes.length ? categoryNodes.map((node) => {
+          const status = skillNodeState(node);
+          const selected = selectedNode?.id === node.id;
+          return `<button class="skill-map-node ${status} ${selected ? "selected" : ""}" data-skill-select="${node.id}" style="--x:${node.x}%; --y:${node.y}%;" aria-label="${node.title}">
+            <span>${node.icon || node.title.slice(0, 2).toUpperCase()}</span>
+            <small>${state.unlockedSkills.includes(node.id) ? "1/1" : "0/1"}</small>
+          </button>`;
+        }).join("") : `<div class="skill-empty">
+          <strong>Porteria disponible para arqueros</strong>
+          <p>Esta rama se activa al crear una carrera como POR.</p>
+        </div>`}
+      </div>
+      <aside class="skill-detail">
+        ${selectedNode ? `<span>${activeCategory.label} - ${unlockedInCategory}/${categoryNodes.length}</span>
+          <h3>${selectedNode.title}</h3>
+          <p>${selectedNode.desc}</p>
+          <strong class="skill-cost">Coste: ${selectedNode.cost}</strong>
+          <div class="skill-detail-bars">${skillDetailBars(selectedNode)}</div>
+          <small>${skillBoostText(selectedNode)}</small>
+          <button data-skill="${selectedNode.id}" ${buttonDisabled ? "disabled" : ""}>${skillActionLabel(selectedNode)}</button>`
+        : `<span>${activeCategory.label}</span>
+          <h3>Sin mejoras para esta posicion</h3>
+          <p>Cambia de rama para seguir mejorando tu jugador.</p>`}
+      </aside>
+    </div>
+  </div>`;
 
   const missionCard = (objective, scope) => {
     const percent = clamp((objective.value / objective.target) * 100, 0, 100);
@@ -1219,20 +1900,24 @@ function renderMatchStatsPanel() {
     return;
   }
   const details = state.lastMatchDetails;
-  const baseStats = [
+  const statCards = [
     ["Modo", matchModeLabel(details.mode)],
     ["Media", details.rating],
-    ["Tiros", details.shots],
+    ["Resultado", `${details.teamGoals ?? "-"}-${details.rivalGoals ?? "-"}`],
+    ["Posesion", details.simStats ? `${details.simStats.possessionHome}%` : details.teamStats ? `${details.teamStats.possession}%` : "-"],
+    ["Tiros", details.simStats ? `${details.simStats.shotsHome}-${details.simStats.shotsAway}` : details.teamStats ? `${details.teamStats.teamShots}-${details.teamStats.rivalShots}` : details.shots],
+    ["xG", details.simStats ? `${details.simStats.xgHome.toFixed(2)}-${details.simStats.xgAway.toFixed(2)}` : details.teamStats ? `${details.teamStats.xg}-${details.teamStats.rivalXg}` : "-"],
     ["Pases clave", details.keyPasses],
     ["Entradas", details.tackles],
     ["Atajadas", details.saves],
     ["Tarjetas", `${details.yellowCard ? "A" : "0"}${details.redCard ? " / R" : ""}`]
   ];
-  if (details.simStats) {
-    baseStats.push(["Posesion", `${details.simStats.possessionHome}%`]);
-    baseStats.push(["xG", `${details.simStats.xgHome.toFixed(2)}-${details.simStats.xgAway.toFixed(2)}`]);
-  }
-  $("#matchStatsPanel").innerHTML = baseStats.map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+  const statMarkup = statCards.map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+  const teamTop = details.teamRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
+  const rivalTop = details.rivalRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
+  $("#matchStatsPanel").innerHTML = `${statMarkup}
+    <div class="stat-card match-performers"><span>Figuras propias</span>${teamTop || "<p>Sin datos</p>"}</div>
+    <div class="stat-card match-performers"><span>Figuras rivales</span>${rivalTop || "<p>Sin datos</p>"}</div>`;
 }
 
 function playerInitials(name) {
@@ -1596,6 +2281,11 @@ function renderTacticalStats() {
     ["Corners", `${sim.stats.cornersHome}-${sim.stats.cornersAway}`],
     ["xG", `${sim.stats.xgHome.toFixed(2)}-${sim.stats.xgAway.toFixed(2)}`]
   ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+  const teamTop = details.teamRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
+  const rivalTop = details.rivalRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
+  $("#matchStatsPanel").innerHTML = `${statCards}
+    <div class="stat-card match-performers"><span>Figuras propias</span>${teamTop || "<p>Sin datos</p>"}</div>
+    <div class="stat-card match-performers"><span>Figuras rivales</span>${rivalTop || "<p>Sin datos</p>"}</div>`;
 }
 
 function skipToNextEvent() {
@@ -1649,12 +2339,20 @@ function renderNews() {
 
 function renderSocial() {
   if (!state.socialQueue.length) state.socialQueue.push(randomSocial());
-  $("#socialFeed").innerHTML = state.socialQueue.map((post, postIndex) => `
-    <div class="social-post">
-      <strong>${post.author}</strong>
+  const respondedToday = state.socialRespondedDate === todayKey();
+  const limitCard = `<div class="social-limit ${respondedToday ? "used" : ""}">
+    <strong>${respondedToday ? "Respuesta diaria usada" : "Respuesta diaria disponible"}</strong>
+    <p>${respondedToday ? "Ya respondiste hoy. Puedes leer rumores, pero no intervenir hasta manana." : "Elige una sola respuesta para cuidar tu imagen publica."}</p>
+  </div>`;
+  $("#socialFeed").innerHTML = limitCard + state.socialQueue.map((post, postIndex) => `
+    <div class="social-post ${respondedToday ? "answered" : ""}">
+      <header>
+        <strong>${post.author}</strong>
+        ${post.tag ? `<span>${post.tag}</span>` : ""}
+      </header>
       <p>${post.text}</p>
       <div class="social-actions">
-        ${post.options.map((option, optionIndex) => `<button data-social="${postIndex}:${optionIndex}">${option.text}</button>`).join("")}
+        ${post.options.map((option, optionIndex) => `<button data-social="${postIndex}:${optionIndex}" ${respondedToday ? "disabled" : ""}>${option.text}</button>`).join("")}
       </div>
     </div>
   `).join("");
@@ -1662,6 +2360,7 @@ function renderSocial() {
 
 function renderMarket() {
   const contractType = state.loan ? `Prestado desde ${state.loan.parentClub}` : state.contract.type;
+  const window = transferWindowStatus();
   $("#contractStatus").innerHTML = `
     <div>
       <span>Contrato actual</span>
@@ -1678,9 +2377,34 @@ function renderMarket() {
       <strong>${valueText(state.contract.releaseClause)}</strong>
       <p>Valor de mercado ${valueText(state.marketValue)}</p>
     </div>
+    <div>
+      <span>Ventana</span>
+      <strong>${window.label}</strong>
+      <p>${window.description}</p>
+    </div>
   `;
 
-  $("#offersList").innerHTML = state.offers.length
+  const agentBtn = $("#agentBtn");
+  if (agentBtn) {
+    agentBtn.disabled = state.retired || !window.open;
+    agentBtn.textContent = window.open ? "Hablar con agente" : "Mercado cerrado";
+    agentBtn.title = window.open ? "" : window.description;
+  }
+
+  const rumorHtml = state.transferRumors?.length
+    ? `<div class="transfer-rumor-list">
+        <h4>Rumores y movimientos de otros equipos</h4>
+        ${state.transferRumors.slice(0, 5).map((rumor) => `
+          <div class="transfer-rumor ${rumor.status === "confirmed" ? "confirmed" : ""}">
+            <strong>${rumor.journalist}</strong>
+            <p>${rumor.text}</p>
+            <span>${rumor.status === "confirmed" ? "Confirmado" : "Rumor"} - T${rumor.season} S${rumor.week}</span>
+          </div>
+        `).join("")}
+      </div>`
+    : `<div class="transfer-rumor-list"><h4>Rumores y movimientos de otros equipos</h4><p>No hay rumores fuertes por ahora.</p></div>`;
+
+  const offersHtml = state.offers.length
     ? state.offers.map((offer, index) => {
       const logo = clubLogoFor(offer.club);
       const typeLabel = offer.type === "loan" ? "Prestamo" : offer.type === "renewal" ? "Renovacion" : "Traspaso";
@@ -1691,6 +2415,7 @@ function renderMarket() {
           <strong>${moneyText(offer.salary)}/sem</strong>
         </header>
         <p>${typeLabel} - ${offer.league} - contrato ${offer.years} anios - prima ${moneyText(offer.bonus)} - ${clauseText}</p>
+        <p class="offer-details">${offer.window || window.label} - vence semana ${offer.deadlineWeek || (window.id === "winter" ? 24 : 6)}${offer.fee ? ` - valor de operacion ${valueText(offer.fee)}` : ""}${offer.fit ? ` - encaje ${offer.fit}/100` : ""}</p>
         ${offer.message ? `<p class="offer-note">${offer.message}</p>` : ""}
         <div class="offer-actions">
           <button data-offer="${index}" class="primary">Aceptar</button>
@@ -1699,13 +2424,27 @@ function renderMarket() {
         </div>
       </div>`;
     }).join("")
-    : `<div class="offer-card"><p>No hay ofertas activas. Tu agente puede sondear clubes si tu reputacion sube.</p></div>`;
+    : `<div class="offer-card"><p>${window.open ? "No hay ofertas activas. Tu agente puede sondear clubes si tu reputacion sube." : "No hay ofertas activas porque el mercado esta cerrado. Los clubes solo pueden seguirte o filtrar rumores."}</p></div>`;
 
-  $("#sponsorsList").innerHTML = availableSponsors().map((sponsor) => `<div class="offer-card">
+  $("#offersList").innerHTML = rumorHtml + offersHtml;
+
+  $("#sponsorsList").innerHTML = availableSponsors().map((sponsor) => {
+    const signed = state.sponsors.includes(sponsor.id);
+    const eligible = sponsorRequirementMet(sponsor);
+    const bonusText = [
+      sponsor.goalBonus ? `gol +${moneyText(sponsor.goalBonus)}` : "",
+      sponsor.assistBonus ? `asistencia +${moneyText(sponsor.assistBonus)}` : "",
+      sponsor.cleanSheetBonus ? `valla +${moneyText(sponsor.cleanSheetBonus)}` : "",
+      sponsor.ratingBonus ? `media 8+ +${moneyText(sponsor.ratingBonus)}` : "",
+      sponsor.followerBonus ? `seguidores +${compact(sponsor.followerBonus)}` : ""
+    ].filter(Boolean).join(" - ");
+    return `<div class="offer-card sponsor-card ${signed ? "signed" : ""}">
     <header><h3>${sponsor.name}</h3><strong>${moneyText(sponsor.pay)}</strong></header>
     <p>${sponsor.effect}</p>
-    <button data-sponsor="${sponsor.id}" ${state.sponsors.includes(sponsor.id) ? "disabled" : ""}>${state.sponsors.includes(sponsor.id) ? "Firmado" : "Firmar"}</button>
-  </div>`).join("");
+    <p class="offer-details">${sponsor.tier} - requiere popularidad ${sponsor.minPop}${sponsor.minRep ? ` y reputacion ${sponsor.minRep}` : ""}${bonusText ? ` - ${bonusText}` : ""}</p>
+    <button data-sponsor="${sponsor.id}" ${signed || !eligible ? "disabled" : ""}>${signed ? "Firmado" : eligible ? "Firmar" : "Bloqueado"}</button>
+  </div>`;
+  }).join("");
 
   $("#lifestyleList").innerHTML = lifestyleItems.map((item) => `<div class="offer-card">
     <header><h3>${item.title}</h3><strong>${moneyText(item.cost)}</strong></header>
@@ -1715,12 +2454,11 @@ function renderMarket() {
 }
 
 function availableSponsors() {
-  const list = [
-    { id: "boots", name: "Botines Veloz", pay: 60, minPop: 45, effect: "Bono por goles y seguidores." },
-    { id: "drink", name: "Energia 90", pay: 120, minPop: 60, effect: "Ingreso extra y mas popularidad." },
-    { id: "global", name: "Global Sports", pay: 260, minPop: 78, effect: "Marca internacional para estrellas." }
-  ];
-  return list.filter((item) => state.popularity >= item.minPop || state.sponsors.includes(item.id));
+  return sponsorDeals.filter((item) => item.tier !== "Local" || state.sponsors.includes(item.id));
+}
+
+function sponsorRequirementMet(sponsor) {
+  return state.popularity >= (sponsor.minPop || 0) && state.reputation >= (sponsor.minRep || 0);
 }
 
 function renderLegacy() {
@@ -1778,6 +2516,7 @@ function train(id) {
   maybeInjury("training");
   addNews(`Entrenamiento completado: ${session.title}.`);
   render();
+  pulseElement("#tab-training", "panel-flash");
 }
 
 function maybeInjury(source) {
@@ -1820,6 +2559,134 @@ function cardOutcome(mode, isDef) {
   };
 }
 
+function matchSquad(clubName, includeUser = false) {
+  const base = playersForClub(clubName, includeUser ? 10 : 11).map((player) => ({
+    name: player.name,
+    pos: player.pos || "Jugador",
+    base: player.rating || 72
+  }));
+  const fillers = ["POR", "LD", "DFC", "LI", "MCD", "MC", "MCO", "ED", "EI", "DC"].map((pos, index) => ({
+    name: `${pos} ${clubName.split(" ")[0]} ${index + 1}`,
+    pos,
+    base: 66 + random(0, 10)
+  }));
+  const squad = [...base, ...fillers].slice(0, includeUser ? 10 : 11);
+  if (includeUser) {
+    squad.unshift({ name: state.profile.name, pos: state.profile.position, base: overall(), user: true });
+  }
+  return squad.slice(0, 11);
+}
+
+function pickPerformer(squad, avoidUser = false) {
+  const pool = avoidUser ? squad.filter((player) => !player.user) : squad;
+  return pool[random(0, Math.max(0, pool.length - 1))] || squad[0];
+}
+
+function pickDifferentPerformer(squad, excluded = [], avoidUser = false) {
+  const blocked = new Set(excluded.filter(Boolean).map((player) => player.name));
+  const pool = squad.filter((player) => (!avoidUser || !player.user) && !blocked.has(player.name));
+  return pool[random(0, Math.max(0, pool.length - 1))] || pickPerformer(squad, avoidUser);
+}
+
+function playerRating(base, teamMod = 0, userBoost = 0) {
+  return clamp(Number((5.2 + base / 34 + teamMod + userBoost + random(-8, 10) / 10).toFixed(1)), 4.0, 10.0);
+}
+
+function buildIndividualRatings(teamSquad, rivalSquad, resultMod, rivalMod, userRating) {
+  const teamRatings = teamSquad.map((player) => ({
+    ...player,
+    rating: player.user ? userRating : playerRating(player.base, resultMod)
+  })).sort((a, b) => b.rating - a.rating);
+  const rivalRatings = rivalSquad.map((player) => ({
+    ...player,
+    rating: playerRating(player.base, rivalMod)
+  })).sort((a, b) => b.rating - a.rating);
+  return { teamRatings, rivalRatings };
+}
+
+function buildMatchTimeline({ teamGoals, rivalGoals, goals, assists, yellowCard, redCard, saves, mode, teamSquad, rivalSquad, matchCompetition }) {
+  const events = [];
+  const usedMinutes = new Set();
+  const nextMinute = (min = 2, max = 90) => {
+    let minute = random(min, max);
+    while (usedMinutes.has(minute)) minute = clamp(minute + 1, min, 90);
+    usedMinutes.add(minute);
+    return minute;
+  };
+  events.push({ minute: 1, type: "kickoff", text: `Arranca ${matchCompetition}. ${state.club} intenta imponer ritmo desde el primer pase.` });
+  const userPlayer = teamSquad.find((player) => player.user);
+  const teamGoalEvents = [];
+  const userGoals = Math.min(goals, teamGoals);
+  const userAssists = Math.min(assists, Math.max(0, teamGoals - userGoals));
+  for (let i = 0; i < userGoals; i += 1) {
+    teamGoalEvents.push({
+      scorer: userPlayer,
+      assister: Math.random() < 0.55 ? pickDifferentPerformer(teamSquad, [userPlayer], true) : null
+    });
+  }
+  for (let i = 0; i < userAssists; i += 1) {
+    const scorer = pickDifferentPerformer(teamSquad, [userPlayer], true);
+    teamGoalEvents.push({ scorer, assister: userPlayer });
+  }
+  while (teamGoalEvents.length < teamGoals) {
+    const scorer = pickPerformer(teamSquad, true);
+    const assister = Math.random() < 0.55 ? pickDifferentPerformer(teamSquad, [scorer], true) : null;
+    teamGoalEvents.push({ scorer, assister });
+  }
+  teamGoalEvents.forEach(({ scorer, assister }) => {
+    events.push({
+      minute: nextMinute(8, 86),
+      type: "goal",
+      text: `Gol de ${state.club}: ${scorer?.name || state.profile.name} define ${assister ? `tras pase de ${assister.name}` : "despues de una jugada colectiva"}.`
+    });
+  });
+  for (let i = 0; i < rivalGoals; i += 1) {
+    const scorer = pickPerformer(rivalSquad);
+    const assister = Math.random() < 0.48 ? pickDifferentPerformer(rivalSquad, [scorer]) : null;
+    events.push({
+      minute: nextMinute(10, 88),
+      type: "goal-against",
+      text: `Gol de ${state.nextOpponent}: ${scorer.name}${assister ? ` recibe de ${assister.name} y` : ""} castiga una desconcentracion defensiva.`
+    });
+  }
+  if (saves) {
+    events.push({ minute: nextMinute(18, 78), type: "save", text: `${state.profile.name} sostiene al equipo con una atajada clave abajo.` });
+  }
+  if (yellowCard) events.push({ minute: nextMinute(22, 74), type: "card", text: `${state.profile.name} ve amarilla por cortar una transicion.` });
+  if (redCard) events.push({ minute: nextMinute(35, 82), type: "red", text: `Roja para ${state.profile.name}. El equipo queda condicionado hasta el final.` });
+  events.push({
+    minute: nextMinute(12, 38),
+    type: "chance",
+    text: `${pickPerformer(teamSquad).name} prueba desde media distancia y obliga al arquero rival a trabajar.`
+  });
+  events.push({
+    minute: nextMinute(46, 70),
+    type: "tactical",
+    text: `El cuerpo tecnico ajusta presion y altura defensiva en modo ${matchModeLabel(mode)}.`
+  });
+  events.push({
+    minute: nextMinute(65, 88),
+    type: "duel",
+    text: `${state.profile.name} gana un duelo importante ante ${pickPerformer(rivalSquad).name}.`
+  });
+  events.push({ minute: 90, type: "fulltime", text: `Final: ${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}.` });
+  return events.sort((a, b) => a.minute - b.minute);
+}
+
+function buildTeamStats({ teamGoals, rivalGoals, shots, keyPasses, tackles, saves, rating }) {
+  const possession = clamp(Math.round(48 + (rating - 6.5) * 5 + random(-8, 8)), 34, 66);
+  const teamShots = clamp(shots + random(teamGoals + 4, teamGoals + 10), teamGoals, 22);
+  const rivalShots = clamp(rivalGoals + random(4, 13) - Math.round(tackles / 4) - saves, rivalGoals, 20);
+  return {
+    possession,
+    teamShots,
+    rivalShots,
+    xg: Number(clamp(teamGoals * 0.72 + teamShots / 9 + keyPasses / 10, 0.2, 4.8).toFixed(1)),
+    rivalXg: Number(clamp(rivalGoals * 0.7 + rivalShots / 10, 0.1, 4.6).toFixed(1)),
+    recoveries: clamp(tackles + random(12, 34), 8, 52)
+  };
+}
+
 function playMatch() {
   if (state.playedThisWeek || state.injuryWeeks > 0 || state.suspensionWeeks > 0 || state.retired || tacticalSim?.running) return;
   state.currentMatchObjectives = createMatchObjectives();
@@ -1836,19 +2703,22 @@ function finalizeTacticalMatch(simResult = null) {
   const form = (state.morale - state.fatigue) / 22 + (state.coach - 50) / 35;
   const rating = simResult?.rating ?? clamp(Number((5.4 + ov / 22 + form + modeBoost + Math.random() * 1.4).toFixed(1)), 4.0, 10.0);
   const pos = state.profile.position;
-  const isAttacker = ["DC", "EI", "MCO"].includes(pos);
-  const isMid = ["MC", "MCO"].includes(pos);
-  const isDef = ["DFC", "POR"].includes(pos);
+  const isAttacker = attackingPositions.has(pos);
+  const isMid = midfieldPositions.has(pos);
+  const isDef = defensivePositions.has(pos);
   const finisherBoost = state.traits.includes("Matador") ? 0.05 : 0;
   const creatorBoost = state.traits.includes("Arquitecto") ? 0.05 : 0;
   const defenderBoost = state.traits.includes("Anticipador") ? 0.06 : 0;
-  const goals = simResult?.goals ?? (isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420));
-  const assists = simResult?.assists ?? (isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520));
+  const rawGoals = isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420);
+  const rawAssists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
   const cleanSheet = simResult?.cleanSheet ?? (isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0);
-  const teamGoals = simResult?.teamGoals ?? clamp(goals + assists + random(0, 2), 0, 5);
+  const teamGoals = simResult?.teamGoals ?? clamp(rawGoals + rawAssists + random(0, 2), 0, 5);
+  const goals = simResult?.goals ?? Math.min(rawGoals, teamGoals);
+  const assists = simResult?.assists ?? Math.min(rawAssists, Math.max(0, teamGoals - goals));
   const rivalGoals = simResult?.rivalGoals ?? (cleanSheet ? 0 : random(0, 4));
   const won = simResult?.won ?? teamGoals > rivalGoals;
   const drew = simResult?.drew ?? teamGoals === rivalGoals;
+  const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
   const rivalStar = topPlayersForClub(state.nextOpponent)[0];
   const duelText = rivalStar ? ` Duelo destacado contra ${rivalStar.name}.` : "";
   const shots = simResult?.shots ?? (isAttacker ? random(goals, goals + 4 + (mode === "full" ? 2 : 0)) : random(0, 2));
@@ -1858,7 +2728,23 @@ function finalizeTacticalMatch(simResult = null) {
   const passAccuracy = simResult?.passAccuracy ?? clamp(Math.round(64 + rating * 3 + state.attrs.pase / 4 + random(-5, 6)), 52, 96);
   const cardResult = simResult ? { yellowCard: simResult.yellowCard, redCard: simResult.redCard } : cardOutcome(mode, isDef || pos === "MC");
   const { yellowCard, redCard } = cardResult;
-  const details = { mode, teamGoals, rivalGoals, rating, goals, assists, cleanSheet, shots, keyPasses, tackles, saves, passAccuracy, yellowCard, redCard, simStats: simResult?.simStats || null };
+  const teamSquad = matchSquad(state.club, true);
+  const rivalSquad = matchSquad(state.nextOpponent);
+  const resultMod = won ? 0.55 : drew ? 0.12 : -0.28;
+  const rivalMod = won ? -0.25 : drew ? 0.08 : 0.48;
+  const { teamRatings, rivalRatings } = buildIndividualRatings(teamSquad, rivalSquad, resultMod, rivalMod, rating);
+  const teamStats = simResult?.simStats
+    ? {
+      possession: simResult.simStats.possessionHome,
+      teamShots: simResult.simStats.shotsHome,
+      rivalShots: simResult.simStats.shotsAway,
+      xg: simResult.simStats.xgHome,
+      rivalXg: simResult.simStats.xgAway,
+      recoveries: clamp(tackles + random(12, 34), 8, 52)
+    }
+    : buildTeamStats({ teamGoals, rivalGoals, shots, keyPasses, tackles, saves, rating });
+  const timeline = buildMatchTimeline({ teamGoals, rivalGoals, goals, assists, yellowCard, redCard, saves, mode, teamSquad, rivalSquad, matchCompetition });
+  const details = { mode, rating, goals, assists, cleanSheet, shots, keyPasses, tackles, saves, passAccuracy, yellowCard, redCard, teamGoals, rivalGoals, teamStats, timeline, teamRatings, rivalRatings, simStats: simResult?.simStats || null };
   updateStats(details);
   state.lastMatchDetails = details;
   completeMatchObjectives(details);
@@ -1867,9 +2753,11 @@ function finalizeTacticalMatch(simResult = null) {
   state.coach = clamp(state.coach + Math.round((rating - 6.6) * 3), 0, 100);
   state.popularity = clamp(state.popularity + goals * 3 + assists * 2 + (won ? 2 : -1), 0, 100);
   state.reputation = clamp(state.reputation + Math.max(0, Math.round(rating - 6.2)), 0, 100);
-  const followerGain = Math.round(180 + rating * 80 + goals * 500 + assists * 260 + (state.lifestyle.includes("styleBrand") ? 260 : 0));
+  const sponsorFans = sponsorFollowerBonus(details);
+  const matchSponsorBonus = sponsorBonus(details);
+  const followerGain = Math.round(180 + rating * 80 + goals * 500 + assists * 260 + sponsorFans + (state.lifestyle.includes("styleBrand") ? 260 : 0));
   state.followers += followerGain;
-  state.money += state.salary + sponsorBonus(goals, assists);
+  state.money += state.salary + matchSponsorBonus;
   state.marketValue = Math.round(state.marketValue * (1 + (rating - 6) / 160) + goals * 18 + assists * 10);
   state.playedThisWeek = true;
   if (yellowCard) state.yellowCards += 1;
@@ -1884,11 +2772,29 @@ function finalizeTacticalMatch(simResult = null) {
   updateMissionProgress("rating", rating);
   updateMissionProgress("followers", followerGain);
   maybeInjury("match");
-  const matchCompetition = state.nextCompetition && state.nextCompetition !== "Liga" ? state.nextCompetition : state.league;
   const resultMarkup = `<h3>${state.club} ${teamGoals} - ${rivalGoals} ${state.nextOpponent}</h3>
     <p>${matchCompetition} - ${matchModeLabel(mode)}</p>
-    <p>Media ${rating}, ${goals} goles, ${assists} asistencias, ${shots} tiros, ${keyPasses} pases clave, ${tackles} entradas${saves ? `, ${saves} atajadas` : ""}${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>
-    <p>${yellowCard ? "Tarjeta amarilla." : ""}${redCard ? " Tarjeta roja y suspension." : ""}</p>`;
+    <p>Tu media ${rating}, ${goals} goles, ${assists} asistencias, ${shots} tiros, ${keyPasses} pases clave, ${tackles} entradas${saves ? `, ${saves} atajadas` : ""}${cleanSheet ? ", valla invicta" : ""}.${duelText}</p>
+    <div class="match-team-stats">
+      <span>Posesion ${teamStats.possession}%</span>
+      <span>Tiros ${teamStats.teamShots}-${teamStats.rivalShots}</span>
+      <span>xG ${teamStats.xg}-${teamStats.rivalXg}</span>
+      <span>Recuperaciones ${teamStats.recoveries}</span>
+    </div>
+    <div class="match-timeline">
+      ${timeline.map((event) => `<div class="match-event ${event.type}"><strong>${event.minute}'</strong><p>${event.text}</p></div>`).join("")}
+    </div>
+    <div class="match-ratings">
+      <div>
+        <h4>${state.club}</h4>
+        ${teamRatings.slice(0, 5).map((player) => `<p><strong>${player.rating}</strong> ${player.name} <span>${player.pos}</span></p>`).join("")}
+      </div>
+      <div>
+        <h4>${state.nextOpponent}</h4>
+        ${rivalRatings.slice(0, 5).map((player) => `<p><strong>${player.rating}</strong> ${player.name} <span>${player.pos}</span></p>`).join("")}
+      </div>
+    </div>
+    <p>${yellowCard ? "Tarjeta amarilla." : ""}${redCard ? " Tarjeta roja y suspension." : ""}${matchSponsorBonus ? ` Bonos de patrocinio: ${moneyText(matchSponsorBonus)}.` : ""}</p>`;
   addNews(`${matchCompetition}: ${state.club} ${teamGoals}-${rivalGoals} ${state.nextOpponent}. Media ${rating}.${redCard ? " Expulsado." : ""}${duelText}`);
   if (rating >= 8.6) maybeAward("Jugador de la semana");
   maybeNationalCall(rating);
@@ -1898,6 +2804,8 @@ function finalizeTacticalMatch(simResult = null) {
     $("#restBtn").removeAttribute("disabled");
   }
   $("#matchResult").innerHTML = resultMarkup;
+  pulseElement("#matchResult", "match-result-pop");
+  showToast("Partido jugado. Ya puedes avanzar la semana.");
 }
 
 function chanceCount(probability) {
@@ -1925,12 +2833,29 @@ function updateStats({ rating, goals, assists, cleanSheet, shots = 0, keyPasses 
   }
 }
 
-function sponsorBonus(goals, assists) {
-  let bonus = 0;
-  if (state.sponsors.includes("boots")) bonus += goals * 8 + assists * 4;
-  if (state.sponsors.includes("drink")) bonus += 10;
-  if (state.sponsors.includes("global")) bonus += 25;
-  return bonus;
+function sponsorBonus(details = {}) {
+  return state.sponsors.reduce((bonus, id) => {
+    const sponsor = sponsorDeals.find((item) => item.id === id);
+    if (!sponsor) return bonus;
+    const ratingBonus = details.rating >= 8 ? (sponsor.ratingBonus || 0) : 0;
+    const cleanBonus = details.cleanSheet ? (sponsor.cleanSheetBonus || 0) : 0;
+    const followerMoney = sponsor.followerBonus ? Math.round((sponsor.followerBonus || 0) / 80) : 0;
+    return bonus
+      + (sponsor.flatBonus || 0)
+      + (details.goals || 0) * (sponsor.goalBonus || 0)
+      + (details.assists || 0) * (sponsor.assistBonus || 0)
+      + ratingBonus
+      + cleanBonus
+      + followerMoney;
+  }, 0);
+}
+
+function sponsorFollowerBonus(details = {}) {
+  if (details.rating < 7.6) return 0;
+  return state.sponsors.reduce((sum, id) => {
+    const sponsor = sponsorDeals.find((item) => item.id === id);
+    return sum + (sponsor?.followerBonus || 0);
+  }, 0);
 }
 
 function maybeAward(title) {
@@ -1951,20 +2876,32 @@ function maybeNationalCall(rating) {
 }
 
 function rest() {
+  if (state.retired || state.restedThisWeek) return;
   const recoveryBonus = state.lifestyle.includes("recoveryRoom") ? 12 : 0;
   state.fatigue = clamp(state.fatigue - 24 - recoveryBonus, 0, 100);
   state.morale = clamp(state.morale + 3, 0, 100);
   if (state.injuryWeeks > 0) state.injuryWeeks -= 1;
-  addNews("Semana de descanso y recuperacion.");
+  state.restedThisWeek = true;
+  addNews("Sesion de recuperacion completada. La semana sigue activa.");
   render();
+  pulseElement("#tab-match", "panel-flash");
+  showToast("Recuperaste fisico, pero el calendario no avanzo.");
 }
 
 function advanceWeek() {
   if (state.retired) return;
+  if (hasMandatoryMatchPending()) {
+    showToast("Primero juega el partido pendiente de esta semana.");
+    pulseElement("#tab-match", "panel-flash");
+    return;
+  }
+  const fromSeason = state.season;
+  const fromWeek = state.week;
   state.week += 1;
   state.money += state.salary;
   state.trainedThisWeek = false;
   state.playedThisWeek = false;
+  state.restedThisWeek = false;
   const fixture = nextFixture(state.club);
   state.nextOpponent = fixture.opponent;
   state.nextCompetition = fixture.competition;
@@ -1972,10 +2909,21 @@ function advanceWeek() {
   if (state.suspensionWeeks > 0) state.suspensionWeeks -= 1;
   state.currentMatchObjectives = createMatchObjectives();
   state.fatigue = clamp(state.fatigue - 8 - (state.traits.includes("Inagotable") ? 5 : 0), 0, 100);
-  if (Math.random() < 0.45) state.socialQueue = [randomSocial()];
-  if ([10, 20, 30].includes(state.week) || Math.random() < 0.08) generateOffers();
+  if (Math.random() < 0.68) state.socialQueue = [randomSocial()];
+  const window = transferWindowStatus();
+  if (window.open) {
+    generateTransferRumors(random(2, 4));
+    if (state.lastOfferWindow !== transferWindowKey() || Math.random() < 0.28) generateOffers();
+  } else {
+    const activeExternalOffers = state.offers.filter((offer) => offer.type !== "renewal").length;
+    if (activeExternalOffers) addNews("Cerro la ventana de mercado: las ofertas de traspaso y prestamo expiraron.");
+    state.offers = state.offers.filter((offer) => offer.type === "renewal");
+    if (Math.random() < 0.38) generateTransferRumors(1);
+  }
   if (state.week > 38) endSeason();
   render();
+  animateCalendarAdvance(fromSeason, fromWeek, state.season, state.week);
+  pulseElement(".career-header", "calendar-flash");
 }
 
 function endSeason() {
@@ -2021,6 +2969,14 @@ function endSeason() {
 }
 
 function generateOffers(force = false) {
+  if (!isTransferWindow()) {
+    generateTransferRumors(force ? 2 : 1, force);
+    if (force) {
+      addNews(`Tu agente aviso que no puede presentar ofertas: ${transferWindowStatus().description}`);
+      showToast("Mercado cerrado: solo hay rumores y seguimientos.");
+    }
+    return;
+  }
   const ov = overall();
   const current = clubs.find((club) => club.name === state.club) || clubs[0];
   const minRep = force ? 0 : state.reputation;
@@ -2033,24 +2989,36 @@ function generateOffers(force = false) {
     .slice(0, state.profile.age <= 23 || ov < 72 ? 2 : 0)
     .map((club) => makeClubOffer(club, "loan"));
   state.offers = [...transferOffers, ...loanPool];
-  if (state.offers.length) addNews("Tu agente recibio nuevas ofertas de clubes.");
+  state.lastOfferWindow = transferWindowKey();
+  state.offers.forEach((offer) => pushTransferRumor(makePlayerRumor(offer), false));
+  if (state.offers.length) addNews(`Tu agente recibio ofertas durante el ${transferWindowStatus().label}.`);
 }
 
 function makeClubOffer(club, type = "transfer") {
   const ov = overall();
   const years = type === "loan" ? 1 : random(2, 5);
   const salary = Math.round((club.salary + ov * club.tier * 0.45 + state.reputation / 4) * (type === "loan" ? 0.72 : 1));
+  const fit = clamp(Math.round((club.rep + ov + state.reputation + state.popularity) / 4), 45, 98);
+  const fee = type === "loan" ? 0 : Math.round(state.marketValue * random(85, 145) / 100);
+  const journalist = randomJournalist(state.league?.includes("Argentina") || club.league?.includes("Argentina"));
   return {
     club: club.name,
     league: club.league,
     type,
     salary,
     years,
+    fee,
+    fit,
+    journalist: journalist.name,
+    window: transferWindowStatus().label,
+    deadlineWeek: transferWindowStatus().id === "winter" ? 24 : 6,
     bonus: type === "loan" ? 0 : Math.round(club.salary * random(6, 16)),
     releaseClause: contractClauseFor({ salary, years, marketValue: state.marketValue, tier: club.tier }),
     negotiations: 0,
     locked: false,
-    message: type === "loan" ? "El club busca darte minutos y continuidad." : ""
+    message: type === "loan"
+      ? `El club busca darte minutos y continuidad. Encaje deportivo ${fit}/100.`
+      : `Seguimiento confirmado por ${journalist.name}. Encaje deportivo ${fit}/100 y operacion cercana a ${valueText(fee)}.`
   };
 }
 
@@ -2067,6 +3035,7 @@ function acceptOffer(index) {
     state.coach = clamp(state.coach + 4, 0, 100);
     addNews(`Renovaste con ${offer.club}. Salario: ${moneyText(offer.salary)} por semana.`);
   } else if (offer.type === "loan") {
+    const confirmation = makePlayerRumor(offer, "confirmed");
     state.loan = {
       parentClub: state.club,
       parentLeague: state.league,
@@ -2075,10 +3044,13 @@ function acceptOffer(index) {
       untilSeason: state.season + 1
     };
     moveToClub(club, offer, "loan");
+    pushTransferRumor(confirmation, true);
     addNews(`Te vas cedido a ${offer.club} por una temporada.`);
   } else {
+    const confirmation = makePlayerRumor(offer, "confirmed");
     moveToClub(club, offer, "transfer");
     state.money += offer.bonus;
+    pushTransferRumor(confirmation, true);
     addNews(`Fichaste por ${offer.club}. Nuevo salario: ${moneyText(offer.salary)} por semana.`);
   }
   state.offers = [];
@@ -2089,6 +3061,20 @@ function rejectOffer(index) {
   state.offers.splice(index, 1);
   state.reputation = clamp(state.reputation + 1, 0, 100);
   render();
+}
+
+function talkToAgent() {
+  if (!isTransferWindow()) {
+    generateTransferRumors(2, true);
+    addNews(`Tu agente solo puede sondear clubes: ${transferWindowStatus().description}`);
+    showToast("Mercado cerrado: no pueden llegar ofertas.");
+    render();
+    return;
+  }
+  generateOffers(true);
+  generateTransferRumors(2);
+  render();
+  pulseElement("#tab-market", "panel-flash");
 }
 
 function requestRenewal() {
@@ -2149,6 +3135,11 @@ function negotiateOffer(index) {
 }
 
 function applySocial(postIndex, optionIndex) {
+  if (state.socialRespondedDate === todayKey()) {
+    showToast("Ya respondiste una publicacion hoy.");
+    pulseElement("#tab-social", "panel-flash");
+    return;
+  }
   const post = state.socialQueue[postIndex];
   const option = post?.options[optionIndex];
   if (!option) return;
@@ -2163,15 +3154,17 @@ function applySocial(postIndex, optionIndex) {
   updateMissionProgress("social", 1);
   updateMissionProgress("followers", followerGain);
   addXp(12);
+  state.socialRespondedDate = todayKey();
   state.socialQueue.splice(postIndex, 1);
   addNews(`Redes: ${option.text}`);
   render();
+  pulseElement("#tab-social", "panel-flash");
 }
 
 function unlockSkill(id) {
-  const node = skillNodes.find((item) => item.id === id);
+  const node = visibleSkillNodes().find((item) => item.id === id);
   if (!node || state.unlockedSkills.includes(id)) return;
-  if (node.req && !state.unlockedSkills.includes(node.req)) return;
+  if (!skillReqsMet(node)) return;
   if (state.skillPoints < node.cost) return;
   state.skillPoints -= node.cost;
   state.unlockedSkills.push(id);
@@ -2186,8 +3179,9 @@ function unlockSkill(id) {
     const secondary = secondaryPositionFor(state.profile.position);
     if (!state.secondaryPositions.includes(secondary)) state.secondaryPositions.push(secondary);
   }
-  addNews(`Habilidad desbloqueada: ${node.title}.`);
+  addNews(`Mejora de arquetipo desbloqueada: ${node.title}.`);
   render();
+  pulseElement("#skillTree", "panel-flash");
 }
 
 function claimDailyReward() {
@@ -2203,12 +3197,14 @@ function claimDailyReward() {
 
 function signSponsor(id) {
   const sponsor = availableSponsors().find((item) => item.id === id);
-  if (!sponsor || state.sponsors.includes(id)) return;
+  if (!sponsor || state.sponsors.includes(id) || !sponsorRequirementMet(sponsor)) return;
   state.sponsors.push(id);
   state.money += sponsor.pay;
-  state.popularity = clamp(state.popularity + 4, 0, 100);
-  addNews(`Patrocinio firmado: ${sponsor.name}.`);
+  state.popularity = clamp(state.popularity + (sponsor.tier === "Elite" ? 7 : 4), 0, 100);
+  state.reputation = clamp(state.reputation + (sponsor.tier === "Elite" ? 4 : 2), 0, 100);
+  addNews(`Patrocinio firmado con ${sponsor.name}: prima ${moneyText(sponsor.pay)} y bonos por rendimiento.`);
   render();
+  pulseElement("#tab-market", "panel-flash");
 }
 
 function buyLifestyle(id) {
@@ -2254,13 +3250,38 @@ function setupEvents() {
     button.addEventListener("click", () => {
       document.querySelectorAll(".tab").forEach((item) => item.classList.toggle("active", item === button));
       document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.add("hidden"));
-      $(`#tab-${button.dataset.tab}`).classList.remove("hidden");
+      const panel = $(`#tab-${button.dataset.tab}`);
+      panel.classList.remove("hidden");
+      pulseElement(`#tab-${button.dataset.tab}`, "panel-enter");
     });
   });
 
   document.addEventListener("click", (event) => {
     const target = event.target;
     if (!(target instanceof HTMLElement)) return;
+    const startClubButton = target.closest("[data-start-club]");
+    if (startClubButton) {
+      selectStartingClub(decodeURIComponent(startClubButton.dataset.startClub || ""));
+      return;
+    }
+    const skillTabButton = target.closest("[data-skill-tab]");
+    if (skillTabButton) {
+      state.skillTreeTab = skillTabButton.dataset.skillTab;
+      state.selectedSkillId = "";
+      render();
+      return;
+    }
+    const skillSelectButton = target.closest("[data-skill-select]");
+    if (skillSelectButton) {
+      state.selectedSkillId = skillSelectButton.dataset.skillSelect;
+      render();
+      return;
+    }
+    const skillButton = target.closest("[data-skill]");
+    if (skillButton) {
+      unlockSkill(skillButton.dataset.skill);
+      return;
+    }
     if (target.dataset.training) train(target.dataset.training);
     if (target.dataset.social) {
       const [post, option] = target.dataset.social.split(":").map(Number);
@@ -2271,7 +3292,6 @@ function setupEvents() {
     if (target.dataset.negotiate !== undefined) negotiateOffer(Number(target.dataset.negotiate));
     if (target.dataset.sponsor) signSponsor(target.dataset.sponsor);
     if (target.dataset.lifestyle) buyLifestyle(target.dataset.lifestyle);
-    if (target.dataset.skill) unlockSkill(target.dataset.skill);
     if (target.dataset.speed) {
       state.simSpeed = Number(target.dataset.speed) || 1;
       setTacticalTimer();
@@ -2310,10 +3330,7 @@ function setupEvents() {
   $("#restBtn").addEventListener("click", rest);
   $("#advanceWeekBtn").addEventListener("click", advanceWeek);
   $("#dailyRewardBtn").addEventListener("click", claimDailyReward);
-  $("#agentBtn").addEventListener("click", () => {
-    generateOffers(true);
-    render();
-  });
+  $("#agentBtn").addEventListener("click", talkToAgent);
   $("#renewalBtn").addEventListener("click", requestRenewal);
   $("#saveBtn").addEventListener("click", () => {
     save();
