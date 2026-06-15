@@ -2006,6 +2006,10 @@ function drawTacticalPlayers(players, ball) {
 
 function updateTacticalPositions() {
   if (!tacticalSim) return;
+  const pitch = $("#tacticalPitch");
+  pitch.classList.toggle("home-possession", tacticalSim.possessionSide === "home");
+  pitch.classList.toggle("away-possession", tacticalSim.possessionSide === "away");
+  pitch.dataset.liveState = tacticalSim.lastAction || "posesion";
   tacticalSim.players.forEach((player) => {
     const node = document.querySelector(`[data-player-id="${player.id}"]`);
     if (!node) return;
@@ -2019,8 +2023,9 @@ function updateTacticalPositions() {
 
 function moveBall(ball) {
   const node = $("#simBall");
-  node.style.left = `${ball.x}%`;
-  node.style.top = `${ball.y}%`;
+  if (!node || !ball) return;
+  node.style.left = `${clamp(ball.x, 2, 98)}%`;
+  node.style.top = `${clamp(ball.y, 4, 96)}%`;
 }
 
 function addLiveComment(text, important = false) {
@@ -2109,31 +2114,53 @@ function setTacticalTimer() {
 
 function tacticalTick() {
   if (!tacticalSim?.running) return;
-  tacticalSim.minute += 1;
-  moveTacticalShape();
-  const event = calculateTacticalEvent();
-  updateTacticalPositions();
-  renderTacticalStats();
-  if (event?.important) {
-    highlightEvent(event.text);
-    maybePauseForKeyMoment(event);
+  try {
+    tacticalSim.minute = Math.min(90, tacticalSim.minute + 1);
+    const event = calculateTacticalEvent();
+    moveTacticalShape(event);
+    updateTacticalPositions();
+    renderTacticalStats();
+    if (event?.important && tacticalSim?.running) {
+      highlightEvent(event.text);
+      maybePauseForKeyMoment(event);
+    }
+    if (tacticalSim?.minute >= 90) finishTacticalSimulation();
+  } catch (error) {
+    console.error("Error en la simulacion tactica", error);
+    if (tacticalSim?.running) finishTacticalSimulation();
   }
-  if (tacticalSim.minute >= 90) finishTacticalSimulation();
 }
 
-function moveTacticalShape() {
+function moveTacticalShape(event = null) {
   const sim = tacticalSim;
   const mentality = mentalitySettings[state.tacticalMentality] || mentalitySettings.balanced;
   const attackDirection = sim.possessionSide === "home" ? 1 : -1;
   const pressure = Number(state.pressureLevel) || 3;
+  const active = sim.activePlayer;
+  const ballTarget = event?.ball || (active
+    ? {
+      x: active.x + attackDirection * (event?.important ? 4.2 : 2.4),
+      y: active.y + (event?.important ? random(-3, 3) : 0)
+    }
+    : sim.ball);
   sim.players.forEach((player) => {
     const ownsBall = player.side === sim.possessionSide;
-    const advance = ownsBall ? 9 * attackDirection : -5 * attackDirection;
-    const pressureShift = ownsBall ? pressure * 0.6 * attackDirection : pressure * 0.35 * attackDirection;
+    const activeShift = active?.id === player.id ? 10 * attackDirection : 0;
+    const advance = ownsBall ? 7 * attackDirection : -4 * attackDirection;
+    const pressureShift = ownsBall ? pressure * 0.55 * attackDirection : pressure * 0.3 * attackDirection;
+    const compactY = active && player.side === active.side ? (active.y - player.baseY) * 0.08 : 0;
+    const targetX = player.baseX + advance + activeShift + pressureShift + (player.side === "home" ? mentality.line * 0.18 : 0);
+    const targetY = player.baseY + compactY;
     player.fatigue = clamp(player.fatigue + 0.03 + pressure * 0.004, 0, 100);
-    player.x = clamp(player.baseX + advance + pressureShift + random(-3, 3) + (player.side === "home" ? mentality.line * 0.18 : 0), 4, 96);
-    player.y = clamp(player.baseY + random(-5, 5), 8, 92);
+    player.x = clamp(player.x + (targetX - player.x) * 0.42 + random(-0.8, 0.8), 4, 96);
+    player.y = clamp(player.y + (targetY - player.y) * 0.35 + random(-1.1, 1.1), 8, 92);
   });
+  if (ballTarget) {
+    sim.ball = {
+      x: clamp(ballTarget.x, 3, 97),
+      y: clamp(ballTarget.y, 6, 94)
+    };
+  }
 }
 
 function chooseActivePlayer(side) {
@@ -2157,6 +2184,7 @@ function calculateTacticalEvent() {
     const winner = chooseActivePlayer(sim.possessionSide);
     sim.activePlayer = winner;
     sim.ball = { x: winner.x, y: winner.y };
+    sim.lastAction = "recuperacion";
     addLiveComment(`${winner.name} recupera y ordena la salida.`);
     return null;
   }
@@ -2164,6 +2192,7 @@ function calculateTacticalEvent() {
   const actor = chooseActivePlayer(sim.possessionSide);
   sim.activePlayer = actor;
   sim.ball = { x: actor.x, y: actor.y };
+  sim.lastAction = "posesion";
   const sideKey = sim.possessionSide === "home" ? "Home" : "Away";
   const playerInvolved = actor.user || (sim.possessionSide === "home" && Math.random() < 0.18);
   const attackChance = clamp(0.12 + (sim.possessionSide === "home" ? homeQuality - awayQuality : awayQuality - homeQuality) / 180 + Math.abs(mentality.attack) * 0.25, 0.06, 0.32);
@@ -2174,9 +2203,11 @@ function calculateTacticalEvent() {
     if (card) {
       sim.stats[`yellow${sideKey}`] += 1;
       if (actor.user) sim.player.yellowCard = true;
+      sim.lastAction = "falta";
       addLiveComment(`Falta fuerte de ${actor.name}. Tarjeta amarilla.`, true);
       return { important: true, text: "Tarjeta amarilla" };
     }
+    sim.lastAction = "falta";
     addLiveComment(`Infraccion de ${actor.name}. Tiro libre para el rival.`);
     return null;
   }
@@ -2203,15 +2234,18 @@ function calculateTacticalEvent() {
         sim.player.keyPasses += 1;
         sim.player.rating += 0.45;
       }
+      sim.lastAction = "gol";
       addLiveComment(`GOOOL de ${actor.name}. ${state.club} ${sim.homeGoals}-${sim.awayGoals} ${state.nextOpponent}.`, true);
-      return { important: true, text: "GOOOL" };
+      return { important: true, text: "GOOOL", ball: { x: sim.possessionSide === "home" ? 97 : 3, y: 50 } };
     }
     if (onTarget) {
+      sim.lastAction = "atajada";
       addLiveComment(`${actor.name} remata y el arquero responde con una gran atajada.`, true);
-      return { important: true, text: "Atajada importante" };
+      return { important: true, text: "Atajada importante", ball: { x: sim.possessionSide === "home" ? 92 : 8, y: random(35, 65) } };
     }
+    sim.lastAction = "remate";
     addLiveComment(`${actor.name} encuentra espacio y remata desviado.`);
-    return null;
+    return { ball: { x: sim.possessionSide === "home" ? 94 : 6, y: random(24, 76) } };
   }
 
   sim.stats[`passes${sideKey}`] += random(2, 7);
@@ -2226,6 +2260,7 @@ function calculateTacticalEvent() {
     `${actor.name} filtra una pelota entre lineas.`,
     `${actor.name} pausa y espera el desmarque.`
   ];
+  sim.lastAction = "pase";
   addLiveComment(passTexts[random(0, passTexts.length - 1)]);
   return null;
 }
@@ -2272,6 +2307,7 @@ function renderTacticalStats() {
   const sim = tacticalSim;
   if (!sim) return;
   $("#matchStatsPanel").innerHTML = [
+    ["Minuto", `${sim.minute}'`],
     ["Posesion", `${sim.stats.possessionHome}%`],
     ["Tiros", `${sim.stats.shotsHome}-${sim.stats.shotsAway}`],
     ["Al arco", `${sim.stats.onTargetHome}-${sim.stats.onTargetAway}`],
@@ -2281,11 +2317,6 @@ function renderTacticalStats() {
     ["Corners", `${sim.stats.cornersHome}-${sim.stats.cornersAway}`],
     ["xG", `${sim.stats.xgHome.toFixed(2)}-${sim.stats.xgAway.toFixed(2)}`]
   ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
-  const teamTop = details.teamRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
-  const rivalTop = details.rivalRatings?.slice(0, 3).map((player) => `<p><strong>${player.rating}</strong> ${player.name}</p>`).join("") || "";
-  $("#matchStatsPanel").innerHTML = `${statCards}
-    <div class="stat-card match-performers"><span>Figuras propias</span>${teamTop || "<p>Sin datos</p>"}</div>
-    <div class="stat-card match-performers"><span>Figuras rivales</span>${rivalTop || "<p>Sin datos</p>"}</div>`;
 }
 
 function skipToNextEvent() {
@@ -2302,6 +2333,8 @@ function finishTacticalSimulation() {
   if (tacticalSim.autoKeyTimeout) clearTimeout(tacticalSim.autoKeyTimeout);
   tacticalSim.running = false;
   tacticalSim.minute = 90;
+  tacticalSim.lastAction = "final";
+  addLiveComment(`Final del partido: ${state.club} ${tacticalSim.homeGoals}-${tacticalSim.awayGoals} ${state.nextOpponent}.`, true);
   renderSimulationHud();
   const result = tacticalResultFromSim(tacticalSim);
   tacticalSim = null;
