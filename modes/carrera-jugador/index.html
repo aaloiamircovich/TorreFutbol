@@ -15,6 +15,23 @@
           <p>Empeza como promesa, entrena, juega partidos, firma contratos y construye tu legado.</p>
         </div>
 
+        <div class="create-side">
+        <section id="savePanel" class="save-panel hidden">
+          <div>
+            <p class="eyebrow">Partida guardada</p>
+            <h2 id="savePlayerName">Continuar carrera</h2>
+            <p id="saveSummary">Temporada 1 - Semana 1</p>
+          </div>
+          <div class="save-panel-stats">
+            <span><strong id="saveOverall">60</strong> GRL</span>
+            <span id="saveClub">Club</span>
+          </div>
+          <div class="save-panel-actions">
+            <button id="continueCareerBtn" class="primary" type="button">Continuar</button>
+            <button id="resetCareerBtn" class="outline" type="button">Crear nueva</button>
+          </div>
+        </section>
+
         <form id="careerForm" class="create-card">
           <label>
             Nombre del jugador
@@ -79,6 +96,7 @@
 
           <button class="primary" type="submit">Iniciar carrera</button>
         </form>
+        </div>
       </section>
 
       <section id="careerGame" class="game-screen hidden">
@@ -201,6 +219,8 @@
                 </div>
                 <div id="tacticalPitch" class="mini-pitch tactical-pitch">
                   <span></span><span></span><span></span><span></span><span></span>
+                  <div id="simMomentum" class="sim-momentum"><i></i></div>
+                  <div id="dangerZone" class="danger-zone"></div>
                   <div id="simPlayers"></div>
                   <div id="simBall" class="sim-ball"></div>
                   <div id="highlightBanner" class="highlight-banner hidden"></div>

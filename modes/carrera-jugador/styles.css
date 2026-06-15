@@ -100,8 +100,16 @@ select option {
   align-items: stretch;
 }
 
+.create-side {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-width: 0;
+}
+
 .create-hero,
 .create-card,
+.save-panel,
 .career-header,
 .player-card,
 .quick-stats,
@@ -119,6 +127,50 @@ select option {
     linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025)),
     var(--panel);
   box-shadow: 0 18px 38px rgba(0,0,0,0.26);
+}
+
+.save-panel {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background:
+    linear-gradient(135deg, rgba(77,184,255,0.16), rgba(255,200,87,0.08)),
+    var(--panel);
+}
+
+.save-panel h2 {
+  margin: 4px 0;
+}
+
+.save-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.save-panel-stats {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 8px;
+}
+
+.save-panel-stats span {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(0,0,0,0.18);
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.save-panel-stats strong {
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.save-panel-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
 .create-hero {
@@ -651,6 +703,46 @@ h2 {
   box-shadow: inset -18px 0 0 rgba(76,125,255,0.2), inset 18px 0 0 rgba(25,230,129,0.08);
 }
 
+.sim-momentum {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 12px;
+  z-index: 5;
+  height: 7px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(25,230,129,0.28), rgba(255,255,255,0.18) 50%, rgba(76,125,255,0.28));
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.28);
+}
+
+.sim-momentum i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--momentum-width, 12%);
+  border-radius: inherit;
+  background: var(--momentum-color, var(--gold));
+  transform: translateX(var(--momentum-offset, -50%));
+  transition: width 0.35s ease, transform 0.35s ease, background 0.35s ease;
+}
+
+.danger-zone {
+  position: absolute;
+  z-index: 2;
+  width: 23%;
+  height: 54%;
+  top: 23%;
+  left: var(--danger-x, 50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,200,87,0.18), rgba(255,92,112,0.08) 42%, transparent 70%);
+  opacity: var(--danger-opacity, 0);
+  transform: translateX(-50%) scale(var(--danger-scale, 0.9));
+  transition: left 0.35s ease, opacity 0.25s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
 .mini-pitch > span:nth-child(1) {
   position: absolute;
   inset: 18px;
@@ -859,8 +951,54 @@ h2 {
   background: rgba(255,200,87,0.08);
 }
 
+.key-moment-panel.key-active {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255,200,87,0.72);
+  background:
+    linear-gradient(135deg, rgba(255,200,87,0.14), rgba(77,184,255,0.09)),
+    rgba(255,255,255,0.045);
+  animation: keyMomentPulse 1.1s ease infinite;
+}
+
+.key-moment-panel.key-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--red));
+  transform-origin: left;
+  animation: keyTimer 4.5s linear forwards;
+}
+
+.key-moment-panel strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.key-moment-panel p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.key-moment-panel small {
+  display: block;
+  margin-top: 5px;
+  color: var(--gold);
+  font-weight: 850;
+  line-height: 1.2;
+  white-space: normal;
+}
+
 .key-moment-panel .social-actions {
   margin-top: 10px;
+}
+
+.key-moment-panel .social-actions button {
+  align-content: center;
+  min-height: 62px;
 }
 
 .live-commentary h3 {
@@ -2009,6 +2147,25 @@ h2 {
   }
 }
 
+@keyframes keyMomentPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255,200,87,0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(255,200,87,0.11);
+  }
+}
+
+@keyframes keyTimer {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
 @keyframes activeTabPulse {
   0%,
   100% {
@@ -2077,6 +2234,10 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .create-side {
+    align-content: stretch;
+  }
+
   .create-hero {
     min-height: 360px;
   }
@@ -2131,7 +2292,9 @@ h2 {
   .form-grid,
   .club-choice-grid,
   .quick-stats,
-  .attributes-grid {
+  .attributes-grid,
+  .save-panel-actions,
+  .save-panel-stats {
     grid-template-columns: 1fr;
   }
 

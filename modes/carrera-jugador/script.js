@@ -1299,7 +1299,7 @@ function newState(profile) {
     trainedThisWeek: false,
     playedThisWeek: false,
     restedThisWeek: false,
-    matchMode: "simulate",
+    matchMode: "key",
     tacticalMentality: "balanced",
     tacticalFormation: "433",
     pressureLevel: 3,
@@ -1518,6 +1518,16 @@ function overall() {
   return Math.round(focusAvg * 0.68 + allAvg * 0.32);
 }
 
+function overallForSave(savedState) {
+  const attrs = savedState?.attrs || {};
+  const profile = positionProfiles[savedState?.profile?.position] || positionProfiles.DC;
+  const values = Object.values(attrs).filter((value) => Number.isFinite(Number(value)));
+  if (!values.length) return 60;
+  const focusAvg = profile.focus.reduce((sum, key) => sum + (Number(attrs[key]) || 0), 0) / profile.focus.length;
+  const allAvg = values.reduce((sum, value) => sum + Number(value), 0) / values.length;
+  return Math.round(focusAvg * 0.68 + allAvg * 0.32);
+}
+
 function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
@@ -1530,6 +1540,33 @@ function load() {
   } catch {
     return null;
   }
+}
+
+function showCareerGame() {
+  $("#careerCreate").classList.add("hidden");
+  $("#careerGame").classList.remove("hidden");
+  render();
+}
+
+function showCreateScreen() {
+  $("#careerCreate").classList.remove("hidden");
+  $("#careerGame").classList.add("hidden");
+  renderSavePanel();
+}
+
+function renderSavePanel() {
+  const saved = load();
+  const panel = $("#savePanel");
+  if (!panel) return;
+  if (!saved) {
+    panel.classList.add("hidden");
+    return;
+  }
+  panel.classList.remove("hidden");
+  $("#savePlayerName").textContent = saved.profile?.name || "Continuar carrera";
+  $("#saveSummary").textContent = `Temporada ${saved.season || 1} - Semana ${saved.week || 1} - ${saved.profile?.position || "Jugador"}`;
+  $("#saveOverall").textContent = overallForSave(saved);
+  $("#saveClub").textContent = saved.club || "Club";
 }
 
 function showToast(text) {
@@ -1992,7 +2029,39 @@ function renderSimulationHud() {
   if (!sim) {
     const players = [...rosterForTeam(state.club, "home"), ...rosterForTeam(state.nextOpponent, "away")];
     drawTacticalPlayers(players, { x: 50, y: 50 });
+    updateSimulationVisuals(null);
+  } else {
+    updateSimulationVisuals(sim);
   }
+}
+
+function updateSimulationVisuals(sim) {
+  const pitch = $("#tacticalPitch");
+  const momentumNode = $("#simMomentum i");
+  const dangerNode = $("#dangerZone");
+  if (!pitch || !momentumNode || !dangerNode) return;
+  if (!sim) {
+    pitch.dataset.liveState = "previa";
+    pitch.classList.remove("home-possession", "away-possession");
+    momentumNode.style.setProperty("--momentum-width", "12%");
+    momentumNode.style.setProperty("--momentum-offset", "-50%");
+    momentumNode.style.setProperty("--momentum-color", "var(--gold)");
+    dangerNode.style.setProperty("--danger-opacity", "0");
+    return;
+  }
+  const mentality = mentalitySettings[state.tacticalMentality] || mentalitySettings.balanced;
+  const scoreTilt = clamp((sim.homeGoals - sim.awayGoals) * 5, -12, 12);
+  const actionTilt = ["remate", "atajada", "gol"].includes(sim.lastAction) ? (sim.possessionSide === "home" ? 10 : -10) : 0;
+  const momentum = clamp(50 + (sim.stats.possessionHome - 50) * 0.55 + mentality.attack * 22 + scoreTilt + actionTilt, 12, 88);
+  const width = Math.max(10, Math.abs(momentum - 50) * 1.9);
+  momentumNode.style.setProperty("--momentum-width", `${width}%`);
+  momentumNode.style.setProperty("--momentum-offset", momentum >= 50 ? "0%" : "-100%");
+  momentumNode.style.setProperty("--momentum-color", momentum >= 50 ? "var(--green)" : "var(--blue)");
+  const dangerHigh = ["remate", "atajada", "gol"].includes(sim.lastAction);
+  const dangerX = sim.possessionSide === "home" ? (dangerHigh ? 86 : 72) : (dangerHigh ? 14 : 28);
+  dangerNode.style.setProperty("--danger-x", `${dangerX}%`);
+  dangerNode.style.setProperty("--danger-opacity", dangerHigh ? "1" : sim.lastAction === "pase" ? "0.42" : "0.18");
+  dangerNode.style.setProperty("--danger-scale", dangerHigh ? "1.15" : "0.92");
 }
 
 function drawTacticalPlayers(players, ball) {
@@ -2010,6 +2079,7 @@ function updateTacticalPositions() {
   pitch.classList.toggle("home-possession", tacticalSim.possessionSide === "home");
   pitch.classList.toggle("away-possession", tacticalSim.possessionSide === "away");
   pitch.dataset.liveState = tacticalSim.lastAction || "posesion";
+  updateSimulationVisuals(tacticalSim);
   tacticalSim.players.forEach((player) => {
     const node = document.querySelector(`[data-player-id="${player.id}"]`);
     if (!node) return;
@@ -2062,6 +2132,9 @@ function startTacticalSimulation() {
     activePlayer: null,
     players,
     ball: { x: 50, y: 50 },
+    lastAction: "inicio",
+    nextKeyMinute: state.matchMode === "simulate" ? 999 : random(12, 18),
+    pendingMoment: null,
     timer: null,
     events: [],
     stats: {
@@ -2120,9 +2193,10 @@ function tacticalTick() {
     moveTacticalShape(event);
     updateTacticalPositions();
     renderTacticalStats();
-    if (event?.important && tacticalSim?.running) {
-      highlightEvent(event.text);
-      maybePauseForKeyMoment(event);
+    const keyEvent = event?.important ? event : maybeCreateKeyMoment();
+    if (keyEvent?.important && tacticalSim?.running) {
+      highlightEvent(keyEvent.text);
+      maybePauseForKeyMoment(keyEvent);
     }
     if (tacticalSim?.minute >= 90) finishTacticalSimulation();
   } catch (error) {
@@ -2265,21 +2339,83 @@ function calculateTacticalEvent() {
   return null;
 }
 
+function keyMomentContext() {
+  const pos = state.profile.position;
+  const trailing = tacticalSim.homeGoals < tacticalSim.awayGoals;
+  const late = tacticalSim.minute >= 70;
+  if (pos === "POR") {
+    return {
+      title: "Mano a mano",
+      text: `${state.nextOpponent} queda de cara al arco. Tu arquero tiene una lectura decisiva.`,
+      choices: [
+        { id: "hold", label: "Aguantar", hint: "Mas seguro, sube atajadas si aciertas.", risk: 0.08, reward: 0.16 },
+        { id: "rush", label: "Salir rapido", hint: "Corta el angulo, pero si fallas queda el arco libre.", risk: 0.18, reward: 0.26 },
+        { id: "anticipate", label: "Leer remate", hint: "Depende de reflejos y confianza.", risk: 0.13, reward: 0.22 }
+      ]
+    };
+  }
+  if (defensivePositions.has(pos) && tacticalSim.possessionSide === "away") {
+    return {
+      title: late && !trailing ? "Defender el resultado" : "Corte clave",
+      text: `${state.nextOpponent} ataca con superioridad. Un duelo puede cambiar el partido.`,
+      choices: [
+        { id: "contain", label: "Contener", hint: "Baja riesgo y mejora disciplina.", risk: 0.06, reward: 0.13 },
+        { id: "tackle", label: "Entrada fuerte", hint: "Recupera y levanta al estadio, con riesgo de falta.", risk: 0.2, reward: 0.28 },
+        { id: "step", label: "Achicar", hint: "Busca offside y contraataque.", risk: 0.15, reward: 0.24 }
+      ]
+    };
+  }
+  if (midfieldPositions.has(pos) && Math.random() < 0.58) {
+    return {
+      title: "Pase entre lineas",
+      text: `${state.club} encuentra espacio entre mediocampo y defensa. Tenes un segundo para decidir.`,
+      choices: [
+        { id: "safe", label: "Pase seguro", hint: "Mantiene posesion y suma media.", risk: 0.05, reward: 0.12 },
+        { id: "through", label: "Filtrar pase", hint: "Puede dejar a un companero mano a mano.", risk: 0.18, reward: 0.31 },
+        { id: "carry", label: "Conducir", hint: "Rompe lineas si tu regate responde.", risk: 0.14, reward: 0.24 }
+      ]
+    };
+  }
+  return {
+    title: trailing ? "Ultima chance" : "Ataque decisivo",
+    text: `${state.club} pisa el area rival. La defensa duda y el publico se levanta.`,
+    choices: [
+      { id: "safe", label: "Pase atras", hint: "Conserva la jugada y evita perdida peligrosa.", risk: 0.06, reward: 0.12 },
+      { id: "shoot", label: "Rematar", hint: "Buena opcion si tenes definicion.", risk: 0.15, reward: 0.27 },
+      { id: "spectacular", label: "Jugada acrobatica", hint: "Poca probabilidad, maximo impacto en fama.", risk: 0.3, reward: 0.42 }
+    ]
+  };
+}
+
+function maybeCreateKeyMoment() {
+  if (!tacticalSim?.running || state.matchMode === "simulate") return null;
+  if (tacticalSim.pendingMoment || tacticalSim.minute < tacticalSim.nextKeyMinute || tacticalSim.minute >= 88) return null;
+  const context = keyMomentContext();
+  tacticalSim.nextKeyMinute = tacticalSim.minute + (state.matchMode === "full" ? random(12, 18) : random(20, 28));
+  return {
+    important: true,
+    keyMoment: true,
+    text: context.title,
+    context
+  };
+}
+
 function maybePauseForKeyMoment(event) {
   if (!tacticalSim?.running || state.matchMode === "simulate") return;
-  if (Math.random() > (state.matchMode === "full" ? 0.34 : 0.24)) return;
+  if (!event.keyMoment && Math.random() > (state.matchMode === "full" ? 0.55 : 0.38)) return;
   clearInterval(tacticalSim.timer);
   tacticalSim.timer = null;
+  const context = event.context || keyMomentContext();
+  tacticalSim.pendingMoment = context;
   const panel = $("#keyMomentPanel");
   panel.innerHTML = `
-    <strong>Momento clave</strong>
-    <p>${event.text}. Podes influir en la decision.</p>
+    <strong>${context.title}</strong>
+    <p>${context.text}</p>
     <div class="social-actions">
-      <button data-key-choice="safe">Pase seguro</button>
-      <button data-key-choice="risk">Jugada arriesgada</button>
-      <button data-key-choice="shoot">Finalizar</button>
+      ${context.choices.map((choice) => `<button data-key-choice="${choice.id}">${choice.label}<small>${choice.hint}</small></button>`).join("")}
     </div>
   `;
+  panel.classList.add("key-active");
   panel.classList.remove("hidden");
   tacticalSim.autoKeyTimeout = setTimeout(() => resolveKeyMoment("safe"), 4500);
 }
@@ -2287,19 +2423,56 @@ function maybePauseForKeyMoment(event) {
 function resolveKeyMoment(choice) {
   if (!tacticalSim?.running) return;
   if (tacticalSim.autoKeyTimeout) clearTimeout(tacticalSim.autoKeyTimeout);
-  $("#keyMomentPanel").classList.add("hidden");
-  const bonus = choice === "risk" ? 0.16 : choice === "shoot" ? 0.11 : 0.06;
-  if (Math.random() < bonus + overall() / 420) {
+  const panel = $("#keyMomentPanel");
+  panel.classList.add("hidden");
+  panel.classList.remove("key-active");
+  const moment = tacticalSim.pendingMoment || keyMomentContext();
+  tacticalSim.pendingMoment = null;
+  const selected = moment.choices.find((item) => item.id === choice) || moment.choices[0];
+  const traitBoost = state.traits.includes("Matador") && ["shoot", "spectacular"].includes(selected.id)
+    ? 0.06
+    : state.traits.includes("Arquitecto") && ["through", "safe"].includes(selected.id)
+      ? 0.06
+      : state.traits.includes("Anticipador") && ["contain", "tackle", "step"].includes(selected.id)
+        ? 0.06
+        : 0;
+  const fatiguePenalty = clamp(state.fatigue / 360, 0, 0.24);
+  const successChance = clamp(0.34 + overall() / 260 + selected.reward - selected.risk + traitBoost - fatiguePenalty, 0.12, 0.86);
+  const success = Math.random() < successChance;
+  if (success && ["shoot", "spectacular", "through", "carry"].includes(selected.id)) {
     tacticalSim.homeGoals += 1;
-    tacticalSim.player.goals += choice === "shoot" ? 1 : 0;
-    tacticalSim.player.assists += choice !== "shoot" ? 1 : 0;
-    tacticalSim.player.rating += 0.75;
-    addLiveComment(`Tu decision cambia la jugada: GOOOL de ${state.club}.`, true);
+    tacticalSim.player.goals += ["shoot", "spectacular", "carry"].includes(selected.id) ? 1 : 0;
+    tacticalSim.player.assists += selected.id === "through" ? 1 : 0;
+    tacticalSim.player.keyPasses += ["through", "safe"].includes(selected.id) ? 1 : 0;
+    tacticalSim.player.rating += selected.id === "spectacular" ? 1.05 : 0.78;
+    tacticalSim.lastAction = "gol";
+    tacticalSim.ball = { x: 97, y: 50 };
+    state.popularity = clamp(state.popularity + (selected.id === "spectacular" ? 5 : 2), 0, 100);
+    addLiveComment(`${selected.label}: decision perfecta y GOOOL de ${state.club}.`, true);
     highlightEvent("Momento clave convertido");
+  } else if (success) {
+    tacticalSim.player.tackles += ["contain", "tackle", "step"].includes(selected.id) ? 1 : 0;
+    tacticalSim.player.saves += ["hold", "rush", "anticipate"].includes(selected.id) ? 1 : 0;
+    tacticalSim.player.keyPasses += ["safe", "through"].includes(selected.id) ? 1 : 0;
+    tacticalSim.player.rating += 0.36;
+    tacticalSim.lastAction = "recuperacion";
+    tacticalSim.possessionSide = "home";
+    addLiveComment(`${selected.label}: lo resolves bien y el equipo gana confianza.`, true);
+    highlightEvent("Decision acertada");
   } else {
-    tacticalSim.player.rating += choice === "safe" ? 0.08 : -0.05;
-    addLiveComment("La accion termina sin gol, pero el equipo mantiene intensidad.");
+    const punished = Math.random() < selected.risk + 0.16;
+    if (punished && ["tackle", "rush", "spectacular"].includes(selected.id)) {
+      if (selected.id === "tackle") tacticalSim.player.yellowCard = true;
+      else tacticalSim.awayGoals += 1;
+    }
+    tacticalSim.player.rating += selected.risk > 0.2 ? -0.18 : -0.04;
+    tacticalSim.lastAction = punished ? "falta" : "posesion";
+    tacticalSim.possessionSide = punished && selected.id !== "tackle" ? "away" : tacticalSim.possessionSide;
+    addLiveComment(`${selected.label}: no sale limpio${punished ? " y el rival castiga el error" : ", pero el equipo se reordena"}.`, true);
+    highlightEvent(punished ? "Riesgo fallido" : "Jugada neutralizada");
   }
+  updateTacticalPositions();
+  renderTacticalStats();
   setTacticalTimer();
 }
 
@@ -3274,9 +3447,24 @@ function setupEvents() {
       style: $("#playerStyle").value,
       club: $("#playerClub").value
     });
-    $("#careerCreate").classList.add("hidden");
-    $("#careerGame").classList.remove("hidden");
-    render();
+    showCareerGame();
+  });
+
+  $("#continueCareerBtn").addEventListener("click", () => {
+    state = load();
+    if (!state) {
+      renderSavePanel();
+      return;
+    }
+    showCareerGame();
+  });
+
+  $("#resetCareerBtn").addEventListener("click", () => {
+    localStorage.removeItem(STORAGE_KEY);
+    state = null;
+    renderClubSelect();
+    showCreateScreen();
+    showToast("Listo para crear una carrera nueva.");
   });
 
   document.querySelectorAll(".tab").forEach((button) => {
@@ -3371,7 +3559,9 @@ function setupEvents() {
   });
   $("#newCareerBtn").addEventListener("click", () => {
     localStorage.removeItem(STORAGE_KEY);
-    location.reload();
+    state = null;
+    renderClubSelect();
+    showCreateScreen();
   });
   $("#retireBtn").addEventListener("click", retire);
 }
@@ -3379,12 +3569,8 @@ function setupEvents() {
 function boot() {
   renderClubSelect();
   setupEvents();
-  state = load();
-  if (state) {
-    $("#careerCreate").classList.add("hidden");
-    $("#careerGame").classList.remove("hidden");
-    render();
-  }
+  state = null;
+  showCreateScreen();
 }
 
 boot();
