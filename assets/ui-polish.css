@@ -1,0 +1,227 @@
+:root {
+  --fm-bg: #06120d;
+  --fm-surface: rgba(11, 23, 17, 0.94);
+  --fm-surface-strong: rgba(15, 31, 23, 0.98);
+  --fm-border: rgba(210, 255, 225, 0.16);
+  --fm-border-strong: rgba(25, 230, 129, 0.34);
+  --fm-accent: #19e681;
+  --fm-accent-2: #ffd166;
+  --fm-text: #f5fff8;
+  --fm-muted: #b9c8bf;
+  --fm-danger: #ff5c70;
+  --fm-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+  --fm-radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+.primary,
+.outline,
+.btn-reset,
+.back-btn {
+  border-radius: var(--fm-radius);
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    filter 140ms ease,
+    background-color 140ms ease;
+}
+
+button:not(:disabled):hover,
+.primary:not(:disabled):hover,
+.outline:not(:disabled):hover,
+.btn-reset:not(:disabled):hover,
+.back-btn:not(:disabled):hover {
+  filter: brightness(1.06);
+}
+
+button:not(:disabled):active,
+.primary:not(:disabled):active,
+.outline:not(:disabled):active,
+.btn-reset:not(:disabled):active,
+.back-btn:not(:disabled):active {
+  transform: translateY(1px) scale(0.99);
+}
+
+button:disabled,
+.primary:disabled,
+.outline:disabled {
+  cursor: not-allowed;
+  filter: saturate(0.72);
+  opacity: 0.58;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--fm-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(25, 230, 129, 0.16);
+}
+
+.menu-card,
+.game-container,
+.top-bar,
+.auction-top-bar,
+.draw-panel,
+.pitch-panel,
+.score-panel,
+.tournament-panel,
+.create-hero,
+.create-card,
+.career-panel,
+.panel,
+.offer-card,
+.training-card,
+.social-post {
+  border-color: var(--fm-border);
+  box-shadow: var(--fm-shadow);
+}
+
+.top-bar,
+.auction-top-bar {
+  background:
+    linear-gradient(135deg, rgba(25, 230, 129, 0.09), rgba(255, 209, 102, 0.04)),
+    var(--fm-surface);
+  border: 1px solid var(--fm-border);
+  backdrop-filter: blur(14px);
+}
+
+.back-btn {
+  min-width: 42px;
+  border: 1px solid rgba(245, 255, 248, 0.16) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.08) !important;
+  color: var(--fm-text) !important;
+}
+
+.view-title,
+.menu-title,
+.score-head,
+.panel-head h2 {
+  letter-spacing: 0;
+}
+
+.btn-menu {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+}
+
+.btn-menu:hover {
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.btn-menu::after {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.menu-kicker,
+.eyebrow,
+.live-kicker {
+  letter-spacing: 0.06em;
+}
+
+.app-modal-card {
+  border-radius: 10px;
+  box-shadow:
+    0 26px 80px rgba(0, 0, 0, 0.52),
+    0 0 0 1px rgba(255, 255, 255, 0.07) inset;
+}
+
+.app-modal-actions button {
+  min-height: 40px;
+}
+
+.embedded-mode-shell {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--fm-border);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent),
+    linear-gradient(135deg, rgba(25, 230, 129, 0.1), rgba(255, 209, 102, 0.06)),
+    var(--fm-bg);
+  background-size: 180% 100%, auto, auto;
+  animation: fmFrameLoading 1.15s ease-in-out infinite;
+}
+
+.embedded-mode-shell::before {
+  content: attr(data-loading);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--fm-muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.embedded-mode-shell.is-loaded {
+  animation: none;
+  background: transparent;
+}
+
+.embedded-mode-shell.is-loaded::before {
+  opacity: 0;
+}
+
+.embedded-mode-shell .embedded-mode-frame {
+  position: relative;
+  z-index: 1;
+  border: 0;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.embedded-mode-shell.is-loaded .embedded-mode-frame {
+  opacity: 1;
+}
+
+@keyframes fmFrameLoading {
+  from { background-position: 180% 0, 0 0, 0 0; }
+  to { background-position: -180% 0, 0 0, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

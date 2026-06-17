@@ -252,6 +252,64 @@ function playerPhotoFor(name) {
   return playerPhotos[name] || "";
 }
 
+function mediaInitials(name) {
+  return String(name || "")
+    .replace(/\s*\(.*?\)\s*/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase() || "?";
+}
+
+function escapeSvgText(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function fallbackMedia(name, type = "logo") {
+  const initials = escapeSvgText(mediaInitials(name));
+  const label = escapeSvgText(name || "FutbolMIX");
+  const size = type === "photo" ? 96 : 64;
+  const radius = type === "photo" ? 48 : 14;
+  const fontSize = type === "photo" ? 28 : 20;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <defs>
+      <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#0b2419"/>
+        <stop offset="1" stop-color="#19e681"/>
+      </linearGradient>
+      <linearGradient id="shine" x1="0" x2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".24"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect width="${size}" height="${size}" rx="${radius}" fill="url(#bg)"/>
+    <path d="M0 ${size * 0.22} C${size * 0.32} ${size * 0.05}, ${size * 0.68} ${size * 0.05}, ${size} ${size * 0.22} V0 H0 Z" fill="url(#shine)"/>
+    <circle cx="${size / 2}" cy="${size / 2}" r="${size * 0.31}" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="${fontSize}" font-weight="900" fill="#06120d">${initials}</text>
+    <title>${label}</title>
+  </svg>`;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function clubLogoVisual(name) {
+  return clubLogoFor(name) || fallbackMedia(name, "logo");
+}
+
+function playerPhotoVisual(name) {
+  return playerPhotoFor(name) || fallbackMedia(name, "photo");
+}
+
+function fallbackErrorAttr(name, type = "logo") {
+  return `this.onerror=null;this.src='${fallbackMedia(name, type)}'`;
+}
+
 function playerKey(name) {
   return String(name || "")
     .normalize("NFD")
@@ -1181,10 +1239,10 @@ function renderClubSelect() {
     choices.innerHTML = startingClubChoices.map((club, index) => {
       const players = playersForClub(club.name, 3);
       const stars = players.map((player) => player.name).join(", ");
-      const logo = clubLogoFor(club.name);
+      const logo = clubLogoVisual(club.name);
       return `<button type="button" class="club-choice ${index === 0 ? "active" : ""}" data-start-club="${encodeURIComponent(club.name)}">
         <div class="club-choice-top">
-          ${logo ? `<img src="${logo}" alt="" />` : ""}
+          <img src="${logo}" alt="" onerror="${fallbackErrorAttr(club.name, "logo")}" />
           <strong>${club.name}</strong>
         </div>
         <span>${club.league}${club.country ? ` - ${club.country}` : ""}</span>
@@ -1661,11 +1719,15 @@ function render() {
   const competitionText = state.competitions.length ? ` - ${state.competitions.slice(0, 2).join(", ")}` : "";
   $("#careerName").textContent = state.profile.name;
   $("#careerSub").textContent = `${state.club} - ${state.league}${competitionText} - ${state.profile.position} - ${state.profile.age} anios`;
-  const logo = clubLogoFor(state.club);
+  const logo = clubLogoVisual(state.club);
   const logoNode = $("#clubLogo");
-  logoNode.src = logo || "";
-  logoNode.alt = logo ? `Escudo de ${state.club}` : "";
-  logoNode.hidden = !logo;
+  logoNode.src = logo;
+  logoNode.alt = `Escudo de ${state.club}`;
+  logoNode.onerror = () => {
+    logoNode.onerror = null;
+    logoNode.src = fallbackMedia(state.club, "logo");
+  };
+  logoNode.hidden = false;
   $("#seasonLabel").textContent = state.season;
   $("#weekLabel").textContent = state.week;
   $("#shirtNumber").textContent = profile.number;
@@ -1892,15 +1954,15 @@ function renderTraining() {
 
 function renderRivalStars() {
   const stars = topPlayersForClub(state.nextOpponent);
-  const rivalLogo = clubLogoFor(state.nextOpponent);
+  const rivalLogo = clubLogoVisual(state.nextOpponent);
   if (!stars.length && !rivalLogo) {
     $("#rivalStars").innerHTML = "";
     return;
   }
   const starCards = stars.map((player) => {
-    const photo = player.photo;
+    const photo = player.photo || playerPhotoVisual(player.name);
     return `<div class="star-chip">
-      ${photo ? `<img src="${photo}" alt="${player.name}" loading="lazy" />` : `<span>${player.pos || ""}</span>`}
+      <img src="${photo}" alt="${player.name}" loading="lazy" onerror="${fallbackErrorAttr(player.name, "photo")}" />
       <div>
         <strong>${player.name}</strong>
         <small>${player.pos || "Jugador"} - ${player.rating}</small>
@@ -1909,7 +1971,7 @@ function renderRivalStars() {
   }).join("");
   $("#rivalStars").innerHTML = `
     <div class="rival-head">
-      ${rivalLogo ? `<img src="${rivalLogo}" alt="Escudo de ${state.nextOpponent}" loading="lazy" />` : ""}
+      <img src="${rivalLogo}" alt="Escudo de ${state.nextOpponent}" loading="lazy" onerror="${fallbackErrorAttr(state.nextOpponent, "logo")}" />
       <span>Figuras actuales</span>
     </div>
     <div class="star-list">${starCards || "<p>Club real agregado desde la base de escudos.</p>"}</div>
@@ -2612,12 +2674,12 @@ function renderMarket() {
 
   const offersHtml = state.offers.length
     ? state.offers.map((offer, index) => {
-      const logo = clubLogoFor(offer.club);
+      const logo = clubLogoVisual(offer.club);
       const typeLabel = offer.type === "loan" ? "Prestamo" : offer.type === "renewal" ? "Renovacion" : "Traspaso";
       const clauseText = offer.type === "loan" ? `duracion ${offer.years} temporada` : `clausula ${valueText(offer.releaseClause)}`;
       return `<div class="offer-card">
         <header>
-          <h3>${logo ? `<img src="${logo}" alt="Escudo de ${offer.club}" loading="lazy" />` : ""}${offer.club}</h3>
+          <h3><img src="${logo}" alt="Escudo de ${offer.club}" loading="lazy" onerror="${fallbackErrorAttr(offer.club, "logo")}" />${offer.club}</h3>
           <strong>${moneyText(offer.salary)}/sem</strong>
         </header>
         <p>${typeLabel} - ${offer.league} - contrato ${offer.years} anios - prima ${moneyText(offer.bonus)} - ${clauseText}</p>
@@ -2690,10 +2752,10 @@ function renderLegacy() {
   $("#clubHistoryList").innerHTML = state.clubHistory.slice().reverse().map((item, index) => {
     const isCurrent = index === 0 && !item.toSeason;
     const range = item.toSeason ? `T${item.fromSeason} - T${item.toSeason}` : `Desde T${item.fromSeason}`;
-    const logo = clubLogoFor(item.club);
+    const logo = clubLogoVisual(item.club);
     return `<div class="history-card">
       <header>
-        <h3>${logo ? `<img src="${logo}" alt="Escudo de ${item.club}" loading="lazy" />` : ""}${item.club}</h3>
+        <h3><img src="${logo}" alt="Escudo de ${item.club}" loading="lazy" onerror="${fallbackErrorAttr(item.club, "logo")}" />${item.club}</h3>
         <strong>${isCurrent ? "Actual" : item.type}</strong>
       </header>
       <p>${item.league} - ${range} - ${item.type}</p>
@@ -2919,8 +2981,8 @@ function finalizeTacticalMatch(simResult = null) {
   const rawAssists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
   const cleanSheet = simResult?.cleanSheet ?? (isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0);
   const teamGoals = simResult?.teamGoals ?? clamp(rawGoals + rawAssists + random(0, 2), 0, 5);
-  const goals = simResult?.goals ?? Math.min(rawGoals, teamGoals);
-  const assists = simResult?.assists ?? Math.min(rawAssists, Math.max(0, teamGoals - goals));
+  const goals = Math.min(simResult?.goals ?? rawGoals, teamGoals);
+  const assists = Math.min(simResult?.assists ?? rawAssists, Math.max(0, teamGoals - goals));
   const rivalGoals = simResult?.rivalGoals ?? (cleanSheet ? 0 : random(0, 4));
   const won = simResult?.won ?? teamGoals > rivalGoals;
   const drew = simResult?.drew ?? teamGoals === rivalGoals;

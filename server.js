@@ -20,6 +20,10 @@ app.get('/health', (req, res) => {
     res.status(200).json({ ok: true, service: 'futbol-mix' });
 });
 
+app.get('/favicon.ico', (req, res) => {
+    res.type('image/svg+xml').sendFile(path.join(PUBLIC_DIR, 'assets', 'favicon.svg'));
+});
+
 app.use(express.static(PUBLIC_DIR));
 
 function loadAuctionData() {
