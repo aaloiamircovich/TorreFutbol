@@ -6,8 +6,10 @@
     "node": ">=20"
   },
   "scripts": {
+    "audit:data": "node scripts/audit-data-quality.js",
     "import:career": "node scripts/import-career-transfermarkt.js",
     "import:career:second": "node scripts/import-career-transfermarkt.js --second-divisions",
+    "test:smoke": "node scripts/smoke-test.js",
     "start": "node -r ./viewport-fit-server.js server.js"
   },
   "dependencies": {

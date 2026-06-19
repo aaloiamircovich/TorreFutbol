@@ -252,6 +252,64 @@ function playerPhotoFor(name) {
   return playerPhotos[name] || "";
 }
 
+function mediaInitials(name) {
+  return String(name || "")
+    .replace(/\s*\(.*?\)\s*/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase() || "?";
+}
+
+function escapeSvgText(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function fallbackMedia(name, type = "logo") {
+  const initials = escapeSvgText(mediaInitials(name));
+  const label = escapeSvgText(name || "FutbolMIX");
+  const size = type === "photo" ? 96 : 64;
+  const radius = type === "photo" ? 48 : 14;
+  const fontSize = type === "photo" ? 28 : 20;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <defs>
+      <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#0b2419"/>
+        <stop offset="1" stop-color="#19e681"/>
+      </linearGradient>
+      <linearGradient id="shine" x1="0" x2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".24"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect width="${size}" height="${size}" rx="${radius}" fill="url(#bg)"/>
+    <path d="M0 ${size * 0.22} C${size * 0.32} ${size * 0.05}, ${size * 0.68} ${size * 0.05}, ${size} ${size * 0.22} V0 H0 Z" fill="url(#shine)"/>
+    <circle cx="${size / 2}" cy="${size / 2}" r="${size * 0.31}" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="${fontSize}" font-weight="900" fill="#06120d">${initials}</text>
+    <title>${label}</title>
+  </svg>`;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
+function clubLogoVisual(name) {
+  return clubLogoFor(name) || fallbackMedia(name, "logo");
+}
+
+function playerPhotoVisual(name) {
+  return playerPhotoFor(name) || fallbackMedia(name, "photo");
+}
+
+function fallbackErrorAttr(name, type = "logo") {
+  return `this.onerror=null;this.src='${fallbackMedia(name, type)}'`;
+}
+
 function playerKey(name) {
   return String(name || "")
     .normalize("NFD")
@@ -696,13 +754,58 @@ const moneyText = (value) => `$${Math.max(0, Math.round(value))}K`;
 const valueText = (value) => `$${(Math.max(0.1, value) / 1000).toFixed(1)}M`;
 const todayKey = () => new Date().toISOString().slice(0, 10);
 
+const careerBalance = {
+  xp: {
+    training: 0.82,
+    match: 0.78,
+    objective: 0.78,
+    matchObjective: 0.76,
+    achievement: 0.85,
+    social: 0.7,
+    daily: 0.62,
+    default: 0.82
+  },
+  money: {
+    objective: 0.72,
+    daily: 0.65,
+    sponsor: 0.82,
+    season: 0.78
+  },
+  followers: {
+    match: 0.72,
+    social: 0.62,
+    daily: 0.55,
+    sponsor: 0.72,
+    styleBrandBonus: 170
+  },
+  training: {
+    trainerXpBonus: 1
+  },
+  market: {
+    formDivisor: 220,
+    goalBonus: 12,
+    assistBonus: 7
+  }
+};
+
+function balancedAmount(amount, multiplier, min = 0) {
+  if (!amount) return 0;
+  const scaled = Math.round(amount * multiplier);
+  return amount > 0 ? Math.max(min, scaled) : scaled;
+}
+
+function xpMultiplierFor(reason = "") {
+  const key = String(reason || "").replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+  return careerBalance.xp[key] || careerBalance.xp.default;
+}
+
 function xpToNext(level) {
   return 130 + level * 48 + Math.round(Math.pow(level, 1.18) * 10);
 }
 
 function addXp(amount, reason = "") {
   if (!state || amount <= 0) return;
-  state.xp += Math.round(amount);
+  state.xp += balancedAmount(amount, xpMultiplierFor(reason), 1);
   let leveled = false;
   while (state.xp >= xpToNext(state.level)) {
     state.xp -= xpToNext(state.level);
@@ -982,8 +1085,8 @@ function claimCompletedMissions() {
     list.forEach((objective) => {
       if (objective.value >= objective.target && !objective.claimed) {
         objective.claimed = true;
-        state.money += objective.rewardMoney || 0;
-        addXp(objective.rewardXp || 0);
+        state.money += balancedAmount(objective.rewardMoney || 0, careerBalance.money.objective, 1);
+        addXp(objective.rewardXp || 0, "objective");
         addNews(`Objetivo completado: ${objective.label}.`);
       }
     });
@@ -994,7 +1097,7 @@ function checkAchievements() {
   achievementDefs.forEach((achievement) => {
     if (state.achievements.includes(achievement.id) || !achievement.test()) return;
     state.achievements.push(achievement.id);
-    addXp(achievement.rewardXp || 0);
+    addXp(achievement.rewardXp || 0, "achievement");
     addNews(`Logro desbloqueado: ${achievement.title}.`);
   });
 }
@@ -1181,10 +1284,10 @@ function renderClubSelect() {
     choices.innerHTML = startingClubChoices.map((club, index) => {
       const players = playersForClub(club.name, 3);
       const stars = players.map((player) => player.name).join(", ");
-      const logo = clubLogoFor(club.name);
+      const logo = clubLogoVisual(club.name);
       return `<button type="button" class="club-choice ${index === 0 ? "active" : ""}" data-start-club="${encodeURIComponent(club.name)}">
         <div class="club-choice-top">
-          ${logo ? `<img src="${logo}" alt="" />` : ""}
+          <img src="${logo}" alt="" onerror="${fallbackErrorAttr(club.name, "logo")}" />
           <strong>${club.name}</strong>
         </div>
         <span>${club.league}${club.country ? ` - ${club.country}` : ""}</span>
@@ -1661,11 +1764,15 @@ function render() {
   const competitionText = state.competitions.length ? ` - ${state.competitions.slice(0, 2).join(", ")}` : "";
   $("#careerName").textContent = state.profile.name;
   $("#careerSub").textContent = `${state.club} - ${state.league}${competitionText} - ${state.profile.position} - ${state.profile.age} anios`;
-  const logo = clubLogoFor(state.club);
+  const logo = clubLogoVisual(state.club);
   const logoNode = $("#clubLogo");
-  logoNode.src = logo || "";
-  logoNode.alt = logo ? `Escudo de ${state.club}` : "";
-  logoNode.hidden = !logo;
+  logoNode.src = logo;
+  logoNode.alt = `Escudo de ${state.club}`;
+  logoNode.onerror = () => {
+    logoNode.onerror = null;
+    logoNode.src = fallbackMedia(state.club, "logo");
+  };
+  logoNode.hidden = false;
   $("#seasonLabel").textContent = state.season;
   $("#weekLabel").textContent = state.week;
   $("#shirtNumber").textContent = profile.number;
@@ -1892,15 +1999,15 @@ function renderTraining() {
 
 function renderRivalStars() {
   const stars = topPlayersForClub(state.nextOpponent);
-  const rivalLogo = clubLogoFor(state.nextOpponent);
+  const rivalLogo = clubLogoVisual(state.nextOpponent);
   if (!stars.length && !rivalLogo) {
     $("#rivalStars").innerHTML = "";
     return;
   }
   const starCards = stars.map((player) => {
-    const photo = player.photo;
+    const photo = player.photo || playerPhotoVisual(player.name);
     return `<div class="star-chip">
-      ${photo ? `<img src="${photo}" alt="${player.name}" loading="lazy" />` : `<span>${player.pos || ""}</span>`}
+      <img src="${photo}" alt="${player.name}" loading="lazy" onerror="${fallbackErrorAttr(player.name, "photo")}" />
       <div>
         <strong>${player.name}</strong>
         <small>${player.pos || "Jugador"} - ${player.rating}</small>
@@ -1909,7 +2016,7 @@ function renderRivalStars() {
   }).join("");
   $("#rivalStars").innerHTML = `
     <div class="rival-head">
-      ${rivalLogo ? `<img src="${rivalLogo}" alt="Escudo de ${state.nextOpponent}" loading="lazy" />` : ""}
+      <img src="${rivalLogo}" alt="Escudo de ${state.nextOpponent}" loading="lazy" onerror="${fallbackErrorAttr(state.nextOpponent, "logo")}" />
       <span>Figuras actuales</span>
     </div>
     <div class="star-list">${starCards || "<p>Club real agregado desde la base de escudos.</p>"}</div>
@@ -2612,12 +2719,12 @@ function renderMarket() {
 
   const offersHtml = state.offers.length
     ? state.offers.map((offer, index) => {
-      const logo = clubLogoFor(offer.club);
+      const logo = clubLogoVisual(offer.club);
       const typeLabel = offer.type === "loan" ? "Prestamo" : offer.type === "renewal" ? "Renovacion" : "Traspaso";
       const clauseText = offer.type === "loan" ? `duracion ${offer.years} temporada` : `clausula ${valueText(offer.releaseClause)}`;
       return `<div class="offer-card">
         <header>
-          <h3>${logo ? `<img src="${logo}" alt="Escudo de ${offer.club}" loading="lazy" />` : ""}${offer.club}</h3>
+          <h3><img src="${logo}" alt="Escudo de ${offer.club}" loading="lazy" onerror="${fallbackErrorAttr(offer.club, "logo")}" />${offer.club}</h3>
           <strong>${moneyText(offer.salary)}/sem</strong>
         </header>
         <p>${typeLabel} - ${offer.league} - contrato ${offer.years} anios - prima ${moneyText(offer.bonus)} - ${clauseText}</p>
@@ -2645,7 +2752,7 @@ function renderMarket() {
       sponsor.followerBonus ? `seguidores +${compact(sponsor.followerBonus)}` : ""
     ].filter(Boolean).join(" - ");
     return `<div class="offer-card sponsor-card ${signed ? "signed" : ""}">
-    <header><h3>${sponsor.name}</h3><strong>${moneyText(sponsor.pay)}</strong></header>
+    <header><h3>${sponsor.name}</h3><strong>${moneyText(sponsorSigningPay(sponsor))}</strong></header>
     <p>${sponsor.effect}</p>
     <p class="offer-details">${sponsor.tier} - requiere popularidad ${sponsor.minPop}${sponsor.minRep ? ` y reputacion ${sponsor.minRep}` : ""}${bonusText ? ` - ${bonusText}` : ""}</p>
     <button data-sponsor="${sponsor.id}" ${signed || !eligible ? "disabled" : ""}>${signed ? "Firmado" : eligible ? "Firmar" : "Bloqueado"}</button>
@@ -2665,6 +2772,10 @@ function availableSponsors() {
 
 function sponsorRequirementMet(sponsor) {
   return state.popularity >= (sponsor.minPop || 0) && state.reputation >= (sponsor.minRep || 0);
+}
+
+function sponsorSigningPay(sponsor) {
+  return balancedAmount(sponsor?.pay || 0, careerBalance.money.sponsor, 1);
 }
 
 function renderLegacy() {
@@ -2690,10 +2801,10 @@ function renderLegacy() {
   $("#clubHistoryList").innerHTML = state.clubHistory.slice().reverse().map((item, index) => {
     const isCurrent = index === 0 && !item.toSeason;
     const range = item.toSeason ? `T${item.fromSeason} - T${item.toSeason}` : `Desde T${item.fromSeason}`;
-    const logo = clubLogoFor(item.club);
+    const logo = clubLogoVisual(item.club);
     return `<div class="history-card">
       <header>
-        <h3>${logo ? `<img src="${logo}" alt="Escudo de ${item.club}" loading="lazy" />` : ""}${item.club}</h3>
+        <h3><img src="${logo}" alt="Escudo de ${item.club}" loading="lazy" onerror="${fallbackErrorAttr(item.club, "logo")}" />${item.club}</h3>
         <strong>${isCurrent ? "Actual" : item.type}</strong>
       </header>
       <p>${item.league} - ${range} - ${item.type}</p>
@@ -2714,7 +2825,7 @@ function train(id) {
   Object.entries(session.attrs).forEach(([attr, value]) => {
     state.attrs[attr] = clamp(state.attrs[attr] + value, 1, 99);
   });
-  const trainerBonus = state.lifestyle.includes("trainer") ? 5 : 0;
+  const trainerBonus = state.lifestyle.includes("trainer") ? careerBalance.training.trainerXpBonus : 0;
   addXp(session.xp + trainerBonus, "training");
   state.fatigue = clamp(state.fatigue + session.fatigue, 0, 100);
   state.morale = clamp(state.morale + (session.id === "recovery" ? 2 : 0), 0, 100);
@@ -2749,8 +2860,8 @@ function completeMatchObjectives(details) {
     }
   });
   if (reward) {
-    addXp(reward);
-    addNews(`Objetivos de partido completados: XP +${reward}.`);
+    addXp(reward, "match-objective");
+    addNews(`Objetivos de partido completados.`);
   }
 }
 
@@ -2919,8 +3030,8 @@ function finalizeTacticalMatch(simResult = null) {
   const rawAssists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
   const cleanSheet = simResult?.cleanSheet ?? (isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0);
   const teamGoals = simResult?.teamGoals ?? clamp(rawGoals + rawAssists + random(0, 2), 0, 5);
-  const goals = simResult?.goals ?? Math.min(rawGoals, teamGoals);
-  const assists = simResult?.assists ?? Math.min(rawAssists, Math.max(0, teamGoals - goals));
+  const goals = Math.min(simResult?.goals ?? rawGoals, teamGoals);
+  const assists = Math.min(simResult?.assists ?? rawAssists, Math.max(0, teamGoals - goals));
   const rivalGoals = simResult?.rivalGoals ?? (cleanSheet ? 0 : random(0, 4));
   const won = simResult?.won ?? teamGoals > rivalGoals;
   const drew = simResult?.drew ?? teamGoals === rivalGoals;
@@ -2961,10 +3072,12 @@ function finalizeTacticalMatch(simResult = null) {
   state.reputation = clamp(state.reputation + Math.max(0, Math.round(rating - 6.2)), 0, 100);
   const sponsorFans = sponsorFollowerBonus(details);
   const matchSponsorBonus = sponsorBonus(details);
-  const followerGain = Math.round(180 + rating * 80 + goals * 500 + assists * 260 + sponsorFans + (state.lifestyle.includes("styleBrand") ? 260 : 0));
+  const baseFollowerGain = 180 + rating * 80 + goals * 500 + assists * 260;
+  const styleBrandBonus = state.lifestyle.includes("styleBrand") ? careerBalance.followers.styleBrandBonus : 0;
+  const followerGain = balancedAmount(baseFollowerGain + sponsorFans + styleBrandBonus, careerBalance.followers.match, 1);
   state.followers += followerGain;
   state.money += state.salary + matchSponsorBonus;
-  state.marketValue = Math.round(state.marketValue * (1 + (rating - 6) / 160) + goals * 18 + assists * 10);
+  state.marketValue = Math.round(state.marketValue * (1 + (rating - 6) / careerBalance.market.formDivisor) + goals * careerBalance.market.goalBonus + assists * careerBalance.market.assistBonus);
   state.playedThisWeek = true;
   if (yellowCard) state.yellowCards += 1;
   if (redCard) {
@@ -3046,13 +3159,13 @@ function sponsorBonus(details = {}) {
     const ratingBonus = details.rating >= 8 ? (sponsor.ratingBonus || 0) : 0;
     const cleanBonus = details.cleanSheet ? (sponsor.cleanSheetBonus || 0) : 0;
     const followerMoney = sponsor.followerBonus ? Math.round((sponsor.followerBonus || 0) / 80) : 0;
-    return bonus
-      + (sponsor.flatBonus || 0)
+    const rawBonus = (sponsor.flatBonus || 0)
       + (details.goals || 0) * (sponsor.goalBonus || 0)
       + (details.assists || 0) * (sponsor.assistBonus || 0)
       + ratingBonus
       + cleanBonus
       + followerMoney;
+    return bonus + balancedAmount(rawBonus, careerBalance.money.sponsor, 0);
   }, 0);
 }
 
@@ -3060,7 +3173,7 @@ function sponsorFollowerBonus(details = {}) {
   if (details.rating < 7.6) return 0;
   return state.sponsors.reduce((sum, id) => {
     const sponsor = sponsorDeals.find((item) => item.id === id);
-    return sum + (sponsor?.followerBonus || 0);
+    return sum + balancedAmount(sponsor?.followerBonus || 0, careerBalance.followers.sponsor, 0);
   }, 0);
 }
 
@@ -3160,7 +3273,7 @@ function endSeason() {
     avgRating,
     note: `${completed}/${total} objetivos, ${state.seasonStats.keyPasses} pases clave, ${state.seasonStats.tackles} entradas${titleNote ? `, campeon de ${titleNote}` : ""}`
   });
-  state.money += completed * 35 + (wonTitle ? 120 : 0) + wonCups.length * 160;
+  state.money += balancedAmount(completed * 35 + (wonTitle ? 120 : 0) + wonCups.length * 160, careerBalance.money.season, 1);
   state.reputation = clamp(state.reputation + completed * 3 + (wonTitle ? 8 : 0) + wonCups.length * 10, 0, 100);
   state.popularity = clamp(state.popularity + completed * 2 + (wonTitle ? 10 : 0) + wonCups.length * 12, 0, 100);
   state.profile.age += 1;
@@ -3355,11 +3468,11 @@ function applySocial(postIndex, optionIndex) {
   state.fatigue = clamp(state.fatigue + (option.fatigue || 0), 0, 100);
   state.coach = clamp(state.coach + (option.coach || 0), 0, 100);
   state.money = Math.max(0, state.money + (option.money || 0));
-  const followerGain = Math.max(0, (option.popularity || 0) * 150);
+  const followerGain = balancedAmount(Math.max(0, (option.popularity || 0) * 150), careerBalance.followers.social, 0);
   state.followers += followerGain;
   updateMissionProgress("social", 1);
   updateMissionProgress("followers", followerGain);
-  addXp(12);
+  addXp(12, "social");
   state.socialRespondedDate = todayKey();
   state.socialQueue.splice(postIndex, 1);
   addNews(`Redes: ${option.text}`);
@@ -3394,9 +3507,9 @@ function claimDailyReward() {
   ensureStateDefaults();
   if (state.daily.rewardClaimed) return;
   state.daily.rewardClaimed = true;
-  state.money += 18;
-  state.followers += 650;
-  addXp(45);
+  state.money += balancedAmount(18, careerBalance.money.daily, 1);
+  state.followers += balancedAmount(650, careerBalance.followers.daily, 1);
+  addXp(45, "daily");
   addNews("Recompensa diaria cobrada: dinero, XP y seguidores.");
   render();
 }
@@ -3405,10 +3518,11 @@ function signSponsor(id) {
   const sponsor = availableSponsors().find((item) => item.id === id);
   if (!sponsor || state.sponsors.includes(id) || !sponsorRequirementMet(sponsor)) return;
   state.sponsors.push(id);
-  state.money += sponsor.pay;
+  const signingPay = sponsorSigningPay(sponsor);
+  state.money += signingPay;
   state.popularity = clamp(state.popularity + (sponsor.tier === "Elite" ? 7 : 4), 0, 100);
   state.reputation = clamp(state.reputation + (sponsor.tier === "Elite" ? 4 : 2), 0, 100);
-  addNews(`Patrocinio firmado con ${sponsor.name}: prima ${moneyText(sponsor.pay)} y bonos por rendimiento.`);
+  addNews(`Patrocinio firmado con ${sponsor.name}: prima ${moneyText(signingPay)} y bonos por rendimiento.`);
   render();
   pulseElement("#tab-market", "panel-flash");
 }

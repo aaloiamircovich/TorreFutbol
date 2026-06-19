@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torre Futbolera</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <!-- Importamos la base de datos de categorías -->
     <script src="datos.js"></script>
     <!-- Importamos la base de datos de trayectorias -->
@@ -1789,6 +1790,7 @@
         }
     </style>
     <link rel="stylesheet" href="viewport-fit.css">
+    <link rel="stylesheet" href="/assets/ui-polish.css">
 </head>
 <body>
 
@@ -2085,7 +2087,9 @@
             <button class="back-btn" onclick="showView('menuView')">Volver</button>
             <h1 class="view-title">Torneo Selecciones Históricas</h1>
         </div>
-        <iframe class="embedded-mode-frame" src="modes/torneo-selecciones/index.html" title="Torneo Selecciones Históricas"></iframe>
+        <div class="embedded-mode-shell" data-loading="Cargando torneo">
+            <iframe class="embedded-mode-frame" src="modes/torneo-selecciones/index.html" title="Torneo Selecciones Históricas" onload="this.parentElement.classList.add('is-loaded')"></iframe>
+        </div>
     </div>
 
     <!-- Juego: Torneo Clubes Históricos -->
@@ -2094,7 +2098,9 @@
             <button class="back-btn" onclick="showView('menuView')">Volver</button>
             <h1 class="view-title">Torneo Clubes Históricos</h1>
         </div>
-        <iframe class="embedded-mode-frame" src="modes/torneo-clubes/index.html" title="Torneo Clubes Históricos"></iframe>
+        <div class="embedded-mode-shell" data-loading="Cargando torneo">
+            <iframe class="embedded-mode-frame" src="modes/torneo-clubes/index.html" title="Torneo Clubes Históricos" onload="this.parentElement.classList.add('is-loaded')"></iframe>
+        </div>
     </div>
 
     <!-- Juego: Carrera Jugador -->
@@ -2103,7 +2109,9 @@
             <button class="back-btn" onclick="showView('menuView')">Volver</button>
             <h1 class="view-title">Carrera Jugador</h1>
         </div>
-        <iframe class="embedded-mode-frame" src="modes/carrera-jugador/index.html" title="Carrera Jugador"></iframe>
+        <div class="embedded-mode-shell" data-loading="Cargando carrera">
+            <iframe class="embedded-mode-frame" src="modes/carrera-jugador/index.html" title="Carrera Jugador" onload="this.parentElement.classList.add('is-loaded')"></iframe>
+        </div>
     </div>
 
     <!-- Juego: Subasta Futbolera - Lobby de Sala -->
