@@ -7,14 +7,69 @@ const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-    cors: { origin: '*' }
-});
-
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 const PUBLIC_DIR = __dirname;
+const ROOM_IDLE_TTL_MS = readPositiveNumber(process.env.ROOM_IDLE_TTL_MS, 30 * 60 * 1000);
+const ROOM_SWEEP_INTERVAL_MS = readPositiveNumber(process.env.ROOM_SWEEP_INTERVAL_MS, 5 * 60 * 1000);
 const rooms = {};
+
+const allowedSocketOrigins = parseAllowedOrigins();
+const io = new Server(server, {
+    cors: {
+        origin(origin, callback) {
+            callback(null, isSocketOriginAllowed(origin));
+        }
+    },
+    allowRequest(req, callback) {
+        callback(null, isSocketOriginAllowed(req.headers.origin, req.headers.host));
+    }
+});
+
+function readPositiveNumber(value, fallback) {
+    const number = Number(value);
+    return Number.isFinite(number) && number > 0 ? number : fallback;
+}
+
+function parseAllowedOrigins() {
+    const raw = process.env.SOCKET_IO_ORIGINS || process.env.CORS_ORIGINS || process.env.PUBLIC_ORIGIN || '';
+    return new Set(raw.split(',').map((item) => normalizeOrigin(item.trim())).filter(Boolean));
+}
+
+function normalizeOrigin(origin) {
+    if (!origin || origin === '*') return origin || '';
+    try {
+        return new URL(origin).origin;
+    } catch (error) {
+        return '';
+    }
+}
+
+function isLocalOrigin(origin) {
+    try {
+        const { hostname } = new URL(origin);
+        return ['localhost', '127.0.0.1', '::1'].includes(hostname);
+    } catch (error) {
+        return false;
+    }
+}
+
+function isSocketOriginAllowed(origin, host = '') {
+    if (!origin) return true;
+    const normalized = normalizeOrigin(origin);
+    if (!normalized) return false;
+    if (allowedSocketOrigins.has('*') || allowedSocketOrigins.has(normalized)) return true;
+    if (isLocalOrigin(normalized)) return true;
+
+    const requestHost = String(host || '').split(',')[0].trim().toLowerCase();
+    if (!requestHost) return allowedSocketOrigins.size === 0;
+
+    try {
+        return new URL(normalized).host.toLowerCase() === requestHost;
+    } catch (error) {
+        return false;
+    }
+}
 
 app.get('/health', (req, res) => {
     res.status(200).json({ ok: true, service: 'futbol-mix' });
@@ -102,6 +157,7 @@ function publicUsers(room) {
 function emitRoomState(roomName) {
     const room = rooms[roomName];
     if (!room) return;
+    touchRoom(roomName);
     io.to(roomName).emit('roomState', {
         roomName,
         adminId: room.admin,
@@ -112,15 +168,35 @@ function emitRoomState(roomName) {
 }
 
 function addRoomEvent(roomName, text, type = 'info') {
+    touchRoom(roomName);
     io.to(roomName).emit('auctionEvent', { text, type, time: Date.now() });
 }
 
-function cleanupRoom(roomName) {
+function touchRoom(roomName) {
     const room = rooms[roomName];
-    if (!room || room.users.some((user) => user.connected)) return;
+    if (room) room.updatedAt = Date.now();
+}
+
+function cleanupRoom(roomName, force = false) {
+    const room = rooms[roomName];
+    if (!room || (!force && room.users.some((user) => user.connected))) return;
     if (room.interval) clearInterval(room.interval);
     delete rooms[roomName];
 }
+
+function sweepInactiveRooms() {
+    const now = Date.now();
+    Object.entries(rooms).forEach(([roomName, room]) => {
+        const inactiveFor = now - (room.updatedAt || room.createdAt || now);
+        const hasConnectedUsers = room.users.some((user) => user.connected);
+        const isTerminal = room.status === 'finished';
+        if ((isTerminal || !hasConnectedUsers) && inactiveFor > ROOM_IDLE_TTL_MS) {
+            cleanupRoom(roomName, true);
+        }
+    });
+}
+
+setInterval(sweepInactiveRooms, ROOM_SWEEP_INTERVAL_MS).unref();
 
 function nextRound(roomName) {
     const room = rooms[roomName];
@@ -195,7 +271,9 @@ io.on('connection', (socket) => {
             currentBid: 0,
             lastBidderId: null,
             timer: 0,
-            interval: null
+            interval: null,
+            createdAt: Date.now(),
+            updatedAt: Date.now()
         };
 
         socket.join(roomName);

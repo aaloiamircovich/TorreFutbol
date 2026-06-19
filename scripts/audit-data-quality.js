@@ -133,7 +133,7 @@ function isAllowedFinding(entry, patternId) {
   if (["trailing-year", "trailing-number"].includes(patternId)) {
     if (["titulo", "title"].includes(field)) return true;
     if (/^(top\s+\d+|fecha\s+\d+|jornada\s+\d+)/i.test(name)) return true;
-    if (/\b(ligue|liga|league|division|super league|serie|primera|segunda)\s+\d+\b/i.test(name)) return true;
+    if (/\b(ligue|liga|league|division|super league|serie|primera|segunda)(?:\s+[a-z]+)?\s+\d+\b/i.test(name)) return true;
     if (/\b(fc|sc|sv|ac|us|club|calcio|foot|mainz|schalke|hannover|paderborn|darmstadt|brestois|grenoble)\b/i.test(name)) return true;
     if (/^(como|grazer ak|mantova|delfino pescara|egaleo|santorini|ialysos)\s+\d{4}$/i.test(name)) return true;
     if (/^\d\./.test(name)) return true;

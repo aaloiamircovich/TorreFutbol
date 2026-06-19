@@ -20,10 +20,10 @@ Rama de trabajo: codex/release-polish
 - career-data.js pesa mas de 3 MB y se carga completo en modo carrera.
 - Cobertura visual de imagenes/logos muy baja segun reports/data-audit.md.
 - Hay muchos handlers inline onclick y mucho innerHTML.
-- server.js usa CORS abierto en Socket.IO.
-- Subasta online guarda salas en memoria; un reinicio de Railway borra partidas.
+- Socket.IO ya tiene origen configurable por entorno; falta definir origen exacto en Railway si se quiere restriccion estricta.
+- Subasta online guarda salas en memoria; tiene limpieza de salas inactivas, pero un reinicio de Railway borra partidas.
 - No hay scripts formales de test/lint/build en package.json.
-- Railway usa node server.js mientras package.json usa viewport-fit-server.js en npm start.
+- Railway, Docker y package.json usan el mismo comando de produccion.
 
 ## Fase 1 - Estabilidad de entrega
 
@@ -43,14 +43,14 @@ Rama de trabajo: codex/release-polish
 - [x] Mejorar estados de carga para modos pesados.
 - [ ] Revisar textos cortados y jerarquia visual en cada modo.
 - [x] Normalizar animaciones para que sean fluidas y no molesten.
-- [ ] Agregar fallback visual elegante para logos/fotos faltantes.
+- [x] Agregar fallback visual elegante para logos/fotos faltantes.
 
 ## Fase 3 - Modo carrera
 
 - [x] Corregir caso donde el jugador puede participar como goleador y asistidor de la misma jugada.
-- [ ] Auditar progresion semanal y ritmo de crecimiento.
+- [x] Auditar progresion semanal y ritmo de crecimiento.
 - [ ] Extender arboles de habilidades por categoria y posicion.
-- [ ] Balancear recompensas de XP, dinero, popularidad y valor de mercado.
+- [x] Balancear recompensas de XP, dinero, popularidad y valor de mercado.
 - [ ] Revisar ventanas de fichajes y rumores.
 - [ ] Reducir costo de carga de career-data.js.
 
@@ -64,7 +64,7 @@ Rama de trabajo: codex/release-polish
 
 ## Fase 5 - Datos y assets
 
-- [ ] Ejecutar auditoria de nombres raros, numeros y caracteres basura.
+- [x] Ejecutar auditoria de nombres raros, numeros y caracteres basura.
 - [ ] Priorizar logos de equipos y selecciones mas frecuentes.
 - [ ] Priorizar fotos de jugadores mas usados.
 - [ ] Comprimir assets pesados.
@@ -72,9 +72,9 @@ Rama de trabajo: codex/release-polish
 
 ## Fase 6 - Backend y deploy
 
-- [ ] Unificar comando de produccion entre railway.json, Dockerfile y package.json.
-- [ ] Configurar CORS por variable de entorno.
-- [ ] Agregar limpieza de salas inactivas en subasta.
+- [x] Unificar comando de produccion entre railway.json, Dockerfile y package.json.
+- [x] Configurar CORS por variable de entorno.
+- [x] Agregar limpieza de salas inactivas en subasta.
 - [ ] Revisar logs de Railway.
 - [ ] Confirmar deploy automatico desde GitHub.
 
