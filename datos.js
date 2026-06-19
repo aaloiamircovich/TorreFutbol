@@ -425,7 +425,7 @@ const categorias = [
                     { nombre: "Harry Kane", alias: ["kane", "harry kane"] },
                     { nombre: "Lucas Hernández", alias: ["lucas hernandez", "hernandez"] },
                     { nombre: "Matthijs de Ligt", alias: ["de ligt", "matthijs de ligt"] },
-                    { nombre: "Kim Min-jae", alias: ["kim", "kim min-jae", "kim min jae"] },
+                    { nombre: "Kim Min-jae", alias: ["kim", "kim min jae", "min jae"] },
                     { nombre: "Leroy Sané", alias: ["sane", "leroy sane"] },
                     { nombre: "Dayot Upamecano", alias: ["upamecano", "dayot upamecano"] },
                     { nombre: "Corentin Tolisso", alias: ["tolisso", "corentin tolisso"] },

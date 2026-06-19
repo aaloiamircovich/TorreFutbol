@@ -65,10 +65,10 @@ Rama de trabajo: codex/release-polish
 ## Fase 5 - Datos y assets
 
 - [x] Ejecutar auditoria de nombres raros, numeros y caracteres basura.
-- [ ] Priorizar logos de equipos y selecciones mas frecuentes.
-- [ ] Priorizar fotos de jugadores mas usados.
-- [ ] Comprimir assets pesados.
-- [ ] Revisar aliases de busqueda para juegos de adivinar.
+- [x] Priorizar logos de equipos y selecciones mas frecuentes.
+- [x] Priorizar fotos de jugadores mas usados.
+- [x] Comprimir assets pesados.
+- [x] Revisar aliases de busqueda para juegos de adivinar.
 
 ## Fase 6 - Backend y deploy
 

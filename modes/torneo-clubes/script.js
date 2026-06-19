@@ -632,24 +632,24 @@ function describeChance(team, opponent, kind) {
   const defender = weightedPlayer(opponent.players, ["DEF", "MED"]);
   const keeper = weightedPlayer(opponent.players, ["POR"]);
   if (kind === "save") return `${team.name}: ${playerName(creator)} filtra para ${playerName(finisher)} y ${playerName(keeper)} responde con una atajada enorme.`;
-  if (kind === "woodwork") return `${team.name}: ${playerName(finisher)} revienta el palo despu?s de una recuperaci?n alta.`;
-  if (kind === "offside") return `${team.name}: gol anulado a ${playerName(finisher)} por offside milim?trico tras revisi?n del VAR.`;
-  if (kind === "block") return `${team.name}: ${playerName(defender)} bloquea sobre la l?nea un remate de ${playerName(finisher)}.`;
-  return `${team.name}: ${playerName(creator)} rompe l?neas y deja a ${playerName(finisher)} de cara al arco.`;
+  if (kind === "woodwork") return `${team.name}: ${playerName(finisher)} revienta el palo despu\u00e9s de una recuperaci\u00f3n alta.`;
+  if (kind === "offside") return `${team.name}: gol anulado a ${playerName(finisher)} por offside milim\u00e9trico tras revisi\u00f3n del VAR.`;
+  if (kind === "block") return `${team.name}: ${playerName(defender)} bloquea sobre la l\u00ednea un remate de ${playerName(finisher)}.`;
+  return `${team.name}: ${playerName(creator)} rompe l\u00edneas y deja a ${playerName(finisher)} de cara al arco.`;
 }
 
 function describeTactical(team, opponent, minute) {
   const midfielder = weightedPlayer(team.players, ["MED", "DEF"]);
   const rivalCreator = weightedPlayer(opponent.players, ["MED", "DEL"]);
-  if (minute < 35) return `${team.name}: ajuste de presi?n, ${playerName(midfielder)} salta sobre ${playerName(rivalCreator)} y cambia el ritmo del partido.`;
-  if (minute < 70) return `${team.name}: el banco pide posesiones m?s largas para enfriar el tramo fuerte de ${opponent.name}.`;
-  return `${team.name}: repliegue corto y l?neas juntas para proteger la zona central en el cierre.`;
+  if (minute < 35) return `${team.name}: ajuste de presi\u00f3n, ${playerName(midfielder)} salta sobre ${playerName(rivalCreator)} y cambia el ritmo del partido.`;
+  if (minute < 70) return `${team.name}: el banco pide posesiones m\u00e1s largas para enfriar el tramo fuerte de ${opponent.name}.`;
+  return `${team.name}: repliegue corto y l\u00edneas juntas para proteger la zona central en el cierre.`;
 }
 
 function describeSubstitution(team) {
   const starter = weightedPlayer(team.players, ["MED", "DEL", "DEF"]);
   const replacement = weightedPlayer(team.players.filter((player) => player.name !== starter.name), ["MED", "DEL", "DEF"]);
-  return `${team.name}: cambio t?ctico, entra ${playerName(replacement)} para darle aire al lugar de ${playerName(starter)}.`;
+  return `${team.name}: cambio t\u00e1ctico, entra ${playerName(replacement)} para darle aire al lugar de ${playerName(starter)}.`;
 }
 
 function generateMatchStats(teamA, teamB, goalsA, goalsB, events, chanceA) {
@@ -690,7 +690,7 @@ function generateEvents(teamA, teamB, goalsA, goalsB, chanceA = 0.5, chanceB = 0
     const side = biasedSide(chanceA, -0.04);
     const team = sideTeam(side, teamA, teamB);
     const booked = weightedPlayer(team.players, ["DEF", "MED"]);
-    const reasons = ["cortar una transici?n", "llegar tarde a un duelo dividido", "frenar una contra con falta t?ctica", "protestar una decisi?n del ?rbitro"];
+    const reasons = ["cortar una transici\u00f3n", "llegar tarde a un duelo dividido", "frenar una contra con falta t\u00e1ctica", "protestar una decisi\u00f3n del \u00e1rbitro"];
     addMatchEvent(events, used, "card", `${team.name}: amarilla para ${playerName(booked)} por ${randomItem(reasons)}.`, { side });
   }
   if (Math.random() < 0.2) {
@@ -714,7 +714,7 @@ function generateEvents(teamA, teamB, goalsA, goalsB, chanceA = 0.5, chanceB = 0
     const side = goalsA >= goalsB ? "B" : "A";
     const team = sideTeam(side, teamA, teamB);
     const opponent = opponentTeam(side, teamA, teamB);
-    addMatchEvent(events, used, "chance", `${team.name}: ?ltimo arre?n, ${playerName(weightedPlayer(team.players, ["DEL", "MED"]))} fuerza a ${playerName(weightedPlayer(opponent.players, ["POR"]))} a volar en el cierre.`, { side, min: 84, max: 90 });
+    addMatchEvent(events, used, "chance", `${team.name}: \u00daltimo arre\u00f3n, ${playerName(weightedPlayer(team.players, ["DEL", "MED"]))} fuerza a ${playerName(weightedPlayer(opponent.players, ["POR"]))} a volar en el cierre.`, { side, min: 84, max: 90 });
   }
   return events.sort((a, b) => a.minute - b.minute);
 }
