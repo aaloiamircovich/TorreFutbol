@@ -586,16 +586,39 @@ function weightedPlayer(players, positions) {
   return candidates[candidates.length - 1];
 }
 
-function eventMinute(used) {
-  let minute = Math.floor(3 + Math.random() * 88);
-  while (used.has(minute)) minute = Math.min(90, minute + 1);
+function eventMinute(used, min = 3, max = 90) {
+  let minute = Math.floor(min + Math.random() * (max - min + 1));
+  let attempts = 0;
+  while (used.has(minute) && attempts < 140) {
+    minute += 1;
+    if (minute > max) minute = min;
+    attempts += 1;
+  }
   used.add(minute);
   return minute;
 }
 
+function addMatchEvent(events, used, type, text, options = {}) {
+  const { side = null, minute = null, min = 3, max = 90 } = options;
+  events.push({ minute: minute ?? eventMinute(used, min, max), type, side, text });
+}
+
+function biasedSide(chanceA, modifier = 0) {
+  return Math.random() < clamp(chanceA + modifier, 0.22, 0.78) ? "A" : "B";
+}
+
+function sideTeam(side, teamA, teamB) {
+  return side === "A" ? teamA : teamB;
+}
+
+function opponentTeam(side, teamA, teamB) {
+  return side === "A" ? teamB : teamA;
+}
+
 function describeGoal(team, method) {
   const scorer = weightedPlayer(team.players, method === "Tiro libre" ? ["MED", "DEL"] : ["DEL", "MED", "DEF"]);
-  const assist = weightedPlayer(team.players.filter((player) => player.name !== scorer.name), ["MED", "DEL", "DEF"]);
+  const assistPool = team.players.filter((player) => player.name !== scorer.name);
+  const assist = weightedPlayer(assistPool.length ? assistPool : team.players, ["MED", "DEL", "DEF"]);
   if (method === "Penal") return `${playerName(scorer)} convierte de penal con remate bajo.`;
   if (method === "Tiro libre") return `${playerName(scorer)} marca de tiro libre directo.`;
   if (method === "Cabeza") return `${playerName(scorer)} gana de cabeza tras centro de ${playerName(assist)}.`;
@@ -603,39 +626,96 @@ function describeGoal(team, method) {
   return `${playerName(scorer)} anota tras asistencia de ${playerName(assist)}.`;
 }
 
-function generateEvents(teamA, teamB, goalsA, goalsB) {
+function describeChance(team, opponent, kind) {
+  const creator = weightedPlayer(team.players, ["MED", "DEL"]);
+  const finisher = weightedPlayer(team.players, ["DEL", "MED"]);
+  const defender = weightedPlayer(opponent.players, ["DEF", "MED"]);
+  const keeper = weightedPlayer(opponent.players, ["POR"]);
+  if (kind === "save") return `${team.name}: ${playerName(creator)} filtra para ${playerName(finisher)} y ${playerName(keeper)} responde con una atajada enorme.`;
+  if (kind === "woodwork") return `${team.name}: ${playerName(finisher)} revienta el palo despu?s de una recuperaci?n alta.`;
+  if (kind === "offside") return `${team.name}: gol anulado a ${playerName(finisher)} por offside milim?trico tras revisi?n del VAR.`;
+  if (kind === "block") return `${team.name}: ${playerName(defender)} bloquea sobre la l?nea un remate de ${playerName(finisher)}.`;
+  return `${team.name}: ${playerName(creator)} rompe l?neas y deja a ${playerName(finisher)} de cara al arco.`;
+}
+
+function describeTactical(team, opponent, minute) {
+  const midfielder = weightedPlayer(team.players, ["MED", "DEF"]);
+  const rivalCreator = weightedPlayer(opponent.players, ["MED", "DEL"]);
+  if (minute < 35) return `${team.name}: ajuste de presi?n, ${playerName(midfielder)} salta sobre ${playerName(rivalCreator)} y cambia el ritmo del partido.`;
+  if (minute < 70) return `${team.name}: el banco pide posesiones m?s largas para enfriar el tramo fuerte de ${opponent.name}.`;
+  return `${team.name}: repliegue corto y l?neas juntas para proteger la zona central en el cierre.`;
+}
+
+function describeSubstitution(team) {
+  const starter = weightedPlayer(team.players, ["MED", "DEL", "DEF"]);
+  const replacement = weightedPlayer(team.players.filter((player) => player.name !== starter.name), ["MED", "DEL", "DEF"]);
+  return `${team.name}: cambio t?ctico, entra ${playerName(replacement)} para darle aire al lugar de ${playerName(starter)}.`;
+}
+
+function generateMatchStats(teamA, teamB, goalsA, goalsB, events, chanceA) {
+  const shotTypes = ["goal", "chance", "save", "woodwork", "penalty-save"];
+  const shotEventsA = events.filter((event) => event.side === "A" && shotTypes.includes(event.type)).length;
+  const shotEventsB = events.filter((event) => event.side === "B" && shotTypes.includes(event.type)).length;
+  const shotsA = Math.max(goalsA + 3, shotEventsA + Math.floor(3 + Math.random() * 5));
+  const shotsB = Math.max(goalsB + 3, shotEventsB + Math.floor(3 + Math.random() * 5));
+  const onTargetA = clamp(goalsA + events.filter((event) => event.side === "A" && ["save", "penalty-save"].includes(event.type)).length + Math.floor(Math.random() * 3), goalsA, shotsA);
+  const onTargetB = clamp(goalsB + events.filter((event) => event.side === "B" && ["save", "penalty-save"].includes(event.type)).length + Math.floor(Math.random() * 3), goalsB, shotsB);
+  const possessionA = Math.round(clamp(50 + (teamA.rating.mid - teamB.rating.mid) * 0.8 + (chanceA - 0.5) * 16 + (Math.random() * 8 - 4), 38, 62));
+  const xgA = clamp(goalsA * 0.55 + shotsA * 0.11 + onTargetA * 0.16, 0.2, 4.8).toFixed(1);
+  const xgB = clamp(goalsB * 0.55 + shotsB * 0.11 + onTargetB * 0.16, 0.2, 4.8).toFixed(1);
+  const winner = goalsA > goalsB ? teamA : goalsB > goalsA ? teamB : (chanceA >= 0.5 ? teamA : teamB);
+  return { possessionA, possessionB: 100 - possessionA, shotsA, shotsB, onTargetA, onTargetB, xgA, xgB, standout: playerName(weightedPlayer(winner.players, ["DEL", "MED", "POR"])) };
+}
+
+function generateEvents(teamA, teamB, goalsA, goalsB, chanceA = 0.5, chanceB = 0.5) {
   const events = [];
   const used = new Set();
   const goalMethods = ["Jugada", "Jugada", "Jugada", "Cabeza", "Contraataque", "Penal", "Tiro libre"];
-
-  for (let i = 0; i < goalsA; i += 1) {
-    const method = randomItem(goalMethods);
-    events.push({ minute: eventMinute(used), type: "goal", side: "A", text: `${teamA.name}: ${describeGoal(teamA, method)} (${method})` });
+  const favoriteSide = chanceA >= chanceB ? "A" : "B";
+  const favorite = sideTeam(favoriteSide, teamA, teamB);
+  const underdog = opponentTeam(favoriteSide, teamA, teamB);
+  addMatchEvent(events, used, "note", `Arranca con ${favorite.name} intentando mandar desde la media y ${underdog.name} esperando su momento.`, { minute: 1 });
+  addMatchEvent(events, used, "tactical", describeTactical(favorite, underdog, 18), { min: 8, max: 22 });
+  for (let i = 0; i < goalsA; i += 1) addMatchEvent(events, used, "goal", `${teamA.name}: ${describeGoal(teamA, randomItem(goalMethods))}`, { side: "A" });
+  for (let i = 0; i < goalsB; i += 1) addMatchEvent(events, used, "goal", `${teamB.name}: ${describeGoal(teamB, randomItem(goalMethods))}`, { side: "B" });
+  const chanceKinds = ["chance", "save", "save", "woodwork", "block", "offside"];
+  const chanceCount = Math.floor(4 + Math.random() * 4 + (goalsA + goalsB) * 0.65);
+  for (let i = 0; i < chanceCount; i += 1) {
+    const side = biasedSide(chanceA, i % 3 === 0 ? 0.08 : 0);
+    const kind = randomItem(chanceKinds);
+    const type = kind === "save" ? "save" : kind === "woodwork" ? "woodwork" : kind === "offside" ? "offside" : "chance";
+    addMatchEvent(events, used, type, describeChance(sideTeam(side, teamA, teamB), opponentTeam(side, teamA, teamB), kind), { side });
   }
-  for (let i = 0; i < goalsB; i += 1) {
-    const method = randomItem(goalMethods);
-    events.push({ minute: eventMinute(used), type: "goal", side: "B", text: `${teamB.name}: ${describeGoal(teamB, method)} (${method})` });
-  }
-
-  const yellowCount = Math.floor(Math.random() * 5) + 2;
-  for (let i = 0; i < yellowCount; i += 1) {
-    const team = Math.random() > 0.5 ? teamA : teamB;
+  for (let i = 0; i < Math.floor(Math.random() * 4) + 2; i += 1) {
+    const side = biasedSide(chanceA, -0.04);
+    const team = sideTeam(side, teamA, teamB);
     const booked = weightedPlayer(team.players, ["DEF", "MED"]);
-    events.push({ minute: eventMinute(used), type: "card", text: `${team.name}: amarilla para ${playerName(booked)} por cortar una transición.` });
+    const reasons = ["cortar una transici?n", "llegar tarde a un duelo dividido", "frenar una contra con falta t?ctica", "protestar una decisi?n del ?rbitro"];
+    addMatchEvent(events, used, "card", `${team.name}: amarilla para ${playerName(booked)} por ${randomItem(reasons)}.`, { side });
   }
-
-  if (Math.random() < 0.18) {
-    const team = Math.random() > 0.5 ? teamA : teamB;
-    const sentOff = weightedPlayer(team.players, ["DEF", "MED"]);
-    events.push({ minute: eventMinute(used), type: "card", text: `${team.name}: roja para ${playerName(sentOff)} tras doble amarilla.` });
+  if (Math.random() < 0.2) {
+    const side = biasedSide(chanceA, -0.1);
+    const team = sideTeam(side, teamA, teamB);
+    addMatchEvent(events, used, "card", `${team.name}: roja para ${playerName(weightedPlayer(team.players, ["DEF", "MED"]))} tras doble amarilla. El plan cambia por completo.`, { side, min: 52, max: 88 });
   }
-
-  if (Math.random() < 0.22) {
-    const team = Math.random() > 0.5 ? teamA : teamB;
-    const keeper = weightedPlayer(team.players, ["POR"]);
-    events.push({ minute: eventMinute(used), type: "penalty-save", text: `${team.name}: ${playerName(keeper)} ataja un penal clave.` });
+  if (Math.random() < 0.26) {
+    const side = biasedSide(chanceA);
+    const team = sideTeam(side, teamA, teamB);
+    const opponent = opponentTeam(side, teamA, teamB);
+    addMatchEvent(events, used, "penalty-save", `${team.name}: penal de ${playerName(weightedPlayer(team.players, ["DEL", "MED"]))} atajado por ${playerName(weightedPlayer(opponent.players, ["POR"]))}. El estadio se viene abajo.`, { side, min: 35, max: 83 });
   }
-
+  const tacticalSide = biasedSide(chanceA, goalsA === goalsB ? 0 : goalsA > goalsB ? -0.12 : 0.12);
+  addMatchEvent(events, used, "tactical", describeTactical(sideTeam(tacticalSide, teamA, teamB), opponentTeam(tacticalSide, teamA, teamB), 62), { side: tacticalSide, min: 50, max: 72 });
+  for (let i = 0; i < 2; i += 1) {
+    const side = i === 0 ? "A" : "B";
+    addMatchEvent(events, used, "substitution", describeSubstitution(sideTeam(side, teamA, teamB)), { side, min: 58, max: 82 });
+  }
+  if (Math.abs(goalsA - goalsB) <= 1) {
+    const side = goalsA >= goalsB ? "B" : "A";
+    const team = sideTeam(side, teamA, teamB);
+    const opponent = opponentTeam(side, teamA, teamB);
+    addMatchEvent(events, used, "chance", `${team.name}: ?ltimo arre?n, ${playerName(weightedPlayer(team.players, ["DEL", "MED"]))} fuerza a ${playerName(weightedPlayer(opponent.players, ["POR"]))} a volar en el cierre.`, { side, min: 84, max: 90 });
+  }
   return events.sort((a, b) => a.minute - b.minute);
 }
 
@@ -651,7 +731,8 @@ function simulateMatch(teamA, teamB, knockout = false) {
     else goalsB += 1;
   }
 
-  const events = generateEvents(teamA, teamB, goalsA, goalsB);
+  const events = generateEvents(teamA, teamB, goalsA, goalsB, chanceA, chanceB);
+  const stats = generateMatchStats(teamA, teamB, goalsA, goalsB, events, chanceA);
   let penalties = null;
   let winner = goalsA > goalsB ? teamA : goalsB > goalsA ? teamB : null;
 
@@ -664,7 +745,7 @@ function simulateMatch(teamA, teamB, knockout = false) {
     events.push({ minute: 120, type: "pens", text: `Definición por penales: ${winner.name} gana ${penalties[0]}-${penalties[1]}. Figura: ${playerName(hero)}.` });
   }
 
-  return { teamA, teamB, goalsA, goalsB, events, winner, penalties, chanceA, chanceB };
+  return { teamA, teamB, goalsA, goalsB, events, winner, penalties, chanceA, chanceB, stats };
 }
 
 function renderMatch(match, phase) {
@@ -736,6 +817,9 @@ function eventClass(event) {
   if (event.type === "goal") return "goal";
   if (event.type === "pens" || event.type === "penalty-save") return "penalty";
   if (event.type === "card") return event.text.includes("roja") ? "red-card" : "yellow-card";
+  if (["chance", "save", "woodwork", "offside"].includes(event.type)) return "chance";
+  if (event.type === "tactical" || event.type === "substitution") return "tactical";
+  if (event.type === "summary") return "summary";
   return "note";
 }
 function eventLabel(event) {
@@ -743,6 +827,13 @@ function eventLabel(event) {
   if (event.type === "pens") return "PENALES";
   if (event.type === "penalty-save") return "PENAL";
   if (event.type === "card") return event.text.includes("roja") ? "ROJA" : "AMARILLA";
+  if (event.type === "save") return "ATAJADA";
+  if (event.type === "woodwork") return "PALO";
+  if (event.type === "offside") return "VAR";
+  if (event.type === "chance") return "OCASI\u00d3N";
+  if (event.type === "tactical") return "T\u00c1CTICA";
+  if (event.type === "substitution") return "CAMBIO";
+  if (event.type === "summary") return "RESUMEN";
   return "JUGADA";
 }
 function renderLiveMatchShell(match, phase) {
@@ -751,6 +842,8 @@ function renderLiveMatchShell(match, phase) {
     <div class="live-stadium" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="live-match-head"><div><p class="live-kicker">${phase}</p><h3>Partido en vivo</h3></div><span class="live-minute">0'</span></div>
     <div class="live-scoreboard"><span>${match.teamA.name}</span><strong class="live-score">0 - 0</strong><span>${match.teamB.name}</span></div>
+    <div class="live-match-context"><span>${Math.round(match.chanceA * 100)}% ${match.teamA.name}</span><span>Media ${match.teamA.rating.total} vs ${match.teamB.rating.total}</span><span>${Math.round(match.chanceB * 100)}% ${match.teamB.name}</span></div>
+    <div class="live-tension"><span style="width:${Math.round(match.chanceA * 100)}%"></span></div>
     <div class="live-timeline"><span style="width:0%"></span></div>
     <ul class="events live-events"></ul>
   </article>`);
@@ -793,6 +886,9 @@ async function playLiveMatch(match, phase) {
   live.scoreEl.textContent = `${match.goalsA} - ${match.goalsB}${penText}`;
   live.minuteEl.textContent = "Final";
   live.timelineEl.style.width = "100%";
+  if (match.stats) {
+    live.eventsEl.insertAdjacentHTML("beforeend", `<li class="event-summary"><span>Final</span><strong>RESUMEN</strong><p>Posesi\u00f3n ${match.stats.possessionA}-${match.stats.possessionB}, tiros ${match.stats.shotsA}-${match.stats.shotsB}, al arco ${match.stats.onTargetA}-${match.stats.onTargetB}, xG ${match.stats.xgA}-${match.stats.xgB}. Figura: ${match.stats.standout}.</p></li>`);
+  }
   live.card.classList.remove("is-running");
   live.card.classList.add("is-finished");
   await sleep(700);

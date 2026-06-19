@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --paper: #efe6d1;
   --paper-dark: #dfd2b5;
   --ink: #0b0e11;
@@ -1523,6 +1523,49 @@ button {
 .live-events .event-yellow-card { border-left: 4px solid #ffc857; }
 .live-events .event-red-card { border-left: 4px solid #ff5c70; }
 .live-events .event-penalty { border-left: 4px solid var(--green); }
+
+.live-match-context {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 9px;
+  color: rgba(255,255,255,0.62);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.live-match-context span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.live-match-context span:nth-child(2) {
+  color: rgba(255,255,255,0.76);
+  text-align: center;
+}
+
+.live-match-context span:last-child {
+  text-align: right;
+}
+
+.live-events .event-chance {
+  border-left: 4px solid #5ab8ff;
+  background: rgba(90,184,255,0.12);
+}
+
+.live-events .event-tactical {
+  border-left: 4px solid #b88cff;
+  background: rgba(184,140,255,0.12);
+}
+
+.live-events .event-summary {
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.12);
+}
+
 
 .sim-gate {
   display: flex;
