@@ -600,7 +600,7 @@ const squads = [
       p("Fernando Cruz", "LI", 82), p("Baptista", "DFC", 80), p("Jaime Graca", "MC", 86),
       p("Mario Coluna", "MC", 92, ["MC", "MCD"]), p("Jose Augusto", "ED", 88), p("Antonio Simoes", "EI", 88),
       p("Eusebio", "DC", 98), p("Jose Torres", "DC", 88), p("Augusto Silva", "MCD", 82),
-      p("Peres", "MCO", 82), p("Jose Augusto 1966", "ED", 88), p("Fernando Peres", "MCO", 83),
+      p("Custodio Pinto", "MC", 82, ["MC", "MCD"]), p("Ernesto Figueiredo", "DC", 84, ["DC", "EI"]), p("Fernando Peres", "MCO", 83),
     ],
   },
   {
@@ -1876,9 +1876,20 @@ function currentSquadHasPickablePlayers() {
   return Boolean(state.currentSquad?.players.some((player) => canPickPlayer(player)));
 }
 
+function showNoCompatibleSquadsMessage() {
+  drawTitle.textContent = "Sin opciones";
+  drawSubtitle.textContent = "No quedan selecciones compatibles con los puestos libres.";
+  playerGrid.classList.add("empty");
+  playerGrid.innerHTML = `<p>Elegiste todos los puestos que estas plantillas podían cubrir. Reinicia o prueba otra formación.</p>`;
+  updateRerollButtons();
+}
+
 function rerollAnyCompatibleSquad() {
   const pool = compatibleSquads(() => true);
-  if (!pool.length) return;
+  if (!pool.length) {
+    showNoCompatibleSquadsMessage();
+    return;
+  }
   state.currentSquad = randomItem(pool);
   state.pendingPlayerIndex = null;
   showCurrentSquad();
@@ -1920,14 +1931,24 @@ function showCurrentSquad() {
 function drawSquad() {
   if (!state.formation || state.picked.length >= 11 || state.currentSquad) return;
   const recent = state.drawHistory.slice(-3);
-  const pool = squads.filter((squad) => !recent.includes(squad.id) && squad.players.some((player) => canPickPlayer(player)));
-  state.currentSquad = randomItem(pool.length ? pool : squads);
+  const compatiblePool = compatibleSquads(() => true);
+  const pool = compatiblePool.filter((squad) => !recent.includes(squad.id));
+  state.currentSquad = randomItem(pool.length ? pool : compatiblePool);
+  if (!state.currentSquad) {
+    showNoCompatibleSquadsMessage();
+    return;
+  }
   showCurrentSquad();
 }
 
 function renderPlayers() {
   if (!state.currentSquad) return;
   const players = state.currentSquad.players.filter((player) => state.filter === "ALL" || player.roles.includes(state.filter));
+  if (!players.length) {
+    playerGrid.classList.add("empty");
+    playerGrid.innerHTML = `<p>No hay jugadores disponibles para este filtro en la selección sorteada.</p>`;
+    return;
+  }
   playerGrid.classList.remove("empty");
   playerGrid.innerHTML = players.map((player, listIndex) => {
     const playerIndex = state.currentSquad.players.indexOf(player);

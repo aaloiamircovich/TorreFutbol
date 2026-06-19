@@ -10,7 +10,8 @@
     "import:career": "node scripts/import-career-transfermarkt.js",
     "import:career:second": "node scripts/import-career-transfermarkt.js --second-divisions",
     "test:smoke": "node scripts/smoke-test.js",
-    "start": "node -r ./viewport-fit-server.js server.js"
+    "start": "node -r ./viewport-fit-server.js server.js",
+    "audit:tournaments": "node scripts/audit-tournaments.js"
   },
   "dependencies": {
     "axios": "^1.16.1",

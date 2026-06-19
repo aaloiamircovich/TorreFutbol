@@ -56,11 +56,11 @@ Rama de trabajo: codex/release-polish
 
 ## Fase 4 - Torneos
 
-- [ ] Revisar balance de valoraciones por seleccion/club historico.
-- [ ] Validar que botones de simular/pasar partido no queden cortados.
+- [x] Revisar balance de valoraciones por seleccion/club historico.
+- [x] Validar que botones de simular/pasar partido no queden cortados.
 - [ ] Revisar narracion minuto a minuto.
-- [ ] Verificar que skips y sorteos no queden sin opciones.
-- [ ] Confirmar que todos los equipos/selecciones corresponden a torneos validos.
+- [x] Verificar que skips y sorteos no queden sin opciones.
+- [x] Confirmar que todos los equipos/selecciones corresponden a torneos validos.
 
 ## Fase 5 - Datos y assets
 
