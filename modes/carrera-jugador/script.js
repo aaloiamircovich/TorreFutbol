@@ -615,6 +615,55 @@ const skillCategories = [
   { id: "porteria", label: "Porteria", desc: "Reflejos, mando del area y salida con pelota.", positions: ["POR"] }
 ];
 
+const detailedAttributeGroups = {
+  velocidad: ["aceleracion", "velocidadSprint", "agilidad", "reaccion"],
+  definicion: ["finalizacion", "potenciaTiro", "tiroLejano", "cabezazo", "tiroLibre", "penales"],
+  pase: ["paseCorto", "paseLargo", "centros", "efecto"],
+  resistencia: ["resistenciaPartido", "salto", "agresividad"],
+  regate: ["controlBalon", "regateTecnico", "equilibrio", "compostura"],
+  vision: ["visionJuego", "posicionamiento", "reaccionMental"],
+  fuerza: ["fuerzaFisica", "salto", "agresividad"],
+  defensa: ["intercepciones", "marcaje", "entrada", "barrida", "cabeceoDefensivo"]
+};
+
+const detailedAttributeLabels = {
+  aceleracion: "Aceleracion",
+  velocidadSprint: "Velocidad sprint",
+  agilidad: "Agilidad",
+  reaccion: "Reaccion",
+  finalizacion: "Finalizacion",
+  potenciaTiro: "Potencia de tiro",
+  tiroLejano: "Tiro lejano",
+  cabezazo: "Precision de cabezazo",
+  tiroLibre: "Tiro libre",
+  penales: "Penales",
+  paseCorto: "Pase corto",
+  paseLargo: "Pase largo",
+  centros: "Centros",
+  efecto: "Efecto",
+  resistenciaPartido: "Resistencia",
+  salto: "Salto",
+  agresividad: "Agresividad",
+  controlBalon: "Control de balon",
+  regateTecnico: "Regate",
+  equilibrio: "Equilibrio",
+  compostura: "Compostura",
+  visionJuego: "Vision",
+  posicionamiento: "Posicionamiento",
+  reaccionMental: "Reaccion mental",
+  fuerzaFisica: "Fuerza",
+  intercepciones: "Intercepciones",
+  marcaje: "Marcaje",
+  entrada: "Entrada de pie",
+  barrida: "Barrida",
+  cabeceoDefensivo: "Cabeceo defensivo",
+  reflejosPortero: "Reflejos",
+  estiradaPortero: "Estirada",
+  colocacionPortero: "Colocacion",
+  manejoPortero: "Manejo",
+  saquePortero: "Saque"
+};
+
 const legacySkillNodes = [
   { id: "core_burst", branch: "core", tier: 1, title: "Primeros metros", desc: "Arranque corto para ganar duelos cercanos.", cost: 1, attrs: { velocidad: 2, resistencia: 1 }, trait: "Velocista" },
   { id: "core_engine", branch: "core", tier: 2, title: "Motor semanal", desc: "Aguantas mejor entrenamientos y partidos seguidos.", cost: 2, attrs: { resistencia: 4 }, trait: "Inagotable", req: "core_burst" },
@@ -708,8 +757,56 @@ const skillNodes = [
   { id: "por_mano", category: "porteria", positions: ["POR"], title: "Mano a mano", desc: "Mejora achiques contra delanteros.", cost: 2, attrs: { defensa: 3, velocidad: 1 }, req: "por_colocacion", x: 22, y: 45, icon: "MM" },
   { id: "por_juego_pies", category: "porteria", positions: ["POR"], title: "Juego de pies", desc: "Salida corta y cambio largo con mas precision.", cost: 2, attrs: { pase: 3, vision: 1 }, req: ["por_colocacion", "por_salida"], x: 50, y: 45, icon: "JP" },
   { id: "por_libero", category: "porteria", positions: ["POR"], title: "Arquero libero", desc: "Cortas balones largos fuera del area.", cost: 2, attrs: { velocidad: 2, vision: 2 }, trait: "Arquero Libero", req: "por_salida", x: 78, y: 45, icon: "AL" },
-  { id: "por_muralla", category: "porteria", positions: ["POR"], title: "Ultima muralla", desc: "Pico elite de reflejos, mando y seguridad.", cost: 3, attrs: { defensa: 5, fuerza: 1 }, trait: "Portero Elite", req: ["por_mano", "por_juego_pies", "por_libero"], x: 50, y: 72, icon: "UM" }
+  { id: "por_muralla", category: "porteria", positions: ["POR"], title: "Ultima muralla", desc: "Pico elite de reflejos, mando y seguridad.", cost: 3, attrs: { defensa: 5, fuerza: 1 }, trait: "Portero Elite", req: ["por_mano", "por_juego_pies", "por_libero"], x: 50, y: 72, icon: "UM" },
+
+  { id: "arq_nueve", category: "tiros", positions: ["DC"], title: "9 de area", desc: "Arquetipo especialista en desmarque, definicion y juego aereo.", cost: 3, attrs: { definicion: 3, fuerza: 1 }, trait: "Finalizador Total", req: "tiro_matador", x: 50, y: 90, icon: "9" },
+  { id: "arq_extremo", category: "regates", positions: ["EI", "ED"], title: "Extremo desequilibrante", desc: "Arquetipo para recibir abierto, romper lineas y atacar hacia dentro.", cost: 3, attrs: { regate: 3, velocidad: 2 }, trait: "Extremo Elite", req: "regate_imparable", x: 50, y: 90, icon: "EX" },
+  { id: "arq_enganche", category: "pases", positions: ["MCO"], title: "Enganche creativo", desc: "Arquetipo de ultimo pase, pausa y lectura entre lineas.", cost: 3, attrs: { pase: 3, vision: 3 }, trait: "Enganche Elite", req: "pase_director", x: 50, y: 90, icon: "10" },
+  { id: "arq_interno", category: "pases", positions: ["MC"], title: "Organizador total", desc: "Arquetipo para gobernar el ritmo y conectar todas las lineas.", cost: 3, attrs: { pase: 3, resistencia: 2, vision: 1 }, trait: "Organizador", req: "pase_director", x: 50, y: 90, icon: "8" },
+  { id: "arq_pivote", category: "defensa", positions: ["MCD"], title: "Pivote ancla", desc: "Arquetipo de coberturas, intercepciones y primera salida.", cost: 3, attrs: { defensa: 3, pase: 2, resistencia: 1 }, trait: "Ancla Tactica", req: "defensa_muralla", x: 50, y: 90, icon: "5" },
+  { id: "arq_lateral", category: "defensa", positions: ["LD", "LI"], title: "Lateral total", desc: "Arquetipo para defender el uno contra uno y proyectarse por banda.", cost: 3, attrs: { defensa: 2, velocidad: 2, pase: 2 }, trait: "Lateral Total", req: "defensa_muralla", x: 50, y: 90, icon: "LT" },
+  { id: "arq_central", category: "defensa", positions: ["DFC"], title: "Central dominante", desc: "Arquetipo de anticipacion, duelo aereo y mando de la linea.", cost: 3, attrs: { defensa: 4, fuerza: 2 }, trait: "Central Elite", req: "defensa_muralla", x: 50, y: 90, icon: "CB" },
+  { id: "arq_portero", category: "porteria", positions: ["POR"], title: "Arquero moderno", desc: "Arquetipo completo de reflejos, colocacion y salida con los pies.", cost: 3, attrs: { defensa: 3, pase: 2, vision: 1 }, trait: "Guardameta Total", req: "por_muralla", x: 50, y: 90, icon: "GK" }
 ];
+
+const skillDetailEffects = {
+  fisico_base: { resistenciaPartido: 2, fuerzaFisica: 1 }, fisico_tren: { fuerzaFisica: 2, salto: 1 },
+  fisico_pulmon: { resistenciaPartido: 3 }, fisico_contacto: { fuerzaFisica: 3, agresividad: 1 },
+  fisico_equilibrio: { equilibrio: 2, fuerzaFisica: 1 }, fisico_recuperacion: { resistenciaPartido: 2, reaccion: 1 },
+  fisico_dominante: { fuerzaFisica: 3, resistenciaPartido: 3, salto: 1 },
+  defensa_marca: { marcaje: 2, fuerzaFisica: 1 }, defensa_corte: { intercepciones: 2, reaccionMental: 1 },
+  defensa_presion: { agresividad: 2, resistenciaPartido: 2 }, defensa_entrada: { entrada: 3, barrida: 1 },
+  defensa_aerea: { cabeceoDefensivo: 2, salto: 2 }, defensa_salida: { paseCorto: 2, intercepciones: 1 },
+  defensa_muralla: { marcaje: 3, intercepciones: 3, cabeceoDefensivo: 2 },
+  regate_control: { controlBalon: 2, compostura: 1 }, regate_cadera: { agilidad: 2, equilibrio: 1 },
+  regate_conduccion: { regateTecnico: 3, controlBalon: 1 }, regate_finta: { regateTecnico: 3, agilidad: 1 },
+  regate_proteccion: { controlBalon: 2, equilibrio: 2 }, regate_diagonal: { regateTecnico: 2, compostura: 2 },
+  regate_imparable: { regateTecnico: 4, agilidad: 2, controlBalon: 1 },
+  pase_corto: { paseCorto: 2, visionJuego: 1 }, pase_orientacion: { visionJuego: 2, reaccionMental: 1 },
+  pase_largo: { paseLargo: 3, efecto: 1 }, pase_filtrado: { paseCorto: 2, visionJuego: 3 },
+  pase_pausa: { compostura: 2, visionJuego: 3 }, pase_centro: { centros: 3, efecto: 2 },
+  pase_director: { paseCorto: 3, paseLargo: 3, visionJuego: 3 },
+  tiro_colocacion: { finalizacion: 2, compostura: 1 }, tiro_potencia: { potenciaTiro: 3, tiroLejano: 1 },
+  tiro_area: { finalizacion: 3, posicionamiento: 1 }, tiro_cabeza: { cabezazo: 3, salto: 2 },
+  tiro_libre: { tiroLibre: 3, efecto: 2 }, tiro_penal: { penales: 3, compostura: 1 },
+  tiro_matador: { finalizacion: 4, posicionamiento: 3, compostura: 2 },
+  ritmo_arranque: { aceleracion: 3 }, ritmo_zancada: { velocidadSprint: 3 },
+  ritmo_reaccion: { reaccion: 2, reaccionMental: 1 }, ritmo_sprint: { velocidadSprint: 2, resistenciaPartido: 2 },
+  ritmo_cambio: { aceleracion: 2, agilidad: 2 }, ritmo_presion: { aceleracion: 1, agresividad: 2 },
+  ritmo_velocista: { aceleracion: 4, velocidadSprint: 4 },
+  por_reflejos: { reflejosPortero: 3, estiradaPortero: 1 }, por_colocacion: { colocacionPortero: 3 },
+  por_salida: { manejoPortero: 3, colocacionPortero: 1 }, por_mano: { reflejosPortero: 3, colocacionPortero: 1 },
+  por_juego_pies: { saquePortero: 3, paseCorto: 2 }, por_libero: { reaccion: 2, saquePortero: 2 },
+  por_muralla: { reflejosPortero: 4, estiradaPortero: 3, manejoPortero: 2 },
+  arq_nueve: { finalizacion: 3, posicionamiento: 3, cabezazo: 2 },
+  arq_extremo: { regateTecnico: 3, aceleracion: 2, controlBalon: 2 },
+  arq_enganche: { visionJuego: 4, paseCorto: 3, compostura: 2 },
+  arq_interno: { paseCorto: 3, paseLargo: 3, resistenciaPartido: 2 },
+  arq_pivote: { intercepciones: 4, marcaje: 2, paseCorto: 2 },
+  arq_lateral: { entrada: 2, aceleracion: 2, centros: 3 },
+  arq_central: { marcaje: 4, cabeceoDefensivo: 3, fuerzaFisica: 2 },
+  arq_portero: { reflejosPortero: 3, colocacionPortero: 3, saquePortero: 3 }
+};
 
 const achievementDefs = [
   { id: "first_match", title: "Debut profesional", desc: "Juega tu primer partido.", test: () => state.careerStats.matches >= 1, rewardXp: 25 },
@@ -920,13 +1017,14 @@ function skillActionLabel(node) {
 }
 
 function skillDetailBars(node) {
-  const entries = Object.entries(node?.attrs || {});
+  const details = skillDetailsForNode(node);
+  const entries = Object.entries(details);
   if (!entries.length) return `<p class="subtle-line">Esta mejora desbloquea efectos especiales de carrera.</p>`;
   return entries.map(([attr, boost]) => {
-    const current = Number(state.attrs[attr]) || 1;
+    const current = detailedValue(attr);
     const next = clamp(current + boost, 1, 99);
     return `<div class="skill-attr-row">
-      <strong><span>${labelAttr(attr)}</span><span>${current} +${boost}</span></strong>
+      <strong><span>${detailedAttributeLabels[attr] || labelAttr(attr)}</span><span>${current} +${boost}</span></strong>
       <div class="skill-attr-track">
         <span class="current" style="width:${current}%"></span>
         <span class="boost" style="left:${current}%; width:${Math.max(0, next - current)}%"></span>
@@ -945,7 +1043,7 @@ function skillReqsMet(node) {
 }
 
 function skillBoostText(node) {
-  const parts = Object.entries(node.attrs || {}).map(([attr, value]) => `${labelAttr(attr)} +${value}`);
+  const parts = Object.entries(skillDetailsForNode(node)).map(([attr, value]) => `${detailedAttributeLabels[attr] || labelAttr(attr)} +${value}`);
   if (node.coach) parts.push(`Entrenador +${node.coach}`);
   if (node.reputation) parts.push(`Reputacion +${node.reputation}`);
   if (node.potential) parts.push(`Potencial +${node.potential}`);
@@ -1001,6 +1099,8 @@ function matchModeLabel(mode = state?.matchMode) {
 
 function ensureStateDefaults() {
   if (!state) return;
+  state.attrs = state.attrs || baseAttributes(state.profile?.position || "DC", state.profile?.style || "finisher");
+  state.detailedAttrs = ensureDetailedAttributes(state.detailedAttrs, state.attrs);
   state.level = Number(state.level) || 1;
   state.skillPoints = Number(state.skillPoints) || 0;
   state.skillTreeTab = skillCategories.some((category) => category.id === state.skillTreeTab) ? state.skillTreeTab : defaultSkillTab();
@@ -1015,6 +1115,7 @@ function ensureStateDefaults() {
   if (!Array.isArray(state.traits)) state.traits = [];
   if (!Array.isArray(state.lifestyle)) state.lifestyle = [];
   if (!Array.isArray(state.trophies)) state.trophies = [];
+  if (!Array.isArray(state.offers)) state.offers = [];
   if (!Array.isArray(state.transferRumors)) state.transferRumors = [];
   if (!Array.isArray(state.socialQueue)) state.socialQueue = [];
   state.socialRespondedDate = state.socialRespondedDate || "";
@@ -1031,6 +1132,7 @@ function ensureStateDefaults() {
   state.trainedThisWeek = Boolean(state.trainedThisWeek);
   state.playedThisWeek = Boolean(state.playedThisWeek);
   state.restedThisWeek = Boolean(state.restedThisWeek);
+  if (!transferWindowStatus().open) state.offers = state.offers.filter((offer) => offer.type === "renewal");
   ensureStatsDefaults(state.seasonStats);
   ensureStatsDefaults(state.careerStats);
   ensureClubHistory();
@@ -1316,6 +1418,68 @@ function baseAttributes(position, style) {
   return attrs;
 }
 
+function baseDetailedAttributes(attrs) {
+  const average = (...keys) => Math.round(keys.reduce((sum, key) => sum + (Number(attrs[key]) || 45), 0) / keys.length);
+  return {
+    aceleracion: attrs.velocidad,
+    velocidadSprint: attrs.velocidad,
+    agilidad: average("velocidad", "regate"),
+    reaccion: average("velocidad", "vision"),
+    finalizacion: attrs.definicion,
+    potenciaTiro: average("definicion", "fuerza"),
+    tiroLejano: clamp(attrs.definicion - 2, 1, 99),
+    cabezazo: average("definicion", "fuerza"),
+    tiroLibre: average("definicion", "pase"),
+    penales: attrs.definicion,
+    paseCorto: attrs.pase,
+    paseLargo: average("pase", "vision"),
+    centros: clamp(attrs.pase - 1, 1, 99),
+    efecto: average("pase", "regate"),
+    resistenciaPartido: attrs.resistencia,
+    salto: average("fuerza", "resistencia"),
+    agresividad: average("fuerza", "defensa"),
+    controlBalon: attrs.regate,
+    regateTecnico: attrs.regate,
+    equilibrio: average("regate", "fuerza"),
+    compostura: average("regate", "vision"),
+    visionJuego: attrs.vision,
+    posicionamiento: average("vision", "definicion"),
+    reaccionMental: attrs.vision,
+    fuerzaFisica: attrs.fuerza,
+    intercepciones: average("defensa", "vision"),
+    marcaje: attrs.defensa,
+    entrada: attrs.defensa,
+    barrida: clamp(attrs.defensa - 1, 1, 99),
+    cabeceoDefensivo: average("defensa", "fuerza"),
+    reflejosPortero: attrs.defensa,
+    estiradaPortero: attrs.defensa,
+    colocacionPortero: average("defensa", "vision"),
+    manejoPortero: average("defensa", "fuerza"),
+    saquePortero: average("pase", "fuerza")
+  };
+}
+
+function ensureDetailedAttributes(existing, attrs) {
+  const defaults = baseDetailedAttributes(attrs);
+  Object.entries(existing || {}).forEach(([key, value]) => {
+    if (Number.isFinite(Number(value))) defaults[key] = clamp(Number(value), 1, 99);
+  });
+  return defaults;
+}
+
+function skillDetailsForNode(node) {
+  return skillDetailEffects[node?.id] || {};
+}
+
+function detailedValue(key, broadFallback = "") {
+  return Number(state?.detailedAttrs?.[key]) || Number(state?.attrs?.[broadFallback]) || 45;
+}
+
+function detailedSummaryForBroad(key) {
+  const details = detailedAttributeGroups[key] || [];
+  return details.slice(0, 3).map((detail) => `${detailedAttributeLabels[detail] || detail} ${detailedValue(detail, key)}`).join(" - ");
+}
+
 function createObjectives(position) {
   const profile = positionProfiles[position];
   const list = [
@@ -1366,6 +1530,7 @@ function newState(profile) {
     contract: createContract(club, 2, club.salary, "Contrato juvenil"),
     loan: null,
     attrs,
+    detailedAttrs: baseDetailedAttributes(attrs),
     traits: [styleBonuses[profile.style].trait],
     unlockedSkills: [],
     skillTreeTab: defaultSkillTab(profile.position),
@@ -1874,6 +2039,7 @@ function renderAttributes() {
     <div class="attribute">
       <strong><span>${labelAttr(key)}</span><span>${value}</span></strong>
       <div class="meter"><span style="width:${value}%"></span></div>
+      <small class="attribute-details">${detailedSummaryForBroad(key)}</small>
     </div>
   `).join("");
 }
@@ -3026,9 +3192,12 @@ function finalizeTacticalMatch(simResult = null) {
   const finisherBoost = state.traits.includes("Matador") ? 0.05 : 0;
   const creatorBoost = state.traits.includes("Arquitecto") ? 0.05 : 0;
   const defenderBoost = state.traits.includes("Anticipador") ? 0.06 : 0;
-  const rawGoals = isAttacker ? chanceCount((ov + state.attrs.definicion + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420);
-  const rawAssists = isMid || isAttacker ? chanceCount((ov + state.attrs.pase + state.attrs.vision + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
-  const cleanSheet = simResult?.cleanSheet ?? (isDef && Math.random() < clamp((ov + state.attrs.defensa + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0);
+  const finishingQuality = (detailedValue("finalizacion", "definicion") + detailedValue("posicionamiento", "vision") + detailedValue("compostura", "regate")) / 3;
+  const creationQuality = (detailedValue("paseCorto", "pase") + detailedValue("paseLargo", "pase") + detailedValue("visionJuego", "vision")) / 3;
+  const defendingQuality = (detailedValue("intercepciones", "defensa") + detailedValue("marcaje", "defensa") + detailedValue("entrada", "defensa")) / 3;
+  const rawGoals = isAttacker ? chanceCount((ov + finishingQuality + rating * 8) / 220 + finisherBoost) : chanceCount((ov + rating * 7) / 420);
+  const rawAssists = isMid || isAttacker ? chanceCount((ov + creationQuality * 2 + rating * 7) / 260 + creatorBoost) : chanceCount((ov + rating * 6) / 520);
+  const cleanSheet = simResult?.cleanSheet ?? (isDef && Math.random() < clamp((ov + defendingQuality + state.coach) / 320 + defenderBoost, 0.12, 0.78) ? 1 : 0);
   const teamGoals = simResult?.teamGoals ?? clamp(rawGoals + rawAssists + random(0, 2), 0, 5);
   const goals = Math.min(simResult?.goals ?? rawGoals, teamGoals);
   const assists = Math.min(simResult?.assists ?? rawAssists, Math.max(0, teamGoals - goals));
@@ -3042,7 +3211,7 @@ function finalizeTacticalMatch(simResult = null) {
   const keyPasses = simResult?.keyPasses ?? (isMid || isAttacker ? random(assists, assists + 3 + (mode !== "simulate" ? 1 : 0)) : random(0, 1));
   const tackles = simResult?.tackles ?? (isDef || pos === "MC" ? random(2, 7 + (mode === "full" ? 2 : 0)) : random(0, 3));
   const saves = simResult?.saves ?? (pos === "POR" ? random(cleanSheet ? 2 : 0, cleanSheet ? 7 : 5) : 0);
-  const passAccuracy = simResult?.passAccuracy ?? clamp(Math.round(64 + rating * 3 + state.attrs.pase / 4 + random(-5, 6)), 52, 96);
+  const passAccuracy = simResult?.passAccuracy ?? clamp(Math.round(64 + rating * 3 + detailedValue("paseCorto", "pase") / 4 + random(-5, 6)), 52, 96);
   const cardResult = simResult ? { yellowCard: simResult.yellowCard, redCard: simResult.redCard } : cardOutcome(mode, isDef || pos === "MC");
   const { yellowCard, redCard } = cardResult;
   const teamSquad = matchSquad(state.club, true);
@@ -3489,6 +3658,9 @@ function unlockSkill(id) {
   state.unlockedSkills.push(id);
   Object.entries(node.attrs || {}).forEach(([attr, value]) => {
     state.attrs[attr] = clamp(state.attrs[attr] + value, 1, 99);
+  });
+  Object.entries(skillDetailsForNode(node)).forEach(([attr, value]) => {
+    state.detailedAttrs[attr] = clamp(detailedValue(attr) + value, 1, 99);
   });
   if (node.trait && !state.traits.includes(node.trait)) state.traits.push(node.trait);
   if (node.coach) state.coach = clamp(state.coach + node.coach, 0, 100);

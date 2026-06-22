@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -13,6 +14,8 @@ const PUBLIC_DIR = __dirname;
 const ROOM_IDLE_TTL_MS = readPositiveNumber(process.env.ROOM_IDLE_TTL_MS, 30 * 60 * 1000);
 const ROOM_SWEEP_INTERVAL_MS = readPositiveNumber(process.env.ROOM_SWEEP_INTERVAL_MS, 5 * 60 * 1000);
 const rooms = {};
+
+app.disable('x-powered-by');
 
 const allowedSocketOrigins = parseAllowedOrigins();
 const io = new Server(server, {
@@ -70,6 +73,15 @@ function isSocketOriginAllowed(origin, host = '') {
         return false;
     }
 }
+
+app.use(compression({ threshold: 1024 }));
+app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+    next();
+});
 
 app.get('/health', (req, res) => {
     res.status(200).json({ ok: true, service: 'futbol-mix' });

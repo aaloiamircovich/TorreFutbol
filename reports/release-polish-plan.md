@@ -41,7 +41,7 @@ Rama de trabajo: codex/release-polish
 - [x] Unificar estilos de botones, paneles, inputs y pantallas internas.
 - [x] Ajustar menu para que escale con 10+ juegos sin scroll en desktop.
 - [x] Mejorar estados de carga para modos pesados.
-- [ ] Revisar textos cortados y jerarquia visual en cada modo.
+- [x] Revisar textos cortados y jerarquia visual en cada modo.
 - [x] Normalizar animaciones para que sean fluidas y no molesten.
 - [x] Agregar fallback visual elegante para logos/fotos faltantes.
 
@@ -49,10 +49,10 @@ Rama de trabajo: codex/release-polish
 
 - [x] Corregir caso donde el jugador puede participar como goleador y asistidor de la misma jugada.
 - [x] Auditar progresion semanal y ritmo de crecimiento.
-- [ ] Extender arboles de habilidades por categoria y posicion.
+- [x] Extender arboles de habilidades por categoria y posicion.
 - [x] Balancear recompensas de XP, dinero, popularidad y valor de mercado.
-- [ ] Revisar ventanas de fichajes y rumores.
-- [ ] Reducir costo de carga de career-data.js.
+- [x] Revisar ventanas de fichajes y rumores.
+- [x] Reducir costo de carga de career-data.js.
 
 ## Fase 4 - Torneos
 
@@ -78,6 +78,14 @@ Rama de trabajo: codex/release-polish
 - [ ] Revisar logs de Railway.
 - [ ] Confirmar deploy automatico desde GitHub.
 
+Avance 2026-06-22:
+
+- [x] Agregar verificacion automatica de configuracion y arranque de produccion.
+- [x] Configurar `/health` como health check nativo de Railway.
+- [x] Hacer que el smoke test levante y cierre su propio servidor.
+- [x] Confirmar que la rama local estaba sincronizada con `origin/codex/release-polish` antes de los cambios.
+- [ ] Validar en el panel de Railway el SHA desplegado, los logs y Automatic Deployments.
+
 ## Criterio de entrega
 
 - Todos los modos abren, se juegan y vuelven al menu.
@@ -87,3 +95,32 @@ Rama de trabajo: codex/release-polish
 - Datos principales sin nombres rotos.
 - Assets faltantes tienen fallback prolijo.
 - Railway despliega la misma version que GitHub.
+
+## Fase 7 - Calidad continua
+
+- [x] Crear un comando unico `npm run test:release`.
+- [x] Validar sintaxis de todos los archivos JavaScript.
+- [x] Ejecutar controles de release en pull requests y pushes con GitHub Actions.
+- [x] Ejecutar el pipeline completo y revisar el diff final.
+
+## Fase 8 - Rendimiento y seguridad
+
+- [x] Compactar `career-data.js` de 3,44 MB a 1,62 MB sin perder datos.
+- [x] Servir assets pesados con compresion HTTP (aprox. 294 KB para `career-data.js`).
+- [x] Corregir vulnerabilidades conocidas de dependencias (`npm audit`: 0).
+- [x] Bloquear releases con vulnerabilidades altas en dependencias de produccion.
+- [x] Ejecutar nuevamente el pipeline final con controles de seguridad.
+
+## Fase 9 - Accesibilidad basica
+
+- [x] Auditar nombres accesibles de botones y controles visibles.
+- [x] Auditar etiquetas de campos de formulario.
+- [x] Auditar atributo `alt` en imagenes visibles.
+- [x] Ejecutar el smoke test y corregir hallazgos.
+
+## Fase 10 - Seguridad HTTP
+
+- [x] Ocultar la firma `X-Powered-By` de Express.
+- [x] Agregar proteccion contra MIME sniffing y framing externo.
+- [x] Restringir permisos de camara, microfono y geolocalizacion.
+- [ ] Verificar cabeceras y ejecutar el pipeline final.

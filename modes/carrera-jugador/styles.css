@@ -604,6 +604,14 @@ h2 {
   justify-content: space-between;
 }
 
+.attribute-details {
+  display: block;
+  margin-top: 8px;
+  color: rgba(235, 244, 239, 0.62);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
 .action-grid {
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }

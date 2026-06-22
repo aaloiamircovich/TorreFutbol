@@ -314,7 +314,7 @@ async function buildInternationalDatabase(leagues) {
 
 function writeDatabase(leagues, tournaments) {
   const header = "// Generado desde Transfermarkt con scripts/import-career-transfermarkt.js.\n";
-  const body = `const careerLeagueDatabase = ${JSON.stringify(leagues, null, 2)};\n\nconst careerCompetitionDatabase = ${JSON.stringify(tournaments, null, 2)};\n`;
+  const body = `const careerLeagueDatabase=${JSON.stringify(leagues)};\nconst careerCompetitionDatabase=${JSON.stringify(tournaments)};\n`;
   fs.writeFileSync(OUT_FILE, header + body, "utf8");
 }
 
