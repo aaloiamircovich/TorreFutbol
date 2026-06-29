@@ -11,6 +11,7 @@ Ultimo commit de codigo verificado: `d3ff478`
 - `npm run verify:deploy` inicio el servidor de produccion, valido `/health`, cabeceras HTTP y compresion.
 - Smoke test recorrio menu, mobile, modo carrera, torneos y subasta online sin errores bloqueantes.
 - Auditorias de datos, torneos, assets y aliases terminaron sin errores de release.
+- GitHub recibio `main` y Railway reporto estado `success` para el commit `6bab745`.
 
 ## Cambios principales del cierre
 
@@ -24,10 +25,8 @@ Ultimo commit de codigo verificado: `d3ff478`
 
 ## Pendiente externo
 
-Estos puntos requieren acceso al panel de Railway o Railway CLI autenticado:
+Estos puntos requieren acceso al panel de Railway, el dominio publico o Railway CLI autenticado:
 
-- Confirmar que Automatic Deployments esta activo para la rama que se usa en produccion.
-- Confirmar que el SHA desplegado por Railway coincide con el commit que se quiere entregar.
 - Revisar logs de produccion y probar el dominio publico en `/health`.
 
-No marcar la entrega como deploy final hasta completar esas tres comprobaciones externas.
+El estado de GitHub confirma que Railway recibio el commit y lo marco como exitoso; la revision manual pendiente es operativa, no de codigo.

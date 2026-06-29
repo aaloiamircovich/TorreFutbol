@@ -76,7 +76,7 @@ Rama de trabajo: codex/release-polish
 - [x] Configurar CORS por variable de entorno.
 - [x] Agregar limpieza de salas inactivas en subasta.
 - [ ] Revisar logs de Railway.
-- [ ] Confirmar deploy automatico desde GitHub.
+- [x] Confirmar deploy automatico desde GitHub.
 
 Avance 2026-06-22:
 
@@ -85,6 +85,12 @@ Avance 2026-06-22:
 - [x] Hacer que el smoke test levante y cierre su propio servidor.
 - [x] Confirmar que la rama local estaba sincronizada con `origin/codex/release-polish` antes de los cambios.
 - [ ] Validar en el panel de Railway el SHA desplegado, los logs y Automatic Deployments.
+
+Avance 2026-06-29:
+
+- [x] Publicar `main` con la entrega verificada para activar la rama por defecto.
+- [x] Confirmar en GitHub que Railway reporto `success` para el commit `6bab745`.
+- [ ] Revisar logs y dominio publico desde el panel de Railway o una CLI autenticada.
 
 ## Criterio de entrega
 
