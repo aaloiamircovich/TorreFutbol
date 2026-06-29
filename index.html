@@ -1853,7 +1853,7 @@
 
         <div class="input-group">
             <div class="predictive-field">
-                <input type="text" id="guessInput" placeholder="Ingresá un nombre..." autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="guessInputPredictive">
+                <input type="text" id="guessInput" placeholder="Ingresá un nombre..." autocomplete="off" aria-label="Nombre del futbolista" aria-autocomplete="list" aria-expanded="false" aria-controls="guessInputPredictive">
                 <div class="predictive-menu" id="guessInputPredictive" role="listbox"></div>
             </div>
             <button id="guessBtn">Adivinar</button>
@@ -1891,7 +1891,7 @@
             </div>
             <div class="input-group">
                 <div class="predictive-field">
-                    <input type="text" id="trayInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="trayInputPredictive">
+                    <input type="text" id="trayInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-label="Jugador de la trayectoria" aria-autocomplete="list" aria-expanded="false" aria-controls="trayInputPredictive">
                     <div class="predictive-menu" id="trayInputPredictive" role="listbox"></div>
                 </div>
                 <button onclick="checkTrayectoria()">Enviar</button>
@@ -1954,7 +1954,7 @@
             </div>
             <div class="input-group">
                 <div class="predictive-field">
-                    <input type="text" id="linkInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="linkInputPredictive">
+                    <input type="text" id="linkInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-label="Jugador que conecta las pistas" aria-autocomplete="list" aria-expanded="false" aria-controls="linkInputPredictive">
                     <div class="predictive-menu" id="linkInputPredictive" role="listbox"></div>
                 </div>
                 <button onclick="checkLink()">Enviar</button>
@@ -1985,7 +1985,7 @@
             <div id="wordleBoard" class="wordle-grid" style="align-self: center;"></div>
             
             <div class="input-group">
-                <input type="text" id="wordleInput" placeholder="Adiviná la palabra..." maxlength="10">
+                <input type="text" id="wordleInput" placeholder="Adiviná la palabra..." maxlength="10" aria-label="Palabra del intento">
                 <button onclick="checkWordle()">Enviar</button>
             </div>
             <div id="wordleMessage" class="message"></div>
@@ -2031,9 +2031,9 @@
                     </div>
                 </div>
                 <div class="score-inputs">
-                    <input type="number" id="resultadoHomeInput" min="0" max="20" inputmode="numeric" placeholder="0">
+                    <input type="number" id="resultadoHomeInput" min="0" max="20" inputmode="numeric" placeholder="0" aria-label="Goles del equipo local">
                     <span class="score-separator">-</span>
-                    <input type="number" id="resultadoAwayInput" min="0" max="20" inputmode="numeric" placeholder="0">
+                    <input type="number" id="resultadoAwayInput" min="0" max="20" inputmode="numeric" placeholder="0" aria-label="Goles del equipo visitante">
                 </div>
                 <div class="input-group" style="justify-content: center; margin-bottom: 0;">
                     <button onclick="checkResultado()" style="background-color: var(--accent-color);">Enviar</button>
@@ -2071,7 +2071,7 @@
 
             <div class="input-group">
                 <div class="predictive-field">
-                    <input type="text" id="equipoInput" placeholder="¿Qué equipo es?" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="equipoInputPredictive">
+                    <input type="text" id="equipoInput" placeholder="¿Qué equipo es?" autocomplete="off" aria-label="Nombre del equipo" aria-autocomplete="list" aria-expanded="false" aria-controls="equipoInputPredictive">
                     <div class="predictive-menu" id="equipoInputPredictive" role="listbox"></div>
                 </div>
                 <button id="equipoSubmitBtn" onclick="checkEquipo()">Enviar</button>
@@ -2124,16 +2124,16 @@
         <div class="game-container" style="justify-content: center; text-align: center; gap: 20px;">
             <h2 style="color: var(--accent-color); margin-bottom: 20px;">Configurar Sala</h2>
             <div class="input-group" style="flex-direction: column; gap: 15px;">
-                <input type="text" id="usernameInput" placeholder="Tu Nombre de Usuario" value="Jugador1" style="padding: 12px; font-size: 1rem;">
-                <input type="text" id="roomNameInput" placeholder="Nombre de la Sala (ej: MiSala123)" style="padding: 12px; font-size: 1rem;">
+                <input type="text" id="usernameInput" placeholder="Tu Nombre de Usuario" value="Jugador1" aria-label="Nombre de usuario" style="padding: 12px; font-size: 1rem;">
+                <input type="text" id="roomNameInput" placeholder="Nombre de la Sala (ej: MiSala123)" aria-label="Nombre de la sala" style="padding: 12px; font-size: 1rem;">
                 
                 <div style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">
                     <label for="auctionTimeConfig" style="color: #ccc; font-size: 0.9rem; align-self: center;">Tiempo por puja (segundos):</label>
-                    <input type="number" id="auctionTimeConfig" value="15" min="5" max="60" style="width: 80px; padding: 8px; font-size: 0.9rem;">
+                    <input type="number" id="auctionTimeConfig" value="15" min="5" max="60" aria-label="Duracion de cada subasta en segundos" style="width: 80px; padding: 8px; font-size: 0.9rem;">
                 </div>
                 <div style="display: flex; justify-content: space-between; width: 100%; gap: 10px;">
                     <label for="initialBudgetConfig" style="color: #ccc; font-size: 0.9rem; align-self: center;">Presupuesto inicial ($M):</label>
-                    <input type="number" id="initialBudgetConfig" value="1000" min="100" max="5000" step="100" style="width: 100px; padding: 8px; font-size: 0.9rem;">
+                    <input type="number" id="initialBudgetConfig" value="1000" min="100" max="5000" step="100" aria-label="Presupuesto inicial" style="width: 100px; padding: 8px; font-size: 0.9rem;">
                 </div>
             </div>
             <div class="input-group" style="margin-top: 20px;">
@@ -2202,7 +2202,7 @@
 
                 <div style="width: 100%; max-width: 300px; margin-top: 10px;">
                     <div style="display: flex; gap: 5px; margin-bottom: 5px;">
-                        <input type="number" id="bidAmount" style="width: 100px; background: #222; border: 1px solid #444; color: gold; padding: 10px; border-radius: 5px;" placeholder="+10">
+                        <input type="number" id="bidAmount" aria-label="Importe de la oferta" style="width: 100px; background: #222; border: 1px solid #444; color: gold; padding: 10px; border-radius: 5px;" placeholder="+10">
                         <button onclick="placeBid()" style="flex-grow: 1; background: var(--accent-color); font-size: 1.2rem;">OFERTAR</button>
                     </div>
                     <p style="font-size: 0.7rem; color: #666; text-align: center;">Última oferta: <span id="lastBidder" style="color: #fff;">-</span></p>
@@ -2216,7 +2216,7 @@
                     <!-- Puja 1... Puja 2... -->
                 </div>
                 <div class="input-group" style="margin-top: 5px;">
-                    <input type="text" id="auctionChat" placeholder="Chat..." style="font-size: 0.7rem;">
+                    <input type="text" id="auctionChat" placeholder="Chat..." aria-label="Mensaje del chat" style="font-size: 0.7rem;">
                 </div>
             </div>
         </div>
