@@ -11,7 +11,7 @@ Ultimo commit de codigo verificado: `d3ff478`
 - `npm run verify:deploy` inicio el servidor de produccion, valido `/health`, cabeceras HTTP y compresion.
 - Smoke test recorrio menu, mobile, modo carrera, torneos y subasta online sin errores bloqueantes.
 - Auditorias de datos, torneos, assets y aliases terminaron sin errores de release.
-- GitHub recibio `main` y Railway reporto estado `success` para el commit `6bab745`.
+- GitHub recibio `main` y Railway reporto estado `success` para los commits de cierre publicados.
 
 ## Cambios principales del cierre
 

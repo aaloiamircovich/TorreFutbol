@@ -89,7 +89,7 @@ Avance 2026-06-22:
 Avance 2026-06-29:
 
 - [x] Publicar `main` con la entrega verificada para activar la rama por defecto.
-- [x] Confirmar en GitHub que Railway reporto `success` para el commit `6bab745`.
+- [x] Confirmar en GitHub que Railway reporto `success` para los commits de cierre publicados en `main`.
 - [ ] Revisar logs y dominio publico desde el panel de Railway o una CLI autenticada.
 
 ## Criterio de entrega
