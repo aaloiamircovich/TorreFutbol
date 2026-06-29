@@ -93,6 +93,7 @@ Avance 2026-06-29:
 - [x] Descubrir dominio publico de Railway: `https://torrefutbol-production.up.railway.app`.
 - [x] Probar `/health` de produccion con respuesta `200`.
 - [x] Ejecutar `SMOKE_BASE_URL=https://torrefutbol-production.up.railway.app npm run test:smoke` contra produccion.
+- [x] Agregar `npm run test:smoke:prod` para repetir el smoke test contra Railway.
 - [ ] Revisar logs desde el panel de Railway o una CLI autenticada.
 
 ## Criterio de entrega

@@ -10,6 +10,7 @@
     "import:career": "node scripts/import-career-transfermarkt.js",
     "import:career:second": "node scripts/import-career-transfermarkt.js --second-divisions",
     "test:smoke": "node scripts/smoke-test.js",
+    "test:smoke:prod": "node scripts/smoke-production.js",
     "start": "node -r ./viewport-fit-server.js server.js",
     "audit:tournaments": "node scripts/audit-tournaments.js",
     "optimize:assets": "node scripts/optimize-assets.js",
