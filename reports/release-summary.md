@@ -1,8 +1,8 @@
 # FutbolMIX - resumen de entrega
 
 Fecha: 2026-06-29
-Rama verificada: `codex/release-polish`
-Ultimo commit de codigo verificado: `ebdd968`
+Rama verificada: `main`
+Ultimo commit de codigo verificado: `d3ff478`
 
 ## Estado verificado
 
