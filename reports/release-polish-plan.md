@@ -123,4 +123,4 @@ Avance 2026-06-22:
 - [x] Ocultar la firma `X-Powered-By` de Express.
 - [x] Agregar proteccion contra MIME sniffing y framing externo.
 - [x] Restringir permisos de camara, microfono y geolocalizacion.
-- [ ] Verificar cabeceras y ejecutar el pipeline final.
+- [x] Verificar cabeceras y ejecutar el pipeline final.

@@ -1,6 +1,6 @@
 # Auditoria de torneos
 
-Fecha: 2026-06-22
+Fecha: 2026-06-29
 
 ## Selecciones
 
