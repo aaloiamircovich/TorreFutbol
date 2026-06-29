@@ -84,13 +84,16 @@ Avance 2026-06-22:
 - [x] Configurar `/health` como health check nativo de Railway.
 - [x] Hacer que el smoke test levante y cierre su propio servidor.
 - [x] Confirmar que la rama local estaba sincronizada con `origin/codex/release-polish` antes de los cambios.
-- [ ] Validar en el panel de Railway el SHA desplegado, los logs y Automatic Deployments.
+- [ ] Validar en el panel de Railway los logs de produccion.
 
 Avance 2026-06-29:
 
 - [x] Publicar `main` con la entrega verificada para activar la rama por defecto.
 - [x] Confirmar en GitHub que Railway reporto `success` para los commits de cierre publicados en `main`.
-- [ ] Revisar logs y dominio publico desde el panel de Railway o una CLI autenticada.
+- [x] Descubrir dominio publico de Railway: `https://torrefutbol-production.up.railway.app`.
+- [x] Probar `/health` de produccion con respuesta `200`.
+- [x] Ejecutar `SMOKE_BASE_URL=https://torrefutbol-production.up.railway.app npm run test:smoke` contra produccion.
+- [ ] Revisar logs desde el panel de Railway o una CLI autenticada.
 
 ## Criterio de entrega
 
@@ -100,7 +103,7 @@ Avance 2026-06-29:
 - Mobile utilizable sin superposiciones.
 - Datos principales sin nombres rotos.
 - Assets faltantes tienen fallback prolijo.
-- Railway despliega la misma version que GitHub.
+- Railway despliega la misma version que GitHub y el smoke test de produccion pasa.
 
 ## Fase 7 - Calidad continua
 

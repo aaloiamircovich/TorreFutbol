@@ -12,6 +12,9 @@ Ultimo commit de codigo verificado: `d3ff478`
 - Smoke test recorrio menu, mobile, modo carrera, torneos y subasta online sin errores bloqueantes.
 - Auditorias de datos, torneos, assets y aliases terminaron sin errores de release.
 - GitHub recibio `main` y Railway reporto estado `success` para los commits de cierre publicados.
+- Produccion responde en `https://torrefutbol-production.up.railway.app`.
+- `/health` de produccion responde `200` con `{"ok":true,"service":"futbol-mix"}`.
+- `SMOKE_BASE_URL=https://torrefutbol-production.up.railway.app npm run test:smoke` paso completo.
 
 ## Cambios principales del cierre
 
@@ -25,8 +28,8 @@ Ultimo commit de codigo verificado: `d3ff478`
 
 ## Pendiente externo
 
-Estos puntos requieren acceso al panel de Railway, el dominio publico o Railway CLI autenticado:
+Este punto requiere acceso al panel de Railway o Railway CLI autenticado:
 
-- Revisar logs de produccion y probar el dominio publico en `/health`.
+- Revisar logs de produccion.
 
-El estado de GitHub confirma que Railway recibio el commit y lo marco como exitoso; la revision manual pendiente es operativa, no de codigo.
+El estado de GitHub confirma que Railway recibio el commit y lo marco como exitoso; el dominio publico y el smoke test de produccion tambien estan verificados. La revision manual pendiente es operativa, no de codigo.
