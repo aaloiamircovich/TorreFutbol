@@ -1,6 +1,6 @@
 # FutbolMIX - checklist de deploy
 
-Fecha de revision: 2026-06-22
+Fecha de revision: 2026-06-29
 
 ## Verificado en el repositorio
 
@@ -16,19 +16,28 @@ Fecha de revision: 2026-06-22
 
 Ejecutar `npm run verify:deploy` antes de publicar. El comando valida la configuracion, inicia temporalmente el servidor y consulta `/health`.
 
+## Verificado en produccion
+
+- Dominio publico: `https://torrefutbol-production.up.railway.app`.
+- `/health` responde `200` con `{"ok":true,"service":"futbol-mix"}`.
+- GitHub/Railway reporto `success` para el ultimo commit publicado en `main`.
+- `npm run test:smoke:prod` recorre produccion con Playwright y paso completo.
+
 ## Verificacion en Railway
 
-Estos puntos requieren acceso al panel del proyecto y no pueden inferirse solo desde Git:
+Estos puntos requieren acceso al panel del proyecto o Railway CLI autenticado:
 
-- El servicio esta conectado a `aaloiamircovich/TorreFutbol`.
-- La rama configurada coincide con la rama que se quiere publicar.
-- Automatic Deployments esta habilitado.
-- El SHA del ultimo deployment coincide con el ultimo commit enviado a GitHub.
-- El dominio publico responde `200` en `/health`.
 - Los logs no muestran reinicios continuos, errores de CORS ni recursos faltantes.
+
+Checklist de logs:
+
+- Abrir el deploy marcado como exitoso para el ultimo commit de `main`.
+- Revisar logs de build: instalacion de dependencias, ausencia de errores de Docker y salida limpia de `npm start`.
+- Revisar logs de runtime: sin reinicios en bucle, sin excepciones de Node, sin errores 404 repetidos para assets criticos.
+- Probar una sala de subasta online y confirmar que no aparecen errores de Socket.IO/CORS.
 
 Para restringir Socket.IO al dominio de produccion, definir `PUBLIC_ORIGIN=https://dominio-del-proyecto` en Railway. Durante una migracion con varios dominios, usar `CORS_ORIGINS` con una lista separada por comas.
 
 ## Criterio de publicacion
 
-No considerar un deploy terminado hasta que el commit de Railway coincida con GitHub, `/health` responda correctamente y se complete un recorrido rapido por el menu, modo carrera, torneos y subasta online.
+No considerar un deploy terminado hasta que el commit de Railway coincida con GitHub, `/health` responda correctamente, `npm run test:smoke:prod` pase y los logs de Railway no muestren errores operativos.
