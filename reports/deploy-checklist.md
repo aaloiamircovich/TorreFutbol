@@ -21,6 +21,7 @@ Ejecutar `npm run verify:deploy` antes de publicar. El comando valida la configu
 - Dominio publico: `https://torrefutbol-production.up.railway.app`.
 - `/health` responde `200` con `{"ok":true,"service":"futbol-mix"}`.
 - GitHub/Railway reporto `success` para el ultimo commit publicado en `main`.
+- `npm run verify:prod` valida `/health`, cabeceras, rutas principales y compresion de assets en produccion.
 - `npm run test:smoke:prod` recorre produccion con Playwright y paso completo.
 
 ## Verificacion en Railway
@@ -40,4 +41,4 @@ Para restringir Socket.IO al dominio de produccion, definir `PUBLIC_ORIGIN=https
 
 ## Criterio de publicacion
 
-No considerar un deploy terminado hasta que el commit de Railway coincida con GitHub, `/health` responda correctamente, `npm run test:smoke:prod` pase y los logs de Railway no muestren errores operativos.
+No considerar un deploy terminado hasta que el commit de Railway coincida con GitHub, `npm run verify:prod` responda correctamente, `npm run test:smoke:prod` pase y los logs de Railway no muestren errores operativos.

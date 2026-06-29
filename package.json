@@ -17,6 +17,7 @@
     "audit:assets": "node scripts/audit-asset-priorities.js",
     "audit:aliases": "node scripts/audit-aliases.js",
     "verify:deploy": "node scripts/verify-deploy.js",
+    "verify:prod": "node scripts/verify-production.js",
     "compact:career-data": "node scripts/compact-career-data.js",
     "check:js": "node scripts/check-javascript.js",
     "audit:security": "npm audit --omit=dev --audit-level=high",

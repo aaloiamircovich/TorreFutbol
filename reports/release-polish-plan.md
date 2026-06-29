@@ -92,6 +92,7 @@ Avance 2026-06-29:
 - [x] Confirmar en GitHub que Railway reporto `success` para los commits de cierre publicados en `main`.
 - [x] Descubrir dominio publico de Railway: `https://torrefutbol-production.up.railway.app`.
 - [x] Probar `/health` de produccion con respuesta `200`.
+- [x] Agregar `npm run verify:prod` para validar HTTP, cabeceras y assets de produccion.
 - [x] Ejecutar `SMOKE_BASE_URL=https://torrefutbol-production.up.railway.app npm run test:smoke` contra produccion.
 - [x] Agregar `npm run test:smoke:prod` para repetir el smoke test contra Railway.
 - [ ] Revisar logs desde el panel de Railway o una CLI autenticada.

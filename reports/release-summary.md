@@ -14,6 +14,7 @@ Ultimo commit de codigo verificado: `d3ff478`
 - GitHub recibio `main` y Railway reporto estado `success` para los commits de cierre publicados.
 - Produccion responde en `https://torrefutbol-production.up.railway.app`.
 - `/health` de produccion responde `200` con `{"ok":true,"service":"futbol-mix"}`.
+- `npm run verify:prod` queda disponible para validar HTTP, cabeceras y assets de produccion.
 - `SMOKE_BASE_URL=https://torrefutbol-production.up.railway.app npm run test:smoke` paso completo.
 - `npm run test:smoke:prod` queda disponible para repetir el smoke test contra Railway.
 
