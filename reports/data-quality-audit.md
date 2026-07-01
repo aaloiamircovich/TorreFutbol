@@ -1,6 +1,6 @@
 # FutbolMIX data quality audit
 
-Generated: 2026-06-29T12:48:12.028Z
+Generated: 2026-07-01T12:15:30.714Z
 
 ## Summary
 
