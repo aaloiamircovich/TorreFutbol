@@ -896,6 +896,58 @@
             background: #111;
             border: 1px dashed #555;
         }
+        .tray-progress-panel {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .tray-progress-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--muted-text);
+        }
+        .tray-progress-line {
+            height: 7px;
+            overflow: hidden;
+            border-radius: 999px;
+            margin-top: 7px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .tray-progress-line span {
+            display: block;
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #45b7ff, var(--accent-color));
+            transition: width 0.35s ease;
+        }
+        .tray-club.just-revealed {
+            animation: trayReveal 0.45s ease;
+            border-color: rgba(69, 183, 255, 0.65);
+            box-shadow: 0 0 18px rgba(69, 183, 255, 0.2);
+        }
+        .tray-result-route {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            max-width: 100%;
+        }
+        @keyframes trayReveal {
+            from {
+                transform: translateY(8px);
+                opacity: 0.45;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
         
         .achievements-container {
             display: flex;
@@ -1962,6 +2014,14 @@
             </div>
             <div id="trayLevelGrid" class="level-grid hidden"></div>
 
+            <div class="tray-progress-panel">
+                <div class="tray-progress-meta">
+                    <span id="trayProgressText">1 club revelado</span>
+                    <span id="trayAccuracyText">+14 pts</span>
+                </div>
+                <div class="tray-progress-line" aria-hidden="true"><span id="trayProgressFill"></span></div>
+            </div>
+
             <div id="trayPath" class="tray-path">
                 Cargando trayectoria...
             </div>
@@ -1970,8 +2030,8 @@
                     <input type="text" id="trayInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-label="Jugador de la trayectoria" aria-autocomplete="list" aria-expanded="false" aria-controls="trayInputPredictive">
                     <div class="predictive-menu" id="trayInputPredictive" role="listbox"></div>
                 </div>
-                <button onclick="checkTrayectoria()">Enviar</button>
-                <button onclick="loseTrayLife()" style="background-color: #666; color: white;">Saltear</button>
+                <button id="traySubmitBtn" onclick="checkTrayectoria()">Enviar</button>
+                <button id="traySkipBtn" onclick="loseTrayLife()" style="background-color: #666; color: white;">Saltear</button>
             </div>
             <div id="trayMessage" class="message"></div>
         </div>
@@ -2511,6 +2571,7 @@
             try {
                 localStorage.setItem('torreFutbol_progress', JSON.stringify(levelProgress));
                 localStorage.setItem('trayectoria_progress', JSON.stringify(trayProgress));
+                localStorage.setItem('trayectoria_score', trayScore.toString());
                 localStorage.setItem('camino_progress', JSON.stringify(caminoProgress));
                 localStorage.setItem('camino_score', caminoScoreValue.toString());
                 localStorage.setItem('link_progress', JSON.stringify(linkProgress));
@@ -3686,7 +3747,7 @@
             if (typeof wordleData !== 'undefined') applyPersistentShuffle(wordleData, 'wordle_order');
 
             levelProgress = categorias.map(() => createTorreLevelState());
-            trayProgress = trayectoriasData.map(() => ({ status: 'playing' }));
+            trayProgress = trayectoriasData.map(() => createTrayState());
             linkProgress = typeof linkData !== 'undefined' ? linkData.map(() => ({ status: 'playing' })) : [];
             wordleProgress = typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : [];
             resultadoProgress = typeof resultadoData !== 'undefined' ? resultadoData.map(() => ({ status: 'playing', lives: 3 })) : [];
@@ -4294,10 +4355,40 @@
         let trayLives = 0;
         let currentClubIdx = 1; // Cuántos clubes se muestran actualmente
         let trayScore = 0;
+
+        function createTrayState() {
+            return { status: 'playing', lives: null, revealedClubs: 1, pointsAwarded: 0 };
+        }
+
+        function getTrayState(index = trayIdx) {
+            if (!trayProgress[index]) trayProgress[index] = createTrayState();
+            const state = trayProgress[index];
+            const item = trayectoriasData[index];
+            if (!state.status) state.status = 'playing';
+            if (typeof state.revealedClubs !== 'number') state.revealedClubs = 1;
+            state.revealedClubs = Math.max(1, Math.min(item.clubs.length, state.revealedClubs));
+            if (typeof state.lives !== 'number') state.lives = state.status === 'playing' ? item.clubs.length : 0;
+            if (typeof state.pointsAwarded !== 'number') state.pointsAwarded = 0;
+            return state;
+        }
+
+        function getTrayPointsForCurrentReveal() {
+            return Math.max(4, 14 - ((currentClubIdx - 1) * 2));
+        }
+
+        function getTrayAliases(item) {
+            const aliases = Array.isArray(item.alias) ? item.alias : [];
+            return [item.ans, ...aliases].filter(Boolean).map(value => normalizeText(value));
+        }
+
+        function isCloseTrayGuess(input, item) {
+            if (input.length < 5) return false;
+            return getTrayAliases(item).some(alias => alias.length >= 5 && getTorreEditDistance(input, alias) <= 2);
+        }
         
         function initTrayectoria() {
             const item = trayectoriasData[trayIdx];
-            const state = trayProgress[trayIdx];
+            const state = getTrayState();
 
             // Validación de seguridad para el estado del nivel
             const isGameOver = state && state.status !== 'playing';
@@ -4306,10 +4397,14 @@
                 currentClubIdx = item.clubs.length;
                 trayLives = 0;
                 document.getElementById('trayInput').disabled = true;
+                document.getElementById('traySubmitBtn').disabled = true;
+                document.getElementById('traySkipBtn').disabled = true;
             } else {
-                currentClubIdx = 1;
-                trayLives = hasUnlimitedLives('trayectoriaView') ? Infinity : item.clubs.length;
+                currentClubIdx = state.revealedClubs;
+                trayLives = hasUnlimitedLives('trayectoriaView') ? Infinity : state.lives;
                 document.getElementById('trayInput').disabled = false;
+                document.getElementById('traySubmitBtn').disabled = false;
+                document.getElementById('traySkipBtn').disabled = false;
             }
             
             updateTrayGridSelection();
@@ -4341,11 +4436,15 @@
 
         function updateTrayUI() {
             const item = trayectoriasData[trayIdx];
+            const state = getTrayState();
             const trayPathEl = document.getElementById('trayPath');
             document.getElementById('trayLives').textContent = formatLives('trayectoriaView', trayLives);
             document.getElementById('trayScore').textContent = trayScore;
+            document.getElementById('trayProgressText').textContent = `${currentClubIdx}/${item.clubs.length} clubes`;
+            document.getElementById('trayAccuracyText').textContent = state.status === 'playing' ? `+${getTrayPointsForCurrentReveal()} pts` : `${state.pointsAwarded || 0} pts`;
+            document.getElementById('trayProgressFill').style.width = `${Math.round((currentClubIdx / item.clubs.length) * 100)}%`;
             
-            const isGameOver = trayLives <= 0 || trayProgress[trayIdx].status === 'won';
+            const isGameOver = trayLives <= 0 || state.status === 'won' || state.status === 'lost';
             
             trayPathEl.innerHTML = '';
             trayPathEl.className = isGameOver ? 'tray-path is-result' : 'tray-path';
@@ -4355,10 +4454,23 @@
                     <img class="player-result-photo" src="${getGlobalPhoto(item.ans)}" alt="${item.ans}" onerror="this.onerror=null; this.src='${createFallbackImage(item.ans, "photo")}'">
                     <div style="font-weight: bold; font-size: 1.1rem; color: #fff; margin-top: 5px;">${item.ans}</div>
                 `;
+                const route = document.createElement('div');
+                route.className = 'tray-result-route';
+                item.clubs.forEach((club, index) => {
+                    const clubDiv = document.createElement('div');
+                    clubDiv.className = 'tray-club';
+                    const logoUrl = getTrayectoriaClubMedia(club, item.logos && item.logos[index]);
+                    clubDiv.innerHTML = `
+                        <img class="club-path-logo" src="${logoUrl}" alt="${club}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(club)}'">
+                        <span class="tray-club-name">${club}</span>
+                    `;
+                    route.appendChild(clubDiv);
+                });
+                trayPathEl.appendChild(route);
             } else {
                 for (let i = 0; i < currentClubIdx; i++) {
                     const clubDiv = document.createElement('div');
-                    clubDiv.className = 'tray-club';
+                    clubDiv.className = `tray-club ${i === currentClubIdx - 1 && currentClubIdx > 1 ? 'just-revealed' : ''}`;
 
                 const logoUrl = getTrayectoriaClubMedia(item.clubs[i], item.logos && item.logos[i]);
                 
@@ -4387,6 +4499,11 @@
 
         function updateTrayStatus(status) {
             trayProgress[trayIdx].status = status;
+            if (status !== 'playing') {
+                document.getElementById('trayInput').disabled = true;
+                document.getElementById('traySubmitBtn').disabled = true;
+                document.getElementById('traySkipBtn').disabled = true;
+            }
             populateTrayGrid();
             updateTrayGridSelection();
             saveProgress();
@@ -4396,14 +4513,20 @@
             const trayInput = document.getElementById('trayInput');
             const input = normalizeText(trayInput.value);
             const item = trayectoriasData[trayIdx];
+            const state = getTrayState();
             const msg = document.getElementById('trayMessage');
             
             if (!input) return;
 
-            if (item.alias.includes(input)) {
+            if (getTrayAliases(item).includes(input)) {
                 msg.textContent = "¡Correcto!";
                 msg.className = "message correct";
-                trayScore += 10;
+                const pointsWon = getTrayPointsForCurrentReveal();
+                state.pointsAwarded = pointsWon;
+                state.revealedClubs = currentClubIdx;
+                state.lives = hasUnlimitedLives('trayectoriaView') ? item.clubs.length : trayLives;
+                msg.textContent = `Correcto +${pointsWon} pts`;
+                trayScore += pointsWon;
                 updateTrayStatus('won');
                 trayInput.value = "";
                 setTimeout(() => {
@@ -4411,37 +4534,45 @@
                     msg.textContent = "";
                 }, 1500);
             } else {
-                loseTrayLife();
+                loseTrayLife(isCloseTrayGuess(input, item) ? "Cerca, pero se revela otro club." : null);
             }
         }
 
-        function loseTrayLife() {
+        function loseTrayLife(feedbackText = null) {
             const msg = document.getElementById('trayMessage');
             const item = trayectoriasData[trayIdx];
+            const state = getTrayState();
 
             if (hasUnlimitedLives('trayectoriaView')) {
                 if (currentClubIdx < item.clubs.length) {
                     currentClubIdx++;
-                    msg.textContent = "Incorrecto. Se revela otro club.";
+                    state.revealedClubs = currentClubIdx;
+                    msg.textContent = feedbackText || "Incorrecto. Se revela otro club.";
                 } else {
                     msg.textContent = "Incorrecto. Ya tenés todas las pistas disponibles.";
                 }
                 msg.className = "message incorrect";
+                saveProgress();
                 updateTrayUI();
                 return;
             }
             
             trayLives--;
+            state.lives = trayLives;
             if (trayLives > 0) {
                 currentClubIdx++;
-                msg.textContent = "Incorrecto. Se revela otro club.";
+                state.revealedClubs = currentClubIdx;
+                msg.textContent = feedbackText || "Incorrecto. Se revela otro club.";
                 msg.className = "message incorrect";
+                saveProgress();
                 updateTrayUI();
             } else {
                 msg.textContent = `¡Perdiste! Era ${item.ans}`;
                 msg.className = "message incorrect";
-                updateTrayStatus('lost');
                 currentClubIdx = item.clubs.length;
+                state.revealedClubs = currentClubIdx;
+                state.pointsAwarded = 0;
+                updateTrayStatus('lost');
                 updateTrayUI();
                 setTimeout(() => {
                     msg.textContent = "";
@@ -5082,8 +5213,14 @@
 
             // 3. Cargar datos de Trayectoria
             const savedTray = localStorage.getItem('trayectoria_progress');
-            trayProgress = savedTray ? JSON.parse(savedTray) : trayectoriasData.map(() => ({ status: 'playing' }));
-            while (trayProgress.length < trayectoriasData.length) trayProgress.push({ status: 'playing' });
+            trayProgress = savedTray ? JSON.parse(savedTray) : trayectoriasData.map(() => createTrayState());
+            while (trayProgress.length < trayectoriasData.length) trayProgress.push(createTrayState());
+            trayProgress.forEach((_, index) => getTrayState(index));
+            const savedTrayScore = localStorage.getItem('trayectoria_score');
+            if (savedTrayScore) {
+                trayScore = parseInt(savedTrayScore, 10) || 0;
+                document.getElementById('trayScore').textContent = trayScore;
+            }
 
             const savedTrayIdx = localStorage.getItem('trayectoria_index');
             if (savedTrayIdx) trayIdx = parseInt(savedTrayIdx);
