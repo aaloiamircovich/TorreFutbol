@@ -968,6 +968,36 @@
             background: linear-gradient(90deg, #f8d449, var(--accent-color));
             transition: width 0.35s ease;
         }
+        .link-progress-panel {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .link-progress-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--muted-text);
+        }
+        .link-progress-line {
+            height: 7px;
+            overflow: hidden;
+            border-radius: 999px;
+            margin-top: 7px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .link-progress-line span {
+            display: block;
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #b85cff, #45b7ff);
+            transition: width 0.35s ease;
+        }
         @keyframes trayReveal {
             from {
                 transform: translateY(8px);
@@ -2122,6 +2152,14 @@
             </div>
             <div id="linkLevelGrid" class="level-grid hidden"></div>
 
+            <div class="link-progress-panel">
+                <div class="link-progress-meta">
+                    <span id="linkProgressText">1 pista revelada</span>
+                    <span id="linkValueText">+28 pts</span>
+                </div>
+                <div class="link-progress-line" aria-hidden="true"><span id="linkProgressFill"></span></div>
+            </div>
+
             <div id="linkDisplay" style="background: #2c2c2c; padding: 15px; border-radius: 8px; font-size: 1rem; min-height: 150px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; justify-content: center;">
                 Cargando compañeros...
             </div>
@@ -2130,8 +2168,8 @@
                     <input type="text" id="linkInput" placeholder="¿Quién es el jugador?" autocomplete="off" aria-label="Jugador que conecta las pistas" aria-autocomplete="list" aria-expanded="false" aria-controls="linkInputPredictive">
                     <div class="predictive-menu" id="linkInputPredictive" role="listbox"></div>
                 </div>
-                <button onclick="checkLink()">Enviar</button>
-                <button onclick="loseLinkLife()" style="background-color: #666; color: white;">Saltear</button>
+                <button id="linkSubmitBtn" onclick="checkLink()">Enviar</button>
+                <button id="linkSkipBtn" onclick="loseLinkLife()" style="background-color: #666; color: white;">Saltear</button>
             </div>
             <div id="linkMessage" class="message"></div>
         </div>
@@ -2490,6 +2528,7 @@
         let caminoScoreValue = 0;
         let caminoLives = 3;
         let caminoProgress = []; // { status: 'playing'|'won'|'lost' }
+        let linkScoreValue = 0;
         let currentAuctionIdx = 0;
         let userBudget = 1000; // Presupuesto inicial por defecto
         let currentBid = 0;
@@ -2612,6 +2651,7 @@
                 localStorage.setItem('camino_progress', JSON.stringify(caminoProgress));
                 localStorage.setItem('camino_score', caminoScoreValue.toString());
                 localStorage.setItem('link_progress', JSON.stringify(linkProgress));
+                localStorage.setItem('link_score', linkScoreValue.toString());
                 localStorage.setItem('wordle_progress', JSON.stringify(wordleProgress));
                 localStorage.setItem('resultado_progress', JSON.stringify(resultadoProgress));
                 localStorage.setItem('resultado_score', resultadoScoreValue.toString());
@@ -3766,6 +3806,7 @@
             resultadoIdx = 0;
             equipoIdx = 0;
             caminoScoreValue = 0;
+            linkScoreValue = 0;
             resultadoScoreValue = 0;
             equipoScoreValue = 0;
             trayScore = 0;
@@ -3786,7 +3827,7 @@
             levelProgress = categorias.map(() => createTorreLevelState());
             trayProgress = trayectoriasData.map(() => createTrayState());
             caminoProgress = caminoData.map(() => createCaminoState());
-            linkProgress = typeof linkData !== 'undefined' ? linkData.map(() => ({ status: 'playing' })) : [];
+            linkProgress = typeof linkData !== 'undefined' ? linkData.map(() => createLinkState()) : [];
             wordleProgress = typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : [];
             resultadoProgress = typeof resultadoData !== 'undefined' ? resultadoData.map(() => ({ status: 'playing', lives: 3 })) : [];
             equipoProgress = equipoData.map(() => ({ status: 'playing', lives: 3 }));
@@ -4849,19 +4890,55 @@
         let linkLives = 4;
         let currentTeammateIdx = 1;
 
+        function createLinkState() {
+            return { status: 'playing', lives: 4, revealedTeammates: 1, pointsAwarded: 0 };
+        }
+
+        function getLinkState(index = linkIdx) {
+            if (!linkProgress[index]) linkProgress[index] = createLinkState();
+            const state = linkProgress[index];
+            const item = linkData[index];
+            const total = item && item.teammates ? item.teammates.length : 4;
+            if (!state.status) state.status = 'playing';
+            if (typeof state.lives !== 'number') state.lives = total;
+            if (typeof state.revealedTeammates !== 'number') state.revealedTeammates = 1;
+            state.revealedTeammates = Math.max(1, Math.min(total, state.revealedTeammates));
+            if (typeof state.pointsAwarded !== 'number') state.pointsAwarded = 0;
+            return state;
+        }
+
+        function getLinkAliases(item) {
+            const aliases = Array.isArray(item.alias) ? item.alias : [];
+            return [item.ans, ...aliases].filter(Boolean).map(value => normalizeText(value));
+        }
+
+        function getLinkPointsForCurrentReveal() {
+            return Math.max(10, 28 - ((currentTeammateIdx - 1) * 5));
+        }
+
+        function isCloseLinkGuess(input, item) {
+            if (input.length < 5) return false;
+            return getLinkAliases(item).some(alias => alias.length >= 5 && getTorreEditDistance(input, alias) <= 2);
+        }
+
         function initLink() {
             if (typeof linkData === 'undefined' || linkData.length === 0) return;
             const item = linkData[linkIdx];
-            const state = linkProgress[linkIdx];
+            const state = getLinkState();
+            const total = item.teammates.length;
 
             if (state && state.status !== 'playing') {
-                currentTeammateIdx = 4;
+                currentTeammateIdx = total;
                 linkLives = 0;
                 document.getElementById('linkInput').disabled = true;
+                document.getElementById('linkSubmitBtn').disabled = true;
+                document.getElementById('linkSkipBtn').disabled = true;
             } else {
-                currentTeammateIdx = 1;
-                linkLives = hasUnlimitedLives('linkView') ? Infinity : 4;
+                currentTeammateIdx = state.revealedTeammates;
+                linkLives = hasUnlimitedLives('linkView') ? Infinity : state.lives;
                 document.getElementById('linkInput').disabled = false;
+                document.getElementById('linkSubmitBtn').disabled = false;
+                document.getElementById('linkSkipBtn').disabled = false;
             }
             
             updateLinkGridSelection();
@@ -4894,11 +4971,16 @@
 
         function updateLinkUI() {
             const item = linkData[linkIdx];
+            const state = getLinkState();
+            const total = item.teammates.length;
             const displayEl = document.getElementById('linkDisplay');
             document.getElementById('linkLives').textContent = formatLives('linkView', linkLives);
-            document.getElementById('linkScore').textContent = score;
+            document.getElementById('linkScore').textContent = linkScoreValue;
+            document.getElementById('linkProgressText').textContent = `${currentTeammateIdx}/${total} pistas`;
+            document.getElementById('linkValueText').textContent = state.status === 'playing' ? `+${getLinkPointsForCurrentReveal()} pts` : `${state.pointsAwarded || 0} pts`;
+            document.getElementById('linkProgressFill').style.width = `${Math.round((currentTeammateIdx / total) * 100)}%`;
             
-            const isGameOver = linkLives <= 0 || linkProgress[linkIdx].status === 'won';
+            const isGameOver = linkLives <= 0 || state.status === 'won' || state.status === 'lost';
             displayEl.innerHTML = '<div style="font-weight: bold; margin-bottom: 5px; color: var(--accent-color);">Compañeros:</div>';
             
             if (isGameOver) {
@@ -4909,7 +4991,7 @@
                 `;
             } else {
                 displayEl.style.alignItems = "flex-start";
-                for (let i = 0; i < 4; i++) {
+                for (let i = 0; i < total; i++) {
                     const row = document.createElement('div');
                     row.style.fontSize = "1.1rem";
                     if (i < currentTeammateIdx) {
@@ -4928,16 +5010,21 @@
             const inputEl = document.getElementById('linkInput');
             const input = normalizeText(inputEl.value);
             const item = linkData[linkIdx];
+            const state = getLinkState();
             const msg = document.getElementById('linkMessage');
             
             if (!input) return;
 
-            if (item.alias.map(a => normalizeText(a)).includes(input)) {
+            if (getLinkAliases(item).includes(input)) {
                 msg.textContent = "¡Correcto!";
+                const pointsWon = getLinkPointsForCurrentReveal();
+                state.pointsAwarded = pointsWon;
+                state.revealedTeammates = currentTeammateIdx;
+                state.lives = hasUnlimitedLives('linkView') ? item.teammates.length : linkLives;
+                msg.textContent = `Correcto +${pointsWon} pts`;
                 msg.className = "message correct";
-                score += 25;
-                scoreEl.textContent = score;
-                document.getElementById('linkScore').textContent = score;
+                linkScoreValue += pointsWon;
+                document.getElementById('linkScore').textContent = linkScoreValue;
                 updateLinkStatus('won');
                 inputEl.value = "";
                 setTimeout(() => {
@@ -4945,22 +5032,26 @@
                     msg.textContent = "";
                 }, 1500);
             } else {
-                loseLinkLife();
+                loseLinkLife(isCloseLinkGuess(input, item) ? "Cerca, pero se revela otra pista." : null);
             }
         }
 
-        function loseLinkLife() {
+        function loseLinkLife(feedbackText = null) {
             const msg = document.getElementById('linkMessage');
             const item = linkData[linkIdx];
+            const state = getLinkState();
+            const total = item.teammates.length;
 
             if (hasUnlimitedLives('linkView')) {
-                if (currentTeammateIdx < 4) {
+                if (currentTeammateIdx < total) {
                     currentTeammateIdx++;
+                    state.revealedTeammates = currentTeammateIdx;
                     msg.textContent = "Incorrecto o salteado. Se revela otro compañero.";
                 } else {
                     msg.textContent = "Incorrecto. Ya tenés todas las pistas disponibles.";
                 }
                 msg.className = "message incorrect";
+                saveProgress();
                 updateLinkUI();
                 return;
             }
@@ -4968,14 +5059,20 @@
             linkLives--;
             if (linkLives > 0) {
                 currentTeammateIdx++;
-                msg.textContent = "Incorrecto o Salteado.";
+                state.lives = linkLives;
+                state.revealedTeammates = currentTeammateIdx;
+                msg.textContent = feedbackText || "Incorrecto o Salteado.";
                 msg.className = "message incorrect";
+                saveProgress();
                 updateLinkUI();
             } else {
                 msg.textContent = `¡Perdiste! Era ${item.ans}`;
                 msg.className = "message incorrect";
+                currentTeammateIdx = total;
+                state.lives = 0;
+                state.revealedTeammates = total;
+                state.pointsAwarded = 0;
                 updateLinkStatus('lost');
-                currentTeammateIdx = 4;
                 updateLinkUI();
                 setTimeout(() => msg.textContent = "", 2000);
             }
@@ -4983,6 +5080,11 @@
 
         function updateLinkStatus(status) {
             linkProgress[linkIdx].status = status;
+            if (status !== 'playing') {
+                document.getElementById('linkInput').disabled = true;
+                document.getElementById('linkSubmitBtn').disabled = true;
+                document.getElementById('linkSkipBtn').disabled = true;
+            }
             populateLinkGrid();
             updateLinkGridSelection();
             saveProgress();
@@ -5341,7 +5443,16 @@
 
             // 5. Cargar datos de Link y Wordle
             const savedLink = localStorage.getItem('link_progress');
-            linkProgress = savedLink ? JSON.parse(savedLink) : (typeof linkData !== 'undefined' ? linkData.map(() => ({ status: 'playing' })) : []);
+            linkProgress = savedLink ? JSON.parse(savedLink) : (typeof linkData !== 'undefined' ? linkData.map(() => createLinkState()) : []);
+            if (typeof linkData !== 'undefined') {
+                while (linkProgress.length < linkData.length) linkProgress.push(createLinkState());
+                linkProgress.forEach((_, index) => getLinkState(index));
+            }
+            const savedLinkScore = localStorage.getItem('link_score');
+            if (savedLinkScore) {
+                linkScoreValue = parseInt(savedLinkScore, 10) || 0;
+                document.getElementById('linkScore').textContent = linkScoreValue;
+            }
             
             const savedWordle = localStorage.getItem('wordle_progress');
             wordleProgress = savedWordle ? JSON.parse(savedWordle) : (typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : []);
