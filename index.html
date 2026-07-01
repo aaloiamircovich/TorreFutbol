@@ -938,6 +938,36 @@
             gap: 8px;
             max-width: 100%;
         }
+        .camino-progress-panel {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .camino-progress-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--muted-text);
+        }
+        .camino-progress-line {
+            height: 7px;
+            overflow: hidden;
+            border-radius: 999px;
+            margin-top: 7px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .camino-progress-line span {
+            display: block;
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #f8d449, var(--accent-color));
+            transition: width 0.35s ease;
+        }
         @keyframes trayReveal {
             from {
                 transform: translateY(8px);
@@ -2056,12 +2086,19 @@
             </div>
             <div id="caminoLevelGrid" class="level-grid hidden"></div>
             <div id="caminoTitle" class="category-title">Cargando...</div>
+            <div class="camino-progress-panel">
+                <div class="camino-progress-meta">
+                    <span id="caminoProgressText">0/0 ubicados</span>
+                    <span id="caminoAttemptText">Intentos 0</span>
+                </div>
+                <div class="camino-progress-line" aria-hidden="true"><span id="caminoProgressFill"></span></div>
+            </div>
             <div style="font-size: 0.8rem; color: #888;">Arrastrá los equipos para ordenarlos cronológicamente:</div>
             <div id="caminoSelection" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 100px; border: 1px dashed #444; padding: 10px; border-radius: 8px; background: #111;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'selection')"></div>
             <div id="caminoOptions" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 15px; border-top: 1px solid #333;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'options')"></div>
             <div class="input-group">
-                <button onclick="checkCamino()" style="flex-grow: 1; background-color: var(--accent-color);">Verificar Orden</button>
-                <button onclick="resetCaminoSelection()" style="background-color: #666; color: white;">Reiniciar</button>
+                <button id="caminoCheckBtn" onclick="checkCamino()" style="flex-grow: 1; background-color: var(--accent-color);">Verificar Orden</button>
+                <button id="caminoResetBtn" onclick="resetCaminoSelection()" style="background-color: #666; color: white;">Reiniciar</button>
             </div>
             <div id="caminoMessage" class="message"></div>
         </div>
@@ -3748,6 +3785,7 @@
 
             levelProgress = categorias.map(() => createTorreLevelState());
             trayProgress = trayectoriasData.map(() => createTrayState());
+            caminoProgress = caminoData.map(() => createCaminoState());
             linkProgress = typeof linkData !== 'undefined' ? linkData.map(() => ({ status: 'playing' })) : [];
             wordleProgress = typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : [];
             resultadoProgress = typeof resultadoData !== 'undefined' ? resultadoData.map(() => ({ status: 'playing', lives: 3 })) : [];
@@ -4581,6 +4619,35 @@
         }
 
         // --- Lógica del Juego El Camino (Drag and Drop) ---
+        function createCaminoState() {
+            return { status: 'playing', lives: 3, selection: [], attempts: 0, pointsAwarded: 0 };
+        }
+
+        function getCaminoState(index = caminoIdx) {
+            if (!caminoProgress[index]) caminoProgress[index] = createCaminoState();
+            const state = caminoProgress[index];
+            if (!state.status) state.status = 'playing';
+            if (typeof state.lives !== 'number') state.lives = 3;
+            if (!Array.isArray(state.selection)) state.selection = [];
+            if (typeof state.attempts !== 'number') state.attempts = 0;
+            if (typeof state.pointsAwarded !== 'number') state.pointsAwarded = 0;
+            return state;
+        }
+
+        function syncCaminoState() {
+            const state = getCaminoState();
+            if (state.status !== 'playing') return state;
+            state.selection = [...currentCaminoSelection];
+            state.lives = hasUnlimitedLives('caminoView') ? 3 : caminoLives;
+            saveProgress();
+            return state;
+        }
+
+        function getCaminoScoreForAttempt() {
+            const state = getCaminoState();
+            return Math.max(35, 100 - (state.attempts * 15));
+        }
+
         function populateCaminoGrid() {
             const grid = document.getElementById('caminoLevelGrid');
             grid.innerHTML = '';
@@ -4608,20 +4675,22 @@
         function initCamino() {
             if (typeof caminoData === 'undefined' || caminoData.length === 0) return;
             const item = caminoData[caminoIdx];
-            const state = caminoProgress[caminoIdx];
+            const state = getCaminoState();
             
             document.getElementById('caminoTitle').textContent = item.titulo;
             document.getElementById('caminoCounter').textContent = `${caminoIdx + 1}/${caminoData.length}`;
             document.getElementById('caminoScoreDisplay').textContent = caminoScoreValue;
             
             const isGameOver = state && state.status !== 'playing';
-            caminoLives = isGameOver ? 0 : (hasUnlimitedLives('caminoView') ? Infinity : 3);
+            caminoLives = isGameOver ? 0 : (hasUnlimitedLives('caminoView') ? Infinity : state.lives);
             document.getElementById('caminoLivesDisplay').textContent = formatLives('caminoView', caminoLives);
 
-            currentCaminoSelection = [];
+            currentCaminoSelection = [...state.selection];
             if (isGameOver) {
                 currentCaminoSelection = [...item.equipos];
             }
+            document.getElementById('caminoCheckBtn').disabled = isGameOver;
+            document.getElementById('caminoResetBtn').disabled = isGameOver;
             
             updateCaminoGridSelection();
             renderCamino();
@@ -4629,10 +4698,13 @@
 
         function renderCamino() {
             const item = caminoData[caminoIdx];
-            const state = caminoProgress[caminoIdx];
+            const state = getCaminoState();
             const isGameOver = state && state.status !== 'playing';
             const optionsEl = document.getElementById('caminoOptions');
             const selectionEl = document.getElementById('caminoSelection');
+            document.getElementById('caminoProgressText').textContent = `${currentCaminoSelection.length}/${item.equipos.length} ubicados`;
+            document.getElementById('caminoAttemptText').textContent = state.status === 'playing' ? `Intentos ${state.attempts}` : `${state.pointsAwarded || 0} pts`;
+            document.getElementById('caminoProgressFill').style.width = `${Math.min(100, Math.round((currentCaminoSelection.length / item.equipos.length) * 100))}%`;
             
             selectionEl.innerHTML = '';
             currentCaminoSelection.forEach((team, idx) => {
@@ -4640,12 +4712,12 @@
                 div.className = 'camino-option camino-selected';
                 const logoUrl = getGlobalLogo(team);
                 div.innerHTML = `<img class="team-token-img" src="${logoUrl}" alt="${team}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(team)}'"><span>${idx + 1}. ${team}</span>`;
-                div.draggable = true;
+                div.draggable = !isGameOver;
                 div.ondragstart = (e) => { e.dataTransfer.setData('sourceIdx', idx); e.dataTransfer.setData('type', 'selection'); };
                 div.ondragover = handleDragOver;
                 div.ondragleave = handleDragLeave;
                 div.ondrop = (e) => handleDrop(e, 'selection', idx);
-                div.onclick = () => { currentCaminoSelection.splice(idx, 1); renderCamino(); };
+                div.onclick = () => { if (!isGameOver) { currentCaminoSelection.splice(idx, 1); renderCamino(); } };
                 selectionEl.appendChild(div);
             });
 
@@ -4667,6 +4739,7 @@
                     optionsEl.appendChild(div);
                 }
             });
+            syncCaminoState();
         }
 
         function handleDragOver(e) {
@@ -4680,6 +4753,7 @@
 
         function handleDrop(e, targetType, targetIdx) {
             e.preventDefault();
+            if (getCaminoState().status !== 'playing') return;
             e.currentTarget.classList.remove('drag-over');
             const type = e.dataTransfer.getData('type');
 
@@ -4698,46 +4772,74 @@
             renderCamino();
         }
 
-        function resetCaminoSelection() { currentCaminoSelection = []; renderCamino(); }
+        function resetCaminoSelection() {
+            if (getCaminoState().status !== 'playing') return;
+            currentCaminoSelection = [];
+            renderCamino();
+        }
 
         function checkCamino() {
-            if (caminoProgress[caminoIdx].status !== 'playing') return;
+            const state = getCaminoState();
+            if (state.status !== 'playing') return;
             
             const item = caminoData[caminoIdx];
             const isCorrect = JSON.stringify(currentCaminoSelection) === JSON.stringify(item.equipos);
             const msg = document.getElementById('caminoMessage');
 
+            if (currentCaminoSelection.length !== item.equipos.length) {
+                msg.textContent = `Te faltan ${item.equipos.length - currentCaminoSelection.length} equipos.`;
+                msg.className = "message incorrect";
+                return;
+            }
+
             if (isCorrect) {
-                caminoScoreValue += 100;
+                const pointsWon = getCaminoScoreForAttempt();
+                state.pointsAwarded = pointsWon;
+                state.selection = [...currentCaminoSelection];
+                caminoScoreValue += pointsWon;
                 updateCaminoStatus('won');
-                msg.textContent = "¡Excelente! Camino perfecto.";
+                renderCamino();
+                msg.textContent = `Excelente +${pointsWon} pts.`;
                 msg.className = "message correct";
+                document.getElementById('caminoScoreDisplay').textContent = caminoScoreValue;
                 confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
                 setTimeout(() => { caminoIdx = (caminoIdx + 1) % caminoData.length; initCamino(); msg.textContent = ""; }, 2000);
             } else {
+                state.attempts++;
                 if (hasUnlimitedLives('caminoView')) {
                     msg.textContent = "Orden incorrecto. Probá otra vez.";
                     msg.className = "message incorrect";
                     document.getElementById('caminoLivesDisplay').textContent = formatLives('caminoView', caminoLives);
+                    saveProgress();
+                    renderCamino();
                     return;
                 }
                 caminoLives--;
+                state.lives = caminoLives;
                 document.getElementById('caminoLivesDisplay').textContent = formatLives('caminoView', caminoLives);
                 if (caminoLives <= 0) {
-                    updateCaminoStatus('lost');
                     msg.textContent = "Perdiste. Se revela el orden correcto.";
                     msg.className = "message incorrect";
                     currentCaminoSelection = [...item.equipos];
+                    state.selection = [...currentCaminoSelection];
+                    state.pointsAwarded = 0;
+                    updateCaminoStatus('lost');
                     renderCamino();
                 } else {
                     msg.textContent = "Orden incorrecto. ¡Perdés una vida!";
                     msg.className = "message incorrect";
+                    saveProgress();
+                    renderCamino();
                 }
             }
         }
 
         function updateCaminoStatus(status) {
             caminoProgress[caminoIdx].status = status;
+            if (status !== 'playing') {
+                document.getElementById('caminoCheckBtn').disabled = true;
+                document.getElementById('caminoResetBtn').disabled = true;
+            }
             populateCaminoGrid();
             updateCaminoGridSelection();
             saveProgress();
@@ -5227,7 +5329,9 @@
 
             // 4. Cargar datos de El Camino
             const savedCamProgress = localStorage.getItem('camino_progress');
-            caminoProgress = savedCamProgress ? JSON.parse(savedCamProgress) : caminoData.map(() => ({ status: 'playing' }));
+            caminoProgress = savedCamProgress ? JSON.parse(savedCamProgress) : caminoData.map(() => createCaminoState());
+            while (caminoProgress.length < caminoData.length) caminoProgress.push(createCaminoState());
+            caminoProgress.forEach((_, index) => getCaminoState(index));
 
             const savedCamIdx = localStorage.getItem('camino_index');
             if (savedCamIdx) caminoIdx = parseInt(savedCamIdx);
