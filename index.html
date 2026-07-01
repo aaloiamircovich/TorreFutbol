@@ -4169,11 +4169,17 @@
                     }
                 }, 1200);
             } else {
-                loseResultadoLife(false);
+                const actualOutcome = Math.sign(item.homeScore - item.awayScore);
+                const guessedOutcome = Math.sign(homeGuess - awayGuess);
+                const scoreDistance = Math.abs(homeGuess - item.homeScore) + Math.abs(awayGuess - item.awayScore);
+                let feedback = "Incorrecto";
+                if (scoreDistance === 1) feedback = "Muy cerca: fallaste por 1 gol.";
+                else if (actualOutcome === guessedOutcome) feedback = actualOutcome === 0 ? "Acertaste el empate, no el marcador." : "Acertaste el ganador, no el marcador.";
+                loseResultadoLife(false, feedback);
             }
         }
 
-        function loseResultadoLife(skipped = true) {
+        function loseResultadoLife(skipped = true, feedbackText = null) {
             const item = resultadoData[resultadoIdx];
             const state = resultadoProgress[resultadoIdx];
             if (!item || !state || state.status !== 'playing') return;
@@ -4181,7 +4187,7 @@
             const msg = document.getElementById('resultadoMessage');
             if (!skipped && hasUnlimitedLives('resultadoView')) {
                 document.getElementById('resultadoLives').textContent = formatLives('resultadoView', state.lives);
-                msg.textContent = "Incorrecto";
+                msg.textContent = feedbackText || "Incorrecto";
                 msg.className = "message incorrect";
                 document.getElementById('resultadoHomeInput').focus();
                 saveProgress();
@@ -4202,7 +4208,7 @@
                 msg.textContent = skipped ? "Nivel salteado" : "Nivel perdido";
                 msg.className = "message incorrect";
             } else {
-                msg.textContent = "Incorrecto";
+                msg.textContent = feedbackText || "Incorrecto";
                 msg.className = "message incorrect";
                 document.getElementById('resultadoHomeInput').focus();
             }
