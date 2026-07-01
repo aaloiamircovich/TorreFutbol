@@ -725,6 +725,18 @@
             border-left-color: var(--accent-color);
             background-color: #1a3320;
         }
+        .slot.revealed.hot {
+            border-left-color: #f8d449;
+            background: linear-gradient(90deg, rgba(248, 212, 73, 0.2), #1a3320 52%);
+        }
+        .slot.revealed.warm {
+            border-left-color: #27d17f;
+            background: linear-gradient(90deg, rgba(39, 209, 127, 0.16), #1a3320 55%);
+        }
+        .slot.just-guessed {
+            transform: translateX(6px);
+            box-shadow: 0 0 18px rgba(39, 209, 127, 0.28);
+        }
         .slot-rank {
             font-weight: bold;
             color: #888;
@@ -759,6 +771,57 @@
             background: #111;
             padding: 4px 8px;
             border-radius: 4px;
+        }
+        .torre-progress-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 6px;
+            padding: 8px 10px;
+            margin: 8px 0;
+        }
+        .torre-progress-meta,
+        .torre-tools {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--muted-text);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .torre-progress-bar {
+            height: 7px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 7px;
+        }
+        .torre-progress-bar span {
+            display: block;
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--accent-color), #f8d449);
+            transition: width 0.35s ease;
+        }
+        .torre-tools {
+            margin-bottom: 8px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .torre-tools button {
+            width: auto;
+            min-width: 90px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .torre-hint {
+            flex: 1;
+            text-align: right;
+            color: #dcdcdc;
+            min-height: 18px;
         }
         .message {
             text-align: center;
@@ -1851,6 +1914,19 @@
 
         <div class="category-title" id="categoryName">Cargando categoría...</div>
 
+        <div class="torre-progress-panel">
+            <div class="torre-progress-meta">
+                <span id="torreProgressText">0/10 respuestas</span>
+                <span id="torreStreakText">Racha x0</span>
+            </div>
+            <div class="torre-progress-bar" aria-hidden="true"><span id="torreProgressFill"></span></div>
+        </div>
+
+        <div class="torre-tools">
+            <button id="torreHintBtn" type="button">Pista</button>
+            <span id="torreHintText" class="torre-hint"></span>
+        </div>
+
         <div class="input-group">
             <div class="predictive-field">
                 <input type="text" id="guessInput" placeholder="Ingresá un nombre..." autocomplete="off" aria-label="Nombre del futbolista" aria-autocomplete="list" aria-expanded="false" aria-controls="guessInputPredictive">
@@ -2305,6 +2381,7 @@
         let lives = 5;
         let score = 0;
         let guessedIndices = [];
+        let torreStreak = 0;
         let levelProgress = [];
         let trayIdx = 0;
         let linkIdx = 0;
@@ -2349,6 +2426,11 @@
         const levelGrid = document.getElementById('levelGrid');
         const towerSlots = document.getElementById('towerSlots');
         const gameMessage = document.getElementById('gameMessage');
+        const torreProgressText = document.getElementById('torreProgressText');
+        const torreProgressFill = document.getElementById('torreProgressFill');
+        const torreStreakText = document.getElementById('torreStreakText');
+        const torreHintBtn = document.getElementById('torreHintBtn');
+        const torreHintText = document.getElementById('torreHintText');
         const trayLevelGrid = document.getElementById('trayLevelGrid');
         const trayToggleGridBtn = document.getElementById('trayToggleGridBtn');
         const linkLevelGrid = document.getElementById('linkLevelGrid');
@@ -2950,6 +3032,9 @@
                 return getGlobalLogo(answerName);
             }
 
+            const playerPhoto = findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, answerName);
+            if (playerPhoto) return playerPhoto;
+
             const titleFlag = getCountryFlagFromTitle(title);
             if (titleFlag) return createFlagImage(titleFlag, title);
 
@@ -2960,6 +3045,86 @@
             if (playerFlag) return createFlagImage(playerFlag, answerName);
 
             return getGlobalLogo(answerName) || createFallbackImage(answerName, "logo");
+        }
+
+        function getTorreLevelState(index = currentCategoryIndex) {
+            if (!levelProgress[index]) {
+                levelProgress[index] = { status: 'playing', guessedIndices: [], lives: 5, hintsUsed: 0 };
+            }
+            const state = levelProgress[index];
+            if (!Array.isArray(state.guessedIndices)) state.guessedIndices = [];
+            if (typeof state.lives !== 'number') state.lives = state.status === 'playing' ? 5 : 0;
+            if (typeof state.hintsUsed !== 'number') state.hintsUsed = 0;
+            if (!state.status) state.status = 'playing';
+            return state;
+        }
+
+        function createTorreLevelState() {
+            return { status: 'playing', guessedIndices: [], lives: 5, hintsUsed: 0 };
+        }
+
+        function getTorreSlotTier(index) {
+            if (index < 3) return 'hot';
+            if (index < 6) return 'warm';
+            return '';
+        }
+
+        function getTorreAnswerAliases(answer) {
+            const aliases = Array.isArray(answer.alias) ? answer.alias : [];
+            return [answer.nombre, ...aliases].filter(Boolean).map(item => normalizeText(item));
+        }
+
+        function getTorreEditDistance(a, b) {
+            const rows = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+            for (let j = 1; j <= b.length; j++) rows[0][j] = j;
+            for (let i = 1; i <= a.length; i++) {
+                for (let j = 1; j <= b.length; j++) {
+                    const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+                    rows[i][j] = Math.min(rows[i - 1][j] + 1, rows[i][j - 1] + 1, rows[i - 1][j - 1] + cost);
+                }
+            }
+            return rows[a.length][b.length];
+        }
+
+        function findCloseTorreMatch(category, inputVal) {
+            if (inputVal.length < 5) return null;
+            let bestMatch = null;
+            category.respuestas.forEach((answer, index) => {
+                if (guessedIndices.includes(index)) return;
+                getTorreAnswerAliases(answer).forEach(alias => {
+                    if (alias.length < 5) return;
+                    const distance = getTorreEditDistance(inputVal, alias);
+                    const isClose = distance <= 2 || (inputVal.length >= 6 && alias.includes(inputVal));
+                    if (!isClose) return;
+                    if (!bestMatch || distance < bestMatch.distance) {
+                        bestMatch = { index, answer, distance };
+                    }
+                });
+            });
+            return bestMatch;
+        }
+
+        function buildTorreHint(category, state) {
+            const pendingIndex = category.respuestas.findIndex((_, index) => !state.guessedIndices.includes(index));
+            if (pendingIndex === -1) return "No quedan respuestas pendientes.";
+            const answer = category.respuestas[pendingIndex];
+            const cleanName = answer.nombre.replace(/\s+/g, ' ').trim();
+            const firstLetter = cleanName.charAt(0).toUpperCase();
+            const wordCount = cleanName.split(' ').filter(Boolean).length;
+            return `#${pendingIndex + 1}: empieza con ${firstLetter}, ${wordCount} palabra${wordCount === 1 ? '' : 's'}.`;
+        }
+
+        function updateTorreProgressUI() {
+            const state = getTorreLevelState();
+            const guessedCount = state.guessedIndices.length;
+            torreProgressText.textContent = `${guessedCount}/10 respuestas`;
+            torreProgressFill.style.width = `${Math.min(100, guessedCount * 10)}%`;
+            torreStreakText.textContent = `Racha x${torreStreak}`;
+            torreHintBtn.textContent = `Pista ${Math.max(0, 3 - state.hintsUsed)}/3`;
+            torreHintBtn.disabled = state.status !== 'playing' || state.hintsUsed >= 3;
+            if (state.status !== 'playing' && !torreHintText.textContent) {
+                torreHintText.textContent = "Nivel cerrado.";
+            }
         }
 
         // Poblar la cuadrícula de niveles
@@ -3252,7 +3417,7 @@
             }
 
             const category = categorias[currentCategoryIndex];
-            const state = levelProgress[currentCategoryIndex];
+            const state = getTorreLevelState();
             
             categoryNameEl.textContent = category.titulo;
             catCounterEl.textContent = `${currentCategoryIndex + 1}/${categorias.length}`;
@@ -3264,7 +3429,7 @@
             guessedIndices = state.guessedIndices;
             const isGameOver = state.status !== 'playing';
             
-            lives = isGameOver ? 0 : 5;
+            lives = hasUnlimitedLives('torreView') && !isGameOver ? 5 : state.lives;
             livesEl.textContent = formatLives('torreView', lives);
             
             towerSlots.innerHTML = '';
@@ -3272,6 +3437,8 @@
             guessInput.disabled = isGameOver;
             guessBtn.disabled = isGameOver;
             surrenderBtn.disabled = isGameOver;
+            torreStreak = 0;
+            torreHintText.textContent = state.hintsUsed ? buildTorreHint(category, state) : '';
 
             if (state.status === 'won') showMessage("¡NIVEL COMPLETADO!", "correct");
             else if (state.status === 'lost') showMessage("NIVEL FINALIZADO", "incorrect");
@@ -3281,7 +3448,7 @@
                 const isGuessed = guessedIndices.includes(i);
                 const shouldReveal = isGuessed || isGameOver;
                 const slot = document.createElement('div');
-                slot.className = `slot ${shouldReveal ? 'revealed' : ''}`;
+                slot.className = `slot ${shouldReveal ? `revealed ${getTorreSlotTier(i)}` : ''}`;
                 slot.id = `slot-${i}`;
                 
                 if (isGameOver && !isGuessed) {
@@ -3296,6 +3463,7 @@
                 `;
                 towerSlots.appendChild(slot);
             }
+            updateTorreProgressUI();
         }
 
         function updateGridSelection() {
@@ -3317,12 +3485,13 @@
             for (let i = 0; i < 10; i++) {
                 const slot = document.getElementById(`slot-${i}`);
                 if (!slot.classList.contains('revealed')) {
-                    slot.classList.add('revealed');
+                    slot.classList.add('revealed', getTorreSlotTier(i));
                     slot.querySelector('.slot-name').textContent = category.respuestas[i].nombre;
                     slot.querySelector('.slot-img').src = getTorreSlotMedia(category, category.respuestas[i]);
                     slot.style.borderLeftColor = "#ffeb3b"; // Color distinto para las reveladas
                 }
             }
+            updateTorreProgressUI();
         }
 
         function showMessage(text, type) {
@@ -3338,11 +3507,12 @@
             if (!inputVal) return;
 
             const category = categorias[currentCategoryIndex];
+            const state = getTorreLevelState();
             let foundIndex = -1;
 
             // Búsqueda de coincidencias en los arrays de alias
             for (let i = 0; i < category.respuestas.length; i++) {
-                const aliases = category.respuestas[i].alias.map(a => normalizeText(a));
+                const aliases = getTorreAnswerAliases(category.respuestas[i]);
                 if (aliases.includes(inputVal)) {
                     foundIndex = i;
                     break;
@@ -3354,20 +3524,28 @@
                     showMessage("¡Ya adivinaste ese!", "incorrect");
                 } else {
                     guessedIndices.push(foundIndex);
-                    const pointsWon = 10 - foundIndex;
+                    state.guessedIndices = guessedIndices;
+                    torreStreak++;
+                    const basePoints = 10 - foundIndex;
+                    const streakBonus = torreStreak >= 3 ? Math.min(3, Math.floor(torreStreak / 3)) : 0;
+                    const pointsWon = basePoints + streakBonus;
                     score += pointsWon;
                     scoreEl.textContent = score;
                     checkAchievements();
                     saveProgress();
                     
                     const slot = document.getElementById(`slot-${foundIndex}`);
-                    slot.classList.add('revealed');
+                    slot.classList.add('revealed', getTorreSlotTier(foundIndex), 'just-guessed');
                     slot.querySelector('.slot-name').textContent = category.respuestas[foundIndex].nombre;
                     slot.querySelector('.slot-img').src = getTorreSlotMedia(category, category.respuestas[foundIndex]);
+                    setTimeout(() => slot.classList.remove('just-guessed'), 450);
                     
                     showMessage(`¡Correcto! +${pointsWon} puntos`, "correct");
 
+                    updateTorreProgressUI();
+
                     if (guessedIndices.length === 10) {
+                        state.lives = lives;
                         updateLevelStatus('won');
                         checkAchievements();
                         // Efecto de Confeti al ganar
@@ -3401,22 +3579,41 @@
                     }
                 }
             } else {
+                const closeMatch = findCloseTorreMatch(category, inputVal);
+                torreStreak = 0;
                 if (!hasUnlimitedLives('torreView')) {
                     lives--;
                 }
+                state.lives = lives;
                 livesEl.textContent = formatLives('torreView', lives);
-                showMessage("Incorrecto", "incorrect");
+                showMessage(closeMatch ? `Cerca: revisa la escritura de #${closeMatch.index + 1}` : "Incorrecto", "incorrect");
+                saveProgress();
+                updateTorreProgressUI();
                 
                 if (!hasUnlimitedLives('torreView') && lives <= 0) {
+                    state.lives = 0;
                     updateLevelStatus('lost');
                     revealAllAnswers();
                     showMessage("¡NIVEL PERDIDO!", "incorrect");
                     guessInput.disabled = true;
                     guessBtn.disabled = true;
                     surrenderBtn.disabled = true;
+                    torreHintBtn.disabled = true;
                 }
             }
             guessInput.value = '';
+            guessInput.focus();
+        }
+
+        function handleTorreHint() {
+            const category = categorias[currentCategoryIndex];
+            const state = getTorreLevelState();
+            if (state.status !== 'playing' || state.hintsUsed >= 3) return;
+
+            state.hintsUsed++;
+            torreHintText.textContent = buildTorreHint(category, state);
+            saveProgress();
+            updateTorreProgressUI();
             guessInput.focus();
         }
 
@@ -3437,10 +3634,16 @@
             showMessage("TE HAS RENDIDO", "incorrect");
             
             lives = 0;
+            const state = getTorreLevelState();
+            state.lives = 0;
+            torreStreak = 0;
             livesEl.textContent = formatLives('torreView', lives);
             guessInput.disabled = true;
             guessBtn.disabled = true;
             surrenderBtn.disabled = true;
+            torreHintBtn.disabled = true;
+            saveProgress();
+            updateTorreProgressUI();
         }
 
         async function handleReset() {
@@ -3482,7 +3685,7 @@
             if (typeof linkData !== 'undefined') applyPersistentShuffle(linkData, 'link_order');
             if (typeof wordleData !== 'undefined') applyPersistentShuffle(wordleData, 'wordle_order');
 
-            levelProgress = categorias.map(() => ({ status: 'playing', guessedIndices: [] }));
+            levelProgress = categorias.map(() => createTorreLevelState());
             trayProgress = trayectoriasData.map(() => ({ status: 'playing' }));
             linkProgress = typeof linkData !== 'undefined' ? linkData.map(() => ({ status: 'playing' })) : [];
             wordleProgress = typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : [];
@@ -3517,6 +3720,7 @@
         }
 
         guessBtn.addEventListener('click', handleGuess);
+        torreHintBtn.addEventListener('click', handleTorreHint);
         surrenderBtn.addEventListener('click', handleSurrender);
         guessInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleGuess();
@@ -4863,8 +5067,9 @@
 
             // 2. Cargar datos de Torre Futbolera
             const savedProgress = localStorage.getItem('torreFutbol_progress');
-            levelProgress = savedProgress ? JSON.parse(savedProgress) : categorias.map(() => ({ status: 'playing', guessedIndices: [] }));
-            while (levelProgress.length < categorias.length) levelProgress.push({ status: 'playing', guessedIndices: [] });
+            levelProgress = savedProgress ? JSON.parse(savedProgress) : categorias.map(() => createTorreLevelState());
+            while (levelProgress.length < categorias.length) levelProgress.push(createTorreLevelState());
+            levelProgress.forEach((_, index) => getTorreLevelState(index));
 
             const savedIndex = localStorage.getItem('torreFutbol_index');
             if (savedIndex) currentCategoryIndex = parseInt(savedIndex);
