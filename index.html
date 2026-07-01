@@ -2197,7 +2197,7 @@
             
             <div class="input-group">
                 <input type="text" id="wordleInput" placeholder="Adiviná la palabra..." maxlength="10" aria-label="Palabra del intento">
-                <button onclick="checkWordle()">Enviar</button>
+                <button id="wordleSubmitBtn" onclick="checkWordle()">Enviar</button>
             </div>
             <div id="wordleMessage" class="message"></div>
         </div>
@@ -2529,6 +2529,7 @@
         let caminoLives = 3;
         let caminoProgress = []; // { status: 'playing'|'won'|'lost' }
         let linkScoreValue = 0;
+        let wordleScoreValue = 0;
         let currentAuctionIdx = 0;
         let userBudget = 1000; // Presupuesto inicial por defecto
         let currentBid = 0;
@@ -2653,6 +2654,7 @@
                 localStorage.setItem('link_progress', JSON.stringify(linkProgress));
                 localStorage.setItem('link_score', linkScoreValue.toString());
                 localStorage.setItem('wordle_progress', JSON.stringify(wordleProgress));
+                localStorage.setItem('wordle_score', wordleScoreValue.toString());
                 localStorage.setItem('resultado_progress', JSON.stringify(resultadoProgress));
                 localStorage.setItem('resultado_score', resultadoScoreValue.toString());
                 localStorage.setItem('equipo_progress', JSON.stringify(equipoProgress));
@@ -3807,6 +3809,7 @@
             equipoIdx = 0;
             caminoScoreValue = 0;
             linkScoreValue = 0;
+            wordleScoreValue = 0;
             resultadoScoreValue = 0;
             equipoScoreValue = 0;
             trayScore = 0;
@@ -3828,7 +3831,7 @@
             trayProgress = trayectoriasData.map(() => createTrayState());
             caminoProgress = caminoData.map(() => createCaminoState());
             linkProgress = typeof linkData !== 'undefined' ? linkData.map(() => createLinkState()) : [];
-            wordleProgress = typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : [];
+            wordleProgress = typeof wordleData !== 'undefined' ? wordleData.map(() => createWordleState()) : [];
             resultadoProgress = typeof resultadoData !== 'undefined' ? resultadoData.map(() => ({ status: 'playing', lives: 3 })) : [];
             equipoProgress = equipoData.map(() => ({ status: 'playing', lives: 3 }));
             
@@ -3905,21 +3908,39 @@
         });
 
         // --- Lógica del Juego Wordle ---
+        function createWordleState() {
+            return { status: 'playing', guesses: [], pointsAwarded: 0 };
+        }
+
+        function getWordleState(index = wordleIdx) {
+            if (!wordleProgress[index]) wordleProgress[index] = createWordleState();
+            const state = wordleProgress[index];
+            if (!state.status) state.status = 'playing';
+            if (!Array.isArray(state.guesses)) state.guesses = [];
+            if (typeof state.pointsAwarded !== 'number') state.pointsAwarded = 0;
+            return state;
+        }
+
+        function getWordlePoints(state) {
+            return Math.max(15, 70 - ((state.guesses.length - 1) * 10));
+        }
+
         function initWordle() {
             if (typeof wordleData === 'undefined' || wordleData.length === 0) return;
             const item = wordleData[wordleIdx];
             const targetWord = item.ans.toUpperCase();
-            const state = wordleProgress[wordleIdx];
+            const state = getWordleState();
             const board = document.getElementById('wordleBoard');
             const input = document.getElementById('wordleInput');
             const triesEl = document.getElementById('wordleTries');
             
             input.maxLength = targetWord.length;
             input.disabled = state.status !== 'playing';
+            document.getElementById('wordleSubmitBtn').disabled = state.status !== 'playing';
             
             const maxTries = 6;
             triesEl.textContent = maxTries - state.guesses.length;
-            document.getElementById('wordleScore').textContent = score;
+            document.getElementById('wordleScore').textContent = wordleScoreValue;
 
             board.style.gridTemplateColumns = `repeat(${targetWord.length}, 40px)`;
             board.innerHTML = '';
@@ -3964,7 +3985,7 @@
             const inputEl = document.getElementById('wordleInput');
             const guess = normalizeText(inputEl.value).toUpperCase();
             const item = wordleData[wordleIdx];
-            const state = wordleProgress[wordleIdx];
+            const state = getWordleState();
 
             if (guess.length !== item.ans.length) {
                 showMessage(`La palabra debe tener ${item.ans.length} letras`, "incorrect");
@@ -3975,9 +3996,11 @@
             inputEl.value = "";
 
             if (guess === item.ans.toUpperCase()) {
+                const pointsWon = getWordlePoints(state);
+                state.pointsAwarded = pointsWon;
                 updateWordleStatus('won');
-                score += 50;
-                scoreEl.textContent = score;
+                wordleScoreValue += pointsWon;
+                document.getElementById('wordleScore').textContent = wordleScoreValue;
                 confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
                 initWordle();
                 showMessage("¡Palabra correcta!", "correct");
@@ -5455,7 +5478,16 @@
             }
             
             const savedWordle = localStorage.getItem('wordle_progress');
-            wordleProgress = savedWordle ? JSON.parse(savedWordle) : (typeof wordleData !== 'undefined' ? wordleData.map(() => ({ status: 'playing', guesses: [] })) : []);
+            wordleProgress = savedWordle ? JSON.parse(savedWordle) : (typeof wordleData !== 'undefined' ? wordleData.map(() => createWordleState()) : []);
+            if (typeof wordleData !== 'undefined') {
+                while (wordleProgress.length < wordleData.length) wordleProgress.push(createWordleState());
+                wordleProgress.forEach((_, index) => getWordleState(index));
+            }
+            const savedWordleScore = localStorage.getItem('wordle_score');
+            if (savedWordleScore) {
+                wordleScoreValue = parseInt(savedWordleScore, 10) || 0;
+                document.getElementById('wordleScore').textContent = wordleScoreValue;
+            }
 
             const savedResultado = localStorage.getItem('resultado_progress');
             resultadoProgress = savedResultado ? JSON.parse(savedResultado) : (typeof resultadoData !== 'undefined' ? resultadoData.map(() => ({ status: 'playing', lives: 3 })) : []);
