@@ -358,6 +358,26 @@
             object-fit: contain;
             filter: drop-shadow(0 8px 14px rgba(0,0,0,0.45));
         }
+        .team-guess-card.is-correct {
+            animation: equipoCorrectPulse 0.7s ease;
+            border-color: rgba(25,230,129,0.75);
+        }
+        .team-guess-card.is-wrong {
+            animation: equipoWrongShake 0.42s ease;
+            border-color: rgba(255,92,112,0.75);
+        }
+        @keyframes equipoCorrectPulse {
+            0% { transform: scale(1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 28px rgba(0,0,0,0.35); }
+            45% { transform: scale(1.04); box-shadow: 0 0 0 6px rgba(25,230,129,0.16), 0 18px 34px rgba(25,230,129,0.22); }
+            100% { transform: scale(1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 28px rgba(0,0,0,0.35); }
+        }
+        @keyframes equipoWrongShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(7px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(4px); }
+        }
         .team-guess-answer {
             display: none;
             min-height: 36px;
@@ -409,6 +429,14 @@
                 min-height: 620px;
                 border-radius: 0;
             }
+        }
+
+        .team-guess-next {
+            align-self: center;
+            min-width: min(240px, 82vw);
+            background: var(--accent-color);
+            color: #07140f;
+            box-shadow: 0 10px 24px rgba(25,230,129,0.18);
         }
 
         /* --- Camino Styles --- */
@@ -2289,6 +2317,7 @@
                 <button id="equipoSkipBtn" onclick="loseEquipoLife()" style="background-color: #666; color: white;">Saltear</button>
             </div>
             <div id="equipoMessage" class="message"></div>
+            <button id="equipoNextBtn" class="team-guess-next hidden" onclick="goToNextEquipo()">Siguiente nivel</button>
         </div>
     </div>
 
@@ -4332,12 +4361,14 @@
             const skip = document.getElementById('equipoSkipBtn');
             const answer = document.getElementById('equipoAnswer');
             const logo = document.getElementById('equipoLogo');
+            const nextBtn = document.getElementById('equipoNextBtn');
             const isGameOver = state.status !== 'playing';
 
             document.getElementById('equipoLives').textContent = formatLives('equipoView', state.lives);
             document.getElementById('equipoScore').textContent = equipoScoreValue;
             document.getElementById('equipoCounter').textContent = `${equipoIdx + 1}/${equipoData.length}`;
             document.getElementById('equipoMessage').textContent = "";
+            document.querySelector('.team-guess-card')?.classList.remove('is-correct', 'is-wrong');
             logo.onerror = () => {
                 logo.onerror = null;
                 logo.src = getLogoErrorFallback(item.name);
@@ -4348,6 +4379,7 @@
             input.disabled = isGameOver;
             submit.disabled = isGameOver;
             skip.disabled = isGameOver;
+            nextBtn.classList.toggle('hidden', !isGameOver || equipoIdx >= equipoData.length - 1);
             if (isGameOver) {
                 answer.textContent = item.name;
                 answer.classList.add('visible');
@@ -4358,6 +4390,31 @@
             }
             updateEquipoGridSelection();
             saveProgress();
+        }
+
+        function animateEquipoCard(resultClass) {
+            const card = document.querySelector('.team-guess-card');
+            if (!card) return;
+            card.classList.remove('is-correct', 'is-wrong');
+            void card.offsetWidth;
+            card.classList.add(resultClass);
+        }
+
+        function showEquipoNextButton() {
+            const nextBtn = document.getElementById('equipoNextBtn');
+            if (!nextBtn) return;
+            nextBtn.classList.toggle('hidden', equipoIdx >= equipoData.length - 1);
+        }
+
+        function goToNextEquipo() {
+            if (equipoIdx < equipoData.length - 1) {
+                equipoIdx++;
+                initEquipo();
+                return;
+            }
+            const msg = document.getElementById('equipoMessage');
+            msg.textContent = "No quedan mas niveles.";
+            msg.className = "message correct";
         }
 
         function checkEquipo() {
@@ -4384,16 +4441,12 @@
                 input.disabled = true;
                 document.getElementById('equipoSubmitBtn').disabled = true;
                 document.getElementById('equipoSkipBtn').disabled = true;
+                animateEquipoCard('is-correct');
+                showEquipoNextButton();
                 confetti({ particleCount: 80, spread: 58, origin: { y: 0.62 } });
                 populateEquipoGrid();
                 updateEquipoGridSelection();
                 saveProgress();
-                setTimeout(() => {
-                    if (equipoIdx < equipoData.length - 1) {
-                        equipoIdx++;
-                        initEquipo();
-                    }
-                }, 900);
             } else {
                 loseEquipoLife(false);
             }
@@ -4407,6 +4460,7 @@
             if (!skipped && hasUnlimitedLives('equipoView')) {
                 msg.textContent = "Incorrecto";
                 msg.className = "message incorrect";
+                animateEquipoCard('is-wrong');
                 document.getElementById('equipoInput').value = "";
                 document.getElementById('equipoInput').focus();
                 document.getElementById('equipoLives').textContent = formatLives('equipoView', state.lives);
@@ -4425,9 +4479,12 @@
                 document.getElementById('equipoAnswer').classList.add('visible');
                 msg.textContent = skipped ? "Nivel salteado" : "Nivel perdido";
                 msg.className = "message incorrect";
+                animateEquipoCard('is-wrong');
+                showEquipoNextButton();
             } else {
                 msg.textContent = "Incorrecto";
                 msg.className = "message incorrect";
+                animateEquipoCard('is-wrong');
                 document.getElementById('equipoInput').value = "";
                 document.getElementById('equipoInput').focus();
             }
