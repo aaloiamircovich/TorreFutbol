@@ -2566,6 +2566,13 @@
         let auctionTimerInterval = null;
         let socket = null; // Para Socket.IO
         let currentUsername = "Jugador1";
+
+        function clampTorreCategoryIndex(value) {
+            const maxIndex = (typeof categorias !== 'undefined' ? categorias.length : 1) - 1;
+            const parsed = Number.parseInt(value, 10);
+            if (!Number.isFinite(parsed) || parsed < 0) return 0;
+            return Math.min(parsed, Math.max(0, maxIndex));
+        }
         let currentRoomName = "";
         let auctionParticipants = []; // Lista de jugadores en la sala
         let auctionIsAdmin = false;
@@ -3584,6 +3591,7 @@
                 categoryNameEl.textContent = "Error: datos.js no cargado";
                 return;
             }
+            currentCategoryIndex = clampTorreCategoryIndex(currentCategoryIndex);
 
             const category = categorias[currentCategoryIndex];
             const state = getTorreLevelState();
@@ -5186,8 +5194,7 @@
         }
 
         function getAuctionServerUrl() {
-            if (location.port === "3000") return undefined;
-            if (location.hostname === "127.0.0.1" || location.hostname === "localhost") return "http://127.0.0.1:3000";
+            if (location.protocol === "file:") return "http://127.0.0.1:3000";
             return undefined;
         }
 
@@ -5493,7 +5500,7 @@
             levelProgress.forEach((_, index) => getTorreLevelState(index));
 
             const savedIndex = localStorage.getItem('torreFutbol_index');
-            if (savedIndex) currentCategoryIndex = parseInt(savedIndex);
+            currentCategoryIndex = clampTorreCategoryIndex(savedIndex);
 
             const savedScore = localStorage.getItem('torreFutbol_score');
             if (savedScore) {

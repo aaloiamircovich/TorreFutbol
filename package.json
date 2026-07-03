@@ -15,6 +15,7 @@
     "audit:tournaments": "node scripts/audit-tournaments.js",
     "optimize:assets": "node scripts/optimize-assets.js",
     "audit:assets": "node scripts/audit-asset-priorities.js",
+    "audit:visual": "node scripts/visual-asset-audit.js",
     "audit:aliases": "node scripts/audit-aliases.js",
     "audit:minigames": "node scripts/audit-minigame-phases.js",
     "verify:deploy": "node scripts/verify-deploy.js",
@@ -22,7 +23,7 @@
     "compact:career-data": "node scripts/compact-career-data.js",
     "check:js": "node scripts/check-javascript.js",
     "audit:security": "npm audit --omit=dev --audit-level=high",
-    "test:release": "npm run check:js && npm run audit:security && npm run verify:deploy && npm run audit:data && npm run audit:tournaments && npm run audit:assets && npm run audit:aliases && npm run audit:minigames && npm run test:smoke"
+    "test:release": "npm run check:js && npm run audit:security && npm run verify:deploy && npm run audit:data && npm run audit:tournaments && npm run audit:assets && npm run audit:aliases && npm run audit:minigames && npm run audit:visual && npm run test:smoke"
   },
   "dependencies": {
     "axios": "^1.16.1",
