@@ -1163,6 +1163,93 @@ h2 {
   margin-top: 12px;
 }
 
+.player-impact-panel {
+  margin-top: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(25,230,129,0.09), rgba(255,200,87,0.07));
+}
+
+.impact-empty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.impact-empty strong {
+  color: var(--text);
+}
+
+.impact-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.impact-head span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.impact-head strong {
+  color: var(--gold);
+  font-size: 1.08rem;
+}
+
+.impact-meter {
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.12);
+}
+
+.impact-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--gold));
+  transition: width 0.28s ease;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.impact-grid div {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 8px;
+  background: rgba(0,0,0,0.16);
+}
+
+.impact-grid span,
+.player-impact-panel p {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.impact-grid strong {
+  display: block;
+  margin-top: 3px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.player-impact-panel p {
+  margin: 0;
+}
+
 .rival-stars {
   display: grid;
   gap: 10px;

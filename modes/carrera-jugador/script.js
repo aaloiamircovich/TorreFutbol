@@ -2207,6 +2207,7 @@ function renderMatchObjectives() {
 function renderMatchStatsPanel() {
   if (!state.lastMatchDetails) {
     $("#matchStatsPanel").innerHTML = `<div class="stat-card"><span>Ultimo partido</span><strong>Sin datos</strong></div>`;
+    renderPlayerImpactPanel();
     return;
   }
   const details = state.lastMatchDetails;
@@ -2228,6 +2229,39 @@ function renderMatchStatsPanel() {
   $("#matchStatsPanel").innerHTML = `${statMarkup}
     <div class="stat-card match-performers"><span>Figuras propias</span>${teamTop || "<p>Sin datos</p>"}</div>
     <div class="stat-card match-performers"><span>Figuras rivales</span>${rivalTop || "<p>Sin datos</p>"}</div>`;
+  renderPlayerImpactPanel(details);
+}
+
+function renderPlayerImpactPanel(source = null) {
+  const panel = $("#playerImpactPanel");
+  if (!panel) return;
+  const live = tacticalSim?.running ? tacticalSim.player : null;
+  const data = live || source;
+  if (!data) {
+    panel.innerHTML = `<div class="impact-empty"><strong>Impacto del jugador</strong><span>Juega un partido para ver tu rendimiento detallado.</span></div>`;
+    return;
+  }
+  const rating = Number(live ? live.rating : data.rating) || 6;
+  const ratingPercent = clamp((rating / 10) * 100, 0, 100);
+  const directImpact = (data.goals || 0) + (data.assists || 0);
+  const defensiveImpact = (data.tackles || 0) + (data.saves || 0);
+  const status = rating >= 8 ? "Figura" : rating >= 7 ? "Influyente" : rating >= 6 ? "Correcto" : "En deuda";
+  panel.innerHTML = `
+    <div class="impact-head">
+      <span>${live ? "En vivo" : "Ultimo partido"}</span>
+      <strong>${status} ${rating.toFixed(1)}</strong>
+    </div>
+    <div class="impact-meter"><span style="width:${ratingPercent}%"></span></div>
+    <div class="impact-grid">
+      <div><span>Goles</span><strong>${data.goals || 0}</strong></div>
+      <div><span>Asist.</span><strong>${data.assists || 0}</strong></div>
+      <div><span>Tiros</span><strong>${data.shots || 0}</strong></div>
+      <div><span>Pases clave</span><strong>${data.keyPasses || 0}</strong></div>
+      <div><span>Defensa</span><strong>${defensiveImpact}</strong></div>
+      <div><span>Tarjetas</span><strong>${data.redCard ? "R" : data.yellowCard ? "A" : "0"}</strong></div>
+    </div>
+    <p>${directImpact ? "Impacto directo en el marcador." : defensiveImpact ? "Aporta sin pelota y sostiene al equipo." : "Busca mas influencia en las zonas decisivas."}</p>
+  `;
 }
 
 function playerInitials(name) {
@@ -2763,6 +2797,7 @@ function renderTacticalStats() {
     ["Corners", `${sim.stats.cornersHome}-${sim.stats.cornersAway}`],
     ["xG", `${sim.stats.xgHome.toFixed(2)}-${sim.stats.xgAway.toFixed(2)}`]
   ].map(([label, value]) => `<div class="stat-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+  renderPlayerImpactPanel();
 }
 
 function skipToNextEvent() {
