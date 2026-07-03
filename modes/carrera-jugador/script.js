@@ -241,15 +241,20 @@ function normalizeClubName(name) {
   return clubAliases[trimmed] || trimmed;
 }
 
+function resolveAssetUrl(url) {
+  if (typeof url !== "string") return "";
+  return url.startsWith("assets/") ? `/${url}` : url;
+}
+
 function clubLogoFor(name) {
   if (typeof teamLogos === "undefined") return "";
   const normalized = normalizeClubName(name);
-  return teamLogos[normalized] || teamLogos[name] || "";
+  return resolveAssetUrl(teamLogos[normalized] || teamLogos[name] || "");
 }
 
 function playerPhotoFor(name) {
   if (typeof playerPhotos === "undefined") return "";
-  return playerPhotos[name] || "";
+  return resolveAssetUrl(playerPhotos[name] || "");
 }
 
 function mediaInitials(name) {

@@ -302,6 +302,42 @@ async function runMobileMenuChecks(browser) {
   }, MOBILE);
 }
 
+async function runTorreSurrenderCheck(browser) {
+  await withPage(browser, "/", async (page, issues) => {
+    await page.evaluate(() => localStorage.clear());
+    await page.reload({ waitUntil: "networkidle" });
+    await page.locator(".btn-menu.torre").click();
+    await page.locator("#appModal.visible #appModalConfirm").click();
+    await page.waitForFunction(() => getComputedStyle(document.getElementById("torreView")).display !== "none");
+    await page.locator("#surrenderBtn").click();
+    await page.locator("#appModal.visible #appModalConfirm").click();
+    await page.waitForFunction(() => document.querySelectorAll("#towerSlots .slot.revealed").length === 10, null, { timeout: 5000 });
+    try {
+      await page.waitForFunction(() => [...document.querySelectorAll("#towerSlots .slot.revealed .slot-img")]
+        .every((image) => image.complete && image.naturalWidth > 1 && image.naturalHeight > 1), null, { timeout: 5000 });
+    } catch {
+      // The detailed assertion below reports whether this is a real missing image.
+    }
+
+    const result = await page.evaluate(() => ({
+      revealed: document.querySelectorAll("#towerSlots .slot.revealed").length,
+      named: [...document.querySelectorAll("#towerSlots .slot-name")]
+        .filter((slot) => slot.innerText.trim() && slot.innerText.trim() !== "?????").length,
+      images: [...document.querySelectorAll("#towerSlots .slot-img")]
+        .filter((image) => image.complete && image.naturalWidth > 1 && image.naturalHeight > 1).length,
+      surrenderDisabled: document.getElementById("surrenderBtn").disabled
+    }));
+
+    if (result.revealed !== 10 || result.named !== 10 || result.images !== 10 || !result.surrenderDisabled) {
+      fail("Torre Futbolera no revela toda la tabla al rendirse", result);
+    }
+
+    await assertNoRuntimeIssues("torre rendirse", issues);
+    await assertNoClippedControls(page, "torre rendirse");
+    console.log("ok torre surrender");
+  });
+}
+
 async function runCareerSkillTreeCheck(browser) {
   await withPage(browser, "/modes/carrera-jugador/index.html", async (page, issues) => {
     await page.evaluate(() => localStorage.clear());
@@ -395,6 +431,7 @@ async function runCareerMarketCheck(browser) {
   try {
     browser = await launchBrowser();
     await runDirectRouteChecks(browser);
+    await runTorreSurrenderCheck(browser);
     await runCareerSkillTreeCheck(browser);
     await runCareerMarketCheck(browser);
     await runMenuChecks(browser);
