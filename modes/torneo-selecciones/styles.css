@@ -1450,6 +1450,18 @@ button {
   pointer-events: none;
 }
 
+.live-state {
+  margin: 0 0 10px;
+  padding: 9px 12px;
+  border: 1px solid rgba(25,230,129,0.22);
+  border-radius: 8px;
+  background: rgba(25,230,129,0.08);
+  color: rgba(255,255,255,0.82);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .live-tension,
 .live-timeline {
   height: 8px;
