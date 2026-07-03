@@ -836,12 +836,24 @@ function eventLabel(event) {
   if (event.type === "summary") return "RESUMEN";
   return "JUGADA";
 }
+function liveMatchState(match, minute, goalsA, goalsB) {
+  if (minute >= 91) return "Alargue: partido largo, cambios decisivos y cada pelota parada pesa el doble.";
+  if (goalsA > goalsB) return `${match.teamA.name} baja el ritmo y defiende con bloque corto.`;
+  if (goalsB > goalsA) return `${match.teamB.name} administra la ventaja; ${match.teamA.name} suma gente al ataque.`;
+  if (minute < 18) return "Inicio tactico: los equipos miden riesgos y buscan superioridad por bandas.";
+  if (minute < 45) return match.chanceA >= 0.55
+    ? `${match.teamA.name} impone jerarquia y presiona tras perdida.`
+    : `${match.teamB.name} corta circuitos y encuentra transiciones peligrosas.`;
+  if (minute < 70) return "Tramo de ajustes: los entrenadores preparan cambios y el mediocampo se rompe.";
+  return "Final de copa: duelos directos, centros al area y decisiones al limite.";
+}
 function renderLiveMatchShell(match, phase) {
   const id = `live-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
   tournamentLog.insertAdjacentHTML("beforeend", `<article class="match-card live-match live-match-card" id="${id}">
     <div class="live-stadium" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="live-match-head"><div><p class="live-kicker">${phase}</p><h3>Partido en vivo</h3></div><span class="live-minute">0'</span></div>
     <div class="live-scoreboard"><span>${match.teamA.name}</span><strong class="live-score">0 - 0</strong><span>${match.teamB.name}</span></div>
+    <div class="live-state">Los equipos salen del tunel.</div>
     <div class="live-match-context"><span>${Math.round(match.chanceA * 100)}% ${match.teamA.name}</span><span>Media ${match.teamA.rating.total} vs ${match.teamB.rating.total}</span><span>${Math.round(match.chanceB * 100)}% ${match.teamB.name}</span></div>
     <div class="live-tension"><span style="width:${Math.round(match.chanceA * 100)}%"></span></div>
     <div class="live-timeline"><span style="width:0%"></span></div>
@@ -853,6 +865,7 @@ function renderLiveMatchShell(match, phase) {
     card,
     minuteEl: card.querySelector(".live-minute"),
     scoreEl: card.querySelector(".live-score"),
+    stateEl: card.querySelector(".live-state"),
     eventsEl: card.querySelector(".live-events"),
     timelineEl: card.querySelector(".live-timeline span"),
   };
@@ -866,6 +879,7 @@ async function playLiveMatch(match, phase) {
   for (let minute = 1; minute <= endMinute; minute += 1) {
     live.minuteEl.textContent = `${minute}'`;
     live.timelineEl.style.width = `${Math.round((minute / endMinute) * 100)}%`;
+    live.stateEl.textContent = liveMatchState(match, minute, goalsA, goalsB);
     const minuteEvents = match.events.filter((event) => event.minute === minute);
     for (const event of minuteEvents) {
       const typeClass = eventClass(event);
