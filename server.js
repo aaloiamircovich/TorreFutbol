@@ -346,6 +346,8 @@ io.on('connection', (socket) => {
 
         const user = room.users.find((item) => item.id === socket.id && item.connected);
         if (!user) return;
+        if (!room.auctionList[room.currentPlayerIdx]) return socket.emit('errorMsg', 'No hay jugador activo para ofertar.');
+        if (room.lastBidderId === socket.id) return socket.emit('errorMsg', 'Ya tenes la oferta mas alta.');
 
         const increment = Math.max(1, Math.min(500, Math.floor(Number(data.amount) || 0)));
         if (!increment) return socket.emit('errorMsg', 'La oferta debe ser mayor a 0.');
