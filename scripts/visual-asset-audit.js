@@ -302,6 +302,58 @@ async function checkMenuModes(browser) {
   console.log("ok menu modes visual");
 }
 
+async function checkTrayectoriaAssets(browser) {
+  const audit = await newAuditedPage(browser, DESKTOP);
+  const { page } = audit;
+  await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
+  await page.evaluate(() => localStorage.clear());
+  await page.locator(".btn-menu").nth(1).click();
+  await page.locator("#appModal.visible #appModalConfirm").click();
+  await page.waitForFunction(() => getComputedStyle(document.getElementById("trayectoriaView")).display !== "none");
+
+  const total = await page.evaluate(() => trayectoriasData.length);
+  const problems = [];
+
+  for (let index = 0; index < total; index += 1) {
+    await page.evaluate((levelIndex) => {
+      trayIdx = levelIndex;
+      trayProgress[levelIndex] = {
+        status: "lost",
+        lives: 0,
+        revealedClubs: trayectoriasData[levelIndex].clubs.length,
+        pointsAwarded: 0
+      };
+      initTrayectoria();
+    }, index);
+
+    try {
+      await page.waitForFunction(() => [...document.querySelectorAll("#trayPath img")]
+        .every((image) => image.complete && image.naturalWidth > 1 && image.naturalHeight > 1), null, { timeout: 5000 });
+    } catch {
+      // Detailed collection below records the failing level and image.
+    }
+
+    const levelProblems = await page.evaluate((levelIndex) => {
+      const images = [...document.querySelectorAll("#trayPath img")];
+      return images
+        .filter((image) => !image.complete || image.naturalWidth < 2 || image.naturalHeight < 2 || /\/assets\/flags\//.test(image.currentSrc || image.src))
+        .map((image) => ({
+          level: levelIndex + 1,
+          alt: image.alt || "",
+          src: image.currentSrc || image.src,
+          width: image.naturalWidth,
+          height: image.naturalHeight
+        }));
+    }, index);
+    problems.push(...levelProblems);
+  }
+
+  if (problems.length) fail("Trayectoria: fotos o escudos faltantes", { problems: problems.slice(0, 40), total: problems.length });
+  await assertAuditClean("trayectoria assets", audit);
+  await page.close();
+  console.log("ok trayectoria assets");
+}
+
 async function checkCareerImages(browser) {
   const audit = await newAuditedPage(browser, DESKTOP);
   const { page } = audit;
@@ -332,6 +384,7 @@ async function checkCareerImages(browser) {
     }
     await checkMenuModes(browser);
     await checkLevelManagers(browser);
+    await checkTrayectoriaAssets(browser);
     await checkCareerImages(browser);
     console.log("Visual asset audit OK");
   } finally {

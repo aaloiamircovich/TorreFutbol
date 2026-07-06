@@ -2751,8 +2751,16 @@
         let savedOrder = localStorage.getItem(storageKey);
         let indices = null;
         if (savedOrder) {
-            indices = JSON.parse(savedOrder);
-            if (indices.length !== array.length) indices = null;
+            try {
+                indices = JSON.parse(savedOrder);
+            } catch (error) {
+                indices = null;
+            }
+            const validOrder = Array.isArray(indices)
+                && indices.length === array.length
+                && new Set(indices).size === array.length
+                && indices.every(index => Number.isInteger(index) && index >= 0 && index < array.length && array[index]);
+            if (!validOrder) indices = null;
         }
         if (!indices) {
             indices = array.map((_, i) => i);
@@ -2786,21 +2794,32 @@
 
         function createFallbackImage(name, type = "logo") {
             const initials = getInitials(name);
-            const size = type === "photo" ? 80 : 40;
-            const radius = type === "photo" ? 40 : 20;
-            const fontSize = type === "photo" ? 24 : 14;
+            const size = type === "photo" ? 96 : 64;
+            const fontSize = type === "photo" ? 22 : 17;
+            const title = cleanMediaName(name);
+            const avatarArt = `
+                    <circle cx="48" cy="32" r="18" fill="#f0c59b"/>
+                    <path d="M28 84c3-20 12-31 20-31s17 11 20 31" fill="#123524"/>
+                    <path d="M30 28c6-16 28-18 36-3-6-2-12-3-18-3-7 0-13 2-18 6z" fill="#1a1d1f"/>
+                    <text x="48" y="88" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="${fontSize}" font-weight="900" fill="#eafff3">${initials}</text>`;
+            const crestArt = `
+                    <path d="M32 5 55 14v17c0 15-8 24-23 30C17 55 9 46 9 31V14L32 5z" fill="#10291d" stroke="#8dffbf" stroke-width="3"/>
+                    <path d="M15 18h34v10H15z" fill="#19e681"/>
+                    <path d="M18 34c6 5 22 5 28 0v10c-5 5-23 5-28 0z" fill="#1f6b45"/>
+                    <text x="32" y="43" text-anchor="middle" dominant-baseline="middle" font-family="Segoe UI, Arial, sans-serif" font-size="${fontSize}" font-weight="900" fill="#f7fff9">${initials}</text>`;
             const svg = `
                 <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
                     <defs>
                         <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-                            <stop offset="0" stop-color="#123524"/>
-                            <stop offset="1" stop-color="#00e676"/>
+                            <stop offset="0" stop-color="#07130d"/>
+                            <stop offset="1" stop-color="#164f34"/>
                         </linearGradient>
                     </defs>
-                    <rect width="${size}" height="${size}" rx="${radius}" fill="url(#g)"/>
-                    <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-family="Segoe UI, Arial, sans-serif" font-size="${fontSize}" font-weight="800" fill="#07130d">${initials}</text>
+                    <rect width="${size}" height="${size}" rx="${type === "photo" ? 48 : 12}" fill="url(#g)"/>
+                    ${type === "photo" ? avatarArt : crestArt}
+                    <title>${title}</title>
                 </svg>`;
-            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg).replace(/'/g, "%27").replace(/"/g, "%22")}`;
         }
 
         function createFlagImage(flag, name = "") {
@@ -3137,16 +3156,13 @@
         }
 
         function getTrayectoriaClubMedia(name, explicitUrl) {
-            const leadingFlag = getLeadingFlagEmoji(name);
             return getPreferredLocalTeamLogo(name)
                 || getReliableLocalTeamLogo(name)
                 || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, name)
                 || getGeneratedLocalTeamLogo(name)
                 || getLocalTeamLogo(name)
                 || explicitUrl
-                || getLeadingFlagAsset(name)
-                || (leadingFlag ? createFlagImage(leadingFlag, name) : null)
-                || getGlobalLogo(name);
+                || createFallbackImage(name, "logo");
         }
 
         const countryTitleFlags = [
@@ -4670,7 +4686,7 @@
                     clubDiv.className = 'tray-club';
                     const logoUrl = getTrayectoriaClubMedia(club, item.logos && item.logos[index]);
                     clubDiv.innerHTML = `
-                        <img class="club-path-logo" src="${logoUrl}" alt="${club}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(club)}'">
+                        <img class="club-path-logo" src="${logoUrl}" alt="${club}" onerror="this.onerror=null; this.src='${createFallbackImage(club, "logo")}'">
                         <span class="tray-club-name">${club}</span>
                     `;
                     route.appendChild(clubDiv);
@@ -4684,7 +4700,7 @@
                 const logoUrl = getTrayectoriaClubMedia(item.clubs[i], item.logos && item.logos[i]);
                 
                 clubDiv.innerHTML = `
-                    <img class="club-path-logo" src="${logoUrl}" alt="${item.clubs[i]}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(item.clubs[i])}'">
+                    <img class="club-path-logo" src="${logoUrl}" alt="${item.clubs[i]}" onerror="this.onerror=null; this.src='${createFallbackImage(item.clubs[i], "logo")}'">
                     <span class="tray-club-name">${item.clubs[i]}</span>
                 `;
                 trayPathEl.appendChild(clubDiv);
