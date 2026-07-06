@@ -21,6 +21,16 @@ const menuModes = [
   { title: "Carrera Jugador", view: "carreraJugadorView", frame: true }
 ];
 
+const levelModes = [
+  { title: "Torre Futbolera", menuIndex: 0, modal: true, button: "#toggleGridBtn", grid: "#levelGrid" },
+  { title: "Trayectoria", menuIndex: 1, modal: true, button: "#trayToggleGridBtn", grid: "#trayLevelGrid" },
+  { title: "El Camino", menuIndex: 2, modal: true, button: "#caminoToggleGridBtn", grid: "#caminoLevelGrid" },
+  { title: "Futbol Link", menuIndex: 3, modal: true, button: "#linkToggleGridBtn", grid: "#linkLevelGrid" },
+  { title: "Wordle", menuIndex: 4, modal: false, button: "#wordleToggleGridBtn", grid: "#wordleLevelGrid" },
+  { title: "Adivina el Resultado", menuIndex: 5, modal: true, button: "#resultadoToggleGridBtn", grid: "#resultadoLevelGrid" },
+  { title: "Adivina el Equipo", menuIndex: 7, modal: true, button: "#equipoToggleGridBtn", grid: "#equipoLevelGrid" }
+];
+
 const directRoutes = [
   "/",
   "/modes/carrera-jugador/index.html",
@@ -159,10 +169,96 @@ async function assertNoClippedVisibleText(page, label) {
   if (clipped.length) fail(`${label}: texto/control recortado`, { clipped });
 }
 
+async function assertComfortableInteractiveTargets(page, label) {
+  const tinyTargets = await page.evaluate(() => {
+    const selectors = "button, input, select, textarea, [role='button']";
+    return [...document.querySelectorAll(selectors)]
+      .filter((element) => {
+        const style = getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+        return style.display !== "none" && style.visibility !== "hidden" && rect.width > 2 && rect.height > 2;
+      })
+      .filter((element) => {
+        const rect = element.getBoundingClientRect();
+        return rect.width < 34 || rect.height < 34;
+      })
+      .map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          text: (element.innerText || element.value || element.getAttribute("aria-label") || "").trim().slice(0, 80),
+          id: element.id,
+          className: typeof element.className === "string" ? element.className : "",
+          width: rect.width,
+          height: rect.height
+        };
+      });
+  });
+
+  if (tinyTargets.length) fail(`${label}: controles demasiado compactos`, { tinyTargets });
+}
+
+async function assertLevelManagerComfort(page, mode) {
+  const compact = await page.evaluate((gridSelector) => {
+    const grid = document.querySelector(gridSelector);
+    const visible = (element) => {
+      const style = getComputedStyle(element);
+      const rect = element.getBoundingClientRect();
+      return style.display !== "none" && style.visibility !== "hidden" && rect.width > 2 && rect.height > 2;
+    };
+    if (!grid || !visible(grid)) return { missing: true };
+
+    const gridRect = grid.getBoundingClientRect();
+    const buttons = [...grid.querySelectorAll(".level-btn")].filter(visible).map((button) => {
+      const rect = button.getBoundingClientRect();
+      return {
+        text: button.innerText.trim(),
+        width: rect.width,
+        height: rect.height
+      };
+    });
+
+    return {
+      missing: false,
+      gridHeight: gridRect.height,
+      buttonCount: buttons.length,
+      tinyButtons: buttons.filter((button) => button.width < 40 || button.height < 40).slice(0, 8),
+      averageHeight: buttons.length ? buttons.reduce((sum, button) => sum + button.height, 0) / buttons.length : 0
+    };
+  }, mode.grid);
+
+  if (compact.missing || compact.buttonCount < 4 || compact.gridHeight < 120 || compact.tinyButtons.length || compact.averageHeight < 40) {
+    fail(`${mode.title}: gestor de niveles compacto o dificil de tocar`, compact);
+  }
+}
+
 async function assertAuditClean(label, audit) {
   if (audit.runtimeErrors.length || audit.failures.length) {
     fail(`${label}: errores de runtime o assets`, { runtimeErrors: audit.runtimeErrors, failures: audit.failures });
   }
+}
+
+async function checkLevelManagers(browser) {
+  const audit = await newAuditedPage(browser, DESKTOP);
+  const { page } = audit;
+  await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
+
+  for (const mode of levelModes) {
+    await page.locator(".btn-menu").nth(mode.menuIndex).click();
+    if (mode.modal) await page.locator("#appModal.visible #appModalConfirm").click();
+    await page.locator(mode.button).click();
+    await page.waitForFunction((gridSelector) => {
+      const grid = document.querySelector(gridSelector);
+      return grid && !grid.classList.contains("hidden") && getComputedStyle(grid).display !== "none";
+    }, mode.grid, { timeout: 10000 });
+    await assertLevelManagerComfort(page, mode);
+    await assertNoClippedVisibleText(page, `${mode.title} gestor de niveles`);
+    await assertComfortableInteractiveTargets(page, `${mode.title} gestor de niveles`);
+    await page.evaluate(() => window.showView("menuView"));
+  }
+
+  await assertAuditClean("gestores de niveles", audit);
+  await page.close();
+  console.log("ok gestores de niveles");
 }
 
 async function checkRoute(browser, route, viewport, label, strictVertical = true) {
@@ -171,6 +267,7 @@ async function checkRoute(browser, route, viewport, label, strictVertical = true
   await assertViewportFit(audit.page, label, strictVertical);
   await assertVisibleImagesLoaded(audit.page, label);
   await assertNoClippedVisibleText(audit.page, label);
+  await assertComfortableInteractiveTargets(audit.page, label);
   await assertAuditClean(label, audit);
   await audit.page.close();
   console.log(`ok ${label}`);
@@ -197,6 +294,7 @@ async function checkMenuModes(browser) {
     await assertViewportFit(page, `menu ${mode.title}`, true);
     await assertVisibleImagesLoaded(page, `menu ${mode.title}`);
     await assertNoClippedVisibleText(page, `menu ${mode.title}`);
+    await assertComfortableInteractiveTargets(page, `menu ${mode.title}`);
     await page.evaluate(() => window.showView("menuView"));
   }
   await assertAuditClean("menu modes", audit);
@@ -217,6 +315,7 @@ async function checkCareerImages(browser) {
   await page.waitForTimeout(500);
   await assertVisibleImagesLoaded(page, "carrera estrellas/escudos");
   await assertNoClippedVisibleText(page, "carrera partido");
+  await assertComfortableInteractiveTargets(page, "carrera partido");
   await assertAuditClean("carrera imagenes", audit);
   await page.close();
   console.log("ok carrera imagenes");
@@ -232,6 +331,7 @@ async function checkCareerImages(browser) {
       await checkRoute(browser, route, MOBILE, `mobile ${route}`, false);
     }
     await checkMenuModes(browser);
+    await checkLevelManagers(browser);
     await checkCareerImages(browser);
     console.log("Visual asset audit OK");
   } finally {

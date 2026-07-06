@@ -132,14 +132,21 @@ button {
 }
 
 .level-grid {
-    max-height: min(120px, 22vh);
-    padding: 8px;
-    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    min-height: clamp(160px, 26vh, 220px);
+    max-height: clamp(170px, 30vh, 240px);
+    padding: clamp(12px, 1.8vh, 16px);
+    gap: clamp(8px, 1.2vh, 12px);
     overflow: auto;
 }
 
 .level-btn {
-    font-size: 0.78rem;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: clamp(0.85rem, 1.7vh, 0.98rem);
+    font-weight: 800;
 }
 
 .category-title {

@@ -51,6 +51,11 @@ button {
   min-height: clamp(28px, 4.5vh, 34px);
 }
 
+.filter {
+  min-width: 42px;
+  padding-inline: 8px;
+}
+
 .eyebrow,
 .section-label,
 .reroll-copy {

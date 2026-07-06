@@ -939,6 +939,11 @@ button,
   transition: transform 0.14s ease, border-color 0.14s ease, background 0.14s ease;
 }
 
+.filter {
+  min-width: 42px;
+  padding-inline: 8px;
+}
+
 button:hover,
 .filter:hover,
 .formation-option:hover {
