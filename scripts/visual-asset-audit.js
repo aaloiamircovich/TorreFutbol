@@ -366,6 +366,64 @@ async function checkTrayectoriaAssets(browser) {
   console.log("ok trayectoria assets");
 }
 
+async function checkResultadoAssets(browser) {
+  const audit = await newAuditedPage(browser, DESKTOP);
+  const { page } = audit;
+  await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
+  await page.evaluate(() => localStorage.clear());
+  await page.locator(".btn-menu").nth(5).click();
+  await page.locator("#appModal.visible #appModalConfirm").click();
+  await page.waitForFunction(() => getComputedStyle(document.getElementById("resultadoView")).display !== "none");
+
+  const total = await page.evaluate(() => resultadoData.length);
+  const problems = [];
+
+  for (let index = 0; index < total; index += 1) {
+    await page.evaluate((levelIndex) => {
+      resultadoIdx = levelIndex;
+      resultadoProgress[levelIndex] = { status: "playing", lives: 3 };
+      initResultado();
+    }, index);
+
+    try {
+      await page.waitForFunction(() => [...document.querySelectorAll("#resultadoView .resultado-logo")]
+        .every((image) => image.naturalWidth > 1 && image.naturalHeight > 1), null, { timeout: 1800 });
+    } catch {
+      // Detailed collection below records the failing level and image.
+    }
+
+    const levelProblems = await page.evaluate((levelIndex) => {
+      const images = [...document.querySelectorAll("#resultadoView .resultado-logo")];
+      return images
+        .filter((image) => {
+          const attrSrc = image.getAttribute("src") || "";
+          const loadedSrc = image.currentSrc || image.src || attrSrc;
+          const classMarkedBroken = image.classList.contains("asset-load-error")
+            && (image.naturalWidth < 2 || image.naturalHeight < 2);
+          return classMarkedBroken
+            || !attrSrc
+            || /^data:image/i.test(attrSrc)
+            || /^data:image/i.test(loadedSrc)
+            || image.naturalWidth < 2
+            || image.naturalHeight < 2;
+        })
+        .map((image) => ({
+          level: levelIndex + 1,
+          alt: image.alt || "",
+          src: image.dataset.failedSrc || image.currentSrc || image.src || image.getAttribute("src") || "",
+          width: image.naturalWidth,
+          height: image.naturalHeight
+        }));
+    }, index);
+    problems.push(...levelProblems);
+  }
+
+  if (problems.length) fail("Adivina el Resultado: escudos o banderas faltantes", { problems: problems.slice(0, 120), total: problems.length });
+  await assertAuditClean("resultado assets", audit);
+  await page.close();
+  console.log("ok resultado assets");
+}
+
 async function checkCareerImages(browser) {
   const audit = await newAuditedPage(browser, DESKTOP);
   const { page } = audit;
@@ -397,6 +455,7 @@ async function checkCareerImages(browser) {
     await checkMenuModes(browser);
     await checkLevelManagers(browser);
     await checkTrayectoriaAssets(browser);
+    await checkResultadoAssets(browser);
     await checkCareerImages(browser);
     console.log("Visual asset audit OK");
   } finally {

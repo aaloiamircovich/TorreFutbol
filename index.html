@@ -3286,6 +3286,7 @@
         }
 
         function getTorreLevelState(index = currentCategoryIndex) {
+            index = clampTorreCategoryIndex(index);
             if (!levelProgress[index]) {
                 levelProgress[index] = { status: 'playing', guessedIndices: [], lives: 5, hintsUsed: 0 };
             }
@@ -3295,6 +3296,20 @@
             if (typeof state.hintsUsed !== 'number') state.hintsUsed = 0;
             if (!state.status) state.status = 'playing';
             return state;
+        }
+
+        function getSafeTorreCategory() {
+            currentCategoryIndex = clampTorreCategoryIndex(currentCategoryIndex);
+            let category = categorias[currentCategoryIndex];
+            const isValidCategory = (item) => item && item.titulo && Array.isArray(item.respuestas) && item.respuestas.length >= 10;
+
+            if (isValidCategory(category)) return category;
+
+            const fallbackIndex = categorias.findIndex(isValidCategory);
+            if (fallbackIndex === -1) return null;
+
+            currentCategoryIndex = fallbackIndex;
+            return categorias[currentCategoryIndex];
         }
 
         function createTorreLevelState() {
@@ -3662,7 +3677,11 @@
             }
             currentCategoryIndex = clampTorreCategoryIndex(currentCategoryIndex);
 
-            const category = categorias[currentCategoryIndex];
+            const category = getSafeTorreCategory();
+            if (!category) {
+                categoryNameEl.textContent = "Error: nivel no disponible";
+                return;
+            }
             const state = getTorreLevelState();
             
             categoryNameEl.textContent = category.titulo;
@@ -4155,13 +4174,11 @@
 
         // --- Lógica del Juego Adivina el Resultado ---
         function getResultadoTeamLogo(teamName) {
-            const logo = getGlobalLogo(teamName);
-            if (logo) return logo;
-
-            const countryFlag = getCountryFlagByName(teamName);
-            if (countryFlag) return createFlagImage(countryFlag, teamName);
-
-            return createFallbackImage(teamName, "logo");
+            return getPreferredLocalTeamLogo(teamName)
+                || getRealLocalTeamLogo(teamName)
+                || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, teamName)
+                || getCountryFlagAssetByName(teamName)
+                || "";
         }
 
         function formatResultado(item) {
@@ -4203,11 +4220,11 @@
             const awayLogo = document.getElementById('resultadoAwayLogo');
             homeLogo.onerror = () => {
                 homeLogo.onerror = null;
-                homeLogo.src = getLogoErrorFallback(item.home);
+                markMissingRealAsset(homeLogo);
             };
             awayLogo.onerror = () => {
                 awayLogo.onerror = null;
-                awayLogo.src = getLogoErrorFallback(item.away);
+                markMissingRealAsset(awayLogo);
             };
             homeLogo.src = getResultadoTeamLogo(item.home);
             awayLogo.src = getResultadoTeamLogo(item.away);
