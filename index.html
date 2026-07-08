@@ -2945,6 +2945,13 @@
             return isGeneratedLocalTeamLogo(name) ? null : entry;
         }
 
+        function getRealLocalTeamLogo(name) {
+            const entry = getLocalTeamLogo(name);
+            if (!entry || isGeneratedLocalTeamLogo(name)) return null;
+            if (/^https?:/i.test(entry)) return null;
+            return entry;
+        }
+
         function getGeneratedLocalTeamLogo(name) {
             const entry = getLocalTeamLogo(name);
             if (!entry || /^https?:/i.test(entry)) return null;
@@ -3157,12 +3164,23 @@
 
         function getTrayectoriaClubMedia(name, explicitUrl) {
             return getPreferredLocalTeamLogo(name)
-                || getReliableLocalTeamLogo(name)
+                || getRealLocalTeamLogo(name)
                 || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, name)
-                || getGeneratedLocalTeamLogo(name)
-                || getLocalTeamLogo(name)
                 || explicitUrl
-                || createFallbackImage(name, "logo");
+                || "";
+        }
+
+        function getTrayectoriaPlayerPhoto(name) {
+            return findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, name)
+                || findMediaEntry(typeof playerPhotos !== 'undefined' ? playerPhotos : null, name)
+                || "";
+        }
+
+        function markMissingRealAsset(image) {
+            image.dataset.failedSrc = image.currentSrc || image.src || image.getAttribute("src") || "";
+            image.classList.add("asset-load-error");
+            image.removeAttribute("src");
+            image.setAttribute("title", "Asset real no disponible");
         }
 
         const countryTitleFlags = [
@@ -4676,7 +4694,7 @@
             
             if (isGameOver) {
                 trayPathEl.innerHTML = `
-                    <img class="player-result-photo" src="${getGlobalPhoto(item.ans)}" alt="${item.ans}" onerror="this.onerror=null; this.src='${createFallbackImage(item.ans, "photo")}'">
+                    <img class="player-result-photo" src="${getTrayectoriaPlayerPhoto(item.ans)}" alt="${item.ans}" onerror="this.onerror=null; markMissingRealAsset(this)">
                     <div style="font-weight: bold; font-size: 1.1rem; color: #fff; margin-top: 5px;">${item.ans}</div>
                 `;
                 const route = document.createElement('div');
@@ -4686,7 +4704,7 @@
                     clubDiv.className = 'tray-club';
                     const logoUrl = getTrayectoriaClubMedia(club, item.logos && item.logos[index]);
                     clubDiv.innerHTML = `
-                        <img class="club-path-logo" src="${logoUrl}" alt="${club}" onerror="this.onerror=null; this.src='${createFallbackImage(club, "logo")}'">
+                        <img class="club-path-logo" src="${logoUrl}" alt="${club}" onerror="this.onerror=null; markMissingRealAsset(this)">
                         <span class="tray-club-name">${club}</span>
                     `;
                     route.appendChild(clubDiv);
@@ -4700,7 +4718,7 @@
                 const logoUrl = getTrayectoriaClubMedia(item.clubs[i], item.logos && item.logos[i]);
                 
                 clubDiv.innerHTML = `
-                    <img class="club-path-logo" src="${logoUrl}" alt="${item.clubs[i]}" onerror="this.onerror=null; this.src='${createFallbackImage(item.clubs[i], "logo")}'">
+                    <img class="club-path-logo" src="${logoUrl}" alt="${item.clubs[i]}" onerror="this.onerror=null; markMissingRealAsset(this)">
                     <span class="tray-club-name">${item.clubs[i]}</span>
                 `;
                 trayPathEl.appendChild(clubDiv);

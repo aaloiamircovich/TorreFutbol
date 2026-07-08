@@ -328,7 +328,7 @@ async function checkTrayectoriaAssets(browser) {
 
     try {
       await page.waitForFunction(() => [...document.querySelectorAll("#trayPath img")]
-        .every((image) => image.complete && image.naturalWidth > 1 && image.naturalHeight > 1), null, { timeout: 5000 });
+        .every((image) => image.complete && image.naturalWidth > 1 && image.naturalHeight > 1), null, { timeout: 1500 });
     } catch {
       // Detailed collection below records the failing level and image.
     }
@@ -336,11 +336,23 @@ async function checkTrayectoriaAssets(browser) {
     const levelProblems = await page.evaluate((levelIndex) => {
       const images = [...document.querySelectorAll("#trayPath img")];
       return images
-        .filter((image) => !image.complete || image.naturalWidth < 2 || image.naturalHeight < 2 || /\/assets\/flags\//.test(image.currentSrc || image.src))
+        .filter((image) => {
+          const attrSrc = image.getAttribute("src") || "";
+          const loadedSrc = image.currentSrc || image.src || attrSrc;
+          const classMarkedBroken = image.classList.contains("asset-load-error")
+            && (image.naturalWidth < 2 || image.naturalHeight < 2);
+          return classMarkedBroken
+            || !attrSrc
+            || /^data:image/i.test(attrSrc)
+            || /^data:image/i.test(loadedSrc)
+            || image.naturalWidth < 2
+            || image.naturalHeight < 2
+            || /\/assets\/flags\//.test(loadedSrc);
+        })
         .map((image) => ({
           level: levelIndex + 1,
           alt: image.alt || "",
-          src: image.currentSrc || image.src,
+          src: image.dataset.failedSrc || image.currentSrc || image.src || image.getAttribute("src") || "",
           width: image.naturalWidth,
           height: image.naturalHeight
         }));
@@ -348,7 +360,7 @@ async function checkTrayectoriaAssets(browser) {
     problems.push(...levelProblems);
   }
 
-  if (problems.length) fail("Trayectoria: fotos o escudos faltantes", { problems: problems.slice(0, 40), total: problems.length });
+  if (problems.length) fail("Trayectoria: fotos o escudos faltantes", { problems: problems.slice(0, 160), total: problems.length });
   await assertAuditClean("trayectoria assets", audit);
   await page.close();
   console.log("ok trayectoria assets");
