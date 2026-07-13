@@ -243,8 +243,13 @@ async function checkLevelManagers(browser) {
   await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
 
   for (const mode of levelModes) {
+    const menuMode = menuModes[mode.menuIndex];
     await page.locator(".btn-menu").nth(mode.menuIndex).click();
     if (mode.modal) await page.locator("#appModal.visible #appModalConfirm").click();
+    await page.waitForFunction((viewId) => {
+      const view = document.getElementById(viewId);
+      return view && getComputedStyle(view).display !== "none";
+    }, menuMode.view, { timeout: 10000 });
     await page.locator(mode.button).click();
     await page.waitForFunction((gridSelector) => {
       const grid = document.querySelector(gridSelector);
@@ -424,6 +429,147 @@ async function checkResultadoAssets(browser) {
   console.log("ok resultado assets");
 }
 
+async function collectRealImageProblems(page, selector, context = {}) {
+  try {
+    await page.waitForFunction((imageSelector) => [...document.querySelectorAll(imageSelector)]
+      .every((image) => image.complete && image.naturalWidth > 1 && image.naturalHeight > 1), selector, { timeout: 1800 });
+  } catch {
+    // Detailed collection below records the concrete failing images.
+  }
+
+  return page.evaluate(({ imageSelector, meta }) => [...document.querySelectorAll(imageSelector)]
+    .filter((image) => {
+      const attrSrc = image.getAttribute("src") || "";
+      const loadedSrc = image.currentSrc || image.src || attrSrc;
+      const markedBroken = image.classList.contains("asset-load-error");
+      return markedBroken
+        || !attrSrc
+        || /^data:image/i.test(attrSrc)
+        || /^data:image/i.test(loadedSrc)
+        || image.naturalWidth < 2
+        || image.naturalHeight < 2;
+    })
+    .map((image) => ({
+      ...meta,
+      alt: image.alt || "",
+      src: image.dataset.failedSrc || image.currentSrc || image.src || image.getAttribute("src") || "",
+      width: image.naturalWidth,
+      height: image.naturalHeight
+    })), { imageSelector: selector, meta: context });
+}
+
+async function checkCaminoAssets(browser) {
+  const audit = await newAuditedPage(browser, DESKTOP);
+  const { page } = audit;
+  await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
+  await page.evaluate(() => localStorage.clear());
+  await page.locator(".btn-menu").nth(2).click();
+  await page.locator("#appModal.visible #appModalConfirm").click();
+  await page.waitForFunction(() => getComputedStyle(document.getElementById("caminoView")).display !== "none");
+
+  const total = await page.evaluate(() => caminoData.length);
+  const problems = [];
+
+  for (let index = 0; index < total; index += 1) {
+    const title = await page.evaluate((levelIndex) => {
+      const item = caminoData[levelIndex];
+      caminoIdx = levelIndex;
+      caminoProgress[levelIndex] = { status: "playing", lives: 3, attempts: 0, selection: [], pointsAwarded: 0 };
+      currentCaminoSelection = [];
+      item._shuffled = [...item.equipos, ...(item.rivalesExtra || [])];
+      renderCamino();
+      return item.titulo;
+    }, index);
+    problems.push(...await collectRealImageProblems(page, "#caminoView .team-token-img", { level: index + 1, title }));
+  }
+
+  if (problems.length) fail("El Camino: escudos o banderas faltantes", { problems: problems.slice(0, 160), total: problems.length });
+  await assertAuditClean("camino assets", audit);
+  await page.close();
+  console.log("ok camino assets");
+}
+
+async function checkEquipoAssets(browser) {
+  const audit = await newAuditedPage(browser, DESKTOP);
+  const { page } = audit;
+  await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
+  await page.evaluate(() => localStorage.clear());
+  await page.locator(".btn-menu").nth(7).click();
+  await page.locator("#appModal.visible #appModalConfirm").click();
+  await page.waitForFunction(() => getComputedStyle(document.getElementById("equipoView")).display !== "none");
+
+  const total = await page.evaluate(() => equipoData.length);
+  const problems = [];
+
+  for (let index = 0; index < total; index += 1) {
+    const name = await page.evaluate((levelIndex) => {
+      equipoIdx = levelIndex;
+      equipoProgress[levelIndex] = { status: "playing", lives: 3 };
+      initEquipo();
+      return equipoData[levelIndex].name;
+    }, index);
+    problems.push(...await collectRealImageProblems(page, "#equipoLogo", { level: index + 1, name }));
+  }
+
+  if (problems.length) fail("Adivina el Equipo: escudos faltantes", { problems: problems.slice(0, 160), total: problems.length });
+  await assertAuditClean("equipo assets", audit);
+  await page.close();
+  console.log("ok equipo assets");
+}
+
+async function checkLinkAssets(browser) {
+  const audit = await newAuditedPage(browser, DESKTOP);
+  const { page } = audit;
+  await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
+  await page.evaluate(() => localStorage.clear());
+  await page.locator(".btn-menu").nth(3).click();
+  await page.locator("#appModal.visible #appModalConfirm").click();
+  await page.waitForFunction(() => getComputedStyle(document.getElementById("linkView")).display !== "none");
+
+  const total = await page.evaluate(() => linkData.length);
+  const problems = [];
+
+  for (let index = 0; index < total; index += 1) {
+    const answer = await page.evaluate((levelIndex) => {
+      linkIdx = levelIndex;
+      linkProgress[levelIndex] = { status: "lost", lives: 0, revealedTeammates: linkData[levelIndex].teammates.length, pointsAwarded: 0 };
+      initLink();
+      return linkData[levelIndex].ans;
+    }, index);
+    problems.push(...await collectRealImageProblems(page, "#linkDisplay .player-result-photo", { level: index + 1, answer }));
+  }
+
+  if (problems.length) fail("Futbol Link: fotos de jugadores faltantes", { problems: problems.slice(0, 160), total: problems.length });
+  await assertAuditClean("link assets", audit);
+  await page.close();
+  console.log("ok link assets");
+}
+
+async function checkAuctionAssets(browser) {
+  const audit = await newAuditedPage(browser, DESKTOP);
+  const { page } = audit;
+  await page.goto(BASE_URL, { waitUntil: "networkidle", timeout: 30000 });
+  await page.evaluate(() => localStorage.clear());
+  await page.locator(".btn-menu").nth(6).click();
+  await page.waitForFunction(() => getComputedStyle(document.getElementById("auctionLobbyView")).display !== "none");
+
+  const total = await page.evaluate(() => subastaPlayers.length);
+  const problems = [];
+
+  for (let index = 0; index < total; index += 1) {
+    const player = await page.evaluate((playerIndex) => {
+      renderAuctionCard(subastaPlayers[playerIndex]);
+      return subastaPlayers[playerIndex].name;
+    }, index);
+    problems.push(...await collectRealImageProblems(page, "#currentPlayerCard .auction-player-photo", { player }));
+  }
+
+  if (problems.length) fail("Subasta Online: fotos de jugadores faltantes", { problems: problems.slice(0, 160), total: problems.length });
+  await assertAuditClean("subasta assets", audit);
+  await page.close();
+  console.log("ok subasta assets");
+}
+
 async function checkCareerImages(browser) {
   const audit = await newAuditedPage(browser, DESKTOP);
   const { page } = audit;
@@ -456,6 +602,10 @@ async function checkCareerImages(browser) {
     await checkLevelManagers(browser);
     await checkTrayectoriaAssets(browser);
     await checkResultadoAssets(browser);
+    await checkCaminoAssets(browser);
+    await checkEquipoAssets(browser);
+    await checkLinkAssets(browser);
+    await checkAuctionAssets(browser);
     await checkCareerImages(browser);
     console.log("Visual asset audit OK");
   } finally {

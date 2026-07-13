@@ -3100,6 +3100,78 @@
             { aliases: ["venezuela"], flag: "🇻🇪" }
         ];
 
+        const externalCountryFlagAssets = {
+            "Baréin": "https://flagcdn.com/w160/bh.png",
+            "Congo": "https://flagcdn.com/w160/cg.png",
+            "Etiopía": "https://flagcdn.com/w160/et.png",
+            "Gabón": "https://flagcdn.com/w160/ga.png",
+            "Guinea": "https://flagcdn.com/w160/gn.png",
+            "Guinea-Bissau": "https://flagcdn.com/w160/gw.png",
+            "Guinea Ecuatorial": "https://flagcdn.com/w160/gq.png",
+            "Holanda": "assets/flags/paises-bajos.svg",
+            "Irak": "https://flagcdn.com/w160/iq.png",
+            "Jordania": "https://flagcdn.com/w160/jo.png",
+            "Kenia": "https://flagcdn.com/w160/ke.png",
+            "Kuwait": "https://flagcdn.com/w160/kw.png",
+            "Líbano": "https://flagcdn.com/w160/lb.png",
+            "Libia": "https://flagcdn.com/w160/ly.png",
+            "Madagascar": "https://flagcdn.com/w160/mg.png",
+            "Malaui": "https://flagcdn.com/w160/mw.png",
+            "Malí": "https://flagcdn.com/w160/ml.png",
+            "Mozambique": "https://flagcdn.com/w160/mz.png",
+            "Omán": "https://flagcdn.com/w160/om.png",
+            "Palestina": "https://flagcdn.com/w160/ps.png",
+            "RD Congo": "https://flagcdn.com/w160/cd.png",
+            "República Checa": "https://flagcdn.com/w160/cz.png",
+            "Siria": "https://flagcdn.com/w160/sy.png",
+            "Sudán": "https://flagcdn.com/w160/sd.png",
+            "Tailandia": "https://flagcdn.com/w160/th.png",
+            "Tanzania": "https://flagcdn.com/w160/tz.png",
+            "Tayikistán": "https://flagcdn.com/w160/tj.png",
+            "Togo": "https://flagcdn.com/w160/tg.png",
+            "Túnez": "https://flagcdn.com/w160/tn.png",
+            "URSS": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Soviet_Union.svg",
+            "Uzbekistán": "https://flagcdn.com/w160/uz.png",
+            "Vietnam": "https://flagcdn.com/w160/vn.png",
+            "Yugoslavia": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_SFR_Yugoslavia.svg",
+            "Zambia": "https://flagcdn.com/w160/zm.png",
+            "Zimbabue": "https://flagcdn.com/w160/zw.png"
+        };
+
+        const extraRealTeamLogos = {
+            "Alianza Lima": "https://r2.thesportsdb.com/images/media/team/badge/y5wov41580040189.png",
+            "APOEL": "https://r2.thesportsdb.com/images/media/team/badge/j5m0pu1779579095.png",
+            "Austria Viena": "https://r2.thesportsdb.com/images/media/team/badge/w7j21f1779342211.png",
+            "Barcelona SC": "https://r2.thesportsdb.com/images/media/team/badge/c5yr001653075296.png",
+            "Bolívar": "https://r2.thesportsdb.com/images/media/team/badge/0o5jrz1579798499.png",
+            "Braga": "https://r2.thesportsdb.com/images/media/team/badge/8g4aod1678717261.png",
+            "Cerro Porteño": "https://r2.thesportsdb.com/images/media/team/badge/xkxqtz1652126507.png",
+            "Chapecoense": "https://r2.thesportsdb.com/images/media/team/badge/wy0e1i1765900601.png",
+            "Dinamo Zagreb": "https://r2.thesportsdb.com/images/media/team/badge/araidi1579955395.png",
+            "Emelec": "https://r2.thesportsdb.com/images/media/team/badge/15ovlq1579959696.png",
+            "Estrella Roja": "https://r2.thesportsdb.com/images/media/team/badge/osgmbz1781157114.png",
+            "Genk": "https://r2.thesportsdb.com/images/media/team/badge/tp06te1534875918.png",
+            "LDU Quito": "https://r2.thesportsdb.com/images/media/team/badge/5tf5ch1736404372.png",
+            "Leverkusen": "https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Bayer_04_Leverkusen_logo.svg/330px-Bayer_04_Leverkusen_logo.svg.png",
+            "Libertad": "https://r2.thesportsdb.com/images/media/team/badge/np5lsg1579989360.png",
+            "Man City": "assets/teams/manchester-city.svg",
+            "Man United": "assets/teams/manchester-united.svg",
+            "Olimpia": "https://en.wikipedia.org/wiki/Special:FilePath/Club_Olimpia_logo.svg",
+            "Palestino": "https://r2.thesportsdb.com/images/media/team/badge/62site1756091114.png",
+            "Peñarol": "https://r2.thesportsdb.com/images/media/team/badge/uuwpux1473541171.png",
+            "RB Leipzig": "https://en.wikipedia.org/wiki/Special:FilePath/RB_Leipzig_2014_logo.svg",
+            "San José": "https://r2.thesportsdb.com/images/media/team/badge/9nnb521579798747.png",
+            "Santa Fe": "https://en.wikipedia.org/wiki/Special:FilePath/Independiente_Santa_Fe_logo.svg",
+            "Shakhtar": "https://en.wikipedia.org/wiki/Special:FilePath/FC_Shakhtar_Donetsk.svg",
+            "Sheriff": "https://r2.thesportsdb.com/images/media/team/badge/6exmnv1781242046.png",
+            "The Strongest": "https://es.wikipedia.org/wiki/Special:FilePath/Escudo_the_strongest_white.jpg",
+            "U. de Chile": "https://r2.thesportsdb.com/images/media/team/badge/po0o3c1578347873.png",
+            "Union Berlin": "https://en.wikipedia.org/wiki/Special:FilePath/1._FC_Union_Berlin_Logo.svg",
+            "Unión Española": "https://r2.thesportsdb.com/images/media/team/badge/3ixbl71756141900.png",
+            "Zamora": "https://r2.thesportsdb.com/images/media/team/badge/9bom0p1766114482.png",
+            "Zulia": "https://r2.thesportsdb.com/images/media/team/badge/3750uw1618672534.png"
+        };
+
         function getCountryFlagByName(name) {
             const norm = normalizeText(cleanMediaName(name));
             const match = countryFlagAliases.find(item => item.aliases.includes(norm));
@@ -3108,6 +3180,22 @@
 
         function getCountryFlagAssetByName(name) {
             return findMediaEntry(typeof localCountryFlags !== 'undefined' ? localCountryFlags : null, name);
+        }
+
+        function getResolvedCountryFlagAsset(name) {
+            const direct = getCountryFlagAssetByName(name) || findMediaEntry(externalCountryFlagAssets, name);
+            if (direct) return direct;
+
+            const flag = getCountryFlagByName(name);
+            if (!flag) return null;
+            const match = countryFlagAliases.find(item => item.flag === flag);
+            if (!match) return null;
+
+            for (const alias of match.aliases) {
+                const asset = getCountryFlagAssetByName(alias) || findMediaEntry(externalCountryFlagAssets, alias);
+                if (asset) return asset;
+            }
+            return null;
         }
 
         function getLeadingFlagEmoji(name) {
@@ -3126,7 +3214,12 @@
         function getCountryFlagAssetByFlag(flag) {
             if (!flag) return null;
             const match = countryFlagAliases.find(item => item.flag === flag);
-            return match ? getCountryFlagAssetByName(match.aliases[0]) : null;
+            if (!match) return null;
+            for (const alias of match.aliases) {
+                const asset = getCountryFlagAssetByName(alias) || findMediaEntry(externalCountryFlagAssets, alias);
+                if (asset) return asset;
+            }
+            return null;
         }
 
         function getLeadingFlagAsset(name) {
@@ -3147,6 +3240,23 @@
                 || createFallbackImage(name, "logo");
         }
 
+        function getRealLogoAsset(name, explicitUrl) {
+            return getPreferredLocalTeamLogo(name)
+                || getRealLocalTeamLogo(name)
+                || findMediaEntry(extraRealTeamLogos, name)
+                || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, name)
+                || getResolvedCountryFlagAsset(name)
+                || getLeadingFlagAsset(name)
+                || explicitUrl
+                || "";
+        }
+
+        function getRealPlayerPhoto(name) {
+            return findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, name)
+                || findMediaEntry(typeof playerPhotos !== 'undefined' ? playerPhotos : null, name)
+                || "";
+        }
+
         function getGlobalMedia(name) {
             const countryFlag = getCountryFlagByName(name);
             const countryFlagAsset = getCountryFlagAssetByName(name);
@@ -3163,17 +3273,11 @@
         }
 
         function getTrayectoriaClubMedia(name, explicitUrl) {
-            return getPreferredLocalTeamLogo(name)
-                || getRealLocalTeamLogo(name)
-                || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, name)
-                || explicitUrl
-                || "";
+            return getRealLogoAsset(name, explicitUrl);
         }
 
         function getTrayectoriaPlayerPhoto(name) {
-            return findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, name)
-                || findMediaEntry(typeof playerPhotos !== 'undefined' ? playerPhotos : null, name)
-                || "";
+            return getRealPlayerPhoto(name);
         }
 
         function markMissingRealAsset(image) {
@@ -3267,22 +3371,22 @@
             const answerName = answer ? answer.nombre : "";
 
             if (isTeamAnswerCategory(title)) {
-                return getGlobalLogo(answerName);
+                return getRealLogoAsset(answerName);
             }
 
-            const playerPhoto = findMediaEntry(typeof localPlayerPhotos !== 'undefined' ? localPlayerPhotos : null, answerName);
+            const playerPhoto = getRealPlayerPhoto(answerName);
             if (playerPhoto) return playerPhoto;
 
             const titleFlag = getCountryFlagFromTitle(title);
-            if (titleFlag) return createFlagImage(titleFlag, title);
+            if (titleFlag) return getCountryFlagAssetByFlag(titleFlag) || "";
 
             const titleClub = getClubFromTitle(title);
-            if (titleClub) return getGlobalLogo(titleClub);
+            if (titleClub) return getRealLogoAsset(titleClub);
 
             const playerFlag = getPlayerFlag(answerName);
-            if (playerFlag) return createFlagImage(playerFlag, answerName);
+            if (playerFlag) return getCountryFlagAssetByFlag(playerFlag) || "";
 
-            return getGlobalLogo(answerName) || createFallbackImage(answerName, "logo");
+            return getRealLogoAsset(answerName);
         }
 
         function getTorreLevelState(index = currentCategoryIndex) {
@@ -3722,7 +3826,7 @@
 
                 slot.innerHTML = `
                     <span class="slot-rank">#${i + 1}</span>
-                    <img class="slot-img" src="${shouldReveal ? getTorreSlotMedia(category, category.respuestas[i]) : createFallbackImage('?', 'logo') }" alt="${shouldReveal ? category.respuestas[i].nombre : '?'}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(category.respuestas[i].nombre)}'">
+                    <img class="slot-img" src="${shouldReveal ? getTorreSlotMedia(category, category.respuestas[i]) : createFallbackImage('?', 'logo') }" alt="${shouldReveal ? category.respuestas[i].nombre : '?'}" onerror="this.onerror=null; ${shouldReveal ? 'markMissingRealAsset(this)' : `this.src='${createFallbackImage('?', 'logo')}'`}">
                     <span class="slot-name">${shouldReveal ? category.respuestas[i].nombre : '?????' }</span>
                     <span class="slot-points">${10 - i} pts</span>
                 `;
@@ -3752,7 +3856,9 @@
                 if (!slot.classList.contains('revealed')) {
                     revealTorreSlot(slot, i);
                     slot.querySelector('.slot-name').textContent = category.respuestas[i].nombre;
-                    slot.querySelector('.slot-img').src = getTorreSlotMedia(category, category.respuestas[i]);
+                    const image = slot.querySelector('.slot-img');
+                    image.onerror = () => { image.onerror = null; markMissingRealAsset(image); };
+                    image.src = getTorreSlotMedia(category, category.respuestas[i]);
                     slot.style.borderLeftColor = "#ffeb3b"; // Color distinto para las reveladas
                 }
             }
@@ -3803,7 +3909,9 @@
                     revealTorreSlot(slot, foundIndex);
                     slot.classList.add('just-guessed');
                     slot.querySelector('.slot-name').textContent = category.respuestas[foundIndex].nombre;
-                    slot.querySelector('.slot-img').src = getTorreSlotMedia(category, category.respuestas[foundIndex]);
+                    const image = slot.querySelector('.slot-img');
+                    image.onerror = () => { image.onerror = null; markMissingRealAsset(image); };
+                    image.src = getTorreSlotMedia(category, category.respuestas[foundIndex]);
                     setTimeout(() => slot.classList.remove('just-guessed'), 450);
                     
                     showMessage(`¡Correcto! +${pointsWon} puntos`, "correct");
@@ -4174,11 +4282,7 @@
 
         // --- Lógica del Juego Adivina el Resultado ---
         function getResultadoTeamLogo(teamName) {
-            return getPreferredLocalTeamLogo(teamName)
-                || getRealLocalTeamLogo(teamName)
-                || findMediaEntry(typeof teamLogos !== 'undefined' ? teamLogos : null, teamName)
-                || getCountryFlagAssetByName(teamName)
-                || "";
+            return getRealLogoAsset(teamName);
         }
 
         function formatResultado(item) {
@@ -4430,7 +4534,7 @@
             const seen = new Set();
             const levels = [];
             equipoLevelNames.forEach(name => {
-                const logo = getPreferredLocalTeamLogo(name) || getReliableLocalTeamLogo(name);
+                const logo = getRealLogoAsset(name);
                 const key = normalizeText(name);
                 if (!logo || seen.has(key)) return;
                 seen.add(key);
@@ -4466,7 +4570,7 @@
             document.querySelector('.team-guess-card')?.classList.remove('is-correct', 'is-wrong');
             logo.onerror = () => {
                 logo.onerror = null;
-                logo.src = getLogoErrorFallback(item.name);
+                markMissingRealAsset(logo);
             };
             logo.src = item.logo;
             logo.alt = isGameOver ? item.name : "Escudo";
@@ -4932,8 +5036,8 @@
             currentCaminoSelection.forEach((team, idx) => {
                 const div = document.createElement('div');
                 div.className = 'camino-option camino-selected';
-                const logoUrl = getGlobalLogo(team);
-                div.innerHTML = `<img class="team-token-img" src="${logoUrl}" alt="${team}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(team)}'"><span>${idx + 1}. ${team}</span>`;
+                const logoUrl = getRealLogoAsset(team);
+                div.innerHTML = `<img class="team-token-img" src="${logoUrl}" alt="${team}" onerror="this.onerror=null; markMissingRealAsset(this)"><span>${idx + 1}. ${team}</span>`;
                 div.draggable = !isGameOver;
                 div.ondragstart = (e) => { e.dataTransfer.setData('sourceIdx', idx); e.dataTransfer.setData('type', 'selection'); };
                 div.ondragover = handleDragOver;
@@ -4953,8 +5057,8 @@
                 if (!currentCaminoSelection.includes(team)) {
                     const div = document.createElement('div');
                     div.className = 'camino-option';
-                    const logoUrl = getGlobalLogo(team);
-                    div.innerHTML = `<img class="team-token-img" src="${logoUrl}" alt="${team}" onerror="this.onerror=null; this.src='${getLogoErrorFallback(team)}'"><span>${team}</span>`;
+                    const logoUrl = getRealLogoAsset(team);
+                    div.innerHTML = `<img class="team-token-img" src="${logoUrl}" alt="${team}" onerror="this.onerror=null; markMissingRealAsset(this)"><span>${team}</span>`;
                     div.draggable = !isGameOver;
                     div.ondragstart = (e) => { e.dataTransfer.setData('team', team); e.dataTransfer.setData('type', 'option'); };
                     div.onclick = () => { if(!isGameOver) { currentCaminoSelection.push(team); renderCamino(); } };
@@ -5167,7 +5271,7 @@
             if (isGameOver) {
                 displayEl.style.alignItems = "center";
                 displayEl.innerHTML = `
-                    <img class="player-result-photo" src="${getGlobalPhoto(item.ans)}" alt="${item.ans}" onerror="this.onerror=null; this.src='${createFallbackImage(item.ans, "photo")}'">
+                    <img class="player-result-photo" src="${getRealPlayerPhoto(item.ans)}" alt="${item.ans}" onerror="this.onerror=null; markMissingRealAsset(this)">
                     <div style="font-weight: bold; font-size: 1.1rem; color: #fff; margin-top: 5px;">${item.ans}</div>
                 `;
             } else {
@@ -5540,7 +5644,7 @@
                         <span>${player.nat || ""}</span>
                     </div>
                 </div>
-                <img class="auction-player-photo" src="${getGlobalPhoto(player.name)}" alt="${player.name}" onerror="this.onerror=null; this.src='${createFallbackImage(player.name, "photo")}'">
+                <img class="auction-player-photo" src="${getRealPlayerPhoto(player.name)}" alt="${player.name}" onerror="this.onerror=null; markMissingRealAsset(this)">
                 <div class="auction-player-name">${player.name}</div>
                 <div class="auction-player-club">${player.club || ""}</div>
                 <div class="auction-card-stats">
